@@ -230,6 +230,7 @@ class TLDetector(object):
             state = self.get_light_state(light)
             return light_wp, state
         
+        # Gavin TODO: Figure out - do we need this? When will light not return (or should not return?)
         self.waypoints = None
         return -1, TrafficLight.UNKNOWN
 
