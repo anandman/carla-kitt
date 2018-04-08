@@ -24,6 +24,9 @@ STATE_COUNT_THRESHOLD = 3
 # A flag that is set to use the /vehicle/traffic_lights data
 SIMUL=True
 
+# A flag used to activate image saving for training/testing purposes
+SAVE_IMAGES=True
+
 class TLDetector(object):
     def __init__(self):
         rospy.init_node('tl_detector', log_level=rospy.DEBUG)
@@ -184,17 +187,18 @@ class TLDetector(object):
         self.next_traffic_light_dist = self.distance(light.pose.pose.position, self.pose.pose.position)
         rospy.logdebug("Distance to next traffic light: %.5f", self.next_traffic_light_dist)
 
-        # Save camera images alongside distance and status metadata for training and testing
-        light_timestamp_epoch_secs = light.pose.header.stamp.secs
-        light_timestamp_epoch_nsecs = light.pose.header.stamp.nsecs
+        if SAVE_IMAGES:
+            # Save camera images alongside distance and status metadata for training and testing
+            light_timestamp_epoch_secs = light.pose.header.stamp.secs
+            light_timestamp_epoch_nsecs = light.pose.header.stamp.nsecs
 
-        camera_timestamp_epoch_secs = self.camera_image.header.stamp.secs
-        camera_timestamp_epoch_nsecs = self.camera_image.header.stamp.nsecs
+            camera_timestamp_epoch_secs = self.camera_image.header.stamp.secs
+            camera_timestamp_epoch_nsecs = self.camera_image.header.stamp.nsecs
 
-        filepath = DIR_PATH + "/data/simulator/"
-        filename = str(light_timestamp_epoch_secs) + "_" + str(light_timestamp_epoch_nsecs) + "_" + str(camera_timestamp_epoch_secs) + "_" + str(camera_timestamp_epoch_nsecs) + "_" + str(state) + "_" + "%.3f" % self.next_traffic_light_dist + ".bmp"
-        cv2.imwrite(filepath + filename, cv_image)
-        rospy.loginfo("Wrote image: %s", filename)
+            filepath = DIR_PATH + "/data/simulator/"
+            filename = str(light_timestamp_epoch_secs) + "_" + str(light_timestamp_epoch_nsecs) + "_" + str(camera_timestamp_epoch_secs) + "_" + str(camera_timestamp_epoch_nsecs) + "_" + str(state) + "_" + "%.3f" % self.next_traffic_light_dist + ".bmp"
+            cv2.imwrite(filepath + filename, cv_image)
+            rospy.loginfo("Wrote image: %s", filename)
 
         return state
 
