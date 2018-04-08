@@ -13,6 +13,11 @@ import yaml
 import math
 import numpy as np
 from scipy.spatial import KDTree
+import os 
+import cv2
+
+DIR_PATH = os.path.dirname(os.path.realpath(__file__))
+
 
 STATE_COUNT_THRESHOLD = 3
 
@@ -32,6 +37,8 @@ class TLDetector(object):
 
         self.lights_2d = None
         self.light_tree = None
+
+        self.next_traffic_light_dist = None
 
         sub1 = rospy.Subscriber('/current_pose', PoseStamped, self.pose_cb)
         sub2 = rospy.Subscriber('/base_waypoints', Lane, self.waypoints_cb)
@@ -155,6 +162,8 @@ class TLDetector(object):
             int: ID of traffic light color (specified in styx_msgs/TrafficLight)
 
         """
+        state = TrafficLight.UNKNOWN
+
         if(not self.has_image):
             self.prev_light_loc = None
             return False
@@ -167,10 +176,28 @@ class TLDetector(object):
 
         if SIMUL:
             # Return the classification of the traffic light based on the simulation /vehicle/traffic_lights
-            return light.state
-            
+            state = light.state
+        else:
+            state = self.light_classifier.get_classification(cv_image)
 
-        return self.light_classifier.get_classification(cv_image)
+        # Gavin TODO: Label images for lights that are between (50 and 190 m?). Only set light at an appropriate distance. Consider trimming z-coordinate
+        self.next_traffic_light_dist = self.distance(light.pose.pose.position, self.pose.pose.position)
+        rospy.logdebug("Distance to next traffic light: %.5f", self.next_traffic_light_dist)
+
+        # Save camera images alongside distance and status metadata for training and testing
+        light_timestamp_epoch_secs = light.pose.header.stamp.secs
+        light_timestamp_epoch_nsecs = light.pose.header.stamp.nsecs
+
+        camera_timestamp_epoch_secs = self.camera_image.header.stamp.secs
+        camera_timestamp_epoch_nsecs = self.camera_image.header.stamp.nsecs
+
+        filepath = DIR_PATH + "/data/simulator/"
+        filename = str(light_timestamp_epoch_secs) + "_" + str(light_timestamp_epoch_nsecs) + "_" + str(camera_timestamp_epoch_secs) + "_" + str(camera_timestamp_epoch_nsecs) + "_" + str(state) + "_" + "%.3f" % self.next_traffic_light_dist + ".bmp"
+        cv2.imwrite(filepath + filename, cv_image)
+        rospy.loginfo("Wrote image: %s", filename)
+
+        return state
+
 
     def distance(self, p1, p2):
         x, y, z = p1.x - p2.x, p1.y - p2.y, p1.z - p2.z
@@ -194,12 +221,6 @@ class TLDetector(object):
 
         light_wp = self.get_closest_waypoint(self.pose.pose, use_traffic=True)
         light = self.lights[light_wp]
-
-        # Gavin TODO: Label images for lights that are between (50 and 190 m?). Only set light at an appropriate distance. Consider trimming z-coordinate
-        # light.pose.pose.position.x, light.pose.pose.position.y
-
-        rospy.logdebug("Distance to next traffic light: %.5f", self.distance(light.pose.pose.position, self.pose.pose.position))
-        # Gavin TODO: Save camera images alongside distance and status metadata for training
 
         if light:
             state = self.get_light_state(light)
