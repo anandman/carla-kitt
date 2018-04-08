@@ -56,3 +56,14 @@ publishes the index of the base waypoint that is closest to the red light stop l
 Contains the (x, y) coordinates of all traffic lights
 - use get_closest_waypoint() of car to find closest traffic light stop line
 
+
+
+rosrun image_view image_saver _sec_per_frame:=0.01 image:=
+OR 
+You can extract images to jpeg with bag file: http://wiki.ros.org/rosbag/Tutorials/Exporting%20image%20and%20video%20data
+
+Great guide to a fully implemented classifer:
+https://medium.freecodecamp.org/recognizing-traffic-lights-with-deep-learning-23dae23287cc
+https://codeburst.io/self-driving-cars-implementing-real-time-traffic-light-detection-and-classification-in-2017-7d9ae8df1c58
+
+Should also train on black and white model
