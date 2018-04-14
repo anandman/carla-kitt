@@ -6,3 +6,7 @@ devel
 profile.tmp
 **/*.bmp
 **/*.DS_Store
+**/ros/src/tl_detector/modelling/data/*
+
+**/ros/src/tl_detector/modelling/object_detection/faster_rcnn_resnet101_kitti_2018_01_28/*
+**-checkpoint.ipynb
