@@ -76,7 +76,7 @@ class Controller(object):
             brake = abs(decel)*self.vehicle_mass*self.wheel_radius # Torque N*m
             #TODO: ajaffer - use fuel_capacity to figure out brake
 
-        # rospy.logerr("Vel_error: {0} Throttle: {1} Brake: {2} Steering: {"
-        #              "3}".format(vel_error, throttle, brake, steering))
+        rospy.logerr("Vel_error: {0} Throttle: {1} Brake: {2} Steering: {"
+                     "3}".format(vel_error, throttle, brake, steering))
 
         return throttle, brake, steering
