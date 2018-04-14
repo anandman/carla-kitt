@@ -51,7 +51,7 @@ void PurePursuit::callbackFromWayPoints(const styx_msgs::LaneConstPtr &msg)
 {
   current_waypoints_.setPath(*msg);
   waypoint_set_ = true;
-  // ROS_INFO_STREAM("waypoint subscribed");
+  ROS_INFO_STREAM("waypoint subscribed");
 }
 
 double PurePursuit::getCmdVelocity(int waypoint) const
@@ -253,17 +253,20 @@ geometry_msgs::Twist PurePursuit::calcTwist(double curvature, double cmd_velocit
 {
   // verify whether vehicle is following the path
   bool following_flag = verifyFollowing();
+  bool always_update = true;
   static double prev_angular_velocity = 0;
 
   geometry_msgs::Twist twist;
   twist.linear.x = cmd_velocity;
-  if (!following_flag)
+
+  if (always_update || !following_flag )
   {
-    //ROS_ERROR_STREAM("Not following");
+//    ROS_ERROR_STREAM("Not following");
     twist.angular.z = current_velocity_.twist.linear.x * curvature;
   }
   else
   {
+    ROS_ERROR_STREAM("no need to update ang vel");
     twist.angular.z = prev_angular_velocity;
   }
 
@@ -341,6 +344,8 @@ geometry_msgs::TwistStamped PurePursuit::outputTwist(geometry_msgs::Twist t) con
   twist.twist.linear.x = fabs(a) > g_lateral_accel_limit ? max_v
                     : v;
   twist.twist.angular.z = omega;
+//  ROS_ERROR_STREAM("twist.twist.linear.x" << twist.twist.linear.x);
+//  ROS_ERROR_STREAM("twist.twist.angular.z" << twist.twist.angular.z);
 
   return twist;
 }
@@ -389,7 +394,7 @@ geometry_msgs::TwistStamped PurePursuit::go()
     return outputZero();
   }
 
-  // ROS_INFO("next_target : ( %lf , %lf , %lf)", next_target.x, next_target.y,next_target.z);
+//   ROS_INFO("next_target : ( %lf , %lf , %lf)", next_target.x, next_target.y,next_target.z);
 
   return outputTwist(calcTwist(calcCurvature(position_of_next_target_), getCmdVelocity(0)));
 
