@@ -242,7 +242,8 @@ array(0.08333333333333323)
         for i in xrange(len(waypoints)):
             wp_msg = Waypoint()
             wp_msg.pose = waypoints[i].pose
-            wp_msg.twist.twist.linear.x = waypoints[i].twist.twist.linear.x
+            # wp_msg.twist.twist.linear.x = waypoints[i].twist.twist.linear.x
+            wp_msg.twist.twist.linear.x = self.get_waypoint_velocity(i)
             msg.waypoints.append(wp_msg)
 
         # rospy.loginfo("Published final_waypoints starting at %s", start_id)
