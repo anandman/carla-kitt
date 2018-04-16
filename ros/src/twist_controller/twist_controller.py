@@ -14,11 +14,15 @@ class Controller(object):
 
         self.yaw_controller = YawController(wheel_base, steer_ratio, 0.1, max_lat_accel, max_steer_angle)
 
+        #ajaffer: Tried with Highway track only, for parking lot we might
+        # need to go to 0.2
+        self.max_throttle = 1.0
+
         kp = 0.3
         ki = 0.1
         kd = 0.0
         mn = 0.0
-        mx = 50.2 #TODO: ajaffer - what max value should be used?
+        mx = self.max_throttle
 
         self.throttle_controller = PID(kp, ki, kd, mn, mx)
 
@@ -32,6 +36,9 @@ class Controller(object):
         self.decel_limit = decel_limit
         self.accel_limit = accel_limit
         self.wheel_radius = wheel_radius
+
+        self.fuel_mass = self.fuel_capacity * GAS_DENSITY
+        self.total_vehicle_mass = self.vehicle_mass + self.fuel_mass
 
         self.last_time = rospy.get_time()
 
@@ -50,14 +57,8 @@ class Controller(object):
 
         steering = self.yaw_controller.get_steering(linear_vel, angular_vel, current_vel)
         if (abs(current_ang_vel - angular_vel) < 1e-7):
-            rospy.logerr("ignoring steering")
+            # rospy.loginfo("no need for steering")
             steering = 0
-        else:
-            dampned = steering * 0.90
-            # TODO: ajaffer - try PID instead
-            # rospy.logwarn("steering: {0} dampned: {1}".format(steering,
-            #                                               dampned))
-            steering = dampned
 
         vel_error = linear_vel - current_vel
         self.last_vel = current_vel
@@ -70,13 +71,14 @@ class Controller(object):
         brake = 0
         if linear_vel == 0. and current_vel < 0.1:
             throttle = 0
-            brake = 400 #N*m
-        elif throttle < .1 and vel_error < 0:
+            brake = 400
+        elif throttle < (self.max_throttle/2.) and vel_error < 0:
             decel = max(vel_error, self.decel_limit)
-            brake = abs(decel)*self.vehicle_mass*self.wheel_radius # Torque N*m
-            #TODO: ajaffer - use fuel_capacity to figure out brake
 
-        rospy.logerr("Vel_error: {0} Throttle: {1} Brake: {2} Steering: {"
-                     "3}".format(vel_error, throttle, brake, steering))
+            if (abs(decel) > self.brake_deadband):
+                brake = abs(decel)*self.total_vehicle_mass*self.wheel_radius
+
+        # rospy.loginfo("{0},{1},{2},{3},{4}".format(current_vel / ONE_MPH,
+        #                                           vel_error, throttle, brake, steering))
 
         return throttle, brake, steering
