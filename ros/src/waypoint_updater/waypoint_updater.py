@@ -240,13 +240,17 @@ array(0.08333333333333323)
         msg.header.frame_id = '/world'
         msg.header.stamp = stamp
         for i in xrange(len(waypoints)):
+            wp_id = start_id + 1 + i
             wp_msg = Waypoint()
             wp_msg.pose = waypoints[i].pose
             # wp_msg.twist.twist.linear.x = waypoints[i].twist.twist.linear.x
-            wp_msg.twist.twist.linear.x = self.get_waypoint_velocity(i)
+            wp_msg.twist.twist.linear.x = self.get_waypoint_velocity(wp_id)
             msg.waypoints.append(wp_msg)
 
         # rospy.loginfo("Published final_waypoints starting at %s", start_id)
+        wp_id = start_id + 1
+        wp_speed = msg.waypoints[0].twist.twist.linear.x
+        # rospy.loginfo("Published waypoint %s vel %s" % (wp_id, wp_speed))
         self.final_waypoints_pub.publish(msg)
 
     def wp_id_at_dist_before(self, start_wp_id, target_dist):
