@@ -114,7 +114,7 @@ if __name__ == "__main__":
     TEST_IMAGE_PATHS = glob.glob(PATH_TO_TEST_IMAGES_DIR + "/*.jpg")
 
     MODEL_NAME = 'faster_rcnn_inception_v2_coco_2018_01_28'
-    LABEL_NAME = 'mscoco_label_map
+    LABEL_NAME = 'mscoco_label_map'
 
     tl_detector = TLDetector(MODEL_NAME, LABEL_NAME)
 
