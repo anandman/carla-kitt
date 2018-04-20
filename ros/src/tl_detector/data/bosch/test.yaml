@@ -1,4 +1,4 @@
-  - boxes:
+- boxes:
   - {label: Green, occluded: false, x_max: 752.25, x_min: 749.0, y_max: 355.125, y_min: 345.125}
   path: /rgb/test/24068.png
 - boxes:
