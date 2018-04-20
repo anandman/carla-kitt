@@ -14,21 +14,21 @@ from object_detection.utils import label_map_util
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-MODEL_NAME = 'faster_rcnn_inception_v2_coco_2018_01_28'
-
-PATH_TO_CKPT = dir_path + '/' + MODEL_NAME + '/frozen_inference_graph.pb'
-PATH_TO_LABELS = dir_path + '/mscoco_label_map.pbtxt'
-
 class TLDetector(object):
-    def __init__(self):
+    def __init__(self, model_name, labels_name):
         self.detection_graph = self.load_tf_model()
+        self.model_name = model_name
+        self.labels_name = labels_name
+
+        self.model_path = dir_path + '/' + self.model_name + '/' + '/frozen_inference_graph.pb'
+        self.labels_path = dir_path + '/labels/' + self.labels_name
 
     def load_tf_model(self):
         detection_graph = tf.Graph()
 
         with detection_graph.as_default():
             od_graph_def = tf.GraphDef()
-            with tf.gfile.GFile(PATH_TO_CKPT, 'rb') as fid:
+            with tf.gfile.GFile(self.model_path, 'rb') as fid:
                 serialized_graph = fid.read()
                 od_graph_def.ParseFromString(serialized_graph)
                 tf.import_graph_def(od_graph_def, name='')
@@ -113,7 +113,10 @@ if __name__ == "__main__":
     PATH_TO_TEST_IMAGES_DIR = '../../../data/udacity'
     TEST_IMAGE_PATHS = glob.glob(PATH_TO_TEST_IMAGES_DIR + "/*.jpg")
 
-    tl_detector = TLDetector()
+    MODEL_NAME = 'faster_rcnn_inception_v2_coco_2018_01_28'
+    LABEL_NAME = 'mscoco_label_map
+
+    tl_detector = TLDetector(MODEL_NAME, LABEL_NAME)
 
     for image_path in TEST_IMAGE_PATHS:
         print(image_path)
