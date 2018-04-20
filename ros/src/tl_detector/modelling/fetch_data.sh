@@ -26,8 +26,8 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 # Fetch the bosch dataset
 aws s3 sync s3://udacity-kitt-training-datasets/bosch $(SCRIPTPATH)/../data/bosch
 
-python ${SCRIPTPATH}/object_detection/final/data_conversion_bosch.py --input_path "${SCRIPTPATH}/../data/bosch/test.yaml" --output_path "${SCRIPTPATH}/../data/bosch/converted_labels/test.record"
-python ${SCRIPTPATH}/object_detection/final/data_conversion_bosch.py --input_path "${SCRIPTPATH}/../data/bosch/train.yaml" --output_path "${SCRIPTPATH}/../data/bosch/converted_labels/train.record"
+python ./object_detection/final/data_conversion_bosch.py --input_path "./../data/bosch/test.yaml" --output_path "./../data/bosch/converted_labels/test.record"
+python ./object_detection/final/data_conversion_bosch.py --input_path "./../data/bosch/train.yaml" --output_path "./../data/bosch/converted_labels/train.record"
 
 # Navigate to dataset, extract
 cd $(SCRIPTPATH)/../data/bosch
