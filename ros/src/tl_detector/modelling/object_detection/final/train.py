@@ -54,6 +54,8 @@ sys.path.append(os.path.join(os.path.dirname(
 sys.path.append(os.path.join(os.path.dirname(
     __file__), "../../tensorflow/research/slim"))
 
+sys.path.append(os.path.join(os.path.dirname(__file__), "../.."))
+
 import functools
 import json
 import tensorflow as tf
