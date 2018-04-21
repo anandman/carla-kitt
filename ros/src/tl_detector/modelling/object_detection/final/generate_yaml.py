@@ -1,3 +1,7 @@
+import yaml
+import numpy as np
+
+document="""
 - boxes:
   - {label: Green, occluded: false, x_max: 752.25, x_min: 749.0, y_max: 355.125, y_min: 345.125}
   path: rgb/test/24068.png
@@ -6,12 +10,20 @@
     y_min: 343.375}
   path: rgb/test/24070.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 753.875, x_min: 750.0, y_max: 355.625,
+    y_min: 346.375}
+  path: rgb/test/24072.png
+- boxes:
   - {label: Green, occluded: false, x_max: 754.5, x_min: 750.875, y_max: 359.375,
     y_min: 349.25}
   path: rgb/test/24074.png
 - boxes:
   - {label: Green, occluded: false, x_max: 754.75, x_min: 751.0, y_max: 361.875, y_min: 351.5}
   path: rgb/test/24076.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 755.625, x_min: 751.375, y_max: 363.375,
+    y_min: 353.0}
+  path: rgb/test/24078.png
 - boxes:
   - {label: Green, occluded: false, x_max: 755.5, x_min: 752.375, y_max: 363.0, y_min: 353.875}
   path: rgb/test/24080.png
@@ -23,12 +35,21 @@
   - {label: Green, occluded: false, x_max: 755.75, x_min: 752.0, y_max: 364.625, y_min: 355.0}
   path: rgb/test/24084.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 756.0, x_min: 752.25, y_max: 366.625, y_min: 356.875}
+  path: rgb/test/24086.png
+- boxes:
   - {label: Green, occluded: false, x_max: 755.875, x_min: 752.625, y_max: 367.25,
     y_min: 358.0}
   path: rgb/test/24088.png
 - boxes:
   - {label: Green, occluded: false, x_max: 756.375, x_min: 753.0, y_max: 366.75, y_min: 357.625}
   path: rgb/test/24090.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 756.625, x_min: 753.0, y_max: 365.0, y_min: 355.875}
+  path: rgb/test/24092.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 756.75, x_min: 753.5, y_max: 364.5, y_min: 355.75}
+  path: rgb/test/24094.png
 - boxes:
   - {label: Green, occluded: true, x_max: 756.625, x_min: 754.0, y_max: 362.5, y_min: 354.5}
   path: rgb/test/24096.png
@@ -57,6 +78,10 @@
 - boxes: []
   path: rgb/test/24118.png
 - boxes: []
+  path: rgb/test/24120.png
+- boxes: []
+  path: rgb/test/24122.png
+- boxes: []
   path: rgb/test/24124.png
 - boxes: []
   path: rgb/test/24126.png
@@ -77,9 +102,13 @@
 - boxes: []
   path: rgb/test/24142.png
 - boxes: []
+  path: rgb/test/24144.png
+- boxes: []
   path: rgb/test/24146.png
 - boxes: []
   path: rgb/test/24148.png
+- boxes: []
+  path: rgb/test/24150.png
 - boxes: []
   path: rgb/test/24152.png
 - boxes: []
@@ -88,6 +117,8 @@
   path: rgb/test/24156.png
 - boxes: []
   path: rgb/test/24158.png
+- boxes: []
+  path: rgb/test/24160.png
 - boxes: []
   path: rgb/test/24162.png
 - boxes: []
@@ -123,9 +154,13 @@
 - boxes: []
   path: rgb/test/24194.png
 - boxes: []
+  path: rgb/test/24196.png
+- boxes: []
   path: rgb/test/24198.png
 - boxes: []
   path: rgb/test/24200.png
+- boxes: []
+  path: rgb/test/24202.png
 - boxes: []
   path: rgb/test/24204.png
 - boxes: []
@@ -136,6 +171,8 @@
   path: rgb/test/24210.png
 - boxes: []
   path: rgb/test/24212.png
+- boxes: []
+  path: rgb/test/24214.png
 - boxes: []
   path: rgb/test/24216.png
 - boxes: []
@@ -153,6 +190,10 @@
 - boxes: []
   path: rgb/test/24230.png
 - boxes: []
+  path: rgb/test/24232.png
+- boxes: []
+  path: rgb/test/24234.png
+- boxes: []
   path: rgb/test/24236.png
 - boxes: []
   path: rgb/test/24238.png
@@ -161,9 +202,15 @@
 - boxes: []
   path: rgb/test/24242.png
 - boxes: []
+  path: rgb/test/24244.png
+- boxes: []
   path: rgb/test/24246.png
 - boxes: []
+  path: rgb/test/24248.png
+- boxes: []
   path: rgb/test/24250.png
+- boxes: []
+  path: rgb/test/24252.png
 - boxes: []
   path: rgb/test/24254.png
 - boxes: []
@@ -191,7 +238,11 @@
 - boxes: []
   path: rgb/test/24278.png
 - boxes: []
+  path: rgb/test/24280.png
+- boxes: []
   path: rgb/test/24282.png
+- boxes: []
+  path: rgb/test/24284.png
 - boxes: []
   path: rgb/test/24286.png
 - boxes: []
@@ -199,11 +250,15 @@
 - boxes: []
   path: rgb/test/24290.png
 - boxes: []
+  path: rgb/test/24292.png
+- boxes: []
   path: rgb/test/24294.png
 - boxes: []
   path: rgb/test/24296.png
 - boxes: []
   path: rgb/test/24298.png
+- boxes: []
+  path: rgb/test/24300.png
 - boxes: []
   path: rgb/test/24302.png
 - boxes: []
@@ -221,9 +276,15 @@
 - boxes: []
   path: rgb/test/24316.png
 - boxes: []
+  path: rgb/test/24318.png
+- boxes: []
   path: rgb/test/24320.png
 - boxes: []
+  path: rgb/test/24322.png
+- boxes: []
   path: rgb/test/24324.png
+- boxes: []
+  path: rgb/test/24326.png
 - boxes: []
   path: rgb/test/24328.png
 - boxes: []
@@ -247,11 +308,15 @@
 - boxes: []
   path: rgb/test/24348.png
 - boxes: []
+  path: rgb/test/24350.png
+- boxes: []
   path: rgb/test/24352.png
 - boxes: []
   path: rgb/test/24354.png
 - boxes: []
   path: rgb/test/24356.png
+- boxes: []
+  path: rgb/test/24358.png
 - boxes: []
   path: rgb/test/24360.png
 - boxes: []
@@ -269,6 +334,8 @@
 - boxes: []
   path: rgb/test/24374.png
 - boxes: []
+  path: rgb/test/24376.png
+- boxes: []
   path: rgb/test/24378.png
 - boxes: []
   path: rgb/test/24380.png
@@ -276,6 +343,8 @@
   path: rgb/test/24382.png
 - boxes: []
   path: rgb/test/24384.png
+- boxes: []
+  path: rgb/test/24386.png
 - boxes: []
   path: rgb/test/24388.png
 - boxes: []
@@ -307,7 +376,11 @@
 - boxes: []
   path: rgb/test/24416.png
 - boxes: []
+  path: rgb/test/24418.png
+- boxes: []
   path: rgb/test/24420.png
+- boxes: []
+  path: rgb/test/24422.png
 - boxes: []
   path: rgb/test/24424.png
 - boxes: []
@@ -333,17 +406,33 @@
 - boxes: []
   path: rgb/test/24446.png
 - boxes: []
+  path: rgb/test/24448.png
+- boxes: []
   path: rgb/test/24450.png
 - boxes: []
   path: rgb/test/24452.png
+- boxes: []
+  path: rgb/test/24454.png
 - boxes: []
   path: rgb/test/24456.png
 - boxes: []
   path: rgb/test/24458.png
 - boxes: []
+  path: rgb/test/24460.png
+- boxes: []
+  path: rgb/test/24462.png
+- boxes: []
+  path: rgb/test/24464.png
+- boxes: []
   path: rgb/test/24466.png
 - boxes: []
+  path: rgb/test/24468.png
+- boxes: []
   path: rgb/test/24470.png
+- boxes: []
+  path: rgb/test/24472.png
+- boxes: []
+  path: rgb/test/24474.png
 - boxes: []
   path: rgb/test/24476.png
 - boxes: []
@@ -355,7 +444,13 @@
 - boxes: []
   path: rgb/test/24484.png
 - boxes: []
+  path: rgb/test/24486.png
+- boxes: []
+  path: rgb/test/24488.png
+- boxes: []
   path: rgb/test/24490.png
+- boxes: []
+  path: rgb/test/24492.png
 - boxes: []
   path: rgb/test/24494.png
 - boxes: []
@@ -367,11 +462,15 @@
 - boxes: []
   path: rgb/test/24502.png
 - boxes: []
+  path: rgb/test/24504.png
+- boxes: []
   path: rgb/test/24506.png
 - boxes: []
   path: rgb/test/24508.png
 - boxes: []
   path: rgb/test/24510.png
+- boxes: []
+  path: rgb/test/24512.png
 - boxes: []
   path: rgb/test/24514.png
 - boxes: []
@@ -384,6 +483,8 @@
   path: rgb/test/24522.png
 - boxes: []
   path: rgb/test/24524.png
+- boxes: []
+  path: rgb/test/24526.png
 - boxes: []
   path: rgb/test/24528.png
 - boxes: []
@@ -401,8 +502,16 @@
   - {label: 'off', occluded: false, x_max: 450.0, x_min: 446.5, y_max: 433.875, y_min: 421.75}
   path: rgb/test/24538.png
 - boxes:
+  - {label: 'off', occluded: false, x_max: 449.875, x_min: 446.0, y_max: 431.375,
+    y_min: 419.25}
+  path: rgb/test/24540.png
+- boxes:
   - {label: 'off', occluded: false, x_max: 449.5, x_min: 445.5, y_max: 429.875, y_min: 417.25}
   path: rgb/test/24542.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 448.125, x_min: 444.875, y_max: 430.0,
+    y_min: 418.0}
+  path: rgb/test/24544.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 448.75, x_min: 444.375, y_max: 430.0, y_min: 417.25}
   path: rgb/test/24546.png
@@ -420,6 +529,14 @@
   - {label: 'off', occluded: false, x_max: 446.875, x_min: 442.875, y_max: 430.0,
     y_min: 416.625}
   path: rgb/test/24554.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 447.125, x_min: 441.5, y_max: 429.125,
+    y_min: 415.5}
+  path: rgb/test/24556.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 445.75, x_min: 441.625, y_max: 428.75,
+    y_min: 415.125}
+  path: rgb/test/24558.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 445.25, x_min: 440.875, y_max: 427.75,
     y_min: 414.625}
@@ -457,6 +574,9 @@
   - {label: 'off', occluded: false, x_max: 440.5, x_min: 436.5, y_max: 433.25, y_min: 419.125}
   path: rgb/test/24578.png
 - boxes:
+  - {label: 'off', occluded: false, x_max: 440.5, x_min: 436.0, y_max: 433.25, y_min: 418.375}
+  path: rgb/test/24580.png
+- boxes:
   - {label: 'off', occluded: false, x_max: 440.0, x_min: 435.5, y_max: 432.25, y_min: 418.125}
   path: rgb/test/24582.png
 - boxes:
@@ -484,6 +604,9 @@
   - {label: 'off', occluded: false, x_max: 436.125, x_min: 432.0, y_max: 434.875,
     y_min: 421.0}
   path: rgb/test/24596.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 435.125, x_min: 431.0, y_max: 433.25, y_min: 420.0}
+  path: rgb/test/24598.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 434.625, x_min: 430.625, y_max: 437.125,
     y_min: 424.625}
@@ -518,6 +641,10 @@
   - {label: 'off', occluded: false, x_max: 427.5, x_min: 424.125, y_max: 429.25, y_min: 415.875}
   path: rgb/test/24618.png
 - boxes:
+  - {label: 'off', occluded: false, x_max: 427.125, x_min: 423.125, y_max: 428.25,
+    y_min: 414.5}
+  path: rgb/test/24620.png
+- boxes:
   - {label: 'off', occluded: false, x_max: 426.25, x_min: 421.75, y_max: 427.0, y_min: 413.5}
   path: rgb/test/24622.png
 - boxes:
@@ -547,6 +674,9 @@
   - {label: 'off', occluded: false, x_max: 418.875, x_min: 415.375, y_max: 424.375,
     y_min: 410.625}
   path: rgb/test/24638.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 418.75, x_min: 414.0, y_max: 423.875, y_min: 409.625}
+  path: rgb/test/24640.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 417.75, x_min: 413.75, y_max: 423.0, y_min: 408.75}
   path: rgb/test/24642.png
@@ -578,6 +708,14 @@
   - {label: 'off', occluded: false, x_max: 411.75, x_min: 407.125, y_max: 416.5, y_min: 400.75}
   path: rgb/test/24656.png
 - boxes:
+  - {label: 'off', occluded: false, x_max: 410.75, x_min: 405.625, y_max: 420.375,
+    y_min: 403.625}
+  path: rgb/test/24658.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 409.75, x_min: 405.125, y_max: 421.625,
+    y_min: 405.25}
+  path: rgb/test/24660.png
+- boxes:
   - {label: 'off', occluded: false, x_max: 409.0, x_min: 404.5, y_max: 419.75, y_min: 403.375}
   path: rgb/test/24662.png
 - boxes:
@@ -588,6 +726,10 @@
   - {label: 'off', occluded: false, x_max: 407.25, x_min: 402.625, y_max: 408.625,
     y_min: 394.0}
   path: rgb/test/24666.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 406.375, x_min: 401.625, y_max: 407.125,
+    y_min: 391.125}
+  path: rgb/test/24668.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 404.625, x_min: 400.5, y_max: 405.0, y_min: 389.375}
   path: rgb/test/24670.png
@@ -611,6 +753,10 @@
   - {label: 'off', occluded: false, x_max: 399.125, x_min: 394.375, y_max: 400.25,
     y_min: 383.125}
   path: rgb/test/24682.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 398.875, x_min: 393.75, y_max: 400.25,
+    y_min: 383.125}
+  path: rgb/test/24684.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 397.625, x_min: 392.875, y_max: 398.75,
     y_min: 383.125}
@@ -681,10 +827,20 @@
   - {label: 'off', occluded: false, x_max: 375.875, x_min: 372.0, y_max: 380.0, y_min: 364.0}
   path: rgb/test/24720.png
 - boxes:
+  - {label: 'off', occluded: true, x_max: 796.875, x_min: 791.625, y_max: 369.125,
+    y_min: 357.125}
+  - {label: 'off', occluded: false, x_max: 374.75, x_min: 369.875, y_max: 379.75,
+    y_min: 364.875}
+  path: rgb/test/24722.png
+- boxes:
   - {label: 'off', occluded: true, x_max: 796.75, x_min: 791.75, y_max: 367.625, y_min: 355.75}
   - {label: 'off', occluded: false, x_max: 373.375, x_min: 368.5, y_max: 378.625,
     y_min: 362.125}
   path: rgb/test/24724.png
+- boxes:
+  - {label: 'off', occluded: true, x_max: 797.0, x_min: 792.0, y_max: 367.75, y_min: 355.5}
+  - {label: 'off', occluded: false, x_max: 371.75, x_min: 367.25, y_max: 378.75, y_min: 362.5}
+  path: rgb/test/24726.png
 - boxes:
   - {label: 'off', occluded: true, x_max: 797.0, x_min: 792.125, y_max: 370.5, y_min: 358.0}
   - {label: 'off', occluded: false, x_max: 369.875, x_min: 365.25, y_max: 381.25,
@@ -697,6 +853,10 @@
 - boxes:
   - {label: 'off', occluded: true, x_max: 797.0, x_min: 791.625, y_max: 376.25, y_min: 363.75}
   path: rgb/test/24732.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 797.375, x_min: 791.625, y_max: 376.75,
+    y_min: 363.375}
+  path: rgb/test/24734.png
 - boxes:
   - {label: Green, occluded: true, x_max: 798.25, x_min: 792.25, y_max: 377.25, y_min: 361.75}
   - {label: 'off', occluded: false, x_max: 363.25, x_min: 358.75, y_max: 388.375,
@@ -761,6 +921,11 @@
     y_min: 353.5}
   path: rgb/test/24758.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 801.125, x_min: 795.125, y_max: 357.375,
+    y_min: 340.5}
+  - {label: 'off', occluded: false, x_max: 343.5, x_min: 337.0, y_max: 369.375, y_min: 351.125}
+  path: rgb/test/24760.png
+- boxes:
   - {label: Green, occluded: false, x_max: 801.0, x_min: 795.625, y_max: 355.875,
     y_min: 338.75}
   - {label: 'off', occluded: false, x_max: 341.0, x_min: 334.75, y_max: 368.0, y_min: 349.125}
@@ -781,6 +946,12 @@
     y_min: 335.25}
   - {label: 'off', occluded: false, x_max: 334.125, x_min: 328.0, y_max: 365.0, y_min: 346.0}
   path: rgb/test/24768.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 801.125, x_min: 796.125, y_max: 348.625,
+    y_min: 330.75}
+  - {label: 'off', occluded: false, x_max: 332.25, x_min: 325.625, y_max: 361.625,
+    y_min: 342.875}
+  path: rgb/test/24770.png
 - boxes:
   - {label: Green, occluded: false, x_max: 801.875, x_min: 796.875, y_max: 346.5,
     y_min: 328.375}
@@ -844,11 +1015,31 @@
     y_min: 327.25}
   path: rgb/test/24794.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 812.75, x_min: 806.625, y_max: 338.375,
+    y_min: 318.75}
+  - {label: 'off', occluded: false, x_max: 306.875, x_min: 301.25, y_max: 347.25,
+    y_min: 326.125}
+  path: rgb/test/24796.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 814.0, x_min: 807.625, y_max: 336.75, y_min: 316.875}
+  - {label: 'off', occluded: false, x_max: 305.875, x_min: 299.0, y_max: 345.25, y_min: 324.0}
+  path: rgb/test/24798.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 815.375, x_min: 809.125, y_max: 335.5,
+    y_min: 315.375}
+  - {label: Green, occluded: false, x_max: 303.5, x_min: 297.0, y_max: 345.0, y_min: 324.0}
+  path: rgb/test/24800.png
+- boxes:
   - {label: Green, occluded: false, x_max: 816.125, x_min: 810.375, y_max: 336.5,
     y_min: 315.5}
   - {label: Green, occluded: false, x_max: 301.625, x_min: 295.75, y_max: 344.875,
     y_min: 324.5}
   path: rgb/test/24802.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 817.875, x_min: 811.25, y_max: 337.375,
+    y_min: 315.75}
+  - {label: Green, occluded: false, x_max: 300.0, x_min: 293.75, y_max: 346.5, y_min: 324.625}
+  path: rgb/test/24804.png
 - boxes:
   - {label: Green, occluded: false, x_max: 819.25, x_min: 813.125, y_max: 335.875,
     y_min: 314.875}
@@ -868,6 +1059,12 @@
   - {label: Green, occluded: false, x_max: 823.75, x_min: 817.375, y_max: 331.0, y_min: 309.75}
   - {label: Green, occluded: false, x_max: 292.5, x_min: 286.25, y_max: 339.25, y_min: 317.25}
   path: rgb/test/24812.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 825.25, x_min: 818.875, y_max: 326.875,
+    y_min: 306.125}
+  - {label: Green, occluded: false, x_max: 290.625, x_min: 283.875, y_max: 336.625,
+    y_min: 314.625}
+  path: rgb/test/24814.png
 - boxes:
   - {label: Green, occluded: false, x_max: 826.375, x_min: 820.125, y_max: 324.25,
     y_min: 302.625}
@@ -889,6 +1086,11 @@
     y_min: 312.5}
   path: rgb/test/24822.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 834.0, x_min: 826.625, y_max: 325.875,
+    y_min: 304.375}
+  - {label: Green, occluded: false, x_max: 281.0, x_min: 274.0, y_max: 335.125, y_min: 312.5}
+  path: rgb/test/24824.png
+- boxes:
   - {label: Green, occluded: false, x_max: 835.5, x_min: 828.75, y_max: 326.25, y_min: 304.125}
   - {label: Green, occluded: false, x_max: 279.0, x_min: 272.125, y_max: 335.0, y_min: 312.25}
   path: rgb/test/24826.png
@@ -905,6 +1107,11 @@
     y_min: 324.5}
   path: rgb/test/24830.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 840.125, x_min: 833.0, y_max: 340.75, y_min: 319.0}
+  - {label: Green, occluded: false, x_max: 272.5, x_min: 265.625, y_max: 353.125,
+    y_min: 330.25}
+  path: rgb/test/24832.png
+- boxes:
   - {label: Green, occluded: false, x_max: 841.625, x_min: 834.625, y_max: 341.5,
     y_min: 319.125}
   - {label: Green, occluded: false, x_max: 269.75, x_min: 263.375, y_max: 355.5, y_min: 333.0}
@@ -920,6 +1127,11 @@
   - {label: Green, occluded: false, x_max: 265.375, x_min: 257.625, y_max: 350.875,
     y_min: 327.125}
   path: rgb/test/24838.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 846.75, x_min: 839.125, y_max: 335.125,
+    y_min: 311.875}
+  - {label: Green, occluded: false, x_max: 262.5, x_min: 256.0, y_max: 347.25, y_min: 324.625}
+  path: rgb/test/24840.png
 - boxes:
   - {label: Green, occluded: false, x_max: 848.25, x_min: 841.125, y_max: 333.5, y_min: 310.0}
   - {label: Green, occluded: false, x_max: 260.875, x_min: 253.25, y_max: 345.75,
@@ -990,6 +1202,11 @@
     y_min: 288.0}
   path: rgb/test/24870.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 872.625, x_min: 863.625, y_max: 287.125,
+    y_min: 261.125}
+  - {label: Green, occluded: false, x_max: 215.5, x_min: 208.0, y_max: 311.125, y_min: 285.125}
+  path: rgb/test/24872.png
+- boxes:
   - {label: Green, occluded: false, x_max: 874.375, x_min: 865.5, y_max: 286.875,
     y_min: 260.0}
   - {label: Green, occluded: false, x_max: 211.875, x_min: 204.375, y_max: 310.875,
@@ -1000,6 +1217,12 @@
   - {label: Green, occluded: false, x_max: 209.625, x_min: 200.5, y_max: 313.625,
     y_min: 286.375}
   path: rgb/test/24876.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 877.125, x_min: 868.375, y_max: 291.0,
+    y_min: 263.75}
+  - {label: Green, occluded: false, x_max: 205.375, x_min: 197.0, y_max: 316.125,
+    y_min: 289.375}
+  path: rgb/test/24878.png
 - boxes:
   - {label: Green, occluded: false, x_max: 878.5, x_min: 869.5, y_max: 291.625, y_min: 264.625}
   - {label: Green, occluded: false, x_max: 202.25, x_min: 193.125, y_max: 317.5, y_min: 290.0}
@@ -1036,11 +1259,19 @@
     y_min: 255.625}
   path: rgb/test/24892.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 890.5, x_min: 880.875, y_max: 283.375,
+    y_min: 255.0}
+  path: rgb/test/24894.png
+- boxes:
   - {label: Green, occluded: false, x_max: 892.0, x_min: 882.0, y_max: 282.75, y_min: 253.75}
   path: rgb/test/24896.png
 - boxes:
   - {label: Green, occluded: false, x_max: 894.25, x_min: 883.5, y_max: 282.125, y_min: 253.75}
   path: rgb/test/24898.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 896.0, x_min: 885.875, y_max: 280.625,
+    y_min: 251.75}
+  path: rgb/test/24900.png
 - boxes:
   - {label: Green, occluded: false, x_max: 898.125, x_min: 887.75, y_max: 279.75,
     y_min: 250.375}
@@ -1051,6 +1282,11 @@
   - {label: Green, occluded: false, x_max: 900.5, x_min: 890.375, y_max: 279.25, y_min: 249.875}
   - {label: Green, occluded: false, x_max: 154.125, x_min: 145.5, y_max: 308.25, y_min: 278.625}
   path: rgb/test/24904.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 903.375, x_min: 892.75, y_max: 279.75,
+    y_min: 249.375}
+  - {label: Green, occluded: false, x_max: 150.5, x_min: 141.5, y_max: 308.375, y_min: 278.375}
+  path: rgb/test/24906.png
 - boxes:
   - {label: Green, occluded: false, x_max: 905.25, x_min: 894.625, y_max: 278.5, y_min: 248.375}
   - {label: Green, occluded: false, x_max: 146.5, x_min: 137.25, y_max: 307.875, y_min: 277.375}
@@ -1083,11 +1319,20 @@
     y_min: 276.875}
   path: rgb/test/24918.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 921.875, x_min: 910.5, y_max: 280.0, y_min: 248.125}
+  - {label: Green, occluded: false, x_max: 122.125, x_min: 114.375, y_max: 309.125,
+    y_min: 277.375}
+  path: rgb/test/24920.png
+- boxes:
   - {label: Green, occluded: false, x_max: 924.875, x_min: 913.125, y_max: 279.375,
     y_min: 247.125}
   - {label: Green, occluded: false, x_max: 119.375, x_min: 109.625, y_max: 307.125,
     y_min: 275.875}
   path: rgb/test/24922.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 928.0, x_min: 916.625, y_max: 278.25, y_min: 245.0}
+  - {label: Green, occluded: false, x_max: 115.125, x_min: 105.5, y_max: 307.25, y_min: 275.125}
+  path: rgb/test/24924.png
 - boxes:
   - {label: Green, occluded: false, x_max: 931.0, x_min: 919.125, y_max: 277.5, y_min: 243.75}
   - {label: Green, occluded: false, x_max: 110.875, x_min: 101.375, y_max: 305.375,
@@ -1103,6 +1348,11 @@
     y_min: 243.125}
   - {label: Green, occluded: false, x_max: 102.875, x_min: 93.25, y_max: 306.75, y_min: 274.0}
   path: rgb/test/24930.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 940.875, x_min: 928.375, y_max: 276.125,
+    y_min: 242.125}
+  - {label: Green, occluded: false, x_max: 97.875, x_min: 88.375, y_max: 306.0, y_min: 273.75}
+  path: rgb/test/24932.png
 - boxes:
   - {label: Green, occluded: false, x_max: 942.75, x_min: 930.5, y_max: 273.875, y_min: 239.75}
   - {label: Green, occluded: false, x_max: 93.5, x_min: 83.625, y_max: 304.125, y_min: 271.125}
@@ -1164,6 +1414,12 @@
   - {label: Green, occluded: false, x_max: 37.5, x_min: 28.0, y_max: 288.875, y_min: 251.875}
   path: rgb/test/24958.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 989.0, x_min: 974.625, y_max: 252.875,
+    y_min: 214.75}
+  - {label: Green, occluded: false, x_max: 32.875, x_min: 23.125, y_max: 286.375,
+    y_min: 250.375}
+  path: rgb/test/24960.png
+- boxes:
   - {label: Green, occluded: false, x_max: 992.875, x_min: 978.875, y_max: 251.625,
     y_min: 213.75}
   - {label: Green, occluded: false, x_max: 28.875, x_min: 18.5, y_max: 285.125, y_min: 248.25}
@@ -1172,6 +1428,11 @@
   - {label: Green, occluded: false, x_max: 996.5, x_min: 982.5, y_max: 251.625, y_min: 213.375}
   - {label: Green, occluded: false, x_max: 24.25, x_min: 13.375, y_max: 285.375, y_min: 247.5}
   path: rgb/test/24964.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1001.125, x_min: 986.875, y_max: 252.625,
+    y_min: 213.25}
+  - {label: Green, occluded: false, x_max: 19.875, x_min: 9.125, y_max: 285.875, y_min: 248.375}
+  path: rgb/test/24966.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1005.875, x_min: 991.25, y_max: 252.625,
     y_min: 212.125}
@@ -1184,6 +1445,12 @@
   - {label: Green, occluded: true, x_max: 723.875, x_min: 720.125, y_max: 339.25,
     y_min: 327.625}
   path: rgb/test/24970.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1014.25, x_min: 999.5, y_max: 250.25, y_min: 210.25}
+  - {label: Green, occluded: false, x_max: 6.125, x_min: 0.125, y_max: 287.875, y_min: 248.25}
+  - {label: Green, occluded: true, x_max: 724.75, x_min: 721.875, y_max: 339.375,
+    y_min: 329.125}
+  path: rgb/test/24972.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1018.5, x_min: 1004.125, y_max: 250.25,
     y_min: 209.75}
@@ -1218,6 +1485,11 @@
     y_min: 332.625}
   path: rgb/test/24984.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1048.375, x_min: 1031.75, y_max: 245.75,
+    y_min: 202.375}
+  - {label: Green, occluded: false, x_max: 732.5, x_min: 729.875, y_max: 340.5, y_min: 332.125}
+  path: rgb/test/24986.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1053.0, x_min: 1036.75, y_max: 244.5, y_min: 200.625}
   - {label: Green, occluded: false, x_max: 734.0, x_min: 731.0, y_max: 341.0, y_min: 332.625}
   path: rgb/test/24988.png
@@ -1238,6 +1510,12 @@
     y_min: 332.125}
   path: rgb/test/24994.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1074.75, x_min: 1057.0, y_max: 237.125,
+    y_min: 191.375}
+  - {label: Green, occluded: true, x_max: 739.125, x_min: 735.875, y_max: 339.125,
+    y_min: 329.625}
+  path: rgb/test/24996.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1080.0, x_min: 1062.75, y_max: 233.375,
     y_min: 187.125}
   - {label: Green, occluded: true, x_max: 740.375, x_min: 737.0, y_max: 336.0, y_min: 325.375}
@@ -1254,6 +1532,11 @@
     y_min: 322.875}
   path: rgb/test/25002.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1097.375, x_min: 1079.5, y_max: 227.125,
+    y_min: 179.375}
+  - {label: Green, occluded: true, x_max: 744.5, x_min: 740.75, y_max: 334.625, y_min: 323.875}
+  path: rgb/test/25004.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1103.375, x_min: 1085.125, y_max: 225.625,
     y_min: 178.25}
   - {label: Green, occluded: true, x_max: 745.5, x_min: 742.25, y_max: 335.0, y_min: 323.875}
@@ -1269,6 +1552,11 @@
   - {label: Green, occluded: true, x_max: 749.5, x_min: 745.75, y_max: 333.875, y_min: 323.125}
   path: rgb/test/25010.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1123.125, x_min: 1105.125, y_max: 221.0,
+    y_min: 172.125}
+  - {label: Green, occluded: true, x_max: 751.375, x_min: 747.875, y_max: 334.0, y_min: 324.25}
+  path: rgb/test/25012.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1131.875, x_min: 1112.25, y_max: 220.25,
     y_min: 170.5}
   - {label: Green, occluded: true, x_max: 753.125, x_min: 749.75, y_max: 334.25, y_min: 324.0}
@@ -1283,6 +1571,11 @@
     y_min: 171.75}
   - {label: Green, occluded: true, x_max: 758.25, x_min: 754.25, y_max: 339.875, y_min: 328.375}
   path: rgb/test/25018.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1154.5, x_min: 1134.0, y_max: 224.875,
+    y_min: 171.875}
+  - {label: Green, occluded: true, x_max: 759.875, x_min: 756.125, y_max: 342.0, y_min: 329.375}
+  path: rgb/test/25020.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1160.75, x_min: 1141.25, y_max: 223.25,
     y_min: 171.875}
@@ -1300,6 +1593,23 @@
   - {label: Green, occluded: true, x_max: 765.875, x_min: 762.25, y_max: 347.625,
     y_min: 333.0}
   path: rgb/test/25026.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1186.125, x_min: 1164.875, y_max: 224.25,
+    y_min: 169.875}
+  - {label: Green, occluded: true, x_max: 768.125, x_min: 764.5, y_max: 349.5, y_min: 335.625}
+  path: rgb/test/25028.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1195.5, x_min: 1173.75, y_max: 224.75,
+    y_min: 169.75}
+  - {label: Green, occluded: true, x_max: 769.625, x_min: 765.875, y_max: 351.375,
+    y_min: 337.125}
+  path: rgb/test/25030.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1202.875, x_min: 1182.125, y_max: 224.875,
+    y_min: 168.75}
+  - {label: Green, occluded: true, x_max: 772.625, x_min: 768.125, y_max: 353.25,
+    y_min: 338.875}
+  path: rgb/test/25032.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1212.0, x_min: 1191.5, y_max: 223.625,
     y_min: 167.5}
@@ -1322,15 +1632,35 @@
     y_min: 160.625}
   path: rgb/test/25042.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1266.125, x_min: 1241.125, y_max: 217.5,
+    y_min: 157.875}
+  path: rgb/test/25044.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1275.25, x_min: 1252.0, y_max: 214.75,
+    y_min: 154.5}
+  path: rgb/test/25046.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1278.875, x_min: 1268.25, y_max: 211.5,
     y_min: 152.125}
   path: rgb/test/25048.png
 - boxes: []
+  path: rgb/test/25050.png
+- boxes: []
   path: rgb/test/25052.png
+- boxes: []
+  path: rgb/test/25054.png
+- boxes: []
+  path: rgb/test/25056.png
 - boxes: []
   path: rgb/test/25058.png
 - boxes: []
+  path: rgb/test/25060.png
+- boxes: []
+  path: rgb/test/25062.png
+- boxes: []
   path: rgb/test/25064.png
+- boxes: []
+  path: rgb/test/25066.png
 - boxes: []
   path: rgb/test/25068.png
 - boxes: []
@@ -1346,9 +1676,15 @@
 - boxes: []
   path: rgb/test/25080.png
 - boxes: []
+  path: rgb/test/25082.png
+- boxes: []
+  path: rgb/test/25084.png
+- boxes: []
   path: rgb/test/25086.png
 - boxes: []
   path: rgb/test/25088.png
+- boxes: []
+  path: rgb/test/25090.png
 - boxes: []
   path: rgb/test/25092.png
 - boxes: []
@@ -1356,7 +1692,11 @@
 - boxes: []
   path: rgb/test/25096.png
 - boxes: []
+  path: rgb/test/25098.png
+- boxes: []
   path: rgb/test/25100.png
+- boxes: []
+  path: rgb/test/25102.png
 - boxes: []
   path: rgb/test/25104.png
 - boxes: []
@@ -1365,6 +1705,8 @@
   path: rgb/test/25108.png
 - boxes: []
   path: rgb/test/25110.png
+- boxes: []
+  path: rgb/test/25112.png
 - boxes: []
   path: rgb/test/25114.png
 - boxes: []
@@ -1375,6 +1717,8 @@
   path: rgb/test/25120.png
 - boxes: []
   path: rgb/test/25122.png
+- boxes: []
+  path: rgb/test/25124.png
 - boxes: []
   path: rgb/test/25126.png
 - boxes: []
@@ -1391,6 +1735,8 @@
   path: rgb/test/25138.png
 - boxes: []
   path: rgb/test/25140.png
+- boxes: []
+  path: rgb/test/25142.png
 - boxes: []
   path: rgb/test/25144.png
 - boxes: []
@@ -1410,9 +1756,13 @@
 - boxes: []
   path: rgb/test/25160.png
 - boxes: []
+  path: rgb/test/25162.png
+- boxes: []
   path: rgb/test/25164.png
 - boxes: []
   path: rgb/test/25166.png
+- boxes: []
+  path: rgb/test/25168.png
 - boxes: []
   path: rgb/test/25170.png
 - boxes: []
@@ -1426,14 +1776,22 @@
 - boxes: []
   path: rgb/test/25180.png
 - boxes: []
+  path: rgb/test/25182.png
+- boxes: []
   path: rgb/test/25184.png
 - boxes: []
   path: rgb/test/25186.png
 - boxes: []
   path: rgb/test/25188.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 898.75, x_min: 894.625, y_max: 323.875, y_min: 311.5}
+  path: rgb/test/25190.png
+- boxes:
   - {label: Red, occluded: true, x_max: 898.0, x_min: 894.0, y_max: 323.75, y_min: 311.0}
   path: rgb/test/25192.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 897.625, x_min: 892.625, y_max: 320.25, y_min: 307.0}
+  path: rgb/test/25194.png
 - boxes:
   - {label: Red, occluded: false, x_max: 896.125, x_min: 892.0, y_max: 316.75, y_min: 301.125}
   path: rgb/test/25196.png
@@ -1449,6 +1807,12 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 891.0, x_min: 886.0, y_max: 323.75, y_min: 309.125}
   path: rgb/test/25204.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 889.125, x_min: 884.25, y_max: 322.375, y_min: 308.0}
+  path: rgb/test/25206.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 887.375, x_min: 883.125, y_max: 323.0, y_min: 308.0}
+  path: rgb/test/25208.png
 - boxes:
   - {label: Red, occluded: false, x_max: 886.0, x_min: 881.5, y_max: 325.125, y_min: 310.375}
   path: rgb/test/25210.png
@@ -1504,6 +1868,10 @@
   - {label: Red, occluded: false, x_max: 508.875, x_min: 503.25, y_max: 324.625, y_min: 308.25}
   path: rgb/test/25234.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 872.25, x_min: 867.0, y_max: 320.0, y_min: 304.5}
+  - {label: Red, occluded: false, x_max: 506.0, x_min: 501.375, y_max: 325.0, y_min: 307.25}
+  path: rgb/test/25236.png
+- boxes:
   - {label: Red, occluded: false, x_max: 870.875, x_min: 865.75, y_max: 319.75, y_min: 304.125}
   - {label: Red, occluded: false, x_max: 502.5, x_min: 498.25, y_max: 324.5, y_min: 307.0}
   path: rgb/test/25238.png
@@ -1511,6 +1879,10 @@
   - {label: Red, occluded: false, x_max: 869.625, x_min: 864.125, y_max: 318.0, y_min: 302.875}
   - {label: Red, occluded: false, x_max: 500.5, x_min: 495.5, y_max: 324.25, y_min: 306.75}
   path: rgb/test/25240.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 868.5, x_min: 863.5, y_max: 317.25, y_min: 302.375}
+  - {label: Red, occluded: false, x_max: 497.125, x_min: 493.0, y_max: 323.5, y_min: 306.5}
+  path: rgb/test/25242.png
 - boxes:
   - {label: Red, occluded: false, x_max: 867.5, x_min: 862.25, y_max: 317.125, y_min: 302.875}
   - {label: Red, occluded: false, x_max: 495.0, x_min: 489.625, y_max: 322.875, y_min: 305.75}
@@ -1524,6 +1896,10 @@
   - {label: Red, occluded: false, x_max: 865.125, x_min: 860.125, y_max: 323.5, y_min: 308.875}
   - {label: Red, occluded: false, x_max: 488.75, x_min: 484.0, y_max: 328.625, y_min: 311.125}
   path: rgb/test/25248.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 864.0, x_min: 859.25, y_max: 326.0, y_min: 310.625}
+  - {label: Red, occluded: false, x_max: 486.0, x_min: 480.875, y_max: 329.375, y_min: 312.625}
+  path: rgb/test/25250.png
 - boxes:
   - {label: Red, occluded: false, x_max: 863.5, x_min: 858.375, y_max: 325.375, y_min: 309.25}
   - {label: Red, occluded: false, x_max: 484.125, x_min: 478.75, y_max: 328.75, y_min: 312.125}
@@ -1548,6 +1924,10 @@
     y_min: 308.875}
   path: rgb/test/25260.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 861.0, x_min: 855.625, y_max: 324.5, y_min: 308.625}
+  - {label: Red, occluded: false, x_max: 472.625, x_min: 467.125, y_max: 328.75, y_min: 311.0}
+  path: rgb/test/25262.png
+- boxes:
   - {label: Red, occluded: false, x_max: 860.625, x_min: 855.5, y_max: 324.375, y_min: 308.375}
   - {label: Red, occluded: false, x_max: 470.0, x_min: 464.875, y_max: 327.625, y_min: 310.5}
   path: rgb/test/25264.png
@@ -1555,6 +1935,10 @@
   - {label: Red, occluded: false, x_max: 860.0, x_min: 854.75, y_max: 324.625, y_min: 307.5}
   - {label: Red, occluded: false, x_max: 467.875, x_min: 462.25, y_max: 328.0, y_min: 310.25}
   path: rgb/test/25266.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 859.75, x_min: 854.375, y_max: 325.25, y_min: 309.125}
+  - {label: Red, occluded: false, x_max: 465.625, x_min: 460.0, y_max: 328.875, y_min: 310.75}
+  path: rgb/test/25268.png
 - boxes:
   - {label: Red, occluded: false, x_max: 859.0, x_min: 853.875, y_max: 326.0, y_min: 308.875}
   - {label: Red, occluded: false, x_max: 462.625, x_min: 458.0, y_max: 330.0, y_min: 312.5}
@@ -1590,6 +1974,10 @@
   - {label: Red, occluded: false, x_max: 448.375, x_min: 443.25, y_max: 330.25, y_min: 312.0}
   path: rgb/test/25284.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 857.625, x_min: 852.25, y_max: 325.375, y_min: 308.75}
+  - {label: Red, occluded: false, x_max: 446.375, x_min: 441.375, y_max: 329.75, y_min: 310.75}
+  path: rgb/test/25286.png
+- boxes:
   - {label: Red, occluded: false, x_max: 857.875, x_min: 852.125, y_max: 324.625,
     y_min: 306.875}
   - {label: Red, occluded: false, x_max: 443.875, x_min: 438.75, y_max: 328.25, y_min: 310.375}
@@ -1598,6 +1986,10 @@
   - {label: Red, occluded: false, x_max: 858.0, x_min: 852.375, y_max: 323.25, y_min: 305.125}
   - {label: Red, occluded: false, x_max: 442.5, x_min: 437.25, y_max: 327.25, y_min: 308.0}
   path: rgb/test/25290.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 858.25, x_min: 851.875, y_max: 321.0, y_min: 302.75}
+  - {label: Red, occluded: false, x_max: 440.375, x_min: 435.25, y_max: 324.875, y_min: 305.625}
+  path: rgb/test/25292.png
 - boxes:
   - {label: Red, occluded: false, x_max: 858.25, x_min: 852.375, y_max: 319.5, y_min: 301.25}
   - {label: Red, occluded: false, x_max: 438.625, x_min: 433.125, y_max: 322.625,
@@ -1653,6 +2045,10 @@
   - {label: Red, occluded: false, x_max: 423.875, x_min: 419.0, y_max: 318.25, y_min: 299.5}
   path: rgb/test/25318.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 866.875, x_min: 861.5, y_max: 315.125, y_min: 297.375}
+  - {label: Red, occluded: false, x_max: 422.875, x_min: 417.75, y_max: 318.625, y_min: 300.25}
+  path: rgb/test/25320.png
+- boxes:
   - {label: Red, occluded: false, x_max: 867.25, x_min: 861.875, y_max: 315.5, y_min: 297.375}
   - {label: Red, occluded: false, x_max: 421.625, x_min: 416.625, y_max: 318.375,
     y_min: 299.375}
@@ -1681,6 +2077,11 @@
   - {label: Red, occluded: false, x_max: 417.375, x_min: 411.75, y_max: 317.25, y_min: 297.75}
   path: rgb/test/25332.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 871.375, x_min: 865.25, y_max: 313.5, y_min: 294.875}
+  - {label: Red, occluded: false, x_max: 416.625, x_min: 411.125, y_max: 316.875,
+    y_min: 297.625}
+  path: rgb/test/25334.png
+- boxes:
   - {label: Red, occluded: false, x_max: 871.875, x_min: 865.75, y_max: 314.0, y_min: 295.75}
   - {label: Red, occluded: false, x_max: 416.5, x_min: 411.0, y_max: 316.875, y_min: 297.5}
   path: rgb/test/25336.png
@@ -1693,6 +2094,23 @@
     y_min: 295.75}
   - {label: Red, occluded: false, x_max: 414.875, x_min: 409.75, y_max: 317.875, y_min: 297.5}
   path: rgb/test/25340.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 873.75, x_min: 867.625, y_max: 313.875, y_min: 295.75}
+  - {label: Red, occluded: false, x_max: 415.0, x_min: 408.875, y_max: 317.75, y_min: 297.5}
+  path: rgb/test/25342.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 873.75, x_min: 868.0, y_max: 314.125, y_min: 296.375}
+  - {label: Red, occluded: false, x_max: 415.0, x_min: 408.625, y_max: 318.5, y_min: 296.5}
+  path: rgb/test/25344.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 874.875, x_min: 868.25, y_max: 315.0, y_min: 296.0}
+  - {label: Red, occluded: false, x_max: 413.625, x_min: 407.875, y_max: 318.0, y_min: 297.125}
+  path: rgb/test/25346.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 875.125, x_min: 869.25, y_max: 315.0, y_min: 295.375}
+  - {label: Red, occluded: false, x_max: 413.375, x_min: 407.375, y_max: 317.125,
+    y_min: 297.25}
+  path: rgb/test/25348.png
 - boxes:
   - {label: Red, occluded: false, x_max: 875.0, x_min: 869.125, y_max: 314.0, y_min: 295.25}
   - {label: Red, occluded: false, x_max: 412.875, x_min: 407.0, y_max: 317.5, y_min: 297.375}
@@ -1748,6 +2166,10 @@
   - {label: Red, occluded: false, x_max: 409.625, x_min: 403.625, y_max: 318.75, y_min: 299.25}
   path: rgb/test/25374.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 880.375, x_min: 873.375, y_max: 316.25, y_min: 297.0}
+  - {label: Red, occluded: false, x_max: 408.75, x_min: 403.625, y_max: 319.25, y_min: 299.25}
+  path: rgb/test/25376.png
+- boxes:
   - {label: Red, occluded: false, x_max: 880.75, x_min: 873.75, y_max: 317.25, y_min: 298.0}
   - {label: Red, occluded: false, x_max: 409.0, x_min: 403.625, y_max: 319.875, y_min: 300.625}
   path: rgb/test/25378.png
@@ -1763,6 +2185,10 @@
   - {label: Red, occluded: false, x_max: 881.5, x_min: 874.75, y_max: 318.625, y_min: 299.625}
   - {label: Red, occluded: false, x_max: 408.25, x_min: 402.5, y_max: 321.75, y_min: 301.875}
   path: rgb/test/25384.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 881.625, x_min: 875.0, y_max: 318.625, y_min: 299.875}
+  - {label: Red, occluded: false, x_max: 408.0, x_min: 402.125, y_max: 321.375, y_min: 302.25}
+  path: rgb/test/25386.png
 - boxes:
   - {label: Red, occluded: false, x_max: 881.625, x_min: 875.125, y_max: 318.5, y_min: 300.125}
   - {label: Red, occluded: false, x_max: 407.625, x_min: 401.5, y_max: 322.25, y_min: 302.375}
@@ -1794,9 +2220,17 @@
   - {label: Red, occluded: false, x_max: 406.25, x_min: 400.75, y_max: 322.0, y_min: 301.625}
   path: rgb/test/25400.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 883.375, x_min: 876.625, y_max: 318.0, y_min: 299.625}
+  - {label: Red, occluded: false, x_max: 405.875, x_min: 400.375, y_max: 322.5, y_min: 302.25}
+  path: rgb/test/25402.png
+- boxes:
   - {label: Red, occluded: false, x_max: 883.5, x_min: 876.625, y_max: 318.0, y_min: 299.125}
   - {label: Red, occluded: false, x_max: 405.75, x_min: 399.625, y_max: 321.625, y_min: 301.875}
   path: rgb/test/25404.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 883.625, x_min: 877.25, y_max: 317.75, y_min: 298.875}
+  - {label: Red, occluded: false, x_max: 405.875, x_min: 399.75, y_max: 322.25, y_min: 301.875}
+  path: rgb/test/25406.png
 - boxes:
   - {label: Red, occluded: false, x_max: 883.375, x_min: 877.375, y_max: 317.5, y_min: 298.75}
   - {label: Red, occluded: false, x_max: 405.625, x_min: 399.125, y_max: 322.0, y_min: 301.5}
@@ -1850,6 +2284,10 @@
   - {label: Red, occluded: false, x_max: 403.375, x_min: 397.125, y_max: 319.25, y_min: 299.25}
   path: rgb/test/25432.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 885.5, x_min: 879.375, y_max: 315.125, y_min: 295.375}
+  - {label: Red, occluded: false, x_max: 402.875, x_min: 397.5, y_max: 318.125, y_min: 298.375}
+  path: rgb/test/25434.png
+- boxes:
   - {label: Red, occluded: false, x_max: 886.0, x_min: 879.5, y_max: 314.0, y_min: 294.25}
   - {label: Red, occluded: false, x_max: 402.5, x_min: 397.25, y_max: 317.25, y_min: 297.0}
   path: rgb/test/25436.png
@@ -1858,9 +2296,17 @@
   - {label: Red, occluded: false, x_max: 402.75, x_min: 397.25, y_max: 316.25, y_min: 295.625}
   path: rgb/test/25438.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 886.125, x_min: 879.375, y_max: 312.25, y_min: 292.625}
+  - {label: Red, occluded: false, x_max: 402.0, x_min: 396.75, y_max: 316.0, y_min: 295.375}
+  path: rgb/test/25440.png
+- boxes:
   - {label: Red, occluded: false, x_max: 886.0, x_min: 879.5, y_max: 312.25, y_min: 292.625}
   - {label: Red, occluded: false, x_max: 402.125, x_min: 396.25, y_max: 315.625, y_min: 295.25}
   path: rgb/test/25442.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 886.625, x_min: 879.625, y_max: 312.25, y_min: 292.625}
+  - {label: Red, occluded: false, x_max: 402.5, x_min: 396.625, y_max: 316.125, y_min: 294.5}
+  path: rgb/test/25444.png
 - boxes:
   - {label: Red, occluded: false, x_max: 886.875, x_min: 879.875, y_max: 312.125,
     y_min: 292.875}
@@ -1878,6 +2324,14 @@
   - {label: Red, occluded: false, x_max: 887.375, x_min: 879.75, y_max: 312.125, y_min: 292.375}
   - {label: Red, occluded: false, x_max: 401.375, x_min: 395.75, y_max: 317.25, y_min: 296.625}
   path: rgb/test/25452.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 887.125, x_min: 880.25, y_max: 312.5, y_min: 292.5}
+  - {label: Red, occluded: false, x_max: 401.25, x_min: 395.75, y_max: 316.375, y_min: 297.0}
+  path: rgb/test/25454.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 887.0, x_min: 880.375, y_max: 312.625, y_min: 293.0}
+  - {label: Red, occluded: false, x_max: 401.375, x_min: 396.125, y_max: 316.5, y_min: 297.375}
+  path: rgb/test/25456.png
 - boxes:
   - {label: Red, occluded: false, x_max: 887.0, x_min: 880.875, y_max: 312.0, y_min: 293.25}
   - {label: Red, occluded: false, x_max: 401.125, x_min: 395.875, y_max: 316.75, y_min: 297.625}
@@ -1903,9 +2357,19 @@
   - {label: Red, occluded: false, x_max: 401.375, x_min: 394.75, y_max: 316.75, y_min: 296.375}
   path: rgb/test/25468.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 887.875, x_min: 880.875, y_max: 313.125,
+    y_min: 293.625}
+  - {label: Red, occluded: false, x_max: 401.125, x_min: 394.625, y_max: 317.125,
+    y_min: 296.5}
+  path: rgb/test/25470.png
+- boxes:
   - {label: Red, occluded: false, x_max: 887.875, x_min: 880.5, y_max: 312.125, y_min: 292.875}
   - {label: Red, occluded: false, x_max: 401.375, x_min: 394.0, y_max: 316.5, y_min: 296.625}
   path: rgb/test/25472.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 887.375, x_min: 880.75, y_max: 312.0, y_min: 293.375}
+  - {label: Red, occluded: false, x_max: 401.125, x_min: 394.0, y_max: 317.0, y_min: 295.875}
+  path: rgb/test/25474.png
 - boxes:
   - {label: Red, occluded: false, x_max: 888.0, x_min: 881.25, y_max: 312.375, y_min: 293.5}
   - {label: Red, occluded: false, x_max: 400.75, x_min: 394.125, y_max: 316.125, y_min: 295.375}
@@ -1930,6 +2394,11 @@
   - {label: Red, occluded: false, x_max: 888.25, x_min: 881.75, y_max: 312.125, y_min: 292.875}
   - {label: Red, occluded: false, x_max: 400.5, x_min: 394.5, y_max: 316.125, y_min: 296.0}
   path: rgb/test/25486.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 887.875, x_min: 881.125, y_max: 312.375,
+    y_min: 293.375}
+  - {label: Red, occluded: false, x_max: 400.75, x_min: 394.5, y_max: 316.875, y_min: 296.0}
+  path: rgb/test/25488.png
 - boxes:
   - {label: Red, occluded: false, x_max: 887.875, x_min: 881.375, y_max: 312.25, y_min: 292.875}
   - {label: Red, occluded: false, x_max: 400.375, x_min: 394.125, y_max: 316.5, y_min: 295.875}
@@ -1965,6 +2434,10 @@
   - {label: Red, occluded: false, x_max: 400.625, x_min: 394.25, y_max: 316.75, y_min: 296.5}
   path: rgb/test/25504.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 888.375, x_min: 881.25, y_max: 313.0, y_min: 293.25}
+  - {label: Red, occluded: false, x_max: 400.625, x_min: 394.125, y_max: 316.75, y_min: 295.75}
+  path: rgb/test/25506.png
+- boxes:
   - {label: Red, occluded: false, x_max: 888.25, x_min: 881.375, y_max: 312.875, y_min: 293.0}
   - {label: Red, occluded: false, x_max: 400.25, x_min: 394.375, y_max: 317.125, y_min: 296.25}
   path: rgb/test/25508.png
@@ -1982,6 +2455,10 @@
   - {label: Red, occluded: false, x_max: 400.0, x_min: 394.625, y_max: 316.5, y_min: 296.0}
   path: rgb/test/25514.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 888.75, x_min: 881.75, y_max: 313.0, y_min: 293.25}
+  - {label: Red, occluded: false, x_max: 400.25, x_min: 394.25, y_max: 317.0, y_min: 296.0}
+  path: rgb/test/25516.png
+- boxes:
   - {label: Red, occluded: false, x_max: 887.75, x_min: 881.75, y_max: 313.125, y_min: 293.0}
   - {label: Red, occluded: false, x_max: 400.25, x_min: 394.5, y_max: 317.375, y_min: 296.5}
   path: rgb/test/25518.png
@@ -1989,6 +2466,11 @@
   - {label: Red, occluded: false, x_max: 887.875, x_min: 881.625, y_max: 313.0, y_min: 293.625}
   - {label: Red, occluded: false, x_max: 400.5, x_min: 394.375, y_max: 317.375, y_min: 296.875}
   path: rgb/test/25520.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 888.125, x_min: 881.375, y_max: 313.125,
+    y_min: 293.375}
+  - {label: Red, occluded: false, x_max: 400.625, x_min: 394.0, y_max: 317.25, y_min: 296.375}
+  path: rgb/test/25522.png
 - boxes:
   - {label: Red, occluded: false, x_max: 887.875, x_min: 881.375, y_max: 312.75, y_min: 293.25}
   - {label: Red, occluded: false, x_max: 400.875, x_min: 394.125, y_max: 316.75, y_min: 296.25}
@@ -2005,6 +2487,10 @@
   - {label: Red, occluded: false, x_max: 888.5, x_min: 881.625, y_max: 313.125, y_min: 293.0}
   - {label: Red, occluded: false, x_max: 400.75, x_min: 394.375, y_max: 317.25, y_min: 297.0}
   path: rgb/test/25530.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 888.25, x_min: 881.5, y_max: 312.375, y_min: 292.75}
+  - {label: Red, occluded: false, x_max: 400.625, x_min: 394.25, y_max: 317.5, y_min: 297.0}
+  path: rgb/test/25532.png
 - boxes:
   - {label: Red, occluded: false, x_max: 888.25, x_min: 881.625, y_max: 313.0, y_min: 293.125}
   - {label: Red, occluded: false, x_max: 400.5, x_min: 394.375, y_max: 317.375, y_min: 296.5}
@@ -2049,6 +2535,10 @@
   - {label: Red, occluded: false, x_max: 400.5, x_min: 394.0, y_max: 317.625, y_min: 295.5}
   path: rgb/test/25552.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 887.625, x_min: 881.125, y_max: 312.25, y_min: 293.0}
+  - {label: Red, occluded: false, x_max: 400.25, x_min: 394.25, y_max: 316.875, y_min: 296.375}
+  path: rgb/test/25554.png
+- boxes:
   - {label: Red, occluded: false, x_max: 887.875, x_min: 881.5, y_max: 312.625, y_min: 293.375}
   - {label: Red, occluded: false, x_max: 400.875, x_min: 394.125, y_max: 317.75, y_min: 296.5}
   path: rgb/test/25556.png
@@ -2064,6 +2554,10 @@
   - {label: Red, occluded: false, x_max: 888.125, x_min: 881.75, y_max: 312.25, y_min: 293.5}
   - {label: Red, occluded: false, x_max: 400.75, x_min: 394.25, y_max: 317.0, y_min: 296.5}
   path: rgb/test/25562.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 888.375, x_min: 881.875, y_max: 312.5, y_min: 293.5}
+  - {label: Red, occluded: false, x_max: 400.75, x_min: 394.25, y_max: 316.625, y_min: 296.75}
+  path: rgb/test/25564.png
 - boxes:
   - {label: Red, occluded: false, x_max: 888.375, x_min: 881.375, y_max: 312.75, y_min: 293.125}
   - {label: Red, occluded: false, x_max: 400.125, x_min: 394.25, y_max: 317.0, y_min: 297.25}
@@ -2151,6 +2645,22 @@
   - {label: Red, occluded: false, x_max: 400.625, x_min: 394.375, y_max: 317.25, y_min: 297.125}
   path: rgb/test/25604.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 888.375, x_min: 881.5, y_max: 312.375, y_min: 293.375}
+  - {label: Red, occluded: false, x_max: 400.625, x_min: 394.125, y_max: 317.5, y_min: 296.375}
+  path: rgb/test/25606.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 888.125, x_min: 881.625, y_max: 312.25, y_min: 293.25}
+  - {label: Red, occluded: false, x_max: 400.5, x_min: 394.25, y_max: 317.25, y_min: 296.5}
+  path: rgb/test/25608.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 888.125, x_min: 881.375, y_max: 312.0, y_min: 293.25}
+  - {label: Red, occluded: false, x_max: 400.5, x_min: 394.125, y_max: 317.375, y_min: 296.25}
+  path: rgb/test/25610.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 888.125, x_min: 881.375, y_max: 312.75, y_min: 293.25}
+  - {label: Red, occluded: false, x_max: 400.375, x_min: 394.25, y_max: 317.125, y_min: 296.0}
+  path: rgb/test/25612.png
+- boxes:
   - {label: Red, occluded: false, x_max: 888.0, x_min: 881.375, y_max: 312.75, y_min: 293.125}
   - {label: Red, occluded: false, x_max: 400.5, x_min: 394.5, y_max: 317.25, y_min: 296.125}
   path: rgb/test/25614.png
@@ -2193,6 +2703,10 @@
   - {label: Red, occluded: false, x_max: 400.375, x_min: 394.5, y_max: 317.125, y_min: 296.375}
   path: rgb/test/25632.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 888.25, x_min: 881.375, y_max: 313.375, y_min: 293.25}
+  - {label: Red, occluded: false, x_max: 400.5, x_min: 394.5, y_max: 317.0, y_min: 297.0}
+  path: rgb/test/25634.png
+- boxes:
   - {label: Red, occluded: false, x_max: 887.875, x_min: 882.125, y_max: 313.0, y_min: 292.375}
   - {label: Red, occluded: false, x_max: 400.375, x_min: 394.5, y_max: 317.5, y_min: 296.875}
   path: rgb/test/25636.png
@@ -2205,10 +2719,18 @@
   - {label: Red, occluded: false, x_max: 400.75, x_min: 394.25, y_max: 317.25, y_min: 296.625}
   path: rgb/test/25640.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 888.125, x_min: 882.125, y_max: 313.25, y_min: 292.125}
+  - {label: Red, occluded: false, x_max: 400.25, x_min: 394.375, y_max: 317.25, y_min: 296.25}
+  path: rgb/test/25642.png
+- boxes:
   - {label: Red, occluded: false, x_max: 888.125, x_min: 881.375, y_max: 313.125,
     y_min: 292.5}
   - {label: Red, occluded: false, x_max: 400.375, x_min: 394.5, y_max: 317.0, y_min: 296.625}
   path: rgb/test/25644.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 887.875, x_min: 881.875, y_max: 312.75, y_min: 292.875}
+  - {label: Red, occluded: false, x_max: 400.125, x_min: 393.875, y_max: 317.0, y_min: 296.375}
+  path: rgb/test/25646.png
 - boxes:
   - {label: Red, occluded: false, x_max: 888.25, x_min: 882.375, y_max: 312.375, y_min: 292.75}
   - {label: Red, occluded: false, x_max: 400.625, x_min: 394.25, y_max: 317.0, y_min: 296.0}
@@ -2218,9 +2740,17 @@
   - {label: Red, occluded: false, x_max: 400.25, x_min: 394.125, y_max: 317.625, y_min: 296.5}
   path: rgb/test/25650.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 887.75, x_min: 882.0, y_max: 312.75, y_min: 292.25}
+  - {label: Red, occluded: false, x_max: 400.625, x_min: 394.0, y_max: 316.875, y_min: 296.0}
+  path: rgb/test/25652.png
+- boxes:
   - {label: Red, occluded: false, x_max: 887.875, x_min: 881.625, y_max: 312.5, y_min: 292.0}
   - {label: Red, occluded: false, x_max: 400.75, x_min: 394.125, y_max: 316.5, y_min: 295.625}
   path: rgb/test/25654.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 888.0, x_min: 881.75, y_max: 312.625, y_min: 292.75}
+  - {label: Red, occluded: false, x_max: 401.125, x_min: 394.25, y_max: 317.0, y_min: 295.125}
+  path: rgb/test/25656.png
 - boxes:
   - {label: Red, occluded: false, x_max: 888.0, x_min: 881.5, y_max: 312.75, y_min: 293.0}
   - {label: Red, occluded: false, x_max: 400.75, x_min: 394.125, y_max: 316.75, y_min: 295.625}
@@ -2267,6 +2797,14 @@
     y_min: 296.5}
   path: rgb/test/25678.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 888.125, x_min: 881.5, y_max: 312.75, y_min: 293.125}
+  - {label: Red, occluded: false, x_max: 400.625, x_min: 394.125, y_max: 316.75, y_min: 296.375}
+  path: rgb/test/25680.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 888.0, x_min: 881.875, y_max: 313.0, y_min: 293.125}
+  - {label: Red, occluded: false, x_max: 401.0, x_min: 394.125, y_max: 316.375, y_min: 296.375}
+  path: rgb/test/25682.png
+- boxes:
   - {label: Red, occluded: false, x_max: 888.0, x_min: 881.875, y_max: 313.125, y_min: 292.75}
   - {label: Red, occluded: false, x_max: 401.125, x_min: 394.0, y_max: 316.875, y_min: 296.375}
   path: rgb/test/25684.png
@@ -2274,6 +2812,10 @@
   - {label: Red, occluded: false, x_max: 888.0, x_min: 881.875, y_max: 314.0, y_min: 293.625}
   - {label: Red, occluded: false, x_max: 401.125, x_min: 394.25, y_max: 317.375, y_min: 296.25}
   path: rgb/test/25686.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 888.125, x_min: 881.625, y_max: 313.25, y_min: 293.25}
+  - {label: Red, occluded: false, x_max: 400.75, x_min: 394.0, y_max: 317.125, y_min: 296.125}
+  path: rgb/test/25688.png
 - boxes:
   - {label: Red, occluded: false, x_max: 888.25, x_min: 881.625, y_max: 313.375, y_min: 293.25}
   - {label: Red, occluded: false, x_max: 401.5, x_min: 394.25, y_max: 317.125, y_min: 295.875}
@@ -2292,6 +2834,10 @@
   - {label: Red, occluded: false, x_max: 400.625, x_min: 393.875, y_max: 317.125,
     y_min: 296.375}
   path: rgb/test/25696.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 888.0, x_min: 881.875, y_max: 313.375, y_min: 293.5}
+  - {label: Red, occluded: false, x_max: 400.75, x_min: 393.875, y_max: 318.0, y_min: 295.875}
+  path: rgb/test/25698.png
 - boxes:
   - {label: Red, occluded: false, x_max: 888.5, x_min: 882.25, y_max: 313.625, y_min: 293.25}
   - {label: Red, occluded: false, x_max: 400.875, x_min: 393.375, y_max: 316.875,
@@ -2368,6 +2914,10 @@
   - {label: Red, occluded: false, x_max: 397.125, x_min: 391.375, y_max: 313.5, y_min: 293.125}
   path: rgb/test/25734.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 890.75, x_min: 884.5, y_max: 309.375, y_min: 288.875}
+  - {label: Red, occluded: false, x_max: 397.25, x_min: 391.375, y_max: 313.125, y_min: 293.0}
+  path: rgb/test/25736.png
+- boxes:
   - {label: Red, occluded: false, x_max: 890.625, x_min: 884.125, y_max: 309.75, y_min: 290.25}
   - {label: Red, occluded: false, x_max: 396.625, x_min: 390.875, y_max: 314.25, y_min: 294.125}
   path: rgb/test/25738.png
@@ -2376,6 +2926,10 @@
     y_min: 291.375}
   - {label: Red, occluded: false, x_max: 396.25, x_min: 390.125, y_max: 315.5, y_min: 295.5}
   path: rgb/test/25740.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 890.75, x_min: 884.375, y_max: 312.75, y_min: 293.125}
+  - {label: Red, occluded: false, x_max: 396.375, x_min: 390.5, y_max: 316.75, y_min: 296.625}
+  path: rgb/test/25742.png
 - boxes:
   - {label: Red, occluded: false, x_max: 891.25, x_min: 885.125, y_max: 313.375, y_min: 293.625}
   - {label: Red, occluded: false, x_max: 396.125, x_min: 390.125, y_max: 317.75, y_min: 297.625}
@@ -2419,6 +2973,10 @@
   - {label: Red, occluded: false, x_max: 394.75, x_min: 387.75, y_max: 317.0, y_min: 295.75}
   path: rgb/test/25762.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 893.875, x_min: 887.875, y_max: 312.0, y_min: 291.375}
+  - {label: Red, occluded: false, x_max: 394.25, x_min: 387.75, y_max: 316.0, y_min: 295.25}
+  path: rgb/test/25764.png
+- boxes:
   - {label: Red, occluded: false, x_max: 894.125, x_min: 888.0, y_max: 311.5, y_min: 290.625}
   - {label: Red, occluded: false, x_max: 394.25, x_min: 387.375, y_max: 315.75, y_min: 295.625}
   path: rgb/test/25766.png
@@ -2427,10 +2985,22 @@
   - {label: Red, occluded: false, x_max: 393.625, x_min: 386.875, y_max: 316.5, y_min: 295.625}
   path: rgb/test/25768.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 894.75, x_min: 888.25, y_max: 311.625, y_min: 291.25}
+  - {label: Red, occluded: false, x_max: 393.5, x_min: 386.5, y_max: 316.25, y_min: 295.75}
+  path: rgb/test/25770.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 894.875, x_min: 888.75, y_max: 311.375, y_min: 291.0}
+  - {label: Red, occluded: false, x_max: 393.0, x_min: 386.5, y_max: 316.875, y_min: 295.625}
+  path: rgb/test/25772.png
+- boxes:
   - {label: Red, occluded: false, x_max: 895.25, x_min: 889.5, y_max: 311.25, y_min: 290.75}
   - {label: Red, occluded: false, x_max: 392.625, x_min: 386.125, y_max: 317.125,
     y_min: 295.625}
   path: rgb/test/25774.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 895.75, x_min: 889.875, y_max: 311.5, y_min: 291.25}
+  - {label: Red, occluded: false, x_max: 392.5, x_min: 385.875, y_max: 317.5, y_min: 295.625}
+  path: rgb/test/25776.png
 - boxes:
   - {label: Red, occluded: false, x_max: 896.0, x_min: 889.75, y_max: 311.75, y_min: 291.5}
   - {label: Red, occluded: false, x_max: 392.25, x_min: 385.125, y_max: 317.875, y_min: 295.75}
@@ -2460,6 +3030,10 @@
   - {label: Red, occluded: false, x_max: 390.5, x_min: 383.75, y_max: 318.75, y_min: 297.125}
   path: rgb/test/25790.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 898.5, x_min: 892.0, y_max: 314.875, y_min: 294.5}
+  - {label: Red, occluded: false, x_max: 390.5, x_min: 383.875, y_max: 320.25, y_min: 298.875}
+  path: rgb/test/25792.png
+- boxes:
   - {label: Red, occluded: false, x_max: 898.5, x_min: 892.25, y_max: 317.0, y_min: 296.625}
   - {label: Red, occluded: false, x_max: 390.75, x_min: 383.375, y_max: 321.0, y_min: 299.25}
   path: rgb/test/25794.png
@@ -2471,6 +3045,26 @@
   - {label: Red, occluded: false, x_max: 899.375, x_min: 892.75, y_max: 315.0, y_min: 294.875}
   - {label: Red, occluded: false, x_max: 389.125, x_min: 382.375, y_max: 320.0, y_min: 298.625}
   path: rgb/test/25798.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 900.0, x_min: 893.5, y_max: 313.75, y_min: 293.125}
+  - {label: Red, occluded: false, x_max: 388.75, x_min: 382.0, y_max: 320.125, y_min: 297.125}
+  path: rgb/test/25800.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 900.5, x_min: 893.75, y_max: 313.75, y_min: 293.125}
+  - {label: Red, occluded: false, x_max: 388.0, x_min: 381.625, y_max: 318.75, y_min: 295.875}
+  path: rgb/test/25802.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 900.25, x_min: 893.625, y_max: 313.375, y_min: 292.0}
+  - {label: Red, occluded: false, x_max: 388.125, x_min: 381.5, y_max: 318.0, y_min: 295.25}
+  path: rgb/test/25804.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 900.75, x_min: 894.125, y_max: 313.5, y_min: 292.625}
+  - {label: Red, occluded: false, x_max: 388.0, x_min: 381.125, y_max: 318.25, y_min: 296.0}
+  path: rgb/test/25806.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 901.25, x_min: 894.25, y_max: 314.0, y_min: 293.0}
+  - {label: Red, occluded: false, x_max: 387.0, x_min: 380.25, y_max: 318.625, y_min: 297.375}
+  path: rgb/test/25808.png
 - boxes:
   - {label: Red, occluded: false, x_max: 901.75, x_min: 894.75, y_max: 314.125, y_min: 293.25}
   - {label: Red, occluded: false, x_max: 386.875, x_min: 380.125, y_max: 319.625,
@@ -2508,13 +3102,26 @@
   - {label: Red, occluded: false, x_max: 384.625, x_min: 378.125, y_max: 319.25, y_min: 296.5}
   path: rgb/test/25824.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 905.125, x_min: 898.125, y_max: 311.75, y_min: 290.625}
+  - {label: Red, occluded: false, x_max: 384.75, x_min: 377.75, y_max: 317.875, y_min: 295.125}
+  path: rgb/test/25826.png
+- boxes:
   - {label: Red, occluded: false, x_max: 905.0, x_min: 898.0, y_max: 309.625, y_min: 288.125}
   - {label: Red, occluded: false, x_max: 384.0, x_min: 376.625, y_max: 315.75, y_min: 292.875}
   path: rgb/test/25828.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 905.25, x_min: 898.375, y_max: 307.375, y_min: 286.5}
+  - {label: Red, occluded: false, x_max: 383.375, x_min: 375.625, y_max: 313.125,
+    y_min: 290.375}
+  path: rgb/test/25830.png
+- boxes:
   - {label: Red, occluded: false, x_max: 906.25, x_min: 899.625, y_max: 307.375, y_min: 286.5}
   - {label: Red, occluded: false, x_max: 382.875, x_min: 375.5, y_max: 312.625, y_min: 289.375}
   path: rgb/test/25832.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 906.875, x_min: 900.125, y_max: 307.75, y_min: 287.0}
+  - {label: Red, occluded: false, x_max: 383.375, x_min: 375.5, y_max: 312.875, y_min: 289.625}
+  path: rgb/test/25834.png
 - boxes:
   - {label: Red, occluded: false, x_max: 906.875, x_min: 900.0, y_max: 307.875, y_min: 286.625}
   - {label: Red, occluded: false, x_max: 382.25, x_min: 375.25, y_max: 313.875, y_min: 290.5}
@@ -2676,6 +3283,10 @@
   - {label: Red, occluded: false, x_max: 365.75, x_min: 357.5, y_max: 307.875, y_min: 284.0}
   path: rgb/test/25908.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 925.625, x_min: 919.0, y_max: 305.0, y_min: 282.875}
+  - {label: Red, occluded: false, x_max: 365.5, x_min: 357.875, y_max: 307.625, y_min: 284.75}
+  path: rgb/test/25910.png
+- boxes:
   - {label: Red, occluded: false, x_max: 926.25, x_min: 919.625, y_max: 304.75, y_min: 283.125}
   - {label: Red, occluded: false, x_max: 365.625, x_min: 357.0, y_max: 308.25, y_min: 284.875}
   path: rgb/test/25912.png
@@ -2699,6 +3310,18 @@
   - {label: Red, occluded: false, x_max: 929.5, x_min: 921.75, y_max: 305.0, y_min: 283.125}
   - {label: Red, occluded: false, x_max: 361.875, x_min: 354.625, y_max: 309.5, y_min: 284.875}
   path: rgb/test/25922.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 929.875, x_min: 922.5, y_max: 304.75, y_min: 282.875}
+  - {label: Red, occluded: false, x_max: 360.75, x_min: 353.5, y_max: 307.875, y_min: 284.5}
+  path: rgb/test/25924.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 930.125, x_min: 923.0, y_max: 304.5, y_min: 283.0}
+  - {label: Red, occluded: false, x_max: 360.375, x_min: 353.25, y_max: 308.875, y_min: 285.5}
+  path: rgb/test/25926.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 930.125, x_min: 923.5, y_max: 305.75, y_min: 283.75}
+  - {label: Red, occluded: false, x_max: 360.125, x_min: 352.25, y_max: 309.375, y_min: 286.25}
+  path: rgb/test/25928.png
 - boxes:
   - {label: Red, occluded: false, x_max: 930.625, x_min: 923.375, y_max: 306.75, y_min: 284.25}
   - {label: Red, occluded: false, x_max: 358.625, x_min: 351.625, y_max: 310.0, y_min: 286.375}
@@ -2728,6 +3351,11 @@
     y_min: 283.5}
   - {label: Green, occluded: false, x_max: 354.5, x_min: 346.625, y_max: 310.0, y_min: 285.875}
   path: rgb/test/25940.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 931.75, x_min: 924.5, y_max: 306.875, y_min: 283.75}
+  - {label: Green, occluded: false, x_max: 352.875, x_min: 345.875, y_max: 310.0,
+    y_min: 286.125}
+  path: rgb/test/25942.png
 - boxes:
   - {label: Green, occluded: false, x_max: 931.5, x_min: 923.875, y_max: 306.0, y_min: 283.5}
   - {label: Green, occluded: false, x_max: 352.0, x_min: 344.375, y_max: 309.375,
@@ -2786,6 +3414,12 @@
     y_min: 285.5}
   path: rgb/test/25964.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 931.125, x_min: 922.625, y_max: 306.125,
+    y_min: 283.125}
+  - {label: Green, occluded: false, x_max: 337.875, x_min: 330.125, y_max: 308.375,
+    y_min: 284.875}
+  path: rgb/test/25966.png
+- boxes:
   - {label: Green, occluded: false, x_max: 931.0, x_min: 923.125, y_max: 305.375,
     y_min: 282.75}
   - {label: Green, occluded: false, x_max: 336.75, x_min: 328.875, y_max: 308.375,
@@ -2814,6 +3448,10 @@
   - {label: Green, occluded: false, x_max: 332.25, x_min: 323.875, y_max: 309.375,
     y_min: 284.75}
   path: rgb/test/25978.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 932.0, x_min: 923.5, y_max: 305.5, y_min: 282.125}
+  - {label: Green, occluded: false, x_max: 331.625, x_min: 323.5, y_max: 310.75, y_min: 284.5}
+  path: rgb/test/25980.png
 - boxes:
   - {label: Green, occluded: false, x_max: 932.0, x_min: 923.875, y_max: 305.625,
     y_min: 283.0}
@@ -2856,6 +3494,11 @@
   - {label: Green, occluded: false, x_max: 324.5, x_min: 317.5, y_max: 310.625, y_min: 285.25}
   path: rgb/test/25996.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 933.25, x_min: 924.875, y_max: 306.125,
+    y_min: 282.375}
+  - {label: Green, occluded: false, x_max: 324.0, x_min: 316.5, y_max: 310.0, y_min: 285.375}
+  path: rgb/test/25998.png
+- boxes:
   - {label: Green, occluded: false, x_max: 933.625, x_min: 925.125, y_max: 306.25,
     y_min: 282.625}
   - {label: Green, occluded: false, x_max: 324.75, x_min: 315.25, y_max: 309.625,
@@ -2878,6 +3521,12 @@
     y_min: 284.875}
   path: rgb/test/26006.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 933.75, x_min: 925.625, y_max: 306.125,
+    y_min: 282.625}
+  - {label: Green, occluded: false, x_max: 321.75, x_min: 311.875, y_max: 310.125,
+    y_min: 284.875}
+  path: rgb/test/26008.png
+- boxes:
   - {label: Green, occluded: false, x_max: 933.875, x_min: 926.25, y_max: 306.375,
     y_min: 283.0}
   - {label: Green, occluded: false, x_max: 321.25, x_min: 311.25, y_max: 310.0, y_min: 284.5}
@@ -2892,6 +3541,16 @@
   - {label: Green, occluded: false, x_max: 319.125, x_min: 311.0, y_max: 309.375,
     y_min: 285.375}
   path: rgb/test/26014.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 934.375, x_min: 926.375, y_max: 304.875,
+    y_min: 281.875}
+  - {label: Green, occluded: false, x_max: 318.125, x_min: 310.625, y_max: 309.75,
+    y_min: 284.25}
+  path: rgb/test/26016.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 934.875, x_min: 926.25, y_max: 305.0, y_min: 281.5}
+  - {label: Green, occluded: false, x_max: 318.0, x_min: 309.625, y_max: 309.25, y_min: 284.5}
+  path: rgb/test/26018.png
 - boxes:
   - {label: Green, occluded: false, x_max: 934.875, x_min: 926.125, y_max: 304.625,
     y_min: 280.75}
@@ -2939,6 +3598,11 @@
   - {label: Green, occluded: false, x_max: 935.125, x_min: 926.5, y_max: 304.0, y_min: 278.375}
   path: rgb/test/26036.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 934.625, x_min: 927.5, y_max: 303.5, y_min: 279.25}
+  - {label: Green, occluded: false, x_max: 312.375, x_min: 304.625, y_max: 308.625,
+    y_min: 283.0}
+  path: rgb/test/26038.png
+- boxes:
   - {label: Green, occluded: false, x_max: 935.375, x_min: 927.375, y_max: 304.125,
     y_min: 279.25}
   - {label: Green, occluded: false, x_max: 312.25, x_min: 303.75, y_max: 308.75, y_min: 282.75}
@@ -2953,6 +3617,10 @@
     y_min: 278.75}
   - {label: Green, occluded: false, x_max: 311.0, x_min: 302.75, y_max: 309.0, y_min: 282.5}
   path: rgb/test/26044.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 935.75, x_min: 927.375, y_max: 303.5, y_min: 278.375}
+  - {label: Green, occluded: false, x_max: 311.25, x_min: 302.5, y_max: 307.625, y_min: 281.5}
+  path: rgb/test/26046.png
 - boxes:
   - {label: Green, occluded: false, x_max: 935.375, x_min: 928.125, y_max: 303.0,
     y_min: 278.25}
@@ -3031,6 +3699,11 @@
   - {label: Green, occluded: false, x_max: 305.75, x_min: 298.0, y_max: 306.75, y_min: 281.375}
   path: rgb/test/26074.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 936.5, x_min: 928.25, y_max: 302.5, y_min: 277.375}
+  - {label: Green, occluded: false, x_max: 305.5, x_min: 298.125, y_max: 306.125,
+    y_min: 281.0}
+  path: rgb/test/26076.png
+- boxes:
   - {label: Green, occluded: false, x_max: 936.375, x_min: 928.5, y_max: 302.0, y_min: 276.875}
   - {label: Green, occluded: false, x_max: 305.25, x_min: 297.875, y_max: 306.375,
     y_min: 281.0}
@@ -3040,15 +3713,36 @@
   - {label: Green, occluded: false, x_max: 305.0, x_min: 297.25, y_max: 306.25, y_min: 281.25}
   path: rgb/test/26080.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 936.5, x_min: 928.75, y_max: 301.125, y_min: 276.5}
+  - {label: Green, occluded: false, x_max: 304.625, x_min: 296.75, y_max: 306.75,
+    y_min: 281.125}
+  path: rgb/test/26082.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 937.125, x_min: 928.5, y_max: 301.25, y_min: 276.625}
+  - {label: Green, occluded: false, x_max: 304.25, x_min: 296.75, y_max: 306.0, y_min: 280.875}
+  path: rgb/test/26084.png
+- boxes:
   - {label: Green, occluded: false, x_max: 937.0, x_min: 928.625, y_max: 301.375,
     y_min: 276.625}
   - {label: Green, occluded: false, x_max: 304.5, x_min: 296.625, y_max: 306.375,
     y_min: 280.75}
   path: rgb/test/26086.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 936.875, x_min: 928.875, y_max: 301.375,
+    y_min: 276.375}
+  - {label: Green, occluded: false, x_max: 303.625, x_min: 296.0, y_max: 306.625,
+    y_min: 280.375}
+  path: rgb/test/26088.png
+- boxes:
   - {label: Green, occluded: false, x_max: 937.625, x_min: 929.0, y_max: 301.5, y_min: 276.25}
   - {label: Green, occluded: false, x_max: 303.75, x_min: 296.0, y_max: 306.125, y_min: 280.125}
   path: rgb/test/26090.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 937.375, x_min: 928.75, y_max: 301.25,
+    y_min: 276.25}
+  - {label: Green, occluded: false, x_max: 303.125, x_min: 296.0, y_max: 306.375,
+    y_min: 279.875}
+  path: rgb/test/26092.png
 - boxes:
   - {label: Green, occluded: false, x_max: 937.75, x_min: 929.375, y_max: 301.0, y_min: 276.75}
   - {label: Green, occluded: false, x_max: 302.75, x_min: 295.625, y_max: 306.625,
@@ -3066,6 +3760,15 @@
   - {label: Green, occluded: false, x_max: 302.75, x_min: 295.25, y_max: 306.5, y_min: 280.875}
   path: rgb/test/26098.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 937.625, x_min: 929.125, y_max: 301.25,
+    y_min: 276.5}
+  - {label: Green, occluded: false, x_max: 302.75, x_min: 295.25, y_max: 306.0, y_min: 281.125}
+  path: rgb/test/26100.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 937.625, x_min: 929.0, y_max: 301.75, y_min: 276.75}
+  - {label: Green, occluded: false, x_max: 302.125, x_min: 294.75, y_max: 306.5, y_min: 280.875}
+  path: rgb/test/26102.png
+- boxes:
   - {label: Green, occluded: false, x_max: 937.75, x_min: 929.25, y_max: 301.0, y_min: 276.75}
   - {label: Green, occluded: false, x_max: 301.625, x_min: 294.5, y_max: 306.625,
     y_min: 280.375}
@@ -3080,6 +3783,11 @@
     y_min: 276.75}
   - {label: Green, occluded: false, x_max: 301.0, x_min: 293.625, y_max: 306.75, y_min: 280.875}
   path: rgb/test/26108.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 937.625, x_min: 929.125, y_max: 301.125,
+    y_min: 276.875}
+  - {label: Green, occluded: false, x_max: 300.75, x_min: 293.5, y_max: 307.125, y_min: 281.625}
+  path: rgb/test/26110.png
 - boxes:
   - {label: Green, occluded: false, x_max: 938.125, x_min: 929.375, y_max: 301.75,
     y_min: 276.75}
@@ -3103,9 +3811,21 @@
   - {label: Green, occluded: false, x_max: 300.125, x_min: 291.5, y_max: 306.0, y_min: 280.125}
   path: rgb/test/26118.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 937.75, x_min: 929.125, y_max: 300.75,
+    y_min: 275.625}
+  - {label: Green, occluded: false, x_max: 299.25, x_min: 290.25, y_max: 307.125,
+    y_min: 280.25}
+  path: rgb/test/26120.png
+- boxes:
   - {label: Green, occluded: false, x_max: 938.5, x_min: 929.125, y_max: 300.5, y_min: 275.25}
   - {label: Green, occluded: false, x_max: 299.5, x_min: 290.375, y_max: 307.75, y_min: 280.0}
   path: rgb/test/26122.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 938.25, x_min: 929.375, y_max: 300.125,
+    y_min: 275.0}
+  - {label: Green, occluded: false, x_max: 297.625, x_min: 289.875, y_max: 306.125,
+    y_min: 280.0}
+  path: rgb/test/26124.png
 - boxes:
   - {label: Green, occluded: false, x_max: 938.625, x_min: 929.25, y_max: 299.375,
     y_min: 274.375}
@@ -3149,6 +3869,10 @@
   - {label: Green, occluded: false, x_max: 292.875, x_min: 285.375, y_max: 303.875,
     y_min: 277.875}
   path: rgb/test/26140.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 939.75, x_min: 930.5, y_max: 297.875, y_min: 272.875}
+  - {label: Green, occluded: false, x_max: 292.5, x_min: 285.125, y_max: 303.5, y_min: 277.75}
+  path: rgb/test/26142.png
 - boxes:
   - {label: Green, occluded: false, x_max: 939.75, x_min: 930.875, y_max: 298.25,
     y_min: 272.0}
@@ -3209,10 +3933,26 @@
   - {label: Green, occluded: false, x_max: 283.25, x_min: 275.375, y_max: 301.0, y_min: 274.375}
   path: rgb/test/26164.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 941.625, x_min: 933.375, y_max: 296.125,
+    y_min: 269.625}
+  - {label: Green, occluded: false, x_max: 282.0, x_min: 273.75, y_max: 301.0, y_min: 274.75}
+  path: rgb/test/26166.png
+- boxes:
   - {label: Green, occluded: false, x_max: 942.0, x_min: 933.375, y_max: 294.5, y_min: 268.875}
   - {label: Green, occluded: false, x_max: 282.125, x_min: 273.625, y_max: 301.0,
     y_min: 274.75}
   path: rgb/test/26168.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 942.0, x_min: 934.0, y_max: 295.25, y_min: 268.625}
+  - {label: Green, occluded: false, x_max: 281.125, x_min: 272.75, y_max: 300.75,
+    y_min: 273.875}
+  path: rgb/test/26170.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 942.5, x_min: 933.625, y_max: 294.875,
+    y_min: 267.75}
+  - {label: Green, occluded: false, x_max: 279.625, x_min: 271.875, y_max: 300.75,
+    y_min: 274.25}
+  path: rgb/test/26172.png
 - boxes:
   - {label: Green, occluded: false, x_max: 943.125, x_min: 934.875, y_max: 293.625,
     y_min: 267.625}
@@ -3244,6 +3984,16 @@
   - {label: Green, occluded: false, x_max: 944.0, x_min: 935.5, y_max: 294.25, y_min: 267.0}
   - {label: Green, occluded: false, x_max: 273.25, x_min: 266.0, y_max: 300.5, y_min: 273.25}
   path: rgb/test/26184.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 944.375, x_min: 935.5, y_max: 293.75, y_min: 266.875}
+  - {label: Green, occluded: false, x_max: 272.125, x_min: 265.125, y_max: 300.0,
+    y_min: 273.25}
+  path: rgb/test/26186.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 944.25, x_min: 935.875, y_max: 293.0, y_min: 266.25}
+  - {label: Green, occluded: false, x_max: 271.75, x_min: 263.75, y_max: 299.875,
+    y_min: 273.0}
+  path: rgb/test/26188.png
 - boxes:
   - {label: Green, occluded: false, x_max: 944.625, x_min: 936.125, y_max: 293.375,
     y_min: 266.0}
@@ -3334,6 +4084,10 @@
     y_min: 269.375}
   path: rgb/test/26220.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 950.25, x_min: 941.0, y_max: 290.875, y_min: 263.375}
+  - {label: Green, occluded: false, x_max: 254.25, x_min: 246.75, y_max: 297.25, y_min: 269.375}
+  path: rgb/test/26222.png
+- boxes:
   - {label: Green, occluded: false, x_max: 950.625, x_min: 941.25, y_max: 290.25,
     y_min: 262.625}
   - {label: Green, occluded: false, x_max: 253.25, x_min: 245.375, y_max: 296.75,
@@ -3361,6 +4115,11 @@
   - {label: Green, occluded: false, x_max: 249.0, x_min: 241.375, y_max: 295.25, y_min: 268.125}
   path: rgb/test/26232.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 952.25, x_min: 942.875, y_max: 288.625,
+    y_min: 260.75}
+  - {label: Green, occluded: false, x_max: 248.75, x_min: 241.0, y_max: 296.125, y_min: 267.25}
+  path: rgb/test/26234.png
+- boxes:
   - {label: Green, occluded: false, x_max: 952.5, x_min: 943.25, y_max: 289.0, y_min: 261.0}
   - {label: Green, occluded: false, x_max: 247.25, x_min: 239.25, y_max: 296.125,
     y_min: 267.125}
@@ -3376,6 +4135,11 @@
   - {label: Green, occluded: false, x_max: 246.625, x_min: 238.25, y_max: 295.125,
     y_min: 266.25}
   path: rgb/test/26240.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 953.25, x_min: 943.5, y_max: 288.25, y_min: 259.875}
+  - {label: Green, occluded: false, x_max: 245.125, x_min: 236.875, y_max: 294.75,
+    y_min: 265.875}
+  path: rgb/test/26242.png
 - boxes:
   - {label: Green, occluded: false, x_max: 953.625, x_min: 944.125, y_max: 287.875,
     y_min: 260.5}
@@ -3429,6 +4193,12 @@
   - {label: Green, occluded: false, x_max: 237.75, x_min: 229.875, y_max: 295.375,
     y_min: 265.375}
   path: rgb/test/26262.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 956.75, x_min: 946.875, y_max: 288.25,
+    y_min: 259.625}
+  - {label: Green, occluded: false, x_max: 237.125, x_min: 229.375, y_max: 294.75,
+    y_min: 264.5}
+  path: rgb/test/26264.png
 - boxes:
   - {label: Green, occluded: false, x_max: 957.0, x_min: 947.5, y_max: 288.375, y_min: 259.0}
   - {label: Green, occluded: false, x_max: 236.25, x_min: 228.375, y_max: 294.5, y_min: 264.375}
@@ -3515,6 +4285,12 @@
     y_min: 258.0}
   path: rgb/test/26298.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 962.625, x_min: 953.125, y_max: 284.5,
+    y_min: 254.125}
+  - {label: Green, occluded: false, x_max: 223.0, x_min: 215.125, y_max: 288.125,
+    y_min: 258.5}
+  path: rgb/test/26300.png
+- boxes:
   - {label: Green, occluded: false, x_max: 961.875, x_min: 952.375, y_max: 284.0,
     y_min: 254.125}
   - {label: Green, occluded: false, x_max: 222.25, x_min: 214.125, y_max: 288.625,
@@ -3525,6 +4301,12 @@
   - {label: Green, occluded: false, x_max: 221.25, x_min: 213.125, y_max: 289.625,
     y_min: 259.5}
   path: rgb/test/26304.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 962.875, x_min: 952.625, y_max: 284.125,
+    y_min: 253.125}
+  - {label: Green, occluded: false, x_max: 221.375, x_min: 212.75, y_max: 289.375,
+    y_min: 259.0}
+  path: rgb/test/26306.png
 - boxes:
   - {label: Green, occluded: false, x_max: 963.0, x_min: 953.5, y_max: 283.875, y_min: 253.625}
   - {label: Green, occluded: false, x_max: 221.125, x_min: 211.625, y_max: 288.25,
@@ -3547,6 +4329,17 @@
   - {label: Green, occluded: false, x_max: 218.75, x_min: 210.375, y_max: 288.875,
     y_min: 259.25}
   path: rgb/test/26314.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 963.625, x_min: 953.75, y_max: 284.0, y_min: 253.25}
+  - {label: Green, occluded: false, x_max: 217.875, x_min: 209.25, y_max: 289.25,
+    y_min: 259.375}
+  path: rgb/test/26316.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 964.125, x_min: 954.5, y_max: 283.375,
+    y_min: 252.875}
+  - {label: Green, occluded: false, x_max: 217.875, x_min: 209.375, y_max: 290.0,
+    y_min: 260.0}
+  path: rgb/test/26318.png
 - boxes:
   - {label: Green, occluded: false, x_max: 964.125, x_min: 954.5, y_max: 284.25, y_min: 254.0}
   - {label: Green, occluded: false, x_max: 217.125, x_min: 208.625, y_max: 290.375,
@@ -3574,6 +4367,11 @@
   - {label: Green, occluded: false, x_max: 214.25, x_min: 206.25, y_max: 291.5, y_min: 261.25}
   path: rgb/test/26328.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 965.0, x_min: 955.125, y_max: 286.875,
+    y_min: 255.125}
+  - {label: Green, occluded: false, x_max: 214.125, x_min: 205.5, y_max: 291.75, y_min: 261.75}
+  path: rgb/test/26330.png
+- boxes:
   - {label: Green, occluded: false, x_max: 965.125, x_min: 955.125, y_max: 286.125,
     y_min: 255.375}
   - {label: Green, occluded: false, x_max: 213.625, x_min: 204.5, y_max: 291.875,
@@ -3594,11 +4392,21 @@
     y_min: 261.875}
   path: rgb/test/26338.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 966.125, x_min: 956.25, y_max: 286.25,
+    y_min: 254.375}
+  - {label: Green, occluded: false, x_max: 210.875, x_min: 202.0, y_max: 292.25, y_min: 261.0}
+  path: rgb/test/26340.png
+- boxes:
   - {label: Green, occluded: false, x_max: 966.625, x_min: 956.375, y_max: 286.75,
     y_min: 253.875}
   - {label: Green, occluded: false, x_max: 209.75, x_min: 201.375, y_max: 291.625,
     y_min: 262.125}
   path: rgb/test/26342.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 966.625, x_min: 957.0, y_max: 286.25, y_min: 255.25}
+  - {label: Green, occluded: false, x_max: 209.375, x_min: 200.375, y_max: 292.125,
+    y_min: 261.75}
+  path: rgb/test/26344.png
 - boxes:
   - {label: Green, occluded: false, x_max: 967.125, x_min: 957.375, y_max: 286.625,
     y_min: 254.875}
@@ -3640,6 +4448,18 @@
   - {label: Green, occluded: false, x_max: 201.375, x_min: 192.375, y_max: 290.5,
     y_min: 259.25}
   path: rgb/test/26360.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 968.75, x_min: 958.625, y_max: 284.375,
+    y_min: 253.375}
+  - {label: Green, occluded: false, x_max: 199.875, x_min: 191.125, y_max: 289.625,
+    y_min: 258.625}
+  path: rgb/test/26362.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 969.25, x_min: 959.125, y_max: 284.25,
+    y_min: 252.625}
+  - {label: Green, occluded: false, x_max: 198.375, x_min: 190.25, y_max: 289.125,
+    y_min: 258.125}
+  path: rgb/test/26364.png
 - boxes:
   - {label: Green, occluded: false, x_max: 968.75, x_min: 958.875, y_max: 284.0, y_min: 252.125}
   - {label: Green, occluded: false, x_max: 196.75, x_min: 188.25, y_max: 289.25, y_min: 258.25}
@@ -3708,6 +4528,12 @@
     y_min: 260.375}
   path: rgb/test/26390.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 955.625, x_min: 945.375, y_max: 286.875,
+    y_min: 253.375}
+  - {label: Green, occluded: false, x_max: 156.375, x_min: 147.5, y_max: 291.375,
+    y_min: 260.0}
+  path: rgb/test/26392.png
+- boxes:
   - {label: Green, occluded: false, x_max: 954.5, x_min: 943.75, y_max: 286.125, y_min: 252.75}
   - {label: Green, occluded: false, x_max: 152.25, x_min: 143.125, y_max: 291.75,
     y_min: 259.125}
@@ -3719,6 +4545,16 @@
     y_min: 258.625}
   path: rgb/test/26396.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 952.0, x_min: 940.875, y_max: 284.25, y_min: 250.875}
+  - {label: Green, occluded: false, x_max: 142.5, x_min: 134.5, y_max: 291.125, y_min: 258.625}
+  path: rgb/test/26398.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 950.375, x_min: 940.125, y_max: 283.5,
+    y_min: 249.75}
+  - {label: Green, occluded: false, x_max: 139.5, x_min: 131.125, y_max: 288.875,
+    y_min: 258.25}
+  path: rgb/test/26400.png
+- boxes:
   - {label: Green, occluded: false, x_max: 950.25, x_min: 939.5, y_max: 282.625, y_min: 249.0}
   - {label: Green, occluded: false, x_max: 134.5, x_min: 126.5, y_max: 288.75, y_min: 257.625}
   path: rgb/test/26402.png
@@ -3726,6 +4562,17 @@
   - {label: Green, occluded: false, x_max: 949.75, x_min: 938.5, y_max: 282.25, y_min: 248.625}
   - {label: Green, occluded: false, x_max: 131.75, x_min: 123.0, y_max: 287.875, y_min: 257.5}
   path: rgb/test/26404.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 949.875, x_min: 938.75, y_max: 282.375,
+    y_min: 249.625}
+  - {label: 'off', occluded: true, x_max: 126.75, x_min: 119.375, y_max: 286.375,
+    y_min: 257.125}
+  path: rgb/test/26406.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 948.75, x_min: 938.5, y_max: 281.75, y_min: 248.375}
+  - {label: Green, occluded: false, x_max: 124.5, x_min: 115.625, y_max: 289.375,
+    y_min: 256.5}
+  path: rgb/test/26408.png
 - boxes:
   - {label: Green, occluded: false, x_max: 949.0, x_min: 939.0, y_max: 281.5, y_min: 247.125}
   - {label: Green, occluded: false, x_max: 120.75, x_min: 111.75, y_max: 289.25, y_min: 255.375}
@@ -3746,6 +4593,10 @@
   - {label: Green, occluded: false, x_max: 111.625, x_min: 101.625, y_max: 286.125,
     y_min: 251.625}
   path: rgb/test/26416.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 951.5, x_min: 940.125, y_max: 277.25, y_min: 243.625}
+  - {label: Green, occluded: false, x_max: 108.25, x_min: 98.0, y_max: 285.5, y_min: 251.0}
+  path: rgb/test/26418.png
 - boxes:
   - {label: Green, occluded: false, x_max: 951.0, x_min: 940.25, y_max: 277.25, y_min: 242.625}
   - {label: Green, occluded: false, x_max: 104.5, x_min: 95.0, y_max: 285.625, y_min: 250.0}
@@ -3792,9 +4643,20 @@
   - {label: Green, occluded: false, x_max: 75.625, x_min: 65.0, y_max: 281.125, y_min: 245.625}
   path: rgb/test/26436.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 959.625, x_min: 947.375, y_max: 267.625,
+    y_min: 232.25}
+  - {label: Green, occluded: false, x_max: 71.625, x_min: 61.25, y_max: 280.25, y_min: 244.75}
+  path: rgb/test/26438.png
+- boxes:
   - {label: Green, occluded: false, x_max: 960.625, x_min: 948.5, y_max: 267.0, y_min: 230.625}
   - {label: Green, occluded: false, x_max: 67.75, x_min: 57.125, y_max: 279.375, y_min: 244.0}
   path: rgb/test/26440.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 960.875, x_min: 949.25, y_max: 266.125,
+    y_min: 229.375}
+  - {label: Green, occluded: false, x_max: 63.125, x_min: 52.625, y_max: 278.625,
+    y_min: 242.25}
+  path: rgb/test/26442.png
 - boxes:
   - {label: Green, occluded: false, x_max: 961.625, x_min: 949.5, y_max: 265.125,
     y_min: 229.25}
@@ -3863,8 +4725,16 @@
     y_min: 210.625}
   path: rgb/test/26470.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 963.25, x_min: 950.375, y_max: 248.125,
+    y_min: 208.875}
+  path: rgb/test/26472.png
+- boxes:
   - {label: Green, occluded: false, x_max: 964.25, x_min: 951.5, y_max: 246.625, y_min: 207.375}
   path: rgb/test/26474.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 965.625, x_min: 953.125, y_max: 245.5,
+    y_min: 205.75}
+  path: rgb/test/26476.png
 - boxes:
   - {label: Green, occluded: false, x_max: 967.125, x_min: 954.375, y_max: 243.625,
     y_min: 204.375}
@@ -3888,6 +4758,13 @@
     y_min: 196.875}
   path: rgb/test/26488.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 977.5, x_min: 964.0, y_max: 235.25, y_min: 194.875}
+  path: rgb/test/26490.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 979.375, x_min: 966.375, y_max: 234.625,
+    y_min: 192.875}
+  path: rgb/test/26492.png
+- boxes:
   - {label: Green, occluded: false, x_max: 981.5, x_min: 967.75, y_max: 233.875, y_min: 190.875}
   path: rgb/test/26494.png
 - boxes:
@@ -3898,6 +4775,13 @@
   - {label: Green, occluded: false, x_max: 985.875, x_min: 971.125, y_max: 231.0,
     y_min: 187.875}
   path: rgb/test/26498.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 987.5, x_min: 973.0, y_max: 228.625, y_min: 185.875}
+  path: rgb/test/26500.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 989.875, x_min: 974.625, y_max: 226.75,
+    y_min: 184.125}
+  path: rgb/test/26502.png
 - boxes:
   - {label: Green, occluded: false, x_max: 991.375, x_min: 977.25, y_max: 227.0, y_min: 182.625}
   path: rgb/test/26504.png
@@ -3916,6 +4800,9 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 998.25, x_min: 983.25, y_max: 223.75, y_min: 180.625}
   path: rgb/test/26512.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 999.375, x_min: 985.0, y_max: 224.0, y_min: 179.875}
+  path: rgb/test/26514.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1001.25, x_min: 986.625, y_max: 223.0,
     y_min: 180.0}
@@ -3940,6 +4827,10 @@
     y_min: 176.125}
   path: rgb/test/26526.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1013.5, x_min: 998.125, y_max: 221.625,
+    y_min: 175.875}
+  path: rgb/test/26528.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1015.375, x_min: 1000.5, y_max: 221.125,
     y_min: 175.875}
   path: rgb/test/26530.png
@@ -3960,6 +4851,9 @@
     y_min: 175.375}
   path: rgb/test/26538.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1024.0, x_min: 1007.75, y_max: 222.0, y_min: 174.875}
+  path: rgb/test/26540.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1024.875, x_min: 1009.625, y_max: 222.25,
     y_min: 175.375}
   path: rgb/test/26542.png
@@ -3976,6 +4870,14 @@
     y_min: 174.75}
   path: rgb/test/26548.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1030.0, x_min: 1014.125, y_max: 223.125,
+    y_min: 175.75}
+  path: rgb/test/26550.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1031.5, x_min: 1014.375, y_max: 224.25,
+    y_min: 176.25}
+  path: rgb/test/26552.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1032.875, x_min: 1016.25, y_max: 225.5,
     y_min: 177.75}
   path: rgb/test/26554.png
@@ -3988,10 +4890,19 @@
     y_min: 177.0}
   path: rgb/test/26558.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1038.25, x_min: 1021.5, y_max: 225.625,
+    y_min: 177.375}
+  path: rgb/test/26560.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1040.375, x_min: 1022.875, y_max: 226.625,
     y_min: 177.25}
   - {label: 'off', occluded: false, x_max: 365.0, x_min: 361.75, y_max: 361.5, y_min: 351.625}
   path: rgb/test/26562.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1043.5, x_min: 1025.75, y_max: 225.625,
+    y_min: 175.625}
+  - {label: 'off', occluded: false, x_max: 364.5, x_min: 361.0, y_max: 362.875, y_min: 352.75}
+  path: rgb/test/26564.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1045.375, x_min: 1027.5, y_max: 224.875,
     y_min: 174.125}
@@ -4021,6 +4932,12 @@
   - {label: 'off', occluded: false, x_max: 364.125, x_min: 361.25, y_max: 366.0, y_min: 356.5}
   path: rgb/test/26574.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1066.875, x_min: 1049.125, y_max: 222.875,
+    y_min: 171.25}
+  - {label: 'off', occluded: false, x_max: 364.875, x_min: 361.875, y_max: 368.625,
+    y_min: 358.625}
+  path: rgb/test/26576.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1072.5, x_min: 1053.0, y_max: 223.375,
     y_min: 170.5}
   - {label: 'off', occluded: false, x_max: 366.125, x_min: 362.875, y_max: 369.875,
@@ -4042,6 +4959,11 @@
   - {label: 'off', occluded: false, x_max: 367.75, x_min: 364.75, y_max: 376.875,
     y_min: 366.75}
   path: rgb/test/26584.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1096.375, x_min: 1075.625, y_max: 222.125,
+    y_min: 167.625}
+  - {label: 'off', occluded: false, x_max: 369.5, x_min: 365.0, y_max: 378.875, y_min: 368.875}
+  path: rgb/test/26586.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1103.0, x_min: 1082.375, y_max: 221.5,
     y_min: 167.125}
@@ -4097,6 +5019,12 @@
   - {label: 'off', occluded: false, x_max: 374.5, x_min: 369.625, y_max: 365.75, y_min: 354.375}
   path: rgb/test/26606.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1187.375, x_min: 1161.75, y_max: 181.0,
+    y_min: 117.75}
+  - {label: 'off', occluded: false, x_max: 374.25, x_min: 369.875, y_max: 363.625,
+    y_min: 352.5}
+  path: rgb/test/26608.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1199.5, x_min: 1172.375, y_max: 180.25,
     y_min: 114.0}
   - {label: 'off', occluded: false, x_max: 375.125, x_min: 371.375, y_max: 363.5,
@@ -4131,9 +5059,17 @@
   - {label: 'off', occluded: false, x_max: 379.875, x_min: 376.5, y_max: 352.25, y_min: 340.5}
   path: rgb/test/26620.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1278.5, x_min: 1254.25, y_max: 158.375,
+    y_min: 88.5}
+  - {label: 'off', occluded: false, x_max: 380.625, x_min: 377.0, y_max: 352.25, y_min: 340.25}
+  path: rgb/test/26622.png
+- boxes:
   - {label: 'off', occluded: false, x_max: 381.75, x_min: 378.125, y_max: 355.625,
     y_min: 342.375}
   path: rgb/test/26624.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 383.0, x_min: 379.25, y_max: 355.0, y_min: 343.625}
+  path: rgb/test/26626.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 383.25, x_min: 379.75, y_max: 353.0, y_min: 341.375}
   path: rgb/test/26628.png
@@ -4146,6 +5082,10 @@
     y_min: 340.625}
   path: rgb/test/26632.png
 - boxes:
+  - {label: 'off', occluded: false, x_max: 385.75, x_min: 381.75, y_max: 357.875,
+    y_min: 344.875}
+  path: rgb/test/26634.png
+- boxes:
   - {label: 'off', occluded: false, x_max: 386.25, x_min: 382.375, y_max: 361.0, y_min: 347.875}
   path: rgb/test/26636.png
 - boxes:
@@ -4157,17 +5097,27 @@
     y_min: 353.25}
   path: rgb/test/26640.png
 - boxes:
+  - {label: 'off', occluded: false, x_max: 388.125, x_min: 384.125, y_max: 368.125,
+    y_min: 355.25}
+  path: rgb/test/26642.png
+- boxes:
   - {label: 'off', occluded: false, x_max: 388.5, x_min: 384.75, y_max: 367.75, y_min: 355.875}
   path: rgb/test/26644.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 389.75, x_min: 385.75, y_max: 368.5, y_min: 355.25}
   path: rgb/test/26646.png
 - boxes:
+  - {label: 'off', occluded: false, x_max: 391.375, x_min: 386.0, y_max: 366.75, y_min: 353.375}
+  path: rgb/test/26648.png
+- boxes:
   - {label: 'off', occluded: false, x_max: 390.25, x_min: 386.25, y_max: 364.0, y_min: 350.875}
   path: rgb/test/26650.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 390.125, x_min: 386.0, y_max: 362.0, y_min: 348.5}
   path: rgb/test/26652.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 391.0, x_min: 387.25, y_max: 360.25, y_min: 346.25}
+  path: rgb/test/26654.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 391.375, x_min: 387.0, y_max: 357.25, y_min: 343.625}
   path: rgb/test/26656.png
@@ -4238,11 +5188,15 @@
 - boxes: []
   path: rgb/test/26694.png
 - boxes: []
+  path: rgb/test/26696.png
+- boxes: []
   path: rgb/test/26698.png
 - boxes: []
   path: rgb/test/26700.png
 - boxes: []
   path: rgb/test/26702.png
+- boxes: []
+  path: rgb/test/26704.png
 - boxes: []
   path: rgb/test/26706.png
 - boxes: []
@@ -4276,6 +5230,8 @@
 - boxes: []
   path: rgb/test/26736.png
 - boxes: []
+  path: rgb/test/26738.png
+- boxes: []
   path: rgb/test/26740.png
 - boxes: []
   path: rgb/test/26742.png
@@ -4288,7 +5244,13 @@
 - boxes: []
   path: rgb/test/26750.png
 - boxes: []
+  path: rgb/test/26752.png
+- boxes: []
+  path: rgb/test/26754.png
+- boxes: []
   path: rgb/test/26756.png
+- boxes: []
+  path: rgb/test/26758.png
 - boxes: []
   path: rgb/test/26760.png
 - boxes: []
@@ -4298,12 +5260,22 @@
 - boxes: []
   path: rgb/test/26766.png
 - boxes:
+  - {label: 'off', occluded: true, x_max: 366.875, x_min: 362.625, y_max: 348.125,
+    y_min: 332.625}
+  path: rgb/test/26768.png
+- boxes:
   - {label: 'off', occluded: true, x_max: 365.875, x_min: 360.875, y_max: 350.375,
     y_min: 333.875}
   path: rgb/test/26770.png
 - boxes:
   - {label: 'off', occluded: true, x_max: 363.75, x_min: 359.25, y_max: 351.25, y_min: 334.625}
   path: rgb/test/26772.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 363.5, x_min: 358.5, y_max: 349.25, y_min: 333.0}
+  path: rgb/test/26774.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 362.375, x_min: 357.5, y_max: 345.875, y_min: 330.125}
+  path: rgb/test/26776.png
 - boxes:
   - {label: Green, occluded: true, x_max: 361.5, x_min: 357.125, y_max: 342.75, y_min: 326.5}
   path: rgb/test/26778.png
@@ -4315,6 +5287,9 @@
   - {label: Green, occluded: true, x_max: 358.875, x_min: 353.0, y_max: 338.625, y_min: 321.625}
   path: rgb/test/26782.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 357.5, x_min: 351.625, y_max: 337.75, y_min: 320.25}
+  path: rgb/test/26784.png
+- boxes:
   - {label: Green, occluded: false, x_max: 355.625, x_min: 349.375, y_max: 336.375,
     y_min: 319.5}
   path: rgb/test/26786.png
@@ -4322,6 +5297,9 @@
   - {label: Green, occluded: false, x_max: 354.125, x_min: 347.875, y_max: 337.125,
     y_min: 319.25}
   path: rgb/test/26788.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 352.5, x_min: 346.875, y_max: 336.25, y_min: 319.875}
+  path: rgb/test/26790.png
 - boxes:
   - {label: 'off', occluded: true, x_max: 350.375, x_min: 345.125, y_max: 336.0, y_min: 322.25}
   path: rgb/test/26792.png
@@ -4334,6 +5312,8 @@
 - boxes: []
   path: rgb/test/26798.png
 - boxes: []
+  path: rgb/test/26800.png
+- boxes: []
   path: rgb/test/26802.png
 - boxes: []
   path: rgb/test/26804.png
@@ -4343,6 +5323,13 @@
   path: rgb/test/26808.png
 - boxes: []
   path: rgb/test/26810.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 331.0, x_min: 325.75, y_max: 329.0, y_min: 312.125}
+  path: rgb/test/26812.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 328.875, x_min: 324.25, y_max: 332.25,
+    y_min: 315.125}
+  path: rgb/test/26814.png
 - boxes:
   - {label: Green, occluded: false, x_max: 326.5, x_min: 322.125, y_max: 334.5, y_min: 317.75}
   path: rgb/test/26816.png
@@ -4355,6 +5342,9 @@
     y_min: 318.625}
   path: rgb/test/26820.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 321.75, x_min: 316.375, y_max: 334.5, y_min: 317.125}
+  path: rgb/test/26822.png
+- boxes:
   - {label: Green, occluded: false, x_max: 321.125, x_min: 315.25, y_max: 333.125,
     y_min: 315.0}
   path: rgb/test/26824.png
@@ -4365,6 +5355,10 @@
   - {label: Green, occluded: false, x_max: 317.875, x_min: 312.5, y_max: 328.125,
     y_min: 311.0}
   path: rgb/test/26828.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 315.875, x_min: 310.375, y_max: 329.125,
+    y_min: 310.75}
+  path: rgb/test/26830.png
 - boxes:
   - {label: Green, occluded: false, x_max: 314.5, x_min: 308.625, y_max: 330.0, y_min: 311.5}
   path: rgb/test/26832.png
@@ -4397,11 +5391,19 @@
   - {label: Green, occluded: false, x_max: 300.25, x_min: 294.5, y_max: 325.625, y_min: 305.75}
   path: rgb/test/26848.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 298.625, x_min: 292.25, y_max: 325.875,
+    y_min: 305.875}
+  path: rgb/test/26850.png
+- boxes:
   - {label: Green, occluded: false, x_max: 295.75, x_min: 290.0, y_max: 324.75, y_min: 305.25}
   path: rgb/test/26852.png
 - boxes:
   - {label: Green, occluded: false, x_max: 293.75, x_min: 287.75, y_max: 324.0, y_min: 304.875}
   path: rgb/test/26854.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 292.375, x_min: 285.625, y_max: 324.75,
+    y_min: 304.75}
+  path: rgb/test/26856.png
 - boxes:
   - {label: Green, occluded: false, x_max: 290.25, x_min: 284.25, y_max: 326.875,
     y_min: 307.625}
@@ -4422,6 +5424,12 @@
     y_min: 309.75}
   - {label: Green, occluded: true, x_max: 769.0, x_min: 762.75, y_max: 314.375, y_min: 294.875}
   path: rgb/test/26864.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 282.25, x_min: 276.25, y_max: 329.375,
+    y_min: 309.75}
+  - {label: Green, occluded: true, x_max: 770.375, x_min: 764.25, y_max: 313.625,
+    y_min: 294.875}
+  path: rgb/test/26866.png
 - boxes:
   - {label: Green, occluded: false, x_max: 280.125, x_min: 274.0, y_max: 329.875,
     y_min: 309.625}
@@ -4465,6 +5473,16 @@
     y_min: 283.75}
   path: rgb/test/26882.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 260.125, x_min: 253.5, y_max: 323.125,
+    y_min: 301.0}
+  - {label: Green, occluded: false, x_max: 781.875, x_min: 774.375, y_max: 304.375,
+    y_min: 282.25}
+  path: rgb/test/26884.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 257.25, x_min: 251.25, y_max: 323.5, y_min: 301.5}
+  - {label: Green, occluded: false, x_max: 782.625, x_min: 775.25, y_max: 304.0, y_min: 282.0}
+  path: rgb/test/26886.png
+- boxes:
   - {label: Green, occluded: false, x_max: 254.25, x_min: 247.5, y_max: 323.75, y_min: 301.5}
   - {label: Green, occluded: false, x_max: 784.0, x_min: 776.375, y_max: 303.625,
     y_min: 282.625}
@@ -4480,16 +5498,31 @@
     y_min: 281.375}
   path: rgb/test/26892.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 245.5, x_min: 238.625, y_max: 326.125,
+    y_min: 303.5}
+  - {label: Green, occluded: false, x_max: 787.375, x_min: 779.25, y_max: 305.25,
+    y_min: 281.75}
+  path: rgb/test/26894.png
+- boxes:
   - {label: Green, occluded: false, x_max: 242.5, x_min: 236.5, y_max: 327.125, y_min: 304.125}
   - {label: Green, occluded: false, x_max: 788.875, x_min: 780.75, y_max: 305.75,
     y_min: 281.5}
   path: rgb/test/26896.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 239.875, x_min: 233.5, y_max: 325.125,
+    y_min: 301.875}
+  - {label: Green, occluded: false, x_max: 790.25, x_min: 782.5, y_max: 302.875, y_min: 277.75}
+  path: rgb/test/26898.png
 - boxes:
   - {label: Green, occluded: false, x_max: 236.75, x_min: 230.125, y_max: 321.25,
     y_min: 298.75}
   - {label: Green, occluded: false, x_max: 790.625, x_min: 783.25, y_max: 298.25,
     y_min: 274.25}
   path: rgb/test/26900.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 233.125, x_min: 225.75, y_max: 320.0, y_min: 296.75}
+  - {label: Green, occluded: false, x_max: 792.0, x_min: 784.0, y_max: 294.375, y_min: 270.25}
+  path: rgb/test/26902.png
 - boxes:
   - {label: Green, occluded: false, x_max: 229.25, x_min: 222.75, y_max: 319.0, y_min: 295.0}
   - {label: Green, occluded: false, x_max: 792.875, x_min: 784.625, y_max: 294.0,
@@ -4527,6 +5560,11 @@
     y_min: 262.875}
   path: rgb/test/26916.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 208.375, x_min: 199.875, y_max: 309.25,
+    y_min: 283.5}
+  - {label: Green, occluded: false, x_max: 805.5, x_min: 797.5, y_max: 286.375, y_min: 260.75}
+  path: rgb/test/26918.png
+- boxes:
   - {label: Green, occluded: false, x_max: 205.0, x_min: 197.0, y_max: 305.75, y_min: 280.5}
   - {label: Green, occluded: false, x_max: 807.25, x_min: 799.125, y_max: 282.625,
     y_min: 256.875}
@@ -4542,6 +5580,16 @@
   - {label: Green, occluded: false, x_max: 811.5, x_min: 803.0, y_max: 279.375, y_min: 254.0}
   path: rgb/test/26924.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 195.0, x_min: 187.25, y_max: 302.0, y_min: 276.375}
+  - {label: Green, occluded: false, x_max: 813.125, x_min: 805.0, y_max: 280.125,
+    y_min: 254.5}
+  path: rgb/test/26926.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 191.375, x_min: 183.5, y_max: 303.875,
+    y_min: 278.75}
+  - {label: Green, occluded: false, x_max: 815.0, x_min: 806.875, y_max: 281.75, y_min: 257.25}
+  path: rgb/test/26928.png
+- boxes:
   - {label: Green, occluded: false, x_max: 187.875, x_min: 179.875, y_max: 305.625,
     y_min: 280.125}
   - {label: Green, occluded: false, x_max: 816.75, x_min: 808.75, y_max: 284.875,
@@ -4552,6 +5600,16 @@
   - {label: Green, occluded: false, x_max: 818.5, x_min: 810.375, y_max: 287.125,
     y_min: 262.625}
   path: rgb/test/26932.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 180.5, x_min: 172.75, y_max: 309.125, y_min: 281.875}
+  - {label: Green, occluded: false, x_max: 820.625, x_min: 812.625, y_max: 287.875,
+    y_min: 262.5}
+  path: rgb/test/26934.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 176.375, x_min: 169.0, y_max: 308.25, y_min: 281.625}
+  - {label: Green, occluded: false, x_max: 822.375, x_min: 814.375, y_max: 287.5,
+    y_min: 262.75}
+  path: rgb/test/26936.png
 - boxes:
   - {label: Green, occluded: false, x_max: 172.5, x_min: 163.875, y_max: 307.375,
     y_min: 280.75}
@@ -4564,6 +5622,10 @@
   - {label: Green, occluded: false, x_max: 826.375, x_min: 818.25, y_max: 286.625,
     y_min: 261.625}
   path: rgb/test/26940.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 163.875, x_min: 155.75, y_max: 307.0, y_min: 279.75}
+  - {label: Green, occluded: false, x_max: 828.25, x_min: 820.125, y_max: 286.5, y_min: 261.375}
+  path: rgb/test/26942.png
 - boxes:
   - {label: Green, occluded: false, x_max: 159.75, x_min: 151.375, y_max: 306.125,
     y_min: 279.125}
@@ -4632,17 +5694,41 @@
     y_min: 247.375}
   path: rgb/test/26970.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 87.625, x_min: 79.5, y_max: 299.625, y_min: 268.75}
+  - {label: Green, occluded: false, x_max: 856.125, x_min: 845.875, y_max: 274.125,
+    y_min: 243.25}
+  path: rgb/test/26972.png
+- boxes:
   - {label: Green, occluded: false, x_max: 81.875, x_min: 73.125, y_max: 297.25, y_min: 265.25}
   - {label: Green, occluded: false, x_max: 857.5, x_min: 847.25, y_max: 270.0, y_min: 240.5}
   path: rgb/test/26974.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 75.0, x_min: 66.0, y_max: 296.375, y_min: 263.75}
+  - {label: Green, occluded: false, x_max: 857.625, x_min: 847.125, y_max: 268.375,
+    y_min: 238.25}
+  path: rgb/test/26976.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 69.0, x_min: 60.25, y_max: 296.0, y_min: 263.875}
+  - {label: Green, occluded: false, x_max: 859.75, x_min: 848.75, y_max: 269.125,
+    y_min: 238.75}
+  path: rgb/test/26978.png
 - boxes:
   - {label: Green, occluded: false, x_max: 63.375, x_min: 54.375, y_max: 298.75, y_min: 266.25}
   - {label: Green, occluded: false, x_max: 861.25, x_min: 850.25, y_max: 272.0, y_min: 242.375}
   path: rgb/test/26980.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 57.375, x_min: 48.75, y_max: 300.5, y_min: 267.5}
+  - {label: Green, occluded: false, x_max: 862.25, x_min: 852.125, y_max: 274.375,
+    y_min: 243.0}
+  path: rgb/test/26982.png
+- boxes:
   - {label: Green, occluded: false, x_max: 52.0, x_min: 42.25, y_max: 300.625, y_min: 267.375}
   - {label: Green, occluded: false, x_max: 864.875, x_min: 853.25, y_max: 274.0, y_min: 242.5}
   path: rgb/test/26984.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 45.5, x_min: 35.25, y_max: 299.0, y_min: 265.125}
+  - {label: Green, occluded: false, x_max: 866.25, x_min: 855.25, y_max: 272.0, y_min: 240.5}
+  path: rgb/test/26986.png
 - boxes:
   - {label: Green, occluded: false, x_max: 39.5, x_min: 29.0, y_max: 298.75, y_min: 265.125}
   - {label: Green, occluded: false, x_max: 867.375, x_min: 856.0, y_max: 271.25, y_min: 239.125}
@@ -4656,6 +5742,11 @@
   - {label: Green, occluded: false, x_max: 870.25, x_min: 858.625, y_max: 272.75,
     y_min: 240.125}
   path: rgb/test/26992.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 19.375, x_min: 9.25, y_max: 303.75, y_min: 268.5}
+  - {label: Green, occluded: false, x_max: 870.875, x_min: 859.625, y_max: 271.25,
+    y_min: 237.0}
+  path: rgb/test/26994.png
 - boxes:
   - {label: Green, occluded: false, x_max: 12.625, x_min: 2.5, y_max: 301.25, y_min: 265.5}
   - {label: Green, occluded: false, x_max: 872.375, x_min: 860.375, y_max: 268.25,
@@ -4674,8 +5765,16 @@
     y_min: 223.625}
   path: rgb/test/27002.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 879.25, x_min: 867.875, y_max: 259.375,
+    y_min: 225.5}
+  path: rgb/test/27004.png
+- boxes:
   - {label: Green, occluded: false, x_max: 880.625, x_min: 868.5, y_max: 258.25, y_min: 222.75}
   path: rgb/test/27006.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 882.0, x_min: 870.125, y_max: 256.375,
+    y_min: 221.0}
+  path: rgb/test/27008.png
 - boxes:
   - {label: Green, occluded: false, x_max: 883.875, x_min: 871.5, y_max: 254.5, y_min: 219.125}
   path: rgb/test/27010.png
@@ -4694,8 +5793,15 @@
   - {label: Green, occluded: false, x_max: 891.0, x_min: 877.125, y_max: 250.5, y_min: 211.625}
   path: rgb/test/27018.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 892.0, x_min: 879.25, y_max: 248.25, y_min: 211.25}
+  path: rgb/test/27020.png
+- boxes:
   - {label: Green, occluded: false, x_max: 893.0, x_min: 880.25, y_max: 247.875, y_min: 210.625}
   path: rgb/test/27022.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 894.625, x_min: 881.0, y_max: 248.125,
+    y_min: 210.125}
+  path: rgb/test/27024.png
 - boxes:
   - {label: Green, occluded: false, x_max: 896.25, x_min: 882.0, y_max: 249.125, y_min: 210.0}
   path: rgb/test/27026.png
@@ -4721,6 +5827,16 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 896.5, x_min: 881.25, y_max: 246.375, y_min: 205.75}
   path: rgb/test/27038.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 894.125, x_min: 880.0, y_max: 244.5, y_min: 204.0}
+  path: rgb/test/27040.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 893.25, x_min: 878.375, y_max: 242.75,
+    y_min: 201.625}
+  path: rgb/test/27042.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 893.25, x_min: 878.0, y_max: 241.375, y_min: 200.375}
+  path: rgb/test/27044.png
 - boxes:
   - {label: Green, occluded: false, x_max: 891.875, x_min: 877.0, y_max: 240.75, y_min: 198.5}
   path: rgb/test/27046.png
@@ -4781,6 +5897,11 @@
     y_min: 335.5}
   path: rgb/test/27074.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 867.0, x_min: 849.0, y_max: 234.375, y_min: 188.375}
+  - {label: Green, occluded: false, x_max: 374.375, x_min: 370.875, y_max: 346.875,
+    y_min: 336.5}
+  path: rgb/test/27076.png
+- boxes:
   - {label: Green, occluded: false, x_max: 863.125, x_min: 846.0, y_max: 234.375,
     y_min: 187.75}
   - {label: Green, occluded: false, x_max: 368.75, x_min: 364.875, y_max: 348.0, y_min: 336.75}
@@ -4824,6 +5945,12 @@
     y_min: 347.125}
   path: rgb/test/27092.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 824.875, x_min: 806.875, y_max: 235.625,
+    y_min: 186.625}
+  - {label: Green, occluded: false, x_max: 314.75, x_min: 311.125, y_max: 355.625,
+    y_min: 344.75}
+  path: rgb/test/27094.png
+- boxes:
   - {label: Green, occluded: false, x_max: 819.75, x_min: 801.625, y_max: 232.0, y_min: 182.25}
   - {label: Green, occluded: false, x_max: 308.125, x_min: 304.75, y_max: 353.625,
     y_min: 342.25}
@@ -4834,6 +5961,12 @@
   - {label: Green, occluded: false, x_max: 301.375, x_min: 297.875, y_max: 351.875,
     y_min: 341.5}
   path: rgb/test/27098.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 809.875, x_min: 792.125, y_max: 227.5,
+    y_min: 176.875}
+  - {label: Green, occluded: false, x_max: 295.375, x_min: 291.75, y_max: 352.75,
+    y_min: 341.625}
+  path: rgb/test/27100.png
 - boxes:
   - {label: Green, occluded: false, x_max: 806.0, x_min: 787.375, y_max: 228.125,
     y_min: 176.5}
@@ -4872,6 +6005,11 @@
   - {label: Green, occluded: false, x_max: 259.25, x_min: 255.125, y_max: 354.5, y_min: 342.75}
   path: rgb/test/27114.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 783.25, x_min: 763.5, y_max: 218.375, y_min: 164.25}
+  - {label: Green, occluded: false, x_max: 254.875, x_min: 250.625, y_max: 352.0,
+    y_min: 340.75}
+  path: rgb/test/27116.png
+- boxes:
   - {label: Green, occluded: false, x_max: 780.875, x_min: 761.0, y_max: 215.25, y_min: 161.125}
   - {label: Green, occluded: false, x_max: 250.5, x_min: 246.625, y_max: 350.75, y_min: 339.25}
   path: rgb/test/27118.png
@@ -4907,6 +6045,12 @@
     y_min: 344.5}
   path: rgb/test/27130.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 775.125, x_min: 752.125, y_max: 211.625,
+    y_min: 154.75}
+  - {label: Green, occluded: false, x_max: 232.625, x_min: 227.875, y_max: 353.5,
+    y_min: 341.625}
+  path: rgb/test/27132.png
+- boxes:
   - {label: Green, occluded: false, x_max: 775.25, x_min: 754.375, y_max: 209.0, y_min: 149.25}
   - {label: Green, occluded: false, x_max: 230.625, x_min: 226.625, y_max: 350.125,
     y_min: 338.125}
@@ -4922,10 +6066,27 @@
   - {label: Green, occluded: false, x_max: 230.5, x_min: 225.75, y_max: 350.0, y_min: 337.875}
   path: rgb/test/27138.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 779.0, x_min: 757.625, y_max: 203.875,
+    y_min: 142.0}
+  - {label: Green, occluded: false, x_max: 229.125, x_min: 224.875, y_max: 352.0,
+    y_min: 340.625}
+  path: rgb/test/27140.png
+- boxes:
   - {label: Green, occluded: false, x_max: 780.375, x_min: 758.375, y_max: 202.5,
     y_min: 140.75}
   - {label: Green, occluded: false, x_max: 228.375, x_min: 224.5, y_max: 352.5, y_min: 341.25}
   path: rgb/test/27142.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 781.625, x_min: 759.625, y_max: 200.5,
+    y_min: 138.25}
+  - {label: Green, occluded: false, x_max: 228.625, x_min: 224.375, y_max: 351.75,
+    y_min: 339.625}
+  path: rgb/test/27144.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 783.5, x_min: 761.625, y_max: 197.5, y_min: 134.5}
+  - {label: Green, occluded: false, x_max: 228.375, x_min: 224.375, y_max: 349.75,
+    y_min: 337.625}
+  path: rgb/test/27146.png
 - boxes:
   - {label: Green, occluded: false, x_max: 786.5, x_min: 764.75, y_max: 194.0, y_min: 131.75}
   - {label: Green, occluded: false, x_max: 228.5, x_min: 224.0, y_max: 348.25, y_min: 336.0}
@@ -4936,6 +6097,12 @@
     y_min: 335.5}
   path: rgb/test/27150.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 791.375, x_min: 768.75, y_max: 191.125,
+    y_min: 128.125}
+  - {label: Green, occluded: false, x_max: 229.125, x_min: 224.875, y_max: 348.5,
+    y_min: 336.125}
+  path: rgb/test/27152.png
+- boxes:
   - {label: Green, occluded: false, x_max: 795.25, x_min: 772.375, y_max: 191.25,
     y_min: 126.375}
   - {label: Green, occluded: false, x_max: 230.25, x_min: 226.25, y_max: 350.0, y_min: 338.0}
@@ -4944,6 +6111,10 @@
   - {label: Green, occluded: false, x_max: 798.25, x_min: 774.875, y_max: 190.5, y_min: 125.125}
   - {label: Green, occluded: false, x_max: 231.5, x_min: 227.75, y_max: 351.25, y_min: 339.5}
   path: rgb/test/27156.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 801.75, x_min: 777.875, y_max: 189.5, y_min: 123.5}
+  - {label: Green, occluded: false, x_max: 232.75, x_min: 229.0, y_max: 352.25, y_min: 340.25}
+  path: rgb/test/27158.png
 - boxes:
   - {label: Green, occluded: false, x_max: 805.625, x_min: 782.0, y_max: 187.375,
     y_min: 121.875}
@@ -4989,6 +6160,12 @@
     y_min: 345.5}
   path: rgb/test/27174.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 856.75, x_min: 831.375, y_max: 179.125,
+    y_min: 107.5}
+  - {label: Green, occluded: false, x_max: 264.625, x_min: 260.625, y_max: 357.5,
+    y_min: 345.5}
+  path: rgb/test/27176.png
+- boxes:
   - {label: Green, occluded: false, x_max: 867.0, x_min: 841.5, y_max: 180.0, y_min: 108.875}
   - {label: Green, occluded: false, x_max: 270.375, x_min: 267.0, y_max: 358.125,
     y_min: 347.0}
@@ -5020,9 +6197,19 @@
     y_min: 354.0}
   path: rgb/test/27188.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 937.875, x_min: 908.375, y_max: 169.75,
+    y_min: 93.25}
+  - {label: Green, occluded: false, x_max: 318.0, x_min: 313.875, y_max: 365.75, y_min: 353.0}
+  path: rgb/test/27190.png
+- boxes:
   - {label: Green, occluded: false, x_max: 952.25, x_min: 922.125, y_max: 166.0, y_min: 87.5}
   - {label: Green, occluded: false, x_max: 328.0, x_min: 323.75, y_max: 364.75, y_min: 352.875}
   path: rgb/test/27192.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 969.875, x_min: 939.25, y_max: 163.0, y_min: 84.125}
+  - {label: Green, occluded: false, x_max: 338.875, x_min: 334.375, y_max: 364.0,
+    y_min: 352.375}
+  path: rgb/test/27194.png
 - boxes:
   - {label: Green, occluded: false, x_max: 986.5, x_min: 954.75, y_max: 160.25, y_min: 80.75}
   - {label: Green, occluded: false, x_max: 349.375, x_min: 345.25, y_max: 363.625,
@@ -5033,6 +6220,15 @@
   - {label: Green, occluded: false, x_max: 360.625, x_min: 356.625, y_max: 363.375,
     y_min: 351.375}
   path: rgb/test/27198.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1023.0, x_min: 988.0, y_max: 153.0, y_min: 71.0}
+  - {label: Green, occluded: false, x_max: 373.0, x_min: 368.0, y_max: 363.5, y_min: 351.25}
+  path: rgb/test/27200.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1043.0, x_min: 1008.0, y_max: 148.0, y_min: 67.0}
+  - {label: Green, occluded: false, x_max: 384.75, x_min: 380.375, y_max: 362.25,
+    y_min: 350.875}
+  path: rgb/test/27202.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1065.0, x_min: 1030.0, y_max: 146.0, y_min: 58.0}
   - {label: Green, occluded: false, x_max: 397.0, x_min: 393.25, y_max: 361.875, y_min: 349.625}
@@ -5069,15 +6265,33 @@
     y_min: 344.0}
   path: rgb/test/27216.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1242.0, x_min: 1200.75, y_max: 112.375,
+    y_min: 19.125}
+  - {label: Green, occluded: false, x_max: 502.75, x_min: 499.25, y_max: 354.375,
+    y_min: 341.75}
+  path: rgb/test/27218.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1273.0, x_min: 1232.0, y_max: 103.0, y_min: 9.0}
+  - {label: Green, occluded: false, x_max: 519.125, x_min: 515.0, y_max: 352.875,
+    y_min: 340.5}
+  path: rgb/test/27220.png
+- boxes:
   - {label: Green, occluded: false, x_max: 535.125, x_min: 531.5, y_max: 352.0, y_min: 339.375}
   path: rgb/test/27222.png
 - boxes:
   - {label: Green, occluded: false, x_max: 552.25, x_min: 548.0, y_max: 351.375, y_min: 338.625}
   path: rgb/test/27224.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 569.0, x_min: 564.0, y_max: 350.0, y_min: 337.375}
+  path: rgb/test/27226.png
+- boxes:
   - {label: Green, occluded: false, x_max: 584.0, x_min: 580.375, y_max: 349.625,
     y_min: 337.25}
   path: rgb/test/27228.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 598.625, x_min: 595.125, y_max: 349.0,
+    y_min: 336.625}
+  path: rgb/test/27230.png
 - boxes:
   - {label: Green, occluded: false, x_max: 613.5, x_min: 609.75, y_max: 346.875, y_min: 335.25}
   path: rgb/test/27232.png
@@ -5099,6 +6313,9 @@
     y_min: 329.75}
   path: rgb/test/27242.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 686.5, x_min: 682.75, y_max: 342.625, y_min: 329.625}
+  path: rgb/test/27244.png
+- boxes:
   - {label: Green, occluded: false, x_max: 696.375, x_min: 692.375, y_max: 342.25,
     y_min: 329.0}
   path: rgb/test/27246.png
@@ -5117,14 +6334,25 @@
     y_min: 323.375}
   path: rgb/test/27254.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 735.75, x_min: 732.25, y_max: 335.25, y_min: 323.25}
+  path: rgb/test/27256.png
+- boxes:
   - {label: Green, occluded: false, x_max: 742.375, x_min: 738.0, y_max: 336.5, y_min: 322.375}
   path: rgb/test/27258.png
 - boxes:
   - {label: Green, occluded: false, x_max: 747.0, x_min: 743.125, y_max: 335.0, y_min: 322.75}
   path: rgb/test/27260.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 752.125, x_min: 748.0, y_max: 335.875,
+    y_min: 322.625}
+  path: rgb/test/27262.png
+- boxes:
   - {label: Green, occluded: false, x_max: 756.375, x_min: 752.5, y_max: 336.75, y_min: 323.5}
   path: rgb/test/27264.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 759.25, x_min: 755.875, y_max: 336.375,
+    y_min: 323.0}
+  path: rgb/test/27266.png
 - boxes:
   - {label: Green, occluded: false, x_max: 762.625, x_min: 758.75, y_max: 334.75,
     y_min: 321.875}
@@ -5152,8 +6380,15 @@
     y_min: 326.375}
   path: rgb/test/27280.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 775.0, x_min: 771.125, y_max: 338.375,
+    y_min: 325.0}
+  path: rgb/test/27282.png
+- boxes:
   - {label: Green, occluded: false, x_max: 775.0, x_min: 771.25, y_max: 337.75, y_min: 324.875}
   path: rgb/test/27284.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 776.0, x_min: 771.75, y_max: 336.875, y_min: 323.625}
+  path: rgb/test/27286.png
 - boxes:
   - {label: Green, occluded: false, x_max: 775.625, x_min: 771.25, y_max: 337.25,
     y_min: 323.625}
@@ -5162,6 +6397,10 @@
   - {label: Green, occluded: false, x_max: 774.625, x_min: 770.125, y_max: 338.5,
     y_min: 325.375}
   path: rgb/test/27290.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 772.625, x_min: 768.375, y_max: 338.125,
+    y_min: 324.875}
+  path: rgb/test/27292.png
 - boxes:
   - {label: Green, occluded: false, x_max: 770.5, x_min: 766.375, y_max: 335.625,
     y_min: 322.5}
@@ -5174,6 +6413,10 @@
   - {label: Green, occluded: false, x_max: 763.875, x_min: 759.375, y_max: 329.25,
     y_min: 315.875}
   path: rgb/test/27298.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 760.125, x_min: 754.875, y_max: 327.375,
+    y_min: 313.625}
+  path: rgb/test/27300.png
 - boxes:
   - {label: Green, occluded: false, x_max: 755.375, x_min: 751.125, y_max: 326.875,
     y_min: 313.375}
@@ -5192,6 +6435,9 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 739.25, x_min: 735.0, y_max: 331.625, y_min: 318.375}
   path: rgb/test/27310.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 734.75, x_min: 730.25, y_max: 330.5, y_min: 317.0}
+  path: rgb/test/27312.png
 - boxes:
   - {label: Green, occluded: false, x_max: 730.0, x_min: 725.5, y_max: 329.375, y_min: 315.75}
   path: rgb/test/27314.png
@@ -5243,14 +6489,35 @@
     y_min: 299.5}
   path: rgb/test/27332.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 681.0, x_min: 676.625, y_max: 324.125,
+    y_min: 310.375}
+  - {label: Green, occluded: false, x_max: 1000.5, x_min: 995.25, y_max: 315.375,
+    y_min: 300.75}
+  path: rgb/test/27334.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 675.375, x_min: 671.25, y_max: 326.0, y_min: 312.5}
+  - {label: Green, occluded: false, x_max: 995.625, x_min: 990.5, y_max: 316.875,
+    y_min: 302.5}
+  path: rgb/test/27336.png
+- boxes:
   - {label: Green, occluded: false, x_max: 670.875, x_min: 665.875, y_max: 328.375,
     y_min: 314.875}
   - {label: Green, occluded: false, x_max: 991.25, x_min: 986.75, y_max: 319.25, y_min: 305.75}
   path: rgb/test/27338.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 665.0, x_min: 660.625, y_max: 331.875,
+    y_min: 318.5}
+  - {label: Green, occluded: false, x_max: 987.25, x_min: 982.875, y_max: 324.125,
+    y_min: 309.625}
+  path: rgb/test/27340.png
+- boxes:
   - {label: Green, occluded: false, x_max: 659.75, x_min: 655.375, y_max: 337.0, y_min: 323.125}
   - {label: Green, occluded: false, x_max: 983.125, x_min: 978.5, y_max: 330.0, y_min: 315.5}
   path: rgb/test/27342.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 654.5, x_min: 650.375, y_max: 339.75, y_min: 327.125}
+  - {label: Green, occluded: false, x_max: 979.0, x_min: 974.25, y_max: 334.5, y_min: 319.75}
+  path: rgb/test/27344.png
 - boxes:
   - {label: Green, occluded: false, x_max: 650.125, x_min: 645.875, y_max: 341.75,
     y_min: 327.125}
@@ -5273,6 +6540,15 @@
   - {label: Green, occluded: false, x_max: 964.5, x_min: 959.75, y_max: 326.5, y_min: 313.5}
   path: rgb/test/27352.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 628.875, x_min: 624.75, y_max: 332.75,
+    y_min: 318.75}
+  - {label: Green, occluded: false, x_max: 960.0, x_min: 955.75, y_max: 326.0, y_min: 312.125}
+  path: rgb/test/27354.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 624.0, x_min: 619.5, y_max: 332.0, y_min: 317.75}
+  - {label: Green, occluded: false, x_max: 956.0, x_min: 951.75, y_max: 325.625, y_min: 311.5}
+  path: rgb/test/27356.png
+- boxes:
   - {label: Green, occluded: false, x_max: 618.875, x_min: 613.75, y_max: 330.0, y_min: 315.875}
   - {label: Green, occluded: false, x_max: 951.625, x_min: 947.0, y_max: 323.375,
     y_min: 309.25}
@@ -5289,6 +6565,12 @@
   - {label: Green, occluded: false, x_max: 943.5, x_min: 938.5, y_max: 321.0, y_min: 306.0}
   path: rgb/test/27362.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 602.375, x_min: 597.125, y_max: 325.0,
+    y_min: 310.875}
+  - {label: Green, occluded: false, x_max: 939.5, x_min: 934.875, y_max: 319.375,
+    y_min: 305.875}
+  path: rgb/test/27364.png
+- boxes:
   - {label: Green, occluded: false, x_max: 596.25, x_min: 591.5, y_max: 325.0, y_min: 310.75}
   - {label: Green, occluded: false, x_max: 934.625, x_min: 929.875, y_max: 319.25,
     y_min: 305.625}
@@ -5298,6 +6580,16 @@
   - {label: Green, occluded: false, x_max: 930.25, x_min: 925.25, y_max: 321.375,
     y_min: 306.875}
   path: rgb/test/27368.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 584.375, x_min: 579.5, y_max: 328.375,
+    y_min: 312.75}
+  - {label: Green, occluded: false, x_max: 926.125, x_min: 920.625, y_max: 322.375,
+    y_min: 307.375}
+  path: rgb/test/27370.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 578.5, x_min: 574.0, y_max: 329.625, y_min: 314.625}
+  - {label: Green, occluded: false, x_max: 921.5, x_min: 916.5, y_max: 323.625, y_min: 309.25}
+  path: rgb/test/27372.png
 - boxes:
   - {label: Green, occluded: false, x_max: 572.75, x_min: 568.125, y_max: 332.125,
     y_min: 316.5}
@@ -5336,10 +6628,22 @@
   - {label: Green, occluded: false, x_max: 891.75, x_min: 886.0, y_max: 329.375, y_min: 314.0}
   path: rgb/test/27386.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 531.625, x_min: 526.875, y_max: 334.125,
+    y_min: 318.125}
+  - {label: Green, occluded: false, x_max: 887.375, x_min: 881.25, y_max: 328.625,
+    y_min: 313.875}
+  path: rgb/test/27388.png
+- boxes:
   - {label: Green, occluded: false, x_max: 526.25, x_min: 521.5, y_max: 332.625, y_min: 316.375}
   - {label: Green, occluded: false, x_max: 883.125, x_min: 877.375, y_max: 327.75,
     y_min: 312.125}
   path: rgb/test/27390.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 521.0, x_min: 515.875, y_max: 330.625,
+    y_min: 314.625}
+  - {label: Green, occluded: false, x_max: 878.625, x_min: 873.625, y_max: 325.5,
+    y_min: 311.0}
+  path: rgb/test/27392.png
 - boxes:
   - {label: Green, occluded: false, x_max: 515.125, x_min: 510.625, y_max: 328.5,
     y_min: 313.0}
@@ -5375,15 +6679,32 @@
     y_min: 309.75}
   path: rgb/test/27406.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 484.625, x_min: 479.75, y_max: 332.125,
+    y_min: 316.0}
+  - {label: Green, occluded: false, x_max: 858.0, x_min: 852.375, y_max: 327.125,
+    y_min: 310.125}
+  path: rgb/test/27408.png
+- boxes:
   - {label: Green, occluded: false, x_max: 480.25, x_min: 475.5, y_max: 332.625, y_min: 316.25}
   - {label: Green, occluded: false, x_max: 856.0, x_min: 850.0, y_max: 327.875, y_min: 310.625}
   path: rgb/test/27410.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 476.375, x_min: 472.0, y_max: 333.5, y_min: 316.375}
+  - {label: Green, occluded: false, x_max: 854.125, x_min: 848.375, y_max: 328.75,
+    y_min: 310.625}
+  path: rgb/test/27412.png
 - boxes:
   - {label: Green, occluded: false, x_max: 472.875, x_min: 468.25, y_max: 332.625,
     y_min: 316.625}
   - {label: Green, occluded: false, x_max: 851.875, x_min: 846.875, y_max: 328.5,
     y_min: 311.5}
   path: rgb/test/27414.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 468.75, x_min: 464.75, y_max: 332.875,
+    y_min: 316.25}
+  - {label: Green, occluded: false, x_max: 850.875, x_min: 844.875, y_max: 328.625,
+    y_min: 311.25}
+  path: rgb/test/27416.png
 - boxes:
   - {label: Green, occluded: false, x_max: 465.375, x_min: 460.875, y_max: 332.0,
     y_min: 315.625}
@@ -5419,6 +6740,12 @@
   - {label: Green, occluded: false, x_max: 445.125, x_min: 440.75, y_max: 326.0, y_min: 309.375}
   - {label: Green, occluded: false, x_max: 842.0, x_min: 836.0, y_max: 323.125, y_min: 306.5}
   path: rgb/test/27430.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 442.125, x_min: 436.875, y_max: 323.375,
+    y_min: 306.75}
+  - {label: Green, occluded: false, x_max: 840.375, x_min: 834.625, y_max: 319.375,
+    y_min: 303.125}
+  path: rgb/test/27432.png
 - boxes:
   - {label: Green, occluded: false, x_max: 438.5, x_min: 433.0, y_max: 320.625, y_min: 303.875}
   - {label: Green, occluded: false, x_max: 839.875, x_min: 833.125, y_max: 317.25,
@@ -5461,6 +6788,12 @@
   - {label: Green, occluded: false, x_max: 832.375, x_min: 826.0, y_max: 319.625,
     y_min: 302.25}
   path: rgb/test/27448.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 411.875, x_min: 406.375, y_max: 325.875,
+    y_min: 307.375}
+  - {label: Green, occluded: false, x_max: 832.0, x_min: 826.375, y_max: 320.375,
+    y_min: 302.5}
+  path: rgb/test/27450.png
 - boxes:
   - {label: Green, occluded: false, x_max: 409.25, x_min: 403.5, y_max: 325.375, y_min: 307.375}
   - {label: Green, occluded: false, x_max: 832.125, x_min: 825.875, y_max: 321.0,
@@ -5511,6 +6844,12 @@
     y_min: 295.375}
   path: rgb/test/27468.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 388.375, x_min: 382.5, y_max: 319.875,
+    y_min: 301.125}
+  - {label: Green, occluded: false, x_max: 836.875, x_min: 830.5, y_max: 315.125,
+    y_min: 295.5}
+  path: rgb/test/27470.png
+- boxes:
   - {label: Green, occluded: false, x_max: 386.625, x_min: 380.5, y_max: 321.25, y_min: 302.125}
   - {label: Green, occluded: false, x_max: 838.25, x_min: 831.875, y_max: 315.0, y_min: 295.75}
   path: rgb/test/27472.png
@@ -5532,11 +6871,32 @@
   - {label: 'off', occluded: true, x_max: 534.0, x_min: 528.25, y_max: 351.375, y_min: 338.125}
   path: rgb/test/27478.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 380.0, x_min: 373.25, y_max: 322.375, y_min: 303.0}
+  - {label: Green, occluded: false, x_max: 843.875, x_min: 837.5, y_max: 318.625,
+    y_min: 298.125}
+  - {label: 'off', occluded: true, x_max: 533.125, x_min: 528.375, y_max: 352.125,
+    y_min: 337.875}
+  path: rgb/test/27480.png
+- boxes:
   - {label: Green, occluded: false, x_max: 377.875, x_min: 372.5, y_max: 321.5, y_min: 302.75}
   - {label: Green, occluded: false, x_max: 846.0, x_min: 839.125, y_max: 318.375,
     y_min: 297.5}
   - {label: 'off', occluded: true, x_max: 533.0, x_min: 528.0, y_max: 352.125, y_min: 337.5}
   path: rgb/test/27482.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 376.375, x_min: 369.875, y_max: 321.0,
+    y_min: 301.75}
+  - {label: Green, occluded: false, x_max: 847.625, x_min: 840.375, y_max: 316.0,
+    y_min: 295.125}
+  - {label: Red, occluded: true, x_max: 531.75, x_min: 528.0, y_max: 350.0, y_min: 337.0}
+  path: rgb/test/27484.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 374.625, x_min: 367.875, y_max: 320.75,
+    y_min: 300.25}
+  - {label: Green, occluded: false, x_max: 848.875, x_min: 842.0, y_max: 315.125,
+    y_min: 294.0}
+  - {label: Red, occluded: true, x_max: 532.5, x_min: 527.25, y_max: 351.5, y_min: 335.375}
+  path: rgb/test/27486.png
 - boxes:
   - {label: Green, occluded: false, x_max: 372.125, x_min: 365.625, y_max: 320.5,
     y_min: 300.125}
@@ -5593,6 +6953,13 @@
   - {label: Red, occluded: true, x_max: 528.0, x_min: 521.125, y_max: 344.5, y_min: 331.25}
   path: rgb/test/27504.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 351.625, x_min: 344.25, y_max: 311.875,
+    y_min: 290.625}
+  - {label: Green, occluded: false, x_max: 863.875, x_min: 855.625, y_max: 307.25,
+    y_min: 284.375}
+  - {label: Red, occluded: true, x_max: 526.25, x_min: 520.875, y_max: 345.625, y_min: 330.875}
+  path: rgb/test/27506.png
+- boxes:
   - {label: Green, occluded: false, x_max: 348.75, x_min: 341.25, y_max: 311.5, y_min: 289.75}
   - {label: Green, occluded: false, x_max: 864.75, x_min: 856.875, y_max: 306.125,
     y_min: 282.625}
@@ -5622,11 +6989,36 @@
   - {label: Red, occluded: true, x_max: 524.0, x_min: 516.75, y_max: 346.5, y_min: 331.0}
   path: rgb/test/27516.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 334.125, x_min: 327.5, y_max: 312.375,
+    y_min: 290.125}
+  - {label: Green, occluded: false, x_max: 872.0, x_min: 863.625, y_max: 304.625,
+    y_min: 282.0}
+  - {label: Red, occluded: true, x_max: 522.875, x_min: 516.125, y_max: 348.25, y_min: 332.5}
+  path: rgb/test/27518.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 331.75, x_min: 324.625, y_max: 312.75,
+    y_min: 290.375}
+  - {label: Green, occluded: false, x_max: 873.25, x_min: 865.375, y_max: 305.0, y_min: 282.125}
+  - {label: Red, occluded: true, x_max: 521.75, x_min: 514.5, y_max: 347.625, y_min: 332.75}
+  path: rgb/test/27520.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 328.5, x_min: 321.25, y_max: 312.25, y_min: 289.0}
+  - {label: Green, occluded: false, x_max: 875.375, x_min: 866.5, y_max: 303.875,
+    y_min: 281.25}
+  - {label: Red, occluded: true, x_max: 520.25, x_min: 513.75, y_max: 347.875, y_min: 333.25}
+  path: rgb/test/27522.png
+- boxes:
   - {label: Green, occluded: false, x_max: 324.875, x_min: 317.75, y_max: 311.625,
     y_min: 288.75}
   - {label: Green, occluded: false, x_max: 876.625, x_min: 868.0, y_max: 304.25, y_min: 281.875}
   - {label: Red, occluded: true, x_max: 519.5, x_min: 512.25, y_max: 349.0, y_min: 332.75}
   path: rgb/test/27524.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 321.0, x_min: 314.5, y_max: 310.5, y_min: 287.875}
+  - {label: Green, occluded: false, x_max: 878.625, x_min: 869.5, y_max: 304.375,
+    y_min: 281.375}
+  - {label: Red, occluded: true, x_max: 518.75, x_min: 511.375, y_max: 348.875, y_min: 333.125}
+  path: rgb/test/27526.png
 - boxes:
   - {label: Green, occluded: false, x_max: 317.5, x_min: 310.25, y_max: 311.375, y_min: 288.75}
   - {label: Green, occluded: false, x_max: 878.875, x_min: 870.125, y_max: 303.625,
@@ -5645,6 +7037,11 @@
   - {label: Green, occluded: false, x_max: 880.5, x_min: 871.5, y_max: 304.375, y_min: 279.875}
   - {label: Red, occluded: true, x_max: 513.875, x_min: 506.125, y_max: 349.625, y_min: 334.125}
   path: rgb/test/27532.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 304.25, x_min: 296.875, y_max: 312.0, y_min: 287.75}
+  - {label: Green, occluded: false, x_max: 882.0, x_min: 871.375, y_max: 304.25, y_min: 279.125}
+  - {label: Red, occluded: true, x_max: 512.5, x_min: 504.875, y_max: 350.625, y_min: 335.25}
+  path: rgb/test/27534.png
 - boxes:
   - {label: Green, occluded: false, x_max: 299.375, x_min: 292.375, y_max: 311.375,
     y_min: 286.875}
@@ -5714,6 +7111,12 @@
   - {label: Red, occluded: true, x_max: 487.25, x_min: 482.125, y_max: 344.125, y_min: 330.75}
   path: rgb/test/27556.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 241.75, x_min: 232.375, y_max: 302.0, y_min: 273.5}
+  - {label: Green, occluded: false, x_max: 887.625, x_min: 874.875, y_max: 292.5,
+    y_min: 264.125}
+  - {label: Red, occluded: true, x_max: 485.125, x_min: 480.125, y_max: 343.25, y_min: 330.875}
+  path: rgb/test/27558.png
+- boxes:
   - {label: Green, occluded: false, x_max: 235.75, x_min: 226.625, y_max: 300.0, y_min: 272.0}
   - {label: Green, occluded: false, x_max: 888.25, x_min: 875.75, y_max: 291.5, y_min: 262.375}
   - {label: Red, occluded: true, x_max: 483.375, x_min: 477.75, y_max: 342.875, y_min: 330.375}
@@ -5768,6 +7171,13 @@
   - {label: Red, occluded: true, x_max: 464.375, x_min: 459.625, y_max: 341.375, y_min: 329.375}
   path: rgb/test/27576.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 178.125, x_min: 168.375, y_max: 295.625,
+    y_min: 265.375}
+  - {label: Green, occluded: false, x_max: 896.125, x_min: 882.0, y_max: 284.375,
+    y_min: 251.625}
+  - {label: Red, occluded: true, x_max: 461.75, x_min: 457.75, y_max: 341.875, y_min: 330.5}
+  path: rgb/test/27578.png
+- boxes:
   - {label: Green, occluded: false, x_max: 172.25, x_min: 161.875, y_max: 296.0, y_min: 265.375}
   - {label: Green, occluded: false, x_max: 898.125, x_min: 882.75, y_max: 284.75,
     y_min: 252.625}
@@ -5790,6 +7200,12 @@
   - {label: Green, occluded: false, x_max: 903.0, x_min: 887.625, y_max: 281.875,
     y_min: 248.25}
   path: rgb/test/27586.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 146.25, x_min: 136.25, y_max: 293.875,
+    y_min: 261.75}
+  - {label: Green, occluded: false, x_max: 905.375, x_min: 889.875, y_max: 280.625,
+    y_min: 246.875}
+  path: rgb/test/27588.png
 - boxes:
   - {label: Green, occluded: false, x_max: 140.25, x_min: 129.5, y_max: 293.375, y_min: 259.75}
   - {label: Green, occluded: false, x_max: 907.125, x_min: 892.0, y_max: 279.5, y_min: 245.375}
@@ -5821,6 +7237,15 @@
   - {label: Green, occluded: false, x_max: 922.0, x_min: 906.5, y_max: 268.875, y_min: 233.25}
   path: rgb/test/27600.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 102.375, x_min: 89.375, y_max: 279.0, y_min: 243.125}
+  - {label: Green, occluded: false, x_max: 925.625, x_min: 908.875, y_max: 265.875,
+    y_min: 229.625}
+  path: rgb/test/27602.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 94.125, x_min: 83.0, y_max: 277.0, y_min: 240.25}
+  - {label: Green, occluded: false, x_max: 929.25, x_min: 912.75, y_max: 263.5, y_min: 227.0}
+  path: rgb/test/27604.png
+- boxes:
   - {label: Green, occluded: false, x_max: 87.5, x_min: 76.5, y_max: 276.25, y_min: 239.875}
   - {label: Green, occluded: false, x_max: 932.875, x_min: 915.625, y_max: 262.875,
     y_min: 225.875}
@@ -5847,6 +7272,12 @@
     y_min: 218.875}
   path: rgb/test/27614.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 51.625, x_min: 39.625, y_max: 269.625,
+    y_min: 230.25}
+  - {label: Green, occluded: false, x_max: 952.75, x_min: 938.25, y_max: 255.375,
+    y_min: 216.625}
+  path: rgb/test/27616.png
+- boxes:
   - {label: Green, occluded: false, x_max: 44.375, x_min: 31.0, y_max: 269.0, y_min: 228.125}
   - {label: Green, occluded: false, x_max: 957.125, x_min: 942.75, y_max: 253.75,
     y_min: 214.375}
@@ -5871,6 +7302,15 @@
     y_min: 194.375}
   - {label: Red, occluded: true, x_max: 439.0, x_min: 433.25, y_max: 328.5, y_min: 314.875}
   path: rgb/test/27626.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 977.125, x_min: 961.375, y_max: 232.25,
+    y_min: 189.75}
+  - {label: Red, occluded: true, x_max: 437.875, x_min: 432.75, y_max: 326.25, y_min: 312.75}
+  path: rgb/test/27628.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 982.75, x_min: 967.375, y_max: 229.5, y_min: 187.125}
+  - {label: Red, occluded: true, x_max: 437.75, x_min: 432.125, y_max: 325.375, y_min: 310.625}
+  path: rgb/test/27630.png
 - boxes:
   - {label: Green, occluded: false, x_max: 989.125, x_min: 973.375, y_max: 229.125,
     y_min: 185.125}
@@ -5934,13 +7374,29 @@
     y_min: 173.375}
   path: rgb/test/27656.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1071.125, x_min: 1050.25, y_max: 224.625,
+    y_min: 171.625}
+  path: rgb/test/27658.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1078.375, x_min: 1058.375, y_max: 222.75,
     y_min: 168.625}
   path: rgb/test/27660.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1087.0, x_min: 1066.625, y_max: 220.5,
+    y_min: 165.0}
+  path: rgb/test/27662.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1094.5, x_min: 1074.75, y_max: 215.25,
+    y_min: 159.375}
+  path: rgb/test/27664.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1104.375, x_min: 1083.0, y_max: 211.75,
     y_min: 153.75}
   path: rgb/test/27666.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1113.375, x_min: 1090.5, y_max: 206.375,
+    y_min: 148.25}
+  path: rgb/test/27668.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1121.875, x_min: 1099.125, y_max: 203.875,
     y_min: 145.5}
@@ -6027,6 +7483,9 @@
   - {label: Red, occluded: true, x_max: 413.625, x_min: 407.25, y_max: 341.0, y_min: 326.0}
   path: rgb/test/27710.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 413.25, x_min: 406.875, y_max: 344.375, y_min: 329.875}
+  path: rgb/test/27712.png
+- boxes:
   - {label: Red, occluded: true, x_max: 412.0, x_min: 405.5, y_max: 350.5, y_min: 335.25}
   path: rgb/test/27714.png
 - boxes:
@@ -6042,8 +7501,14 @@
   - {label: Red, occluded: true, x_max: 407.75, x_min: 400.875, y_max: 357.125, y_min: 344.5}
   path: rgb/test/27722.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 406.75, x_min: 399.125, y_max: 352.125, y_min: 337.375}
+  path: rgb/test/27724.png
+- boxes:
   - {label: Red, occluded: true, x_max: 405.875, x_min: 398.75, y_max: 344.25, y_min: 330.125}
   path: rgb/test/27726.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 404.625, x_min: 397.5, y_max: 338.25, y_min: 324.625}
+  path: rgb/test/27728.png
 - boxes:
   - {label: Red, occluded: true, x_max: 405.25, x_min: 397.5, y_max: 336.125, y_min: 320.25}
   path: rgb/test/27730.png
@@ -6088,11 +7553,15 @@
 - boxes: []
   path: rgb/test/27758.png
 - boxes: []
+  path: rgb/test/27760.png
+- boxes: []
   path: rgb/test/27762.png
 - boxes: []
   path: rgb/test/27764.png
 - boxes: []
   path: rgb/test/27766.png
+- boxes: []
+  path: rgb/test/27768.png
 - boxes: []
   path: rgb/test/27770.png
 - boxes: []
@@ -6113,6 +7582,8 @@
   path: rgb/test/27786.png
 - boxes: []
   path: rgb/test/27788.png
+- boxes: []
+  path: rgb/test/27790.png
 - boxes: []
   path: rgb/test/27792.png
 - boxes: []
@@ -6150,8 +7621,18 @@
     y_min: 311.25}
   path: rgb/test/27812.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 359.125, x_min: 353.625, y_max: 330.125,
+    y_min: 314.375}
+  path: rgb/test/27814.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 358.75, x_min: 352.0, y_max: 331.625, y_min: 315.25}
+  path: rgb/test/27816.png
+- boxes:
   - {label: Green, occluded: true, x_max: 357.5, x_min: 351.25, y_max: 333.625, y_min: 317.75}
   path: rgb/test/27818.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 356.0, x_min: 349.75, y_max: 337.625, y_min: 320.25}
+  path: rgb/test/27820.png
 - boxes:
   - {label: Green, occluded: true, x_max: 354.625, x_min: 348.625, y_max: 341.125,
     y_min: 322.5}
@@ -6184,6 +7665,9 @@
     y_min: 335.25}
   path: rgb/test/27836.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 347.125, x_min: 340.0, y_max: 354.5, y_min: 337.375}
+  path: rgb/test/27838.png
+- boxes:
   - {label: Green, occluded: true, x_max: 346.625, x_min: 339.0, y_max: 357.5, y_min: 338.375}
   path: rgb/test/27840.png
 - boxes:
@@ -6205,9 +7689,19 @@
     y_min: 339.5}
   path: rgb/test/27850.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 341.5, x_min: 332.875, y_max: 359.0, y_min: 340.375}
+  path: rgb/test/27852.png
+- boxes:
   - {label: Green, occluded: false, x_max: 340.375, x_min: 332.125, y_max: 355.125,
     y_min: 335.5}
   path: rgb/test/27854.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 339.125, x_min: 331.5, y_max: 350.875,
+    y_min: 330.5}
+  path: rgb/test/27856.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 337.25, x_min: 329.5, y_max: 345.25, y_min: 325.875}
+  path: rgb/test/27858.png
 - boxes:
   - {label: Green, occluded: false, x_max: 336.375, x_min: 328.875, y_max: 342.375,
     y_min: 322.5}
@@ -6249,6 +7743,10 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 323.625, x_min: 317.25, y_max: 331.0, y_min: 310.0}
   path: rgb/test/27882.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 323.375, x_min: 316.375, y_max: 331.375,
+    y_min: 311.125}
+  path: rgb/test/27884.png
 - boxes:
   - {label: Green, occluded: false, x_max: 321.625, x_min: 315.0, y_max: 332.75, y_min: 311.0}
   path: rgb/test/27886.png
@@ -6304,12 +7802,22 @@
   - {label: Green, occluded: false, x_max: 300.5, x_min: 292.375, y_max: 326.5, y_min: 303.625}
   path: rgb/test/27916.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 299.25, x_min: 291.125, y_max: 328.5, y_min: 306.75}
+  path: rgb/test/27918.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 298.0, x_min: 290.25, y_max: 330.875, y_min: 308.5}
+  path: rgb/test/27920.png
+- boxes:
   - {label: Green, occluded: false, x_max: 296.75, x_min: 288.5, y_max: 333.25, y_min: 311.25}
   path: rgb/test/27922.png
 - boxes:
   - {label: Green, occluded: false, x_max: 295.625, x_min: 287.375, y_max: 334.375,
     y_min: 311.875}
   path: rgb/test/27924.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 295.0, x_min: 286.375, y_max: 337.0, y_min: 313.75}
+  - {label: 'off', occluded: true, x_max: 745.5, x_min: 741.125, y_max: 311.5, y_min: 293.625}
+  path: rgb/test/27926.png
 - boxes:
   - {label: Green, occluded: false, x_max: 294.125, x_min: 284.875, y_max: 339.625,
     y_min: 315.25}
@@ -6319,6 +7827,12 @@
   - {label: Green, occluded: false, x_max: 292.25, x_min: 284.0, y_max: 339.125, y_min: 316.625}
   - {label: 'off', occluded: true, x_max: 749.375, x_min: 744.5, y_max: 314.125, y_min: 296.5}
   path: rgb/test/27930.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 290.875, x_min: 282.625, y_max: 337.5,
+    y_min: 314.25}
+  - {label: 'off', occluded: true, x_max: 751.125, x_min: 745.625, y_max: 312.75,
+    y_min: 294.375}
+  path: rgb/test/27932.png
 - boxes:
   - {label: Green, occluded: false, x_max: 289.625, x_min: 281.75, y_max: 336.0, y_min: 313.5}
   - {label: 'off', occluded: true, x_max: 752.0, x_min: 747.0, y_max: 311.125, y_min: 293.0}
@@ -6375,6 +7889,10 @@
     y_min: 282.75}
   path: rgb/test/27954.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 272.625, x_min: 265.0, y_max: 325.25, y_min: 300.75}
+  - {label: Green, occluded: true, x_max: 769.25, x_min: 762.375, y_max: 303.0, y_min: 281.375}
+  path: rgb/test/27956.png
+- boxes:
   - {label: Green, occluded: false, x_max: 271.75, x_min: 264.375, y_max: 328.125,
     y_min: 304.25}
   - {label: Green, occluded: true, x_max: 771.125, x_min: 763.875, y_max: 304.625,
@@ -6418,6 +7936,12 @@
     y_min: 303.0}
   - {label: Green, occluded: false, x_max: 781.75, x_min: 774.0, y_max: 305.75, y_min: 284.125}
   path: rgb/test/27972.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 255.375, x_min: 246.75, y_max: 328.25,
+    y_min: 303.25}
+  - {label: Green, occluded: false, x_max: 783.125, x_min: 774.875, y_max: 305.125,
+    y_min: 282.875}
+  path: rgb/test/27974.png
 - boxes:
   - {label: Green, occluded: false, x_max: 252.75, x_min: 243.375, y_max: 326.875,
     y_min: 302.0}
@@ -6477,10 +8001,26 @@
     y_min: 266.5}
   path: rgb/test/27996.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 239.625, x_min: 230.875, y_max: 314.25,
+    y_min: 286.875}
+  - {label: Green, occluded: false, x_max: 816.25, x_min: 807.375, y_max: 287.25,
+    y_min: 262.625}
+  path: rgb/test/27998.png
+- boxes:
   - {label: Green, occluded: false, x_max: 239.0, x_min: 230.375, y_max: 313.25, y_min: 285.625}
   - {label: Green, occluded: false, x_max: 819.625, x_min: 810.5, y_max: 283.625,
     y_min: 259.25}
   path: rgb/test/28000.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 239.125, x_min: 229.5, y_max: 312.875,
+    y_min: 285.125}
+  - {label: Green, occluded: false, x_max: 824.25, x_min: 814.5, y_max: 282.25, y_min: 257.5}
+  path: rgb/test/28002.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 239.0, x_min: 230.0, y_max: 312.125, y_min: 284.0}
+  - {label: Green, occluded: false, x_max: 829.125, x_min: 818.875, y_max: 281.5,
+    y_min: 256.375}
+  path: rgb/test/28004.png
 - boxes:
   - {label: Green, occluded: false, x_max: 238.75, x_min: 229.25, y_max: 310.875,
     y_min: 282.625}
@@ -6508,6 +8048,11 @@
   - {label: Green, occluded: false, x_max: 844.0, x_min: 833.625, y_max: 275.875,
     y_min: 249.5}
   path: rgb/test/28014.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 229.125, x_min: 219.25, y_max: 312.125,
+    y_min: 282.375}
+  - {label: Green, occluded: false, x_max: 845.5, x_min: 835.5, y_max: 282.125, y_min: 255.375}
+  path: rgb/test/28016.png
 - boxes:
   - {label: Green, occluded: false, x_max: 225.625, x_min: 215.25, y_max: 316.375,
     y_min: 286.0}
@@ -6576,6 +8121,10 @@
   - {label: Green, occluded: false, x_max: 858.0, x_min: 847.5, y_max: 275.25, y_min: 247.0}
   path: rgb/test/28040.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 192.375, x_min: 182.0, y_max: 301.75, y_min: 271.125}
+  - {label: Green, occluded: false, x_max: 858.5, x_min: 848.375, y_max: 275.25, y_min: 247.125}
+  path: rgb/test/28042.png
+- boxes:
   - {label: Green, occluded: false, x_max: 190.5, x_min: 180.0, y_max: 302.625, y_min: 271.875}
   - {label: Green, occluded: false, x_max: 859.75, x_min: 849.5, y_max: 276.625, y_min: 247.875}
   path: rgb/test/28044.png
@@ -6597,6 +8146,12 @@
     y_min: 257.5}
   path: rgb/test/28050.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 181.25, x_min: 170.625, y_max: 311.25,
+    y_min: 280.875}
+  - {label: Green, occluded: false, x_max: 864.0, x_min: 853.125, y_max: 286.125,
+    y_min: 256.5}
+  path: rgb/test/28052.png
+- boxes:
   - {label: Green, occluded: false, x_max: 179.75, x_min: 169.625, y_max: 308.375,
     y_min: 276.375}
   - {label: Green, occluded: false, x_max: 865.75, x_min: 855.375, y_max: 283.25,
@@ -6607,6 +8162,11 @@
   - {label: Green, occluded: false, x_max: 867.375, x_min: 856.125, y_max: 280.875,
     y_min: 251.125}
   path: rgb/test/28056.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 175.25, x_min: 165.125, y_max: 303.75,
+    y_min: 271.625}
+  - {label: Green, occluded: false, x_max: 868.25, x_min: 857.0, y_max: 279.125, y_min: 249.625}
+  path: rgb/test/28058.png
 - boxes:
   - {label: Green, occluded: false, x_max: 173.5, x_min: 162.75, y_max: 304.5, y_min: 271.75}
   - {label: Green, occluded: false, x_max: 869.375, x_min: 857.25, y_max: 279.5, y_min: 249.375}
@@ -6631,6 +8191,11 @@
   - {label: Green, occluded: false, x_max: 874.0, x_min: 862.125, y_max: 283.125,
     y_min: 252.25}
   path: rgb/test/28068.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 162.25, x_min: 151.125, y_max: 310.0, y_min: 277.625}
+  - {label: Green, occluded: false, x_max: 875.625, x_min: 863.875, y_max: 283.125,
+    y_min: 252.25}
+  path: rgb/test/28070.png
 - boxes:
   - {label: Green, occluded: false, x_max: 160.125, x_min: 148.125, y_max: 309.0,
     y_min: 276.25}
@@ -6675,6 +8240,17 @@
   - {label: Red, occluded: true, x_max: 516.75, x_min: 512.375, y_max: 356.0, y_min: 343.125}
   path: rgb/test/28086.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 138.5, x_min: 127.75, y_max: 309.25, y_min: 275.0}
+  - {label: Green, occluded: false, x_max: 886.375, x_min: 874.125, y_max: 281.0,
+    y_min: 248.375}
+  - {label: Red, occluded: true, x_max: 516.0, x_min: 511.75, y_max: 359.0, y_min: 346.5}
+  path: rgb/test/28088.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 135.25, x_min: 124.375, y_max: 311.0, y_min: 276.75}
+  - {label: Green, occluded: false, x_max: 886.875, x_min: 875.0, y_max: 280.0, y_min: 247.375}
+  - {label: Red, occluded: true, x_max: 515.875, x_min: 511.875, y_max: 359.5, y_min: 347.125}
+  path: rgb/test/28090.png
+- boxes:
   - {label: Green, occluded: false, x_max: 131.375, x_min: 120.375, y_max: 309.625,
     y_min: 273.625}
   - {label: Green, occluded: false, x_max: 888.5, x_min: 875.25, y_max: 275.0, y_min: 241.5}
@@ -6707,6 +8283,11 @@
   - {label: Red, occluded: true, x_max: 513.875, x_min: 509.125, y_max: 341.5, y_min: 329.375}
   path: rgb/test/28100.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 113.5, x_min: 101.875, y_max: 291.5, y_min: 257.25}
+  - {label: Green, occluded: false, x_max: 896.5, x_min: 883.375, y_max: 259.5, y_min: 225.125}
+  - {label: Red, occluded: true, x_max: 513.375, x_min: 509.125, y_max: 343.0, y_min: 331.5}
+  path: rgb/test/28102.png
+- boxes:
   - {label: Green, occluded: false, x_max: 110.0, x_min: 97.375, y_max: 293.25, y_min: 257.125}
   - {label: Green, occluded: false, x_max: 898.5, x_min: 884.875, y_max: 260.0, y_min: 225.875}
   - {label: Red, occluded: true, x_max: 512.75, x_min: 507.875, y_max: 344.5, y_min: 332.75}
@@ -6716,6 +8297,13 @@
   - {label: Green, occluded: false, x_max: 900.0, x_min: 886.125, y_max: 258.25, y_min: 222.875}
   - {label: Red, occluded: true, x_max: 512.5, x_min: 507.125, y_max: 341.75, y_min: 331.125}
   path: rgb/test/28106.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 101.125, x_min: 87.625, y_max: 288.375,
+    y_min: 251.125}
+  - {label: Green, occluded: false, x_max: 901.75, x_min: 887.625, y_max: 254.375,
+    y_min: 218.625}
+  - {label: Red, occluded: true, x_max: 511.875, x_min: 507.125, y_max: 340.25, y_min: 328.25}
+  path: rgb/test/28108.png
 - boxes:
   - {label: Green, occluded: false, x_max: 96.375, x_min: 83.375, y_max: 285.75, y_min: 248.5}
   - {label: Green, occluded: false, x_max: 902.875, x_min: 889.25, y_max: 249.875,
@@ -6833,6 +8421,11 @@
   - {label: Red, occluded: false, x_max: 515.625, x_min: 510.75, y_max: 357.0, y_min: 345.125}
   path: rgb/test/28152.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 996.625, x_min: 976.375, y_max: 238.25,
+    y_min: 192.375}
+  - {label: Red, occluded: false, x_max: 517.125, x_min: 512.5, y_max: 358.625, y_min: 346.0}
+  path: rgb/test/28154.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1004.5, x_min: 984.0, y_max: 235.375, y_min: 189.375}
   - {label: Red, occluded: false, x_max: 519.5, x_min: 513.875, y_max: 359.125, y_min: 346.375}
   path: rgb/test/28156.png
@@ -6841,6 +8434,11 @@
     y_min: 186.0}
   - {label: Red, occluded: false, x_max: 522.375, x_min: 516.75, y_max: 358.875, y_min: 344.75}
   path: rgb/test/28158.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1022.25, x_min: 1000.5, y_max: 230.125,
+    y_min: 182.375}
+  - {label: Red, occluded: false, x_max: 523.0, x_min: 518.75, y_max: 354.625, y_min: 340.75}
+  path: rgb/test/28160.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1031.125, x_min: 1010.0, y_max: 225.375,
     y_min: 177.375}
@@ -6867,6 +8465,11 @@
   - {label: Red, occluded: false, x_max: 533.75, x_min: 529.5, y_max: 347.75, y_min: 336.125}
   path: rgb/test/28170.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1079.625, x_min: 1059.625, y_max: 209.125,
+    y_min: 158.625}
+  - {label: Red, occluded: false, x_max: 536.625, x_min: 531.25, y_max: 347.5, y_min: 334.875}
+  path: rgb/test/28172.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1092.875, x_min: 1068.875, y_max: 210.875,
     y_min: 155.75}
   - {label: Red, occluded: false, x_max: 539.25, x_min: 534.5, y_max: 348.625, y_min: 336.125}
@@ -6880,6 +8483,16 @@
     y_min: 150.875}
   - {label: Red, occluded: false, x_max: 544.75, x_min: 540.0, y_max: 349.5, y_min: 337.25}
   path: rgb/test/28178.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1128.625, x_min: 1103.125, y_max: 202.0,
+    y_min: 145.125}
+  - {label: Red, occluded: false, x_max: 547.5, x_min: 542.875, y_max: 349.25, y_min: 335.625}
+  path: rgb/test/28180.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1139.75, x_min: 1114.75, y_max: 196.875,
+    y_min: 139.0}
+  - {label: Red, occluded: false, x_max: 550.25, x_min: 545.375, y_max: 348.875, y_min: 336.125}
+  path: rgb/test/28182.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1151.75, x_min: 1127.75, y_max: 194.25,
     y_min: 135.25}
@@ -6931,6 +8544,9 @@
   - {label: Red, occluded: false, x_max: 581.25, x_min: 577.5, y_max: 349.75, y_min: 336.125}
   path: rgb/test/28204.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 585.25, x_min: 581.0, y_max: 350.125, y_min: 337.0}
+  path: rgb/test/28206.png
+- boxes:
   - {label: Red, occluded: false, x_max: 589.125, x_min: 584.625, y_max: 354.75, y_min: 341.125}
   path: rgb/test/28208.png
 - boxes:
@@ -6939,6 +8555,17 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 594.5, x_min: 590.625, y_max: 353.5, y_min: 340.75}
   path: rgb/test/28212.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 597.375, x_min: 593.5, y_max: 348.625, y_min: 336.0}
+  path: rgb/test/28214.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 601.25, x_min: 596.625, y_max: 343.875, y_min: 331.125}
+  - {label: Red, occluded: true, x_max: 872.25, x_min: 866.375, y_max: 336.125, y_min: 324.125}
+  path: rgb/test/28216.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 604.25, x_min: 599.25, y_max: 341.875, y_min: 328.5}
+  - {label: Red, occluded: true, x_max: 876.125, x_min: 870.875, y_max: 335.5, y_min: 323.125}
+  path: rgb/test/28218.png
 - boxes:
   - {label: Red, occluded: false, x_max: 607.125, x_min: 602.875, y_max: 338.5, y_min: 326.625}
   - {label: Red, occluded: true, x_max: 878.5, x_min: 875.5, y_max: 332.375, y_min: 322.125}
@@ -6956,6 +8583,10 @@
   - {label: Red, occluded: true, x_max: 889.625, x_min: 885.125, y_max: 331.5, y_min: 322.0}
   path: rgb/test/28226.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 614.875, x_min: 609.75, y_max: 343.75, y_min: 329.625}
+  - {label: Red, occluded: true, x_max: 892.0, x_min: 886.875, y_max: 333.75, y_min: 322.375}
+  path: rgb/test/28228.png
+- boxes:
   - {label: Red, occluded: false, x_max: 615.5, x_min: 610.375, y_max: 342.5, y_min: 328.25}
   - {label: Red, occluded: true, x_max: 893.625, x_min: 888.75, y_max: 332.25, y_min: 321.625}
   path: rgb/test/28230.png
@@ -6963,6 +8594,11 @@
   - {label: Red, occluded: false, x_max: 616.0, x_min: 611.5, y_max: 342.125, y_min: 327.75}
   - {label: Red, occluded: true, x_max: 896.0, x_min: 890.875, y_max: 333.0, y_min: 321.625}
   path: rgb/test/28232.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 617.375, x_min: 612.125, y_max: 342.125,
+    y_min: 327.75}
+  - {label: Red, occluded: true, x_max: 897.875, x_min: 892.625, y_max: 334.0, y_min: 321.75}
+  path: rgb/test/28234.png
 - boxes:
   - {label: Red, occluded: false, x_max: 617.5, x_min: 612.5, y_max: 344.625, y_min: 330.25}
   - {label: Red, occluded: true, x_max: 899.375, x_min: 894.375, y_max: 335.0, y_min: 323.875}
@@ -6978,6 +8614,12 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 617.125, x_min: 612.125, y_max: 346.75, y_min: 332.5}
   path: rgb/test/28242.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 617.625, x_min: 612.25, y_max: 346.5, y_min: 331.75}
+  path: rgb/test/28244.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 617.0, x_min: 611.375, y_max: 343.5, y_min: 328.5}
+  path: rgb/test/28246.png
 - boxes:
   - {label: Red, occluded: false, x_max: 615.0, x_min: 610.125, y_max: 341.5, y_min: 327.125}
   path: rgb/test/28248.png
@@ -6999,11 +8641,18 @@
   - {label: Red, occluded: false, x_max: 600.875, x_min: 595.375, y_max: 336.25, y_min: 322.25}
   path: rgb/test/28258.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 597.375, x_min: 591.625, y_max: 338.625,
+    y_min: 324.625}
+  path: rgb/test/28260.png
+- boxes:
   - {label: Red, occluded: false, x_max: 592.875, x_min: 587.0, y_max: 340.875, y_min: 326.125}
   path: rgb/test/28262.png
 - boxes:
   - {label: Red, occluded: false, x_max: 588.875, x_min: 582.875, y_max: 340.25, y_min: 325.625}
   path: rgb/test/28264.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 585.875, x_min: 579.75, y_max: 337.375, y_min: 322.75}
+  path: rgb/test/28266.png
 - boxes:
   - {label: Red, occluded: false, x_max: 580.875, x_min: 575.375, y_max: 334.875,
     y_min: 320.375}
@@ -7020,6 +8669,10 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 562.75, x_min: 557.25, y_max: 329.375, y_min: 314.25}
   path: rgb/test/28276.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 559.625, x_min: 555.125, y_max: 330.125,
+    y_min: 315.125}
+  path: rgb/test/28278.png
 - boxes:
   - {label: Red, occluded: false, x_max: 558.375, x_min: 550.875, y_max: 332.875,
     y_min: 317.75}
@@ -7064,6 +8717,10 @@
   - {label: 'off', occluded: true, x_max: 845.75, x_min: 841.25, y_max: 333.375, y_min: 318.375}
   path: rgb/test/28302.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 518.25, x_min: 510.625, y_max: 335.625, y_min: 319.625}
+  - {label: Red, occluded: true, x_max: 844.25, x_min: 839.0, y_max: 332.5, y_min: 316.125}
+  path: rgb/test/28304.png
+- boxes:
   - {label: Red, occluded: false, x_max: 514.5, x_min: 507.625, y_max: 331.25, y_min: 314.375}
   - {label: Red, occluded: true, x_max: 842.375, x_min: 836.5, y_max: 329.0, y_min: 311.375}
   path: rgb/test/28306.png
@@ -7106,6 +8763,10 @@
   - {label: Red, occluded: true, x_max: 838.125, x_min: 832.125, y_max: 321.125, y_min: 304.75}
   path: rgb/test/28324.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 493.0, x_min: 485.5, y_max: 327.625, y_min: 309.625}
+  - {label: Red, occluded: true, x_max: 836.75, x_min: 832.125, y_max: 319.125, y_min: 305.125}
+  path: rgb/test/28326.png
+- boxes:
   - {label: Red, occluded: false, x_max: 490.75, x_min: 483.5, y_max: 329.875, y_min: 311.125}
   - {label: Red, occluded: true, x_max: 836.5, x_min: 832.125, y_max: 320.5, y_min: 306.75}
   path: rgb/test/28328.png
@@ -7113,6 +8774,10 @@
   - {label: Red, occluded: false, x_max: 488.625, x_min: 482.5, y_max: 330.25, y_min: 313.625}
   - {label: Red, occluded: true, x_max: 836.875, x_min: 832.0, y_max: 321.875, y_min: 308.125}
   path: rgb/test/28330.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 487.75, x_min: 480.875, y_max: 333.25, y_min: 315.5}
+  - {label: Red, occluded: true, x_max: 838.375, x_min: 832.25, y_max: 325.75, y_min: 309.875}
+  path: rgb/test/28332.png
 - boxes:
   - {label: Red, occluded: false, x_max: 485.375, x_min: 478.75, y_max: 334.75, y_min: 317.0}
   - {label: Red, occluded: true, x_max: 838.0, x_min: 832.0, y_max: 328.75, y_min: 312.0}
@@ -7154,6 +8819,11 @@
   - {label: Red, occluded: false, x_max: 470.5, x_min: 463.125, y_max: 331.0, y_min: 311.875}
   path: rgb/test/28352.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 838.625, x_min: 833.375, y_max: 325.375,
+    y_min: 310.5}
+  - {label: Red, occluded: false, x_max: 470.0, x_min: 461.875, y_max: 333.25, y_min: 314.375}
+  path: rgb/test/28354.png
+- boxes:
   - {label: Red, occluded: false, x_max: 840.0, x_min: 834.25, y_max: 327.25, y_min: 311.625}
   - {label: Red, occluded: false, x_max: 468.5, x_min: 461.25, y_max: 335.375, y_min: 315.625}
   path: rgb/test/28356.png
@@ -7166,6 +8836,10 @@
   - {label: Red, occluded: false, x_max: 466.375, x_min: 458.875, y_max: 334.5, y_min: 316.5}
   path: rgb/test/28360.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 843.125, x_min: 837.5, y_max: 329.125, y_min: 312.125}
+  - {label: Red, occluded: false, x_max: 465.375, x_min: 458.0, y_max: 334.25, y_min: 316.0}
+  path: rgb/test/28362.png
+- boxes:
   - {label: Red, occluded: false, x_max: 844.125, x_min: 838.875, y_max: 325.75, y_min: 311.0}
   - {label: Red, occluded: false, x_max: 465.25, x_min: 457.375, y_max: 333.0, y_min: 314.5}
   path: rgb/test/28364.png
@@ -7175,10 +8849,18 @@
     y_min: 313.375}
   path: rgb/test/28366.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 847.375, x_min: 842.5, y_max: 325.75, y_min: 309.5}
+  - {label: Red, occluded: false, x_max: 464.25, x_min: 457.0, y_max: 332.75, y_min: 312.875}
+  path: rgb/test/28368.png
+- boxes:
   - {label: Red, occluded: false, x_max: 849.625, x_min: 843.875, y_max: 325.25, y_min: 309.0}
   - {label: Red, occluded: false, x_max: 463.875, x_min: 457.125, y_max: 332.125,
     y_min: 312.75}
   path: rgb/test/28370.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 851.0, x_min: 845.125, y_max: 324.625, y_min: 309.25}
+  - {label: Red, occluded: false, x_max: 464.0, x_min: 455.75, y_max: 332.125, y_min: 312.625}
+  path: rgb/test/28372.png
 - boxes:
   - {label: Red, occluded: false, x_max: 853.625, x_min: 847.0, y_max: 326.75, y_min: 310.5}
   - {label: Red, occluded: false, x_max: 463.5, x_min: 455.625, y_max: 332.625, y_min: 313.75}
@@ -7206,6 +8888,10 @@
     y_min: 310.75}
   path: rgb/test/28384.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 863.25, x_min: 857.0, y_max: 324.375, y_min: 306.5}
+  - {label: Red, occluded: false, x_max: 461.125, x_min: 453.125, y_max: 331.5, y_min: 310.5}
+  path: rgb/test/28386.png
+- boxes:
   - {label: Red, occluded: false, x_max: 865.0, x_min: 858.5, y_max: 325.25, y_min: 306.875}
   - {label: Red, occluded: false, x_max: 460.25, x_min: 452.5, y_max: 332.25, y_min: 310.125}
   path: rgb/test/28388.png
@@ -7218,9 +8904,24 @@
   - {label: Red, occluded: false, x_max: 458.25, x_min: 450.125, y_max: 331.625, y_min: 310.125}
   path: rgb/test/28392.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 869.25, x_min: 862.125, y_max: 322.5, y_min: 306.125}
+  - {label: Red, occluded: false, x_max: 457.625, x_min: 449.125, y_max: 331.875,
+    y_min: 309.25}
+  path: rgb/test/28394.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 869.375, x_min: 863.125, y_max: 324.375,
+    y_min: 307.0}
+  - {label: Red, occluded: false, x_max: 456.125, x_min: 446.875, y_max: 331.625,
+    y_min: 308.75}
+  path: rgb/test/28396.png
+- boxes:
   - {label: Red, occluded: false, x_max: 870.375, x_min: 863.875, y_max: 322.75, y_min: 305.5}
   - {label: Red, occluded: false, x_max: 454.25, x_min: 446.125, y_max: 330.5, y_min: 309.125}
   path: rgb/test/28398.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 870.875, x_min: 864.5, y_max: 321.0, y_min: 303.75}
+  - {label: Red, occluded: false, x_max: 453.375, x_min: 444.5, y_max: 328.875, y_min: 308.0}
+  path: rgb/test/28400.png
 - boxes:
   - {label: Red, occluded: false, x_max: 871.625, x_min: 865.375, y_max: 320.375,
     y_min: 302.25}
@@ -7237,6 +8938,11 @@
   - {label: Green, occluded: false, x_max: 448.375, x_min: 440.75, y_max: 326.75,
     y_min: 305.75}
   path: rgb/test/28406.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 873.625, x_min: 867.75, y_max: 319.0, y_min: 300.875}
+  - {label: Green, occluded: false, x_max: 445.25, x_min: 438.375, y_max: 323.625,
+    y_min: 305.5}
+  path: rgb/test/28408.png
 - boxes:
   - {label: Green, occluded: false, x_max: 874.25, x_min: 868.0, y_max: 317.875, y_min: 300.375}
   - {label: Green, occluded: false, x_max: 443.625, x_min: 436.625, y_max: 322.125,
@@ -7257,6 +8963,16 @@
   - {label: Green, occluded: false, x_max: 436.75, x_min: 430.5, y_max: 319.75, y_min: 304.25}
   path: rgb/test/28416.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 876.25, x_min: 870.25, y_max: 318.0, y_min: 299.625}
+  - {label: Green, occluded: false, x_max: 434.75, x_min: 428.875, y_max: 322.125,
+    y_min: 306.125}
+  path: rgb/test/28418.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 877.375, x_min: 871.0, y_max: 318.75, y_min: 300.375}
+  - {label: Green, occluded: false, x_max: 432.875, x_min: 426.875, y_max: 324.125,
+    y_min: 307.875}
+  path: rgb/test/28420.png
+- boxes:
   - {label: Green, occluded: false, x_max: 878.0, x_min: 871.875, y_max: 318.625,
     y_min: 300.125}
   - {label: Green, occluded: false, x_max: 431.375, x_min: 424.625, y_max: 324.0,
@@ -7266,6 +8982,11 @@
   - {label: Green, occluded: false, x_max: 878.75, x_min: 872.0, y_max: 318.375, y_min: 300.375}
   - {label: Green, occluded: false, x_max: 429.125, x_min: 422.75, y_max: 323.5, y_min: 309.0}
   path: rgb/test/28424.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 878.5, x_min: 872.875, y_max: 318.375,
+    y_min: 301.0}
+  - {label: Green, occluded: false, x_max: 427.75, x_min: 420.75, y_max: 324.0, y_min: 305.625}
+  path: rgb/test/28426.png
 - boxes:
   - {label: Green, occluded: false, x_max: 880.75, x_min: 874.125, y_max: 318.375,
     y_min: 300.875}
@@ -7283,6 +9004,11 @@
   - {label: Green, occluded: false, x_max: 421.625, x_min: 414.25, y_max: 322.25,
     y_min: 303.875}
   path: rgb/test/28432.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 882.875, x_min: 876.125, y_max: 315.375,
+    y_min: 296.5}
+  - {label: Green, occluded: false, x_max: 419.25, x_min: 412.0, y_max: 320.375, y_min: 302.0}
+  path: rgb/test/28434.png
 - boxes:
   - {label: Green, occluded: false, x_max: 883.375, x_min: 876.875, y_max: 312.375,
     y_min: 294.125}
@@ -7325,10 +9051,20 @@
     y_min: 302.25}
   path: rgb/test/28450.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 892.5, x_min: 884.625, y_max: 319.75, y_min: 301.125}
+  - {label: Green, occluded: false, x_max: 402.125, x_min: 393.375, y_max: 324.625,
+    y_min: 303.0}
+  path: rgb/test/28452.png
+- boxes:
   - {label: Green, occluded: false, x_max: 894.5, x_min: 887.25, y_max: 320.125, y_min: 300.5}
   - {label: Green, occluded: false, x_max: 400.5, x_min: 392.125, y_max: 323.625,
     y_min: 303.5}
   path: rgb/test/28454.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 896.75, x_min: 889.75, y_max: 318.75, y_min: 299.75}
+  - {label: Green, occluded: false, x_max: 398.875, x_min: 390.5, y_max: 323.375,
+    y_min: 301.5}
+  path: rgb/test/28456.png
 - boxes:
   - {label: Green, occluded: true, x_max: 899.875, x_min: 893.0, y_max: 317.0, y_min: 297.25}
   - {label: Green, occluded: false, x_max: 399.125, x_min: 391.5, y_max: 321.25, y_min: 299.875}
@@ -7351,6 +9087,17 @@
     y_min: 295.0}
   path: rgb/test/28464.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 399.625, x_min: 391.375, y_max: 314.625,
+    y_min: 292.625}
+  - {label: Green, occluded: false, x_max: 914.375, x_min: 905.5, y_max: 312.75, y_min: 289.875}
+  path: rgb/test/28466.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 399.875, x_min: 391.375, y_max: 313.125,
+    y_min: 291.875}
+  - {label: Green, occluded: false, x_max: 917.0, x_min: 909.375, y_max: 311.125,
+    y_min: 289.0}
+  path: rgb/test/28468.png
+- boxes:
   - {label: Green, occluded: false, x_max: 398.75, x_min: 391.125, y_max: 313.0, y_min: 291.25}
   - {label: Green, occluded: false, x_max: 920.25, x_min: 912.375, y_max: 311.25,
     y_min: 288.75}
@@ -7369,6 +9116,12 @@
   - {label: Green, occluded: false, x_max: 930.375, x_min: 921.375, y_max: 312.25,
     y_min: 288.75}
   path: rgb/test/28476.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 397.125, x_min: 389.25, y_max: 312.75,
+    y_min: 291.25}
+  - {label: Green, occluded: false, x_max: 932.5, x_min: 924.125, y_max: 310.125,
+    y_min: 287.0}
+  path: rgb/test/28478.png
 - boxes:
   - {label: Green, occluded: false, x_max: 396.5, x_min: 388.875, y_max: 312.25, y_min: 291.25}
   - {label: Green, occluded: false, x_max: 935.875, x_min: 927.875, y_max: 310.25,
@@ -7418,6 +9171,11 @@
     y_min: 284.125}
   path: rgb/test/28496.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 957.0, x_min: 947.375, y_max: 310.0, y_min: 286.25}
+  - {label: Green, occluded: false, x_max: 382.375, x_min: 373.375, y_max: 311.875,
+    y_min: 286.875}
+  path: rgb/test/28498.png
+- boxes:
   - {label: Green, occluded: false, x_max: 954.75, x_min: 946.5, y_max: 310.0, y_min: 285.375}
   - {label: Green, occluded: false, x_max: 377.875, x_min: 368.375, y_max: 311.125,
     y_min: 286.0}
@@ -7434,6 +9192,11 @@
   - {label: Green, occluded: false, x_max: 365.25, x_min: 355.25, y_max: 310.25, y_min: 285.5}
   path: rgb/test/28504.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 948.375, x_min: 939.625, y_max: 308.625,
+    y_min: 284.125}
+  - {label: Green, occluded: false, x_max: 358.5, x_min: 349.5, y_max: 310.375, y_min: 285.375}
+  path: rgb/test/28506.png
+- boxes:
   - {label: Green, occluded: false, x_max: 945.75, x_min: 937.0, y_max: 307.875, y_min: 282.625}
   - {label: Green, occluded: false, x_max: 352.25, x_min: 341.625, y_max: 308.75,
     y_min: 284.875}
@@ -7444,6 +9207,10 @@
   - {label: Green, occluded: false, x_max: 343.75, x_min: 334.125, y_max: 307.75,
     y_min: 283.375}
   path: rgb/test/28510.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 938.75, x_min: 929.0, y_max: 306.5, y_min: 280.5}
+  - {label: Green, occluded: false, x_max: 335.5, x_min: 326.0, y_max: 307.75, y_min: 281.5}
+  path: rgb/test/28512.png
 - boxes:
   - {label: Green, occluded: false, x_max: 933.125, x_min: 924.625, y_max: 305.125,
     y_min: 279.125}
@@ -7470,6 +9237,12 @@
     y_min: 276.25}
   path: rgb/test/28522.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 909.375, x_min: 899.25, y_max: 299.625,
+    y_min: 272.5}
+  - {label: Green, occluded: false, x_max: 280.75, x_min: 270.25, y_max: 302.625,
+    y_min: 274.375}
+  path: rgb/test/28524.png
+- boxes:
   - {label: Green, occluded: false, x_max: 905.5, x_min: 894.5, y_max: 298.375, y_min: 271.75}
   - {label: Green, occluded: false, x_max: 273.125, x_min: 261.5, y_max: 304.125,
     y_min: 274.375}
@@ -7485,6 +9258,11 @@
     y_min: 270.875}
   - {label: Green, occluded: false, x_max: 256.125, x_min: 243.5, y_max: 303.0, y_min: 273.375}
   path: rgb/test/28530.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 892.25, x_min: 880.0, y_max: 299.375, y_min: 269.875}
+  - {label: Green, occluded: false, x_max: 245.125, x_min: 234.625, y_max: 303.625,
+    y_min: 274.5}
+  path: rgb/test/28532.png
 - boxes:
   - {label: Green, occluded: false, x_max: 887.625, x_min: 876.5, y_max: 298.875,
     y_min: 270.125}
@@ -7507,6 +9285,12 @@
     y_min: 277.125}
   path: rgb/test/28540.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 879.625, x_min: 868.25, y_max: 299.875,
+    y_min: 272.0}
+  - {label: Green, occluded: false, x_max: 212.25, x_min: 203.375, y_max: 306.125,
+    y_min: 278.5}
+  path: rgb/test/28542.png
+- boxes:
   - {label: Green, occluded: false, x_max: 878.25, x_min: 867.625, y_max: 299.375,
     y_min: 271.875}
   - {label: Green, occluded: false, x_max: 208.0, x_min: 198.625, y_max: 305.875,
@@ -7527,6 +9311,16 @@
     y_min: 274.875}
   - {label: Green, occluded: false, x_max: 197.25, x_min: 188.375, y_max: 310.5, y_min: 282.5}
   path: rgb/test/28550.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 880.5, x_min: 869.125, y_max: 302.0, y_min: 274.25}
+  - {label: Green, occluded: false, x_max: 193.875, x_min: 185.875, y_max: 308.625,
+    y_min: 281.5}
+  path: rgb/test/28552.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 882.5, x_min: 872.0, y_max: 298.875, y_min: 269.375}
+  - {label: Green, occluded: false, x_max: 193.5, x_min: 183.875, y_max: 303.625,
+    y_min: 275.75}
+  path: rgb/test/28554.png
 - boxes:
   - {label: Green, occluded: false, x_max: 883.625, x_min: 873.75, y_max: 294.75,
     y_min: 264.625}
@@ -7607,6 +9401,18 @@
   - {label: Green, occluded: false, x_max: 164.125, x_min: 153.5, y_max: 297.5, y_min: 267.75}
   path: rgb/test/28586.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 913.0, x_min: 901.625, y_max: 287.625,
+    y_min: 255.875}
+  - {label: Green, occluded: false, x_max: 161.875, x_min: 152.0, y_max: 296.125,
+    y_min: 265.625}
+  path: rgb/test/28588.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 914.25, x_min: 902.375, y_max: 285.625,
+    y_min: 254.125}
+  - {label: Green, occluded: false, x_max: 160.25, x_min: 149.75, y_max: 294.875,
+    y_min: 264.0}
+  path: rgb/test/28590.png
+- boxes:
   - {label: Green, occluded: false, x_max: 916.125, x_min: 904.5, y_max: 286.125,
     y_min: 254.375}
   - {label: Green, occluded: false, x_max: 158.625, x_min: 148.125, y_max: 295.25,
@@ -7632,6 +9438,12 @@
   - {label: Green, occluded: false, x_max: 151.75, x_min: 140.75, y_max: 297.625,
     y_min: 265.75}
   path: rgb/test/28600.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 923.375, x_min: 911.375, y_max: 287.25,
+    y_min: 254.0}
+  - {label: Green, occluded: false, x_max: 149.375, x_min: 138.625, y_max: 295.5,
+    y_min: 264.0}
+  path: rgb/test/28602.png
 - boxes:
   - {label: Green, occluded: false, x_max: 924.875, x_min: 912.625, y_max: 287.75,
     y_min: 253.625}
@@ -7689,6 +9501,12 @@
     y_min: 258.5}
   path: rgb/test/28624.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 932.625, x_min: 920.0, y_max: 278.375,
+    y_min: 244.5}
+  - {label: Green, occluded: false, x_max: 117.875, x_min: 106.375, y_max: 289.75,
+    y_min: 255.875}
+  path: rgb/test/28626.png
+- boxes:
   - {label: Green, occluded: false, x_max: 932.875, x_min: 920.625, y_max: 277.0,
     y_min: 242.375}
   - {label: Green, occluded: false, x_max: 115.75, x_min: 103.875, y_max: 287.5, y_min: 253.25}
@@ -7702,6 +9520,11 @@
   - {label: Green, occluded: false, x_max: 935.75, x_min: 923.125, y_max: 272.5, y_min: 237.75}
   - {label: Green, occluded: false, x_max: 112.0, x_min: 99.625, y_max: 283.0, y_min: 248.0}
   path: rgb/test/28632.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 936.75, x_min: 923.625, y_max: 272.75,
+    y_min: 237.125}
+  - {label: Green, occluded: false, x_max: 109.25, x_min: 97.0, y_max: 284.0, y_min: 248.25}
+  path: rgb/test/28634.png
 - boxes:
   - {label: Green, occluded: false, x_max: 938.5, x_min: 924.625, y_max: 271.875,
     y_min: 235.875}
@@ -7717,6 +9540,10 @@
     y_min: 235.125}
   - {label: Green, occluded: false, x_max: 102.0, x_min: 89.625, y_max: 284.75, y_min: 249.0}
   path: rgb/test/28640.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 941.25, x_min: 928.5, y_max: 271.125, y_min: 236.375}
+  - {label: Green, occluded: false, x_max: 100.5, x_min: 88.0, y_max: 285.125, y_min: 249.5}
+  path: rgb/test/28642.png
 - boxes:
   - {label: Green, occluded: false, x_max: 943.0, x_min: 930.5, y_max: 271.625, y_min: 236.5}
   - {label: Green, occluded: false, x_max: 98.5, x_min: 86.125, y_max: 283.875, y_min: 248.375}
@@ -7756,6 +9583,11 @@
   - {label: Green, occluded: false, x_max: 82.125, x_min: 69.125, y_max: 283.625,
     y_min: 245.25}
   path: rgb/test/28658.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 954.625, x_min: 941.75, y_max: 265.75,
+    y_min: 229.5}
+  - {label: Green, occluded: false, x_max: 79.75, x_min: 66.375, y_max: 281.875, y_min: 244.25}
+  path: rgb/test/28660.png
 - boxes:
   - {label: Green, occluded: false, x_max: 957.0, x_min: 943.75, y_max: 263.75, y_min: 229.0}
   - {label: Green, occluded: false, x_max: 77.0, x_min: 63.875, y_max: 280.875, y_min: 243.375}
@@ -7824,6 +9656,16 @@
   - {label: Green, occluded: false, x_max: 37.625, x_min: 25.0, y_max: 273.375, y_min: 233.5}
   path: rgb/test/28688.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 990.75, x_min: 976.625, y_max: 248.875,
+    y_min: 208.75}
+  - {label: Green, occluded: false, x_max: 34.75, x_min: 20.125, y_max: 270.625, y_min: 231.875}
+  path: rgb/test/28690.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 993.875, x_min: 979.25, y_max: 247.75,
+    y_min: 206.25}
+  - {label: Green, occluded: false, x_max: 29.75, x_min: 16.125, y_max: 268.75, y_min: 230.75}
+  path: rgb/test/28692.png
+- boxes:
   - {label: Green, occluded: false, x_max: 995.75, x_min: 981.5, y_max: 245.5, y_min: 204.375}
   - {label: Green, occluded: false, x_max: 24.125, x_min: 12.0, y_max: 268.625, y_min: 229.375}
   path: rgb/test/28694.png
@@ -7862,6 +9704,10 @@
     y_min: 192.875}
   path: rgb/test/28710.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1025.75, x_min: 1009.125, y_max: 237.25,
+    y_min: 193.625}
+  path: rgb/test/28712.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1028.75, x_min: 1012.25, y_max: 241.0,
     y_min: 195.25}
   path: rgb/test/28714.png
@@ -7882,6 +9728,10 @@
     y_min: 192.875}
   path: rgb/test/28722.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1048.75, x_min: 1031.625, y_max: 240.875,
+    y_min: 194.25}
+  path: rgb/test/28724.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1054.5, x_min: 1036.75, y_max: 242.0, y_min: 194.0}
   path: rgb/test/28726.png
 - boxes:
@@ -7889,9 +9739,21 @@
     y_min: 194.625}
   path: rgb/test/28728.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1064.25, x_min: 1045.5, y_max: 243.75,
+    y_min: 195.5}
+  path: rgb/test/28730.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1068.125, x_min: 1049.625, y_max: 244.875,
+    y_min: 195.875}
+  path: rgb/test/28732.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1073.25, x_min: 1053.75, y_max: 244.0,
     y_min: 195.125}
   path: rgb/test/28734.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1078.25, x_min: 1057.625, y_max: 243.0,
+    y_min: 194.5}
+  path: rgb/test/28736.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1082.75, x_min: 1063.25, y_max: 243.125,
     y_min: 193.375}
@@ -7905,9 +9767,17 @@
     y_min: 193.375}
   path: rgb/test/28742.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1099.25, x_min: 1079.125, y_max: 241.0,
+    y_min: 189.375}
+  path: rgb/test/28744.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1105.625, x_min: 1085.625, y_max: 235.875,
     y_min: 183.875}
   path: rgb/test/28746.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1112.0, x_min: 1090.625, y_max: 230.25,
+    y_min: 176.875}
+  path: rgb/test/28748.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1119.5, x_min: 1097.25, y_max: 224.5, y_min: 170.5}
   path: rgb/test/28750.png
@@ -7928,17 +9798,33 @@
     y_min: 147.875}
   path: rgb/test/28758.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1158.25, x_min: 1134.375, y_max: 202.375,
+    y_min: 141.875}
+  path: rgb/test/28760.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1166.375, x_min: 1143.875, y_max: 198.25,
     y_min: 137.875}
   path: rgb/test/28762.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1176.875, x_min: 1152.625, y_max: 194.875,
+    y_min: 134.75}
+  path: rgb/test/28764.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1187.0, x_min: 1161.75, y_max: 195.25,
     y_min: 133.5}
   path: rgb/test/28766.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1197.375, x_min: 1172.875, y_max: 194.25,
+    y_min: 133.25}
+  path: rgb/test/28768.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1207.25, x_min: 1181.625, y_max: 193.0,
     y_min: 129.625}
   path: rgb/test/28770.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1218.75, x_min: 1193.75, y_max: 187.0,
+    y_min: 123.0}
+  path: rgb/test/28772.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1231.875, x_min: 1205.5, y_max: 178.0,
     y_min: 115.125}
@@ -7956,6 +9842,14 @@
   - {label: Green, occluded: false, x_max: 1274.0, x_min: 1248.375, y_max: 166.75,
     y_min: 96.75}
   path: rgb/test/28780.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 409.375, x_min: 404.75, y_max: 343.375, y_min: 332.125}
+  - {label: Green, occluded: false, x_max: 1278.875, x_min: 1262.125, y_max: 170.25,
+    y_min: 95.875}
+  path: rgb/test/28782.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 409.25, x_min: 405.375, y_max: 347.75, y_min: 334.875}
+  path: rgb/test/28784.png
 - boxes:
   - {label: Red, occluded: false, x_max: 409.75, x_min: 405.75, y_max: 349.625, y_min: 336.875}
   path: rgb/test/28786.png
@@ -7979,8 +9873,14 @@
   - {label: Red, occluded: false, x_max: 410.375, x_min: 406.25, y_max: 354.375, y_min: 340.25}
   path: rgb/test/28798.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 411.0, x_min: 406.125, y_max: 347.625, y_min: 335.375}
+  path: rgb/test/28800.png
+- boxes:
   - {label: Red, occluded: false, x_max: 410.5, x_min: 406.125, y_max: 345.375, y_min: 331.75}
   path: rgb/test/28802.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 411.25, x_min: 406.125, y_max: 343.25, y_min: 329.5}
+  path: rgb/test/28804.png
 - boxes:
   - {label: Red, occluded: false, x_max: 411.75, x_min: 406.0, y_max: 343.5, y_min: 327.625}
   path: rgb/test/28806.png
@@ -8007,6 +9907,9 @@
   - {label: Red, occluded: false, x_max: 407.875, x_min: 403.0, y_max: 334.75, y_min: 319.375}
   path: rgb/test/28820.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 406.375, x_min: 401.25, y_max: 328.75, y_min: 314.125}
+  path: rgb/test/28822.png
+- boxes:
   - {label: Red, occluded: false, x_max: 405.5, x_min: 400.125, y_max: 325.125, y_min: 309.75}
   path: rgb/test/28824.png
 - boxes:
@@ -8018,6 +9921,9 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 403.0, x_min: 397.375, y_max: 315.125, y_min: 298.75}
   path: rgb/test/28830.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 402.25, x_min: 396.0, y_max: 314.5, y_min: 297.125}
+  path: rgb/test/28832.png
 - boxes:
   - {label: Red, occluded: false, x_max: 400.875, x_min: 394.625, y_max: 318.75, y_min: 301.5}
   path: rgb/test/28834.png
@@ -8054,6 +9960,14 @@
     y_min: 322.375}
   path: rgb/test/28854.png
 - boxes:
+  - {label: 'off', occluded: true, x_max: 385.75, x_min: 379.625, y_max: 339.75, y_min: 321.5}
+  path: rgb/test/28856.png
+- boxes:
+  - {label: 'off', occluded: true, x_max: 691.625, x_min: 687.75, y_max: 318.625,
+    y_min: 308.875}
+  - {label: 'off', occluded: true, x_max: 383.5, x_min: 377.875, y_max: 339.75, y_min: 319.125}
+  path: rgb/test/28858.png
+- boxes:
   - {label: Red, occluded: true, x_max: 497.625, x_min: 492.75, y_max: 347.5, y_min: 338.75}
   - {label: 'off', occluded: true, x_max: 693.125, x_min: 688.625, y_max: 318.0, y_min: 307.5}
   - {label: Red, occluded: true, x_max: 383.25, x_min: 376.25, y_max: 337.0, y_min: 318.875}
@@ -8089,6 +10003,16 @@
   - {label: Red, occluded: true, x_max: 375.0, x_min: 368.0, y_max: 337.375, y_min: 319.125}
   path: rgb/test/28872.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 495.875, x_min: 491.5, y_max: 348.25, y_min: 338.5}
+  - {label: Red, occluded: true, x_max: 695.125, x_min: 689.75, y_max: 314.25, y_min: 300.375}
+  - {label: Red, occluded: true, x_max: 373.875, x_min: 367.125, y_max: 337.5, y_min: 319.125}
+  path: rgb/test/28874.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 496.125, x_min: 492.0, y_max: 347.375, y_min: 337.625}
+  - {label: Red, occluded: true, x_max: 695.75, x_min: 690.375, y_max: 310.0, y_min: 299.125}
+  - {label: Red, occluded: true, x_max: 372.625, x_min: 365.875, y_max: 337.25, y_min: 318.375}
+  path: rgb/test/28876.png
+- boxes:
   - {label: Red, occluded: true, x_max: 496.375, x_min: 491.875, y_max: 346.25, y_min: 336.5}
   - {label: Red, occluded: true, x_max: 696.875, x_min: 691.75, y_max: 308.125, y_min: 297.25}
   - {label: Red, occluded: true, x_max: 372.125, x_min: 366.25, y_max: 333.875, y_min: 317.625}
@@ -8118,6 +10042,14 @@
   - {label: Red, occluded: true, x_max: 703.875, x_min: 699.25, y_max: 294.625, y_min: 283.0}
   - {label: Red, occluded: true, x_max: 370.25, x_min: 364.125, y_max: 323.125, y_min: 304.875}
   path: rgb/test/28888.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 501.25, x_min: 496.25, y_max: 333.5, y_min: 323.125}
+  - {label: Red, occluded: true, x_max: 705.75, x_min: 700.625, y_max: 294.5, y_min: 282.75}
+  path: rgb/test/28890.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 501.75, x_min: 496.875, y_max: 336.125, y_min: 326.0}
+  - {label: Red, occluded: true, x_max: 707.125, x_min: 701.875, y_max: 298.625, y_min: 284.875}
+  path: rgb/test/28892.png
 - boxes:
   - {label: Red, occluded: true, x_max: 501.25, x_min: 497.5, y_max: 339.875, y_min: 330.75}
   - {label: Red, occluded: true, x_max: 708.625, x_min: 703.25, y_max: 303.875, y_min: 288.875}
@@ -8179,6 +10111,11 @@
   - {label: Red, occluded: true, x_max: 725.5, x_min: 719.5, y_max: 345.75, y_min: 330.875}
   path: rgb/test/28922.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 505.875, x_min: 500.875, y_max: 377.125, y_min: 365.875}
+  - {label: Red, occluded: true, x_max: 727.25, x_min: 721.5, y_max: 340.375, y_min: 324.75}
+  - {label: Red, occluded: true, x_max: 353.5, x_min: 346.875, y_max: 361.375, y_min: 342.625}
+  path: rgb/test/28924.png
+- boxes:
   - {label: Red, occluded: true, x_max: 506.875, x_min: 502.5, y_max: 367.625, y_min: 357.25}
   - {label: Red, occluded: true, x_max: 729.625, x_min: 723.75, y_max: 329.875, y_min: 315.0}
   - {label: Red, occluded: true, x_max: 352.75, x_min: 346.125, y_max: 353.125, y_min: 334.75}
@@ -8229,6 +10166,11 @@
   - {label: Red, occluded: true, x_max: 337.125, x_min: 328.0, y_max: 343.5, y_min: 316.5}
   path: rgb/test/28944.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 505.625, x_min: 501.5, y_max: 359.25, y_min: 348.75}
+  - {label: Red, occluded: true, x_max: 738.0, x_min: 732.25, y_max: 317.125, y_min: 300.75}
+  - {label: Red, occluded: true, x_max: 335.75, x_min: 326.625, y_max: 346.875, y_min: 321.25}
+  path: rgb/test/28946.png
+- boxes:
   - {label: Red, occluded: true, x_max: 505.125, x_min: 501.625, y_max: 360.375, y_min: 350.25}
   - {label: Red, occluded: true, x_max: 739.625, x_min: 732.5, y_max: 316.75, y_min: 300.625}
   - {label: Red, occluded: true, x_max: 334.25, x_min: 323.875, y_max: 348.75, y_min: 321.625}
@@ -8244,6 +10186,11 @@
   - {label: Red, occluded: true, x_max: 328.625, x_min: 320.0, y_max: 338.875, y_min: 318.125}
   path: rgb/test/28952.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 505.25, x_min: 501.25, y_max: 356.125, y_min: 345.875}
+  - {label: Red, occluded: true, x_max: 741.75, x_min: 735.125, y_max: 312.0, y_min: 295.25}
+  - {label: Red, occluded: false, x_max: 328.0, x_min: 318.0, y_max: 339.0, y_min: 316.875}
+  path: rgb/test/28954.png
+- boxes:
   - {label: Red, occluded: true, x_max: 504.125, x_min: 500.375, y_max: 354.375, y_min: 344.75}
   - {label: Red, occluded: true, x_max: 742.25, x_min: 736.25, y_max: 311.125, y_min: 294.375}
   - {label: Red, occluded: false, x_max: 325.75, x_min: 315.625, y_max: 338.125, y_min: 316.875}
@@ -8253,6 +10200,11 @@
   - {label: Red, occluded: true, x_max: 742.625, x_min: 736.625, y_max: 308.125, y_min: 291.25}
   - {label: Red, occluded: false, x_max: 324.0, x_min: 313.875, y_max: 336.625, y_min: 313.625}
   path: rgb/test/28958.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 503.5, x_min: 499.625, y_max: 349.0, y_min: 341.0}
+  - {label: Red, occluded: true, x_max: 743.25, x_min: 737.25, y_max: 305.25, y_min: 288.25}
+  - {label: Red, occluded: false, x_max: 321.5, x_min: 310.75, y_max: 334.375, y_min: 310.5}
+  path: rgb/test/28960.png
 - boxes:
   - {label: Red, occluded: true, x_max: 503.125, x_min: 499.125, y_max: 346.75, y_min: 337.5}
   - {label: Red, occluded: true, x_max: 744.5, x_min: 738.25, y_max: 301.625, y_min: 285.375}
@@ -8269,10 +10221,25 @@
   - {label: Red, occluded: false, x_max: 315.5, x_min: 305.125, y_max: 324.25, y_min: 303.5}
   path: rgb/test/28966.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 749.25, x_min: 741.375, y_max: 299.125, y_min: 280.5}
+  - {label: Red, occluded: false, x_max: 314.0, x_min: 303.875, y_max: 327.375, y_min: 306.5}
+  - {label: Red, occluded: true, x_max: 503.625, x_min: 499.5, y_max: 342.625, y_min: 334.375}
+  path: rgb/test/28968.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 750.75, x_min: 744.0, y_max: 299.375, y_min: 280.625}
+  - {label: Red, occluded: false, x_max: 311.875, x_min: 302.875, y_max: 327.5, y_min: 306.5}
+  - {label: Red, occluded: true, x_max: 504.25, x_min: 499.875, y_max: 344.5, y_min: 336.875}
+  path: rgb/test/28970.png
+- boxes:
   - {label: Red, occluded: false, x_max: 752.5, x_min: 744.625, y_max: 300.25, y_min: 281.625}
   - {label: Red, occluded: false, x_max: 309.75, x_min: 299.875, y_max: 330.25, y_min: 308.0}
   - {label: Red, occluded: true, x_max: 504.125, x_min: 500.25, y_max: 345.5, y_min: 337.25}
   path: rgb/test/28972.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 753.625, x_min: 745.25, y_max: 301.75, y_min: 282.125}
+  - {label: Red, occluded: false, x_max: 307.625, x_min: 298.0, y_max: 330.625, y_min: 308.25}
+  - {label: Red, occluded: true, x_max: 503.625, x_min: 500.375, y_max: 346.875, y_min: 338.875}
+  path: rgb/test/28974.png
 - boxes:
   - {label: Red, occluded: false, x_max: 755.0, x_min: 746.75, y_max: 303.125, y_min: 282.375}
   - {label: Red, occluded: false, x_max: 305.5, x_min: 296.0, y_max: 330.25, y_min: 308.25}
@@ -8299,6 +10266,12 @@
     y_min: 312.875}
   - {label: Red, occluded: true, x_max: 503.0, x_min: 499.875, y_max: 353.625, y_min: 345.25}
   path: rgb/test/28984.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 294.125, x_min: 283.875, y_max: 336.625,
+    y_min: 313.375}
+  - {label: Red, occluded: true, x_max: 503.375, x_min: 499.5, y_max: 354.0, y_min: 345.375}
+  - {label: Red, occluded: false, x_max: 759.75, x_min: 751.25, y_max: 306.625, y_min: 286.375}
+  path: rgb/test/28986.png
 - boxes:
   - {label: Red, occluded: false, x_max: 292.5, x_min: 281.5, y_max: 338.0, y_min: 313.75}
   - {label: Red, occluded: false, x_max: 760.0, x_min: 751.375, y_max: 307.0, y_min: 286.375}
@@ -8346,6 +10319,11 @@
   - {label: Red, occluded: true, x_max: 273.625, x_min: 265.375, y_max: 331.875, y_min: 305.875}
   path: rgb/test/29004.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 770.0, x_min: 762.0, y_max: 295.5, y_min: 275.125}
+  - {label: 'off', occluded: true, x_max: 502.625, x_min: 499.125, y_max: 347.0, y_min: 339.75}
+  - {label: Red, occluded: true, x_max: 271.625, x_min: 262.875, y_max: 332.5, y_min: 306.125}
+  path: rgb/test/29006.png
+- boxes:
   - {label: Red, occluded: false, x_max: 771.125, x_min: 762.625, y_max: 296.75, y_min: 275.125}
   - {label: 'off', occluded: true, x_max: 503.0, x_min: 500.125, y_max: 348.125, y_min: 340.5}
   - {label: Red, occluded: true, x_max: 269.625, x_min: 261.625, y_max: 333.75, y_min: 306.75}
@@ -8356,6 +10334,18 @@
   - {label: 'off', occluded: true, x_max: 503.5, x_min: 500.0, y_max: 350.625, y_min: 342.0}
   - {label: Red, occluded: true, x_max: 268.375, x_min: 258.625, y_max: 335.625, y_min: 308.5}
   path: rgb/test/29010.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 773.625, x_min: 765.625, y_max: 298.875,
+    y_min: 277.875}
+  - {label: 'off', occluded: true, x_max: 503.625, x_min: 500.125, y_max: 350.375,
+    y_min: 343.125}
+  - {label: Red, occluded: true, x_max: 266.875, x_min: 256.75, y_max: 336.125, y_min: 309.625}
+  path: rgb/test/29012.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 774.625, x_min: 766.5, y_max: 299.125, y_min: 277.125}
+  - {label: 'off', occluded: true, x_max: 503.5, x_min: 500.5, y_max: 351.75, y_min: 344.0}
+  - {label: Red, occluded: true, x_max: 264.875, x_min: 255.375, y_max: 338.5, y_min: 311.125}
+  path: rgb/test/29014.png
 - boxes:
   - {label: Red, occluded: false, x_max: 776.75, x_min: 768.75, y_max: 299.0, y_min: 277.125}
   - {label: 'off', occluded: true, x_max: 504.125, x_min: 500.625, y_max: 351.5, y_min: 344.0}
@@ -8392,6 +10382,12 @@
   - {label: Red, occluded: true, x_max: 254.125, x_min: 245.125, y_max: 330.375, y_min: 306.75}
   path: rgb/test/29028.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 785.875, x_min: 778.25, y_max: 294.25, y_min: 272.75}
+  - {label: 'off', occluded: true, x_max: 505.625, x_min: 502.125, y_max: 351.375,
+    y_min: 341.25}
+  - {label: Red, occluded: true, x_max: 251.375, x_min: 243.0, y_max: 330.75, y_min: 306.0}
+  path: rgb/test/29030.png
+- boxes:
   - {label: Red, occluded: false, x_max: 787.625, x_min: 779.75, y_max: 293.75, y_min: 271.875}
   - {label: 'off', occluded: true, x_max: 505.5, x_min: 502.0, y_max: 351.375, y_min: 341.5}
   - {label: Red, occluded: true, x_max: 250.625, x_min: 241.625, y_max: 330.5, y_min: 306.0}
@@ -8423,6 +10419,12 @@
   - {label: Red, occluded: false, x_max: 241.875, x_min: 231.75, y_max: 330.375, y_min: 305.25}
   - {label: Red, occluded: true, x_max: 504.875, x_min: 501.5, y_max: 350.75, y_min: 341.875}
   path: rgb/test/29042.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 793.875, x_min: 785.5, y_max: 290.875,
+    y_min: 267.0}
+  - {label: 'off', occluded: false, x_max: 240.0, x_min: 229.125, y_max: 328.75, y_min: 304.0}
+  - {label: Red, occluded: true, x_max: 505.0, x_min: 501.625, y_max: 350.875, y_min: 341.625}
+  path: rgb/test/29044.png
 - boxes:
   - {label: Green, occluded: false, x_max: 795.625, x_min: 786.5, y_max: 290.0, y_min: 264.875}
   - {label: Green, occluded: false, x_max: 239.0, x_min: 227.5, y_max: 327.75, y_min: 301.5}
@@ -8491,6 +10493,12 @@
   - {label: Red, occluded: true, x_max: 505.75, x_min: 501.625, y_max: 348.375, y_min: 338.625}
   path: rgb/test/29066.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 218.625, x_min: 207.375, y_max: 322.125,
+    y_min: 293.875}
+  - {label: Green, occluded: false, x_max: 806.5, x_min: 798.0, y_max: 281.25, y_min: 256.375}
+  - {label: Red, occluded: true, x_max: 505.75, x_min: 501.625, y_max: 345.875, y_min: 335.875}
+  path: rgb/test/29068.png
+- boxes:
   - {label: Green, occluded: false, x_max: 216.875, x_min: 206.625, y_max: 320.625,
     y_min: 293.5}
   - {label: Green, occluded: false, x_max: 807.5, x_min: 799.125, y_max: 280.0, y_min: 255.375}
@@ -8538,6 +10546,18 @@
   - {label: 'off', occluded: true, x_max: 204.5, x_min: 193.125, y_max: 329.75, y_min: 297.0}
   path: rgb/test/29084.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 814.875, x_min: 805.625, y_max: 280.5,
+    y_min: 254.25}
+  - {label: Red, occluded: true, x_max: 504.875, x_min: 501.375, y_max: 350.75, y_min: 340.375}
+  - {label: 'off', occluded: true, x_max: 201.0, x_min: 192.125, y_max: 328.0, y_min: 297.625}
+  path: rgb/test/29086.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 815.875, x_min: 805.875, y_max: 279.75,
+    y_min: 253.875}
+  - {label: Red, occluded: true, x_max: 504.875, x_min: 501.0, y_max: 350.125, y_min: 339.625}
+  - {label: 'off', occluded: true, x_max: 200.125, x_min: 188.125, y_max: 325.5, y_min: 294.75}
+  path: rgb/test/29088.png
+- boxes:
   - {label: Green, occluded: false, x_max: 816.25, x_min: 807.125, y_max: 279.5, y_min: 252.625}
   - {label: Red, occluded: true, x_max: 504.875, x_min: 501.125, y_max: 349.25, y_min: 339.625}
   - {label: 'off', occluded: true, x_max: 198.25, x_min: 186.25, y_max: 329.0, y_min: 294.625}
@@ -8554,6 +10574,12 @@
   - {label: 'off', occluded: true, x_max: 194.125, x_min: 181.875, y_max: 335.125,
     y_min: 295.875}
   path: rgb/test/29094.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 818.75, x_min: 808.875, y_max: 282.25,
+    y_min: 255.375}
+  - {label: Red, occluded: true, x_max: 503.875, x_min: 499.5, y_max: 352.375, y_min: 341.75}
+  - {label: 'off', occluded: true, x_max: 191.625, x_min: 180.0, y_max: 329.375, y_min: 297.25}
+  path: rgb/test/29096.png
 - boxes:
   - {label: Green, occluded: false, x_max: 819.375, x_min: 810.375, y_max: 282.625,
     y_min: 256.0}
@@ -8588,6 +10614,19 @@
   - {label: Red, occluded: true, x_max: 502.625, x_min: 498.0, y_max: 352.75, y_min: 338.5}
   path: rgb/test/29106.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 179.375, x_min: 169.375, y_max: 322.625,
+    y_min: 293.75}
+  - {label: Green, occluded: false, x_max: 822.375, x_min: 812.625, y_max: 275.875,
+    y_min: 248.875}
+  - {label: Red, occluded: true, x_max: 502.875, x_min: 497.25, y_max: 351.25, y_min: 338.5}
+  path: rgb/test/29108.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 177.25, x_min: 166.75, y_max: 322.25, y_min: 292.0}
+  - {label: Green, occluded: false, x_max: 823.25, x_min: 813.375, y_max: 274.875,
+    y_min: 247.25}
+  - {label: Red, occluded: true, x_max: 502.625, x_min: 497.375, y_max: 348.75, y_min: 337.0}
+  path: rgb/test/29110.png
+- boxes:
   - {label: Green, occluded: false, x_max: 175.5, x_min: 164.625, y_max: 320.625,
     y_min: 290.75}
   - {label: Green, occluded: false, x_max: 824.0, x_min: 814.125, y_max: 273.625,
@@ -8608,6 +10647,11 @@
     y_min: 290.0}
   path: rgb/test/29116.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 500.75, x_min: 495.75, y_max: 347.5, y_min: 335.5}
+  - {label: Green, occluded: false, x_max: 826.25, x_min: 816.125, y_max: 271.0, y_min: 243.0}
+  - {label: Green, occluded: false, x_max: 169.75, x_min: 157.25, y_max: 319.0, y_min: 288.5}
+  path: rgb/test/29118.png
+- boxes:
   - {label: Red, occluded: true, x_max: 501.0, x_min: 495.5, y_max: 347.375, y_min: 334.875}
   - {label: Green, occluded: false, x_max: 826.75, x_min: 816.75, y_max: 270.5, y_min: 242.625}
   - {label: Green, occluded: false, x_max: 168.75, x_min: 156.25, y_max: 319.375,
@@ -8626,6 +10670,12 @@
   - {label: Green, occluded: false, x_max: 164.75, x_min: 153.5, y_max: 319.5, y_min: 288.125}
   path: rgb/test/29124.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 829.25, x_min: 819.0, y_max: 269.625, y_min: 241.75}
+  - {label: Green, occluded: false, x_max: 163.125, x_min: 151.125, y_max: 318.875,
+    y_min: 286.75}
+  - {label: Red, occluded: true, x_max: 499.5, x_min: 494.875, y_max: 348.5, y_min: 335.75}
+  path: rgb/test/29126.png
+- boxes:
   - {label: Green, occluded: false, x_max: 830.375, x_min: 819.5, y_max: 269.375,
     y_min: 241.625}
   - {label: Green, occluded: false, x_max: 162.375, x_min: 149.625, y_max: 319.125,
@@ -8639,6 +10689,11 @@
   - {label: Green, occluded: false, x_max: 160.625, x_min: 148.625, y_max: 319.125,
     y_min: 286.375}
   path: rgb/test/29130.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 832.0, x_min: 821.0, y_max: 270.875, y_min: 241.25}
+  - {label: Green, occluded: false, x_max: 158.125, x_min: 146.75, y_max: 320.0, y_min: 287.25}
+  - {label: Red, occluded: true, x_max: 499.625, x_min: 495.375, y_max: 347.875, y_min: 336.875}
+  path: rgb/test/29132.png
 - boxes:
   - {label: Red, occluded: true, x_max: 500.625, x_min: 494.5, y_max: 349.75, y_min: 337.5}
   - {label: Green, occluded: false, x_max: 832.375, x_min: 821.125, y_max: 271.375,
@@ -8672,6 +10727,13 @@
   - {label: Green, occluded: false, x_max: 150.875, x_min: 138.5, y_max: 324.5, y_min: 291.0}
   path: rgb/test/29142.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 835.625, x_min: 824.25, y_max: 275.125,
+    y_min: 245.75}
+  - {label: Green, occluded: false, x_max: 149.75, x_min: 138.125, y_max: 324.875,
+    y_min: 291.5}
+  - {label: Red, occluded: true, x_max: 498.5, x_min: 493.75, y_max: 353.75, y_min: 342.625}
+  path: rgb/test/29144.png
+- boxes:
   - {label: Green, occluded: false, x_max: 835.875, x_min: 825.0, y_max: 274.375,
     y_min: 246.5}
   - {label: Green, occluded: false, x_max: 148.375, x_min: 135.875, y_max: 326.875,
@@ -8696,6 +10758,16 @@
     y_min: 290.375}
   - {label: Red, occluded: true, x_max: 496.75, x_min: 493.375, y_max: 353.25, y_min: 343.5}
   path: rgb/test/29152.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 839.125, x_min: 827.25, y_max: 273.5, y_min: 243.375}
+  - {label: Green, occluded: false, x_max: 142.75, x_min: 130.5, y_max: 325.0, y_min: 291.125}
+  - {label: Red, occluded: true, x_max: 497.25, x_min: 492.625, y_max: 353.0, y_min: 343.0}
+  path: rgb/test/29154.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 839.0, x_min: 827.5, y_max: 273.25, y_min: 243.5}
+  - {label: Green, occluded: false, x_max: 141.0, x_min: 128.5, y_max: 322.375, y_min: 290.5}
+  - {label: Red, occluded: true, x_max: 497.0, x_min: 493.5, y_max: 354.75, y_min: 342.875}
+  path: rgb/test/29156.png
 - boxes:
   - {label: Green, occluded: false, x_max: 840.75, x_min: 828.75, y_max: 273.5, y_min: 242.75}
   - {label: Green, occluded: false, x_max: 140.125, x_min: 127.625, y_max: 324.875,
@@ -8736,6 +10808,11 @@
   - {label: Red, occluded: true, x_max: 496.25, x_min: 491.75, y_max: 356.25, y_min: 343.375}
   path: rgb/test/29170.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 844.875, x_min: 833.0, y_max: 274.0, y_min: 244.625}
+  - {label: Green, occluded: false, x_max: 128.25, x_min: 117.5, y_max: 324.5, y_min: 290.625}
+  - {label: Red, occluded: true, x_max: 496.125, x_min: 491.5, y_max: 357.375, y_min: 344.5}
+  path: rgb/test/29172.png
+- boxes:
   - {label: Green, occluded: false, x_max: 845.75, x_min: 832.875, y_max: 274.125,
     y_min: 245.0}
   - {label: Green, occluded: false, x_max: 126.75, x_min: 115.75, y_max: 325.125,
@@ -8761,6 +10838,12 @@
   - {label: Red, occluded: true, x_max: 495.125, x_min: 491.375, y_max: 356.875, y_min: 345.5}
   path: rgb/test/29180.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 847.875, x_min: 834.75, y_max: 271.375,
+    y_min: 241.875}
+  - {label: Green, occluded: false, x_max: 120.0, x_min: 107.125, y_max: 325.75, y_min: 290.625}
+  - {label: Red, occluded: true, x_max: 495.5, x_min: 490.625, y_max: 356.625, y_min: 345.25}
+  path: rgb/test/29182.png
+- boxes:
   - {label: Green, occluded: false, x_max: 848.625, x_min: 836.125, y_max: 270.25,
     y_min: 241.625}
   - {label: Green, occluded: false, x_max: 117.375, x_min: 105.5, y_max: 327.25, y_min: 290.875}
@@ -8774,11 +10857,22 @@
   - {label: Red, occluded: true, x_max: 494.125, x_min: 490.375, y_max: 355.625, y_min: 345.0}
   path: rgb/test/29186.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 851.0, x_min: 838.0, y_max: 271.5, y_min: 241.25}
+  - {label: Green, occluded: false, x_max: 112.625, x_min: 101.375, y_max: 324.375,
+    y_min: 290.75}
+  - {label: Red, occluded: true, x_max: 495.375, x_min: 490.5, y_max: 360.75, y_min: 346.375}
+  path: rgb/test/29188.png
+- boxes:
   - {label: Green, occluded: false, x_max: 851.5, x_min: 838.75, y_max: 271.5, y_min: 240.25}
   - {label: Green, occluded: false, x_max: 111.875, x_min: 99.25, y_max: 326.375,
     y_min: 290.125}
   - {label: Red, occluded: true, x_max: 494.875, x_min: 490.125, y_max: 360.625, y_min: 347.375}
   path: rgb/test/29190.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 853.5, x_min: 840.125, y_max: 272.625,
+    y_min: 241.625}
+  - {label: Green, occluded: false, x_max: 109.375, x_min: 96.75, y_max: 325.5, y_min: 289.0}
+  path: rgb/test/29192.png
 - boxes:
   - {label: Green, occluded: false, x_max: 853.875, x_min: 841.375, y_max: 271.75,
     y_min: 240.625}
@@ -8806,6 +10900,16 @@
     y_min: 235.0}
   - {label: Green, occluded: false, x_max: 93.0, x_min: 80.375, y_max: 324.25, y_min: 287.25}
   path: rgb/test/29204.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 860.25, x_min: 846.875, y_max: 265.25,
+    y_min: 233.25}
+  - {label: Green, occluded: false, x_max: 89.5, x_min: 77.25, y_max: 320.125, y_min: 283.875}
+  path: rgb/test/29206.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 861.375, x_min: 848.5, y_max: 261.75, y_min: 230.875}
+  - {label: Green, occluded: false, x_max: 88.625, x_min: 74.125, y_max: 317.125,
+    y_min: 279.75}
+  path: rgb/test/29208.png
 - boxes:
   - {label: Green, occluded: false, x_max: 863.875, x_min: 849.25, y_max: 262.125,
     y_min: 228.5}
@@ -8838,6 +10942,14 @@
     y_min: 218.75}
   - {label: Green, occluded: false, x_max: 64.125, x_min: 50.75, y_max: 305.625, y_min: 266.875}
   path: rgb/test/29222.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 874.25, x_min: 860.5, y_max: 254.625, y_min: 218.125}
+  - {label: Green, occluded: false, x_max: 61.375, x_min: 46.875, y_max: 307.25, y_min: 267.5}
+  path: rgb/test/29224.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 875.5, x_min: 862.5, y_max: 253.125, y_min: 218.75}
+  - {label: Green, occluded: false, x_max: 58.0, x_min: 43.0, y_max: 309.625, y_min: 269.625}
+  path: rgb/test/29226.png
 - boxes:
   - {label: Green, occluded: false, x_max: 876.25, x_min: 863.25, y_max: 253.75, y_min: 217.875}
   - {label: Green, occluded: false, x_max: 54.0, x_min: 39.5, y_max: 310.875, y_min: 272.125}
@@ -8883,6 +10995,11 @@
   - {label: Green, occluded: false, x_max: 13.125, x_min: 0.25, y_max: 321.375, y_min: 280.125}
   path: rgb/test/29246.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 896.5, x_min: 881.875, y_max: 255.875,
+    y_min: 218.0}
+  - {label: Green, occluded: false, x_max: 7.375, x_min: 0.125, y_max: 318.625, y_min: 278.0}
+  path: rgb/test/29248.png
+- boxes:
   - {label: Green, occluded: false, x_max: 899.625, x_min: 885.125, y_max: 251.125,
     y_min: 211.125}
   path: rgb/test/29250.png
@@ -8890,11 +11007,19 @@
   - {label: Green, occluded: false, x_max: 903.375, x_min: 887.5, y_max: 244.25, y_min: 205.625}
   path: rgb/test/29252.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 906.25, x_min: 890.25, y_max: 242.875,
+    y_min: 203.75}
+  path: rgb/test/29254.png
+- boxes:
   - {label: Green, occluded: false, x_max: 909.0, x_min: 892.875, y_max: 241.75, y_min: 202.375}
   path: rgb/test/29256.png
 - boxes:
   - {label: Green, occluded: false, x_max: 912.75, x_min: 896.125, y_max: 240.5, y_min: 201.0}
   path: rgb/test/29258.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 916.125, x_min: 898.875, y_max: 239.0,
+    y_min: 199.125}
+  path: rgb/test/29260.png
 - boxes:
   - {label: Green, occluded: false, x_max: 919.125, x_min: 902.625, y_max: 239.125,
     y_min: 197.375}
@@ -8903,6 +11028,10 @@
   - {label: Green, occluded: false, x_max: 923.0, x_min: 907.875, y_max: 237.375,
     y_min: 195.125}
   path: rgb/test/29264.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 925.625, x_min: 912.625, y_max: 233.75,
+    y_min: 191.25}
+  path: rgb/test/29266.png
 - boxes:
   - {label: Green, occluded: false, x_max: 929.75, x_min: 916.5, y_max: 231.5, y_min: 186.75}
   path: rgb/test/29268.png
@@ -8924,6 +11053,9 @@
   - {label: Green, occluded: false, x_max: 955.375, x_min: 935.75, y_max: 230.25,
     y_min: 184.625}
   path: rgb/test/29278.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 961.125, x_min: 942.0, y_max: 225.25, y_min: 181.625}
+  path: rgb/test/29280.png
 - boxes:
   - {label: Green, occluded: false, x_max: 966.0, x_min: 945.5, y_max: 222.875, y_min: 177.875}
   path: rgb/test/29282.png
@@ -9025,6 +11157,10 @@
     y_min: 98.5}
   path: rgb/test/29332.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1231.0, x_min: 1202.125, y_max: 160.75,
+    y_min: 90.625}
+  path: rgb/test/29334.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1249.5, x_min: 1217.5, y_max: 154.125,
     y_min: 81.375}
   path: rgb/test/29336.png
@@ -9036,6 +11172,10 @@
   - {label: Green, occluded: true, x_max: 1278.875, x_min: 1254.5, y_max: 134.875,
     y_min: 63.5}
   path: rgb/test/29340.png
+- boxes:
+  - {label: 'off', occluded: true, x_max: 567.625, x_min: 564.125, y_max: 349.75,
+    y_min: 337.125}
+  path: rgb/test/29342.png
 - boxes:
   - {label: 'off', occluded: true, x_max: 571.0, x_min: 565.875, y_max: 344.875, y_min: 331.375}
   path: rgb/test/29344.png
@@ -9063,6 +11203,9 @@
   - {label: Red, occluded: true, x_max: 580.625, x_min: 577.0, y_max: 329.0, y_min: 317.375}
   path: rgb/test/29358.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 582.125, x_min: 578.375, y_max: 329.75, y_min: 319.375}
+  path: rgb/test/29360.png
+- boxes:
   - {label: Red, occluded: false, x_max: 582.75, x_min: 579.625, y_max: 332.375, y_min: 321.875}
   path: rgb/test/29362.png
 - boxes:
@@ -9081,8 +11224,20 @@
   - {label: Red, occluded: false, x_max: 584.75, x_min: 582.0, y_max: 338.875, y_min: 327.625}
   path: rgb/test/29372.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 585.375, x_min: 582.5, y_max: 338.125, y_min: 327.25}
+  path: rgb/test/29374.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 586.0, x_min: 582.75, y_max: 337.875, y_min: 327.625}
+  path: rgb/test/29376.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 586.375, x_min: 583.0, y_max: 339.625, y_min: 329.0}
+  path: rgb/test/29378.png
+- boxes:
   - {label: Red, occluded: false, x_max: 586.25, x_min: 582.75, y_max: 340.0, y_min: 329.75}
   path: rgb/test/29380.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 586.75, x_min: 583.125, y_max: 339.125, y_min: 328.625}
+  path: rgb/test/29382.png
 - boxes:
   - {label: Red, occluded: false, x_max: 587.0, x_min: 583.375, y_max: 339.0, y_min: 327.375}
   path: rgb/test/29384.png
@@ -9112,6 +11267,10 @@
   - {label: Red, occluded: false, x_max: 874.25, x_min: 872.125, y_max: 321.125, y_min: 311.625}
   path: rgb/test/29396.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 588.75, x_min: 584.75, y_max: 332.625, y_min: 321.125}
+  - {label: Red, occluded: false, x_max: 875.75, x_min: 872.25, y_max: 322.375, y_min: 313.75}
+  path: rgb/test/29398.png
+- boxes:
   - {label: Red, occluded: false, x_max: 588.125, x_min: 584.125, y_max: 334.625,
     y_min: 321.625}
   - {label: Red, occluded: true, x_max: 876.875, x_min: 873.75, y_max: 323.875, y_min: 315.875}
@@ -9128,6 +11287,9 @@
   - {label: Red, occluded: false, x_max: 586.75, x_min: 583.875, y_max: 331.25, y_min: 319.75}
   path: rgb/test/29406.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 586.5, x_min: 583.375, y_max: 329.25, y_min: 318.5}
+  path: rgb/test/29408.png
+- boxes:
   - {label: Red, occluded: false, x_max: 586.375, x_min: 582.875, y_max: 326.125,
     y_min: 313.625}
   path: rgb/test/29410.png
@@ -9140,6 +11302,9 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 584.0, x_min: 579.75, y_max: 320.875, y_min: 308.875}
   path: rgb/test/29416.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 582.625, x_min: 579.25, y_max: 324.125, y_min: 312.75}
+  path: rgb/test/29418.png
 - boxes:
   - {label: Red, occluded: false, x_max: 581.125, x_min: 577.0, y_max: 325.75, y_min: 313.5}
   path: rgb/test/29420.png
@@ -9170,6 +11335,10 @@
     y_min: 317.25}
   - {label: Red, occluded: true, x_max: 882.625, x_min: 878.5, y_max: 327.875, y_min: 316.5}
   path: rgb/test/29436.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 565.25, x_min: 560.875, y_max: 328.875, y_min: 315.125}
+  - {label: Red, occluded: true, x_max: 882.375, x_min: 878.375, y_max: 326.625, y_min: 315.5}
+  path: rgb/test/29438.png
 - boxes:
   - {label: Red, occluded: false, x_max: 562.25, x_min: 558.625, y_max: 323.625, y_min: 310.125}
   - {label: Red, occluded: true, x_max: 881.625, x_min: 877.375, y_max: 322.75, y_min: 310.625}
@@ -9253,6 +11422,12 @@
   - {label: Red, occluded: false, x_max: 854.25, x_min: 850.25, y_max: 327.0, y_min: 313.5}
   path: rgb/test/29476.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 496.875, x_min: 492.625, y_max: 329.375,
+    y_min: 314.25}
+  - {label: Red, occluded: false, x_max: 851.375, x_min: 848.125, y_max: 327.125,
+    y_min: 313.25}
+  path: rgb/test/29478.png
+- boxes:
   - {label: Red, occluded: false, x_max: 493.25, x_min: 488.875, y_max: 328.25, y_min: 313.5}
   - {label: Red, occluded: false, x_max: 850.625, x_min: 846.125, y_max: 325.625,
     y_min: 312.375}
@@ -9288,6 +11463,10 @@
     y_min: 308.125}
   path: rgb/test/29494.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 467.5, x_min: 462.5, y_max: 326.125, y_min: 310.625}
+  - {label: Green, occluded: false, x_max: 842.5, x_min: 837.125, y_max: 324.25, y_min: 309.375}
+  path: rgb/test/29496.png
+- boxes:
   - {label: Green, occluded: false, x_max: 464.0, x_min: 459.0, y_max: 326.375, y_min: 311.125}
   - {label: Green, occluded: false, x_max: 841.375, x_min: 837.125, y_max: 324.875,
     y_min: 310.5}
@@ -9308,6 +11487,12 @@
   - {label: Green, occluded: false, x_max: 840.375, x_min: 834.875, y_max: 326.125,
     y_min: 310.625}
   path: rgb/test/29504.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 451.375, x_min: 446.625, y_max: 327.625,
+    y_min: 311.75}
+  - {label: Green, occluded: false, x_max: 839.875, x_min: 833.625, y_max: 326.75,
+    y_min: 311.625}
+  path: rgb/test/29506.png
 - boxes:
   - {label: Green, occluded: false, x_max: 448.0, x_min: 443.5, y_max: 327.5, y_min: 310.375}
   - {label: Green, occluded: false, x_max: 838.75, x_min: 833.875, y_max: 326.0, y_min: 310.5}
@@ -9336,6 +11521,12 @@
     y_min: 309.125}
   path: rgb/test/29516.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 433.375, x_min: 428.5, y_max: 328.625,
+    y_min: 311.5}
+  - {label: Green, occluded: false, x_max: 837.875, x_min: 832.25, y_max: 325.25,
+    y_min: 308.75}
+  path: rgb/test/29518.png
+- boxes:
   - {label: Green, occluded: false, x_max: 430.375, x_min: 425.875, y_max: 328.375,
     y_min: 312.5}
   - {label: Green, occluded: false, x_max: 837.375, x_min: 832.0, y_max: 325.875,
@@ -9347,10 +11538,30 @@
     y_min: 308.75}
   path: rgb/test/29522.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 424.875, x_min: 419.75, y_max: 325.125,
+    y_min: 308.5}
+  - {label: Green, occluded: false, x_max: 838.5, x_min: 832.875, y_max: 323.0, y_min: 306.375}
+  path: rgb/test/29524.png
+- boxes:
   - {label: Green, occluded: false, x_max: 422.125, x_min: 417.5, y_max: 322.125,
     y_min: 305.875}
   - {label: Green, occluded: false, x_max: 838.5, x_min: 833.0, y_max: 320.0, y_min: 302.0}
   path: rgb/test/29526.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 419.5, x_min: 415.0, y_max: 320.0, y_min: 303.25}
+  - {label: Green, occluded: false, x_max: 838.5, x_min: 833.625, y_max: 318.375,
+    y_min: 301.375}
+  path: rgb/test/29528.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 417.125, x_min: 412.25, y_max: 318.75,
+    y_min: 302.5}
+  - {label: Green, occluded: false, x_max: 840.0, x_min: 834.375, y_max: 317.625,
+    y_min: 299.5}
+  path: rgb/test/29530.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 415.375, x_min: 410.25, y_max: 320.0, y_min: 302.625}
+  - {label: Green, occluded: false, x_max: 840.5, x_min: 834.75, y_max: 317.5, y_min: 299.125}
+  path: rgb/test/29532.png
 - boxes:
   - {label: Green, occluded: false, x_max: 413.0, x_min: 407.75, y_max: 321.375, y_min: 304.0}
   - {label: Green, occluded: false, x_max: 841.75, x_min: 836.0, y_max: 318.25, y_min: 299.875}
@@ -9361,6 +11572,12 @@
   - {label: Green, occluded: false, x_max: 841.75, x_min: 836.625, y_max: 321.375,
     y_min: 303.625}
   path: rgb/test/29536.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 408.75, x_min: 402.875, y_max: 325.125,
+    y_min: 307.375}
+  - {label: Green, occluded: false, x_max: 843.75, x_min: 837.625, y_max: 324.125,
+    y_min: 305.0}
+  path: rgb/test/29538.png
 - boxes:
   - {label: Green, occluded: false, x_max: 406.25, x_min: 401.125, y_max: 322.5, y_min: 305.125}
   - {label: Green, occluded: false, x_max: 844.625, x_min: 838.625, y_max: 321.0,
@@ -9376,11 +11593,20 @@
   - {label: Green, occluded: false, x_max: 846.5, x_min: 841.5, y_max: 313.75, y_min: 295.625}
   path: rgb/test/29544.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 400.375, x_min: 394.75, y_max: 313.75,
+    y_min: 295.5}
+  - {label: Green, occluded: false, x_max: 849.0, x_min: 842.0, y_max: 312.75, y_min: 294.0}
+  path: rgb/test/29546.png
+- boxes:
   - {label: Green, occluded: false, x_max: 398.875, x_min: 393.125, y_max: 313.125,
     y_min: 294.25}
   - {label: Green, occluded: false, x_max: 850.75, x_min: 844.625, y_max: 310.875,
     y_min: 292.75}
   path: rgb/test/29548.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 397.0, x_min: 391.375, y_max: 312.75, y_min: 294.75}
+  - {label: Green, occluded: false, x_max: 851.625, x_min: 845.25, y_max: 310.5, y_min: 292.5}
+  path: rgb/test/29550.png
 - boxes:
   - {label: Green, occluded: false, x_max: 395.625, x_min: 389.25, y_max: 314.75,
     y_min: 296.5}
@@ -9426,6 +11652,12 @@
     y_min: 286.25}
   path: rgb/test/29566.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 382.25, x_min: 375.75, y_max: 307.125,
+    y_min: 288.0}
+  - {label: Green, occluded: false, x_max: 868.5, x_min: 861.875, y_max: 303.875,
+    y_min: 284.375}
+  path: rgb/test/29568.png
+- boxes:
   - {label: Green, occluded: false, x_max: 380.375, x_min: 374.25, y_max: 306.5, y_min: 287.75}
   - {label: Green, occluded: false, x_max: 870.625, x_min: 863.875, y_max: 304.0,
     y_min: 284.0}
@@ -9442,11 +11674,21 @@
     y_min: 287.25}
   path: rgb/test/29574.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 374.875, x_min: 368.0, y_max: 309.0, y_min: 288.125}
+  - {label: Green, occluded: false, x_max: 876.625, x_min: 870.125, y_max: 308.125,
+    y_min: 287.875}
+  path: rgb/test/29576.png
+- boxes:
   - {label: Green, occluded: false, x_max: 373.375, x_min: 366.125, y_max: 310.0,
     y_min: 290.25}
   - {label: Green, occluded: false, x_max: 879.0, x_min: 871.875, y_max: 308.875,
     y_min: 288.625}
   path: rgb/test/29578.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 371.5, x_min: 364.0, y_max: 311.875, y_min: 290.375}
+  - {label: Green, occluded: false, x_max: 881.125, x_min: 874.375, y_max: 309.75,
+    y_min: 289.125}
+  path: rgb/test/29580.png
 - boxes:
   - {label: Green, occluded: false, x_max: 369.75, x_min: 362.75, y_max: 312.875,
     y_min: 291.75}
@@ -9490,6 +11732,11 @@
     y_min: 280.25}
   path: rgb/test/29596.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 354.125, x_min: 346.625, y_max: 307.125,
+    y_min: 283.625}
+  - {label: Green, occluded: false, x_max: 898.25, x_min: 890.75, y_max: 303.0, y_min: 281.875}
+  path: rgb/test/29598.png
+- boxes:
   - {label: Green, occluded: false, x_max: 352.5, x_min: 344.5, y_max: 306.25, y_min: 283.0}
   - {label: Green, occluded: false, x_max: 899.75, x_min: 891.875, y_max: 303.875,
     y_min: 281.625}
@@ -9514,9 +11761,21 @@
   - {label: Green, occluded: false, x_max: 905.625, x_min: 898.0, y_max: 302.75, y_min: 281.375}
   path: rgb/test/29608.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 340.875, x_min: 333.125, y_max: 305.75,
+    y_min: 281.875}
+  - {label: Green, occluded: false, x_max: 906.625, x_min: 899.875, y_max: 303.625,
+    y_min: 282.25}
+  path: rgb/test/29610.png
+- boxes:
   - {label: Green, occluded: false, x_max: 338.0, x_min: 330.875, y_max: 305.75, y_min: 282.125}
   - {label: Green, occluded: false, x_max: 908.75, x_min: 901.75, y_max: 303.5, y_min: 281.5}
   path: rgb/test/29612.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 335.0, x_min: 326.625, y_max: 304.875,
+    y_min: 280.25}
+  - {label: Green, occluded: false, x_max: 910.125, x_min: 902.0, y_max: 302.875,
+    y_min: 280.25}
+  path: rgb/test/29614.png
 - boxes:
   - {label: Green, occluded: false, x_max: 333.125, x_min: 324.75, y_max: 303.0, y_min: 278.75}
   - {label: Green, occluded: false, x_max: 911.125, x_min: 903.75, y_max: 299.375,
@@ -9570,6 +11829,11 @@
     y_min: 278.875}
   path: rgb/test/29634.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 310.5, x_min: 303.0, y_max: 302.75, y_min: 277.0}
+  - {label: Green, occluded: false, x_max: 925.5, x_min: 916.875, y_max: 305.125,
+    y_min: 279.875}
+  path: rgb/test/29636.png
+- boxes:
   - {label: Green, occluded: false, x_max: 308.75, x_min: 300.0, y_max: 303.5, y_min: 276.25}
   - {label: Green, occluded: false, x_max: 926.25, x_min: 917.875, y_max: 305.0, y_min: 279.375}
   path: rgb/test/29638.png
@@ -9616,6 +11880,10 @@
     y_min: 273.25}
   path: rgb/test/29654.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 288.25, x_min: 277.5, y_max: 296.5, y_min: 268.375}
+  - {label: Green, occluded: false, x_max: 937.5, x_min: 928.875, y_max: 296.5, y_min: 270.375}
+  path: rgb/test/29656.png
+- boxes:
   - {label: Green, occluded: false, x_max: 285.75, x_min: 275.75, y_max: 294.0, y_min: 265.875}
   - {label: Green, occluded: false, x_max: 939.125, x_min: 930.25, y_max: 294.875,
     y_min: 269.0}
@@ -9641,6 +11909,12 @@
   - {label: Green, occluded: false, x_max: 942.25, x_min: 933.25, y_max: 296.875,
     y_min: 269.75}
   path: rgb/test/29666.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 271.0, x_min: 260.875, y_max: 299.375,
+    y_min: 271.375}
+  - {label: Green, occluded: false, x_max: 943.375, x_min: 934.0, y_max: 297.625,
+    y_min: 269.625}
+  path: rgb/test/29668.png
 - boxes:
   - {label: Green, occluded: false, x_max: 268.125, x_min: 257.625, y_max: 298.375,
     y_min: 270.25}
@@ -9690,6 +11964,10 @@
   - {label: Green, occluded: false, x_max: 949.625, x_min: 941.0, y_max: 288.625,
     y_min: 259.25}
   path: rgb/test/29686.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 240.0, x_min: 230.0, y_max: 287.625, y_min: 257.75}
+  - {label: Green, occluded: false, x_max: 951.0, x_min: 942.375, y_max: 286.75, y_min: 257.875}
+  path: rgb/test/29688.png
 - boxes:
   - {label: Green, occluded: false, x_max: 235.625, x_min: 225.875, y_max: 287.25,
     y_min: 256.875}
@@ -9761,10 +12039,20 @@
     y_min: 257.125}
   path: rgb/test/29714.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 192.625, x_min: 181.0, y_max: 285.375,
+    y_min: 253.0}
+  - {label: Green, occluded: false, x_max: 969.5, x_min: 959.0, y_max: 289.0, y_min: 256.0}
+  path: rgb/test/29716.png
+- boxes:
   - {label: Green, occluded: false, x_max: 188.875, x_min: 177.0, y_max: 284.5, y_min: 252.75}
   - {label: Green, occluded: false, x_max: 970.75, x_min: 960.125, y_max: 287.75,
     y_min: 254.875}
   path: rgb/test/29718.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 185.375, x_min: 173.0, y_max: 285.75, y_min: 252.625}
+  - {label: Green, occluded: false, x_max: 972.25, x_min: 961.625, y_max: 286.375,
+    y_min: 253.625}
+  path: rgb/test/29720.png
 - boxes:
   - {label: Green, occluded: false, x_max: 181.25, x_min: 169.625, y_max: 286.0, y_min: 254.625}
   - {label: Green, occluded: false, x_max: 974.25, x_min: 963.625, y_max: 286.25,
@@ -9825,6 +12113,18 @@
   - {label: Green, occluded: false, x_max: 998.375, x_min: 986.0, y_max: 268.0, y_min: 232.875}
   path: rgb/test/29742.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 134.75, x_min: 122.375, y_max: 267.625,
+    y_min: 231.375}
+  - {label: Green, occluded: false, x_max: 1001.625, x_min: 988.375, y_max: 266.875,
+    y_min: 230.25}
+  path: rgb/test/29744.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 129.75, x_min: 117.625, y_max: 263.875,
+    y_min: 228.125}
+  - {label: Green, occluded: false, x_max: 1003.75, x_min: 991.0, y_max: 263.875,
+    y_min: 226.0}
+  path: rgb/test/29746.png
+- boxes:
   - {label: Green, occluded: false, x_max: 124.75, x_min: 112.0, y_max: 259.75, y_min: 223.125}
   - {label: Green, occluded: false, x_max: 1007.125, x_min: 994.125, y_max: 258.875,
     y_min: 222.375}
@@ -9853,6 +12153,11 @@
     y_min: 221.125}
   path: rgb/test/29756.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 97.75, x_min: 84.5, y_max: 265.875, y_min: 224.75}
+  - {label: Green, occluded: false, x_max: 1023.875, x_min: 1010.25, y_max: 260.875,
+    y_min: 222.625}
+  path: rgb/test/29758.png
+- boxes:
   - {label: Green, occluded: false, x_max: 93.0, x_min: 77.625, y_max: 268.875, y_min: 227.25}
   - {label: Green, occluded: false, x_max: 1027.875, x_min: 1013.75, y_max: 263.125,
     y_min: 224.625}
@@ -9874,6 +12179,11 @@
     y_min: 220.5}
   path: rgb/test/29766.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 65.625, x_min: 49.25, y_max: 272.875, y_min: 230.75}
+  - {label: Green, occluded: false, x_max: 1043.125, x_min: 1027.0, y_max: 256.5,
+    y_min: 215.875}
+  path: rgb/test/29768.png
+- boxes:
   - {label: Green, occluded: false, x_max: 56.875, x_min: 41.625, y_max: 271.25, y_min: 227.75}
   - {label: Green, occluded: false, x_max: 1046.0, x_min: 1030.0, y_max: 253.5, y_min: 210.75}
   path: rgb/test/29770.png
@@ -9892,6 +12202,11 @@
   - {label: Green, occluded: false, x_max: 1059.0, x_min: 1043.25, y_max: 245.25,
     y_min: 201.5}
   path: rgb/test/29776.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 24.75, x_min: 10.75, y_max: 261.75, y_min: 217.625}
+  - {label: Green, occluded: false, x_max: 1064.375, x_min: 1048.125, y_max: 242.0,
+    y_min: 197.75}
+  path: rgb/test/29778.png
 - boxes:
   - {label: Green, occluded: false, x_max: 16.875, x_min: 2.0, y_max: 257.125, y_min: 213.875}
   - {label: Green, occluded: false, x_max: 1069.0, x_min: 1053.375, y_max: 237.0,
@@ -9922,6 +12237,10 @@
   - {label: Green, occluded: false, x_max: 1101.75, x_min: 1082.875, y_max: 232.25,
     y_min: 183.125}
   path: rgb/test/29792.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1108.125, x_min: 1089.5, y_max: 231.375,
+    y_min: 182.375}
+  path: rgb/test/29794.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1114.0, x_min: 1094.0, y_max: 229.875,
     y_min: 181.125}
@@ -9982,6 +12301,10 @@
     y_min: 121.875}
   path: rgb/test/29824.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1248.0, x_min: 1222.375, y_max: 176.0,
+    y_min: 113.0}
+  path: rgb/test/29826.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1261.5, x_min: 1236.125, y_max: 170.875,
     y_min: 106.5}
   path: rgb/test/29828.png
@@ -10005,6 +12328,8 @@
   path: rgb/test/29842.png
 - boxes: []
   path: rgb/test/29844.png
+- boxes: []
+  path: rgb/test/29846.png
 - boxes: []
   path: rgb/test/29848.png
 - boxes: []
@@ -10030,11 +12355,17 @@
 - boxes: []
   path: rgb/test/29870.png
 - boxes: []
+  path: rgb/test/29872.png
+- boxes: []
   path: rgb/test/29874.png
+- boxes: []
+  path: rgb/test/29876.png
 - boxes: []
   path: rgb/test/29878.png
 - boxes: []
   path: rgb/test/29880.png
+- boxes: []
+  path: rgb/test/29882.png
 - boxes: []
   path: rgb/test/29884.png
 - boxes: []
@@ -10049,6 +12380,8 @@
   path: rgb/test/29894.png
 - boxes: []
   path: rgb/test/29896.png
+- boxes: []
+  path: rgb/test/29898.png
 - boxes: []
   path: rgb/test/29900.png
 - boxes: []
@@ -10122,14 +12455,31 @@
     y_min: 367.0}
   path: rgb/test/29960.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 492.125, x_min: 488.75, y_max: 373.75, y_min: 363.25}
+  path: rgb/test/29962.png
+- boxes:
   - {label: Green, occluded: true, x_max: 492.5, x_min: 488.875, y_max: 370.75, y_min: 361.375}
   path: rgb/test/29964.png
 - boxes:
   - {label: Green, occluded: true, x_max: 492.375, x_min: 488.0, y_max: 369.625, y_min: 358.875}
   path: rgb/test/29966.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 491.5, x_min: 487.375, y_max: 369.25, y_min: 359.375}
+  path: rgb/test/29968.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 490.25, x_min: 486.375, y_max: 368.875,
+    y_min: 359.375}
+  path: rgb/test/29970.png
+- boxes:
   - {label: Green, occluded: true, x_max: 489.75, x_min: 486.0, y_max: 367.875, y_min: 357.875}
   path: rgb/test/29972.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 488.25, x_min: 484.5, y_max: 364.0, y_min: 355.0}
+  path: rgb/test/29974.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 486.625, x_min: 483.125, y_max: 360.125,
+    y_min: 351.875}
+  path: rgb/test/29976.png
 - boxes:
   - {label: Green, occluded: true, x_max: 485.0, x_min: 481.75, y_max: 358.25, y_min: 349.125}
   path: rgb/test/29978.png
@@ -10140,20 +12490,33 @@
 - boxes:
   - {label: Green, occluded: true, x_max: 482.0, x_min: 478.875, y_max: 354.125, y_min: 345.625}
   path: rgb/test/29982.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 481.5, x_min: 477.875, y_max: 354.875, y_min: 346.375}
+  path: rgb/test/29984.png
+- boxes: []
+  path: rgb/test/29986.png
 - boxes: []
   path: rgb/test/29988.png
+- boxes: []
+  path: rgb/test/29990.png
 - boxes: []
   path: rgb/test/29992.png
 - boxes: []
   path: rgb/test/29994.png
 - boxes: []
+  path: rgb/test/29996.png
+- boxes: []
   path: rgb/test/29998.png
 - boxes: []
   path: rgb/test/30000.png
 - boxes: []
+  path: rgb/test/30002.png
+- boxes: []
   path: rgb/test/30004.png
 - boxes: []
   path: rgb/test/30006.png
+- boxes: []
+  path: rgb/test/30008.png
 - boxes: []
   path: rgb/test/30010.png
 - boxes: []
@@ -10167,7 +12530,11 @@
 - boxes: []
   path: rgb/test/30020.png
 - boxes: []
+  path: rgb/test/30022.png
+- boxes: []
   path: rgb/test/30024.png
+- boxes: []
+  path: rgb/test/30026.png
 - boxes: []
   path: rgb/test/30028.png
 - boxes: []
@@ -10182,6 +12549,9 @@
   - {label: Green, occluded: true, x_max: 468.0, x_min: 464.0, y_max: 356.875, y_min: 349.125}
   path: rgb/test/30036.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 467.0, x_min: 463.875, y_max: 357.0, y_min: 348.75}
+  path: rgb/test/30038.png
+- boxes:
   - {label: Green, occluded: true, x_max: 467.125, x_min: 464.125, y_max: 355.375,
     y_min: 347.875}
   path: rgb/test/30040.png
@@ -10192,12 +12562,18 @@
   - {label: Green, occluded: true, x_max: 468.0, x_min: 464.25, y_max: 353.5, y_min: 346.0}
   path: rgb/test/30044.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 467.0, x_min: 464.125, y_max: 353.375, y_min: 345.5}
+  path: rgb/test/30046.png
+- boxes:
   - {label: Green, occluded: true, x_max: 466.875, x_min: 463.625, y_max: 352.125,
     y_min: 344.5}
   path: rgb/test/30048.png
 - boxes:
   - {label: Green, occluded: true, x_max: 466.75, x_min: 463.5, y_max: 352.25, y_min: 344.5}
   path: rgb/test/30050.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 466.5, x_min: 463.375, y_max: 352.5, y_min: 344.625}
+  path: rgb/test/30052.png
 - boxes:
   - {label: Green, occluded: true, x_max: 465.25, x_min: 462.25, y_max: 353.25, y_min: 345.125}
   path: rgb/test/30054.png
@@ -10280,9 +12656,15 @@
   - {label: Green, occluded: true, x_max: 461.75, x_min: 458.25, y_max: 353.75, y_min: 344.125}
   path: rgb/test/30102.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 463.0, x_min: 457.5, y_max: 354.375, y_min: 344.375}
+  path: rgb/test/30104.png
+- boxes:
   - {label: Green, occluded: true, x_max: 461.875, x_min: 457.875, y_max: 355.125,
     y_min: 345.25}
   path: rgb/test/30106.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 460.375, x_min: 457.5, y_max: 356.5, y_min: 347.25}
+  path: rgb/test/30108.png
 - boxes:
   - {label: Green, occluded: true, x_max: 459.75, x_min: 455.75, y_max: 357.125, y_min: 348.25}
   path: rgb/test/30110.png
@@ -10315,11 +12697,18 @@
     y_min: 353.0}
   path: rgb/test/30128.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 458.25, x_min: 454.5, y_max: 361.875, y_min: 351.0}
+  path: rgb/test/30130.png
+- boxes:
   - {label: Green, occluded: true, x_max: 459.0, x_min: 454.5, y_max: 360.125, y_min: 350.125}
   path: rgb/test/30132.png
 - boxes:
   - {label: Green, occluded: true, x_max: 458.5, x_min: 454.875, y_max: 359.875, y_min: 351.0}
   path: rgb/test/30134.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 459.375, x_min: 454.875, y_max: 360.75,
+    y_min: 351.0}
+  path: rgb/test/30136.png
 - boxes:
   - {label: Green, occluded: true, x_max: 458.75, x_min: 454.75, y_max: 360.75, y_min: 352.0}
   path: rgb/test/30138.png
@@ -10347,6 +12736,9 @@
   - {label: Green, occluded: true, x_max: 458.75, x_min: 455.5, y_max: 351.5, y_min: 341.25}
   path: rgb/test/30152.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 460.5, x_min: 455.125, y_max: 349.375, y_min: 339.625}
+  path: rgb/test/30154.png
+- boxes:
   - {label: Green, occluded: true, x_max: 459.75, x_min: 456.0, y_max: 346.875, y_min: 337.75}
   path: rgb/test/30156.png
 - boxes:
@@ -10356,6 +12748,9 @@
 - boxes:
   - {label: Green, occluded: true, x_max: 460.125, x_min: 455.75, y_max: 347.5, y_min: 338.625}
   path: rgb/test/30160.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 460.5, x_min: 456.75, y_max: 350.125, y_min: 339.375}
+  path: rgb/test/30162.png
 - boxes:
   - {label: Green, occluded: true, x_max: 460.375, x_min: 455.875, y_max: 350.75,
     y_min: 339.5}
@@ -10378,6 +12773,9 @@
   - {label: Green, occluded: true, x_max: 464.375, x_min: 458.5, y_max: 354.25, y_min: 342.0}
   path: rgb/test/30174.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 464.5, x_min: 459.75, y_max: 354.125, y_min: 342.375}
+  path: rgb/test/30176.png
+- boxes:
   - {label: Green, occluded: true, x_max: 465.875, x_min: 460.625, y_max: 355.75,
     y_min: 344.0}
   path: rgb/test/30178.png
@@ -10385,11 +12783,17 @@
   - {label: Green, occluded: true, x_max: 467.625, x_min: 462.125, y_max: 357.5, y_min: 345.75}
   path: rgb/test/30180.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 468.625, x_min: 463.0, y_max: 360.125, y_min: 348.125}
+  path: rgb/test/30182.png
+- boxes:
   - {label: Green, occluded: true, x_max: 470.25, x_min: 464.75, y_max: 362.625, y_min: 349.875}
   path: rgb/test/30184.png
 - boxes:
   - {label: Green, occluded: true, x_max: 471.625, x_min: 466.25, y_max: 364.75, y_min: 352.0}
   path: rgb/test/30186.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 472.75, x_min: 468.375, y_max: 365.25, y_min: 354.875}
+  path: rgb/test/30188.png
 - boxes:
   - {label: Green, occluded: true, x_max: 473.25, x_min: 468.375, y_max: 367.5, y_min: 356.375}
   path: rgb/test/30190.png
@@ -10401,6 +12805,10 @@
   path: rgb/test/30194.png
 - boxes: []
   path: rgb/test/30196.png
+- boxes: []
+  path: rgb/test/30198.png
+- boxes: []
+  path: rgb/test/30200.png
 - boxes: []
   path: rgb/test/30202.png
 - boxes: []
@@ -10415,6 +12823,10 @@
   path: rgb/test/30212.png
 - boxes: []
   path: rgb/test/30214.png
+- boxes: []
+  path: rgb/test/30216.png
+- boxes: []
+  path: rgb/test/30218.png
 - boxes: []
   path: rgb/test/30220.png
 - boxes: []
@@ -10443,11 +12855,20 @@
     y_min: 330.0}
   path: rgb/test/30234.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 792.0, x_min: 787.625, y_max: 336.375, y_min: 323.375}
+  path: rgb/test/30236.png
+- boxes:
   - {label: Green, occluded: true, x_max: 794.75, x_min: 789.75, y_max: 335.625, y_min: 323.875}
   path: rgb/test/30238.png
 - boxes:
   - {label: Green, occluded: true, x_max: 796.875, x_min: 792.5, y_max: 337.75, y_min: 326.375}
   path: rgb/test/30240.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 799.25, x_min: 794.375, y_max: 339.5, y_min: 327.625}
+  path: rgb/test/30242.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 801.5, x_min: 796.5, y_max: 340.125, y_min: 328.5}
+  path: rgb/test/30244.png
 - boxes:
   - {label: Green, occluded: true, x_max: 802.625, x_min: 798.0, y_max: 339.75, y_min: 327.375}
   path: rgb/test/30246.png
@@ -10466,6 +12887,9 @@
   - {label: Green, occluded: true, x_max: 812.375, x_min: 806.75, y_max: 341.375,
     y_min: 328.75}
   path: rgb/test/30254.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 814.25, x_min: 808.5, y_max: 340.5, y_min: 327.375}
+  path: rgb/test/30256.png
 - boxes:
   - {label: Green, occluded: true, x_max: 816.125, x_min: 811.625, y_max: 337.0, y_min: 326.875}
   path: rgb/test/30258.png
@@ -10518,6 +12942,10 @@
   - {label: Green, occluded: true, x_max: 841.5, x_min: 836.875, y_max: 330.625, y_min: 319.125}
   path: rgb/test/30284.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 843.375, x_min: 838.125, y_max: 329.875,
+    y_min: 317.75}
+  path: rgb/test/30286.png
+- boxes:
   - {label: Green, occluded: true, x_max: 844.625, x_min: 840.0, y_max: 329.5, y_min: 318.25}
   path: rgb/test/30288.png
 - boxes:
@@ -10537,6 +12965,9 @@
   - {label: Green, occluded: true, x_max: 855.125, x_min: 850.0, y_max: 337.0, y_min: 325.125}
   path: rgb/test/30298.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 857.125, x_min: 851.5, y_max: 336.375, y_min: 323.875}
+  path: rgb/test/30300.png
+- boxes:
   - {label: Green, occluded: true, x_max: 858.875, x_min: 853.75, y_max: 334.875,
     y_min: 322.75}
   path: rgb/test/30302.png
@@ -10544,8 +12975,15 @@
   - {label: Green, occluded: true, x_max: 860.0, x_min: 855.25, y_max: 334.375, y_min: 320.625}
   path: rgb/test/30304.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 862.625, x_min: 856.875, y_max: 334.125,
+    y_min: 321.5}
+  path: rgb/test/30306.png
+- boxes:
   - {label: Green, occluded: true, x_max: 864.0, x_min: 858.5, y_max: 334.375, y_min: 321.875}
   path: rgb/test/30308.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 865.0, x_min: 859.625, y_max: 335.25, y_min: 322.875}
+  path: rgb/test/30310.png
 - boxes:
   - {label: Green, occluded: false, x_max: 866.0, x_min: 860.125, y_max: 335.0, y_min: 322.375}
   path: rgb/test/30312.png
@@ -10643,6 +13081,11 @@
   - {label: Green, occluded: true, x_max: 533.75, x_min: 527.25, y_max: 337.25, y_min: 322.375}
   path: rgb/test/30356.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 869.125, x_min: 863.5, y_max: 333.875,
+    y_min: 320.875}
+  - {label: Green, occluded: true, x_max: 532.75, x_min: 526.25, y_max: 338.625, y_min: 323.625}
+  path: rgb/test/30358.png
+- boxes:
   - {label: Green, occluded: false, x_max: 868.875, x_min: 863.75, y_max: 336.0, y_min: 322.625}
   - {label: Green, occluded: true, x_max: 532.0, x_min: 525.375, y_max: 339.875, y_min: 326.0}
   path: rgb/test/30360.png
@@ -10696,6 +13139,11 @@
   - {label: Green, occluded: true, x_max: 522.0, x_min: 515.625, y_max: 345.0, y_min: 330.125}
   path: rgb/test/30380.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 867.375, x_min: 862.5, y_max: 343.875,
+    y_min: 330.0}
+  - {label: Green, occluded: true, x_max: 520.5, x_min: 514.125, y_max: 345.5, y_min: 330.75}
+  path: rgb/test/30382.png
+- boxes:
   - {label: Green, occluded: false, x_max: 866.5, x_min: 861.75, y_max: 345.125, y_min: 330.5}
   - {label: Green, occluded: true, x_max: 518.25, x_min: 512.75, y_max: 345.25, y_min: 331.25}
   path: rgb/test/30384.png
@@ -10744,6 +13192,10 @@
   - {label: Green, occluded: true, x_max: 494.25, x_min: 488.5, y_max: 329.25, y_min: 315.375}
   path: rgb/test/30404.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 491.625, x_min: 485.25, y_max: 327.625,
+    y_min: 313.375}
+  path: rgb/test/30406.png
+- boxes:
   - {label: Green, occluded: true, x_max: 488.375, x_min: 482.125, y_max: 327.25,
     y_min: 313.875}
   path: rgb/test/30408.png
@@ -10790,6 +13242,8 @@
 - boxes: []
   path: rgb/test/30440.png
 - boxes: []
+  path: rgb/test/30442.png
+- boxes: []
   path: rgb/test/30444.png
 - boxes: []
   path: rgb/test/30446.png
@@ -10805,11 +13259,22 @@
   - {label: Green, occluded: true, x_max: 815.5, x_min: 810.75, y_max: 332.875, y_min: 320.75}
   path: rgb/test/30454.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 814.625, x_min: 809.25, y_max: 331.125,
+    y_min: 319.0}
+  path: rgb/test/30456.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 813.625, x_min: 808.625, y_max: 331.125,
+    y_min: 318.0}
+  path: rgb/test/30458.png
+- boxes:
   - {label: Green, occluded: true, x_max: 813.0, x_min: 807.625, y_max: 331.375, y_min: 317.625}
   path: rgb/test/30460.png
 - boxes:
   - {label: Green, occluded: true, x_max: 812.25, x_min: 806.625, y_max: 332.25, y_min: 318.75}
   path: rgb/test/30462.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 810.75, x_min: 805.375, y_max: 332.25, y_min: 318.375}
+  path: rgb/test/30464.png
 - boxes:
   - {label: Green, occluded: true, x_max: 809.625, x_min: 804.875, y_max: 332.125,
     y_min: 317.625}
@@ -10825,6 +13290,10 @@
     y_min: 315.875}
   path: rgb/test/30472.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 808.25, x_min: 803.125, y_max: 329.875,
+    y_min: 315.25}
+  path: rgb/test/30474.png
+- boxes:
   - {label: Green, occluded: false, x_max: 808.25, x_min: 802.75, y_max: 330.5, y_min: 315.75}
   path: rgb/test/30476.png
 - boxes:
@@ -10839,6 +13308,18 @@
     y_min: 312.625}
   path: rgb/test/30482.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 808.875, x_min: 803.375, y_max: 327.375,
+    y_min: 312.125}
+  path: rgb/test/30484.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 809.125, x_min: 804.0, y_max: 326.375,
+    y_min: 311.5}
+  path: rgb/test/30486.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 809.375, x_min: 804.25, y_max: 326.125,
+    y_min: 311.25}
+  path: rgb/test/30488.png
+- boxes:
   - {label: Green, occluded: false, x_max: 809.375, x_min: 804.875, y_max: 326.125,
     y_min: 310.75}
   path: rgb/test/30490.png
@@ -10846,11 +13327,25 @@
   - {label: Green, occluded: false, x_max: 810.0, x_min: 805.875, y_max: 324.75, y_min: 309.75}
   path: rgb/test/30492.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 811.125, x_min: 805.75, y_max: 324.875,
+    y_min: 309.875}
+  path: rgb/test/30494.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 812.25, x_min: 806.25, y_max: 325.125,
+    y_min: 309.75}
+  path: rgb/test/30496.png
+- boxes:
   - {label: Green, occluded: false, x_max: 812.375, x_min: 807.0, y_max: 325.0, y_min: 310.25}
   path: rgb/test/30498.png
 - boxes:
   - {label: Green, occluded: false, x_max: 812.5, x_min: 807.75, y_max: 327.0, y_min: 311.375}
   path: rgb/test/30500.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 813.625, x_min: 807.5, y_max: 326.5, y_min: 311.875}
+  path: rgb/test/30502.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 814.25, x_min: 808.375, y_max: 327.5, y_min: 311.5}
+  path: rgb/test/30504.png
 - boxes:
   - {label: Green, occluded: false, x_max: 815.25, x_min: 808.875, y_max: 325.0, y_min: 310.125}
   path: rgb/test/30506.png
@@ -10862,10 +13357,19 @@
   - {label: Green, occluded: false, x_max: 816.5, x_min: 810.375, y_max: 325.0, y_min: 309.5}
   path: rgb/test/30510.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 817.0, x_min: 810.0, y_max: 323.25, y_min: 308.5}
+  - {label: Green, occluded: true, x_max: 356.375, x_min: 349.5, y_max: 325.0, y_min: 305.625}
+  path: rgb/test/30512.png
+- boxes:
   - {label: Green, occluded: false, x_max: 817.25, x_min: 810.75, y_max: 321.625,
     y_min: 307.375}
   - {label: Green, occluded: true, x_max: 353.0, x_min: 346.875, y_max: 323.625, y_min: 304.25}
   path: rgb/test/30514.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 818.125, x_min: 810.625, y_max: 318.875,
+    y_min: 304.125}
+  - {label: Green, occluded: true, x_max: 349.875, x_min: 344.375, y_max: 321.5, y_min: 303.75}
+  path: rgb/test/30516.png
 - boxes:
   - {label: Green, occluded: false, x_max: 818.75, x_min: 811.375, y_max: 320.125,
     y_min: 303.75}
@@ -10886,8 +13390,15 @@
   - {label: Green, occluded: false, x_max: 820.75, x_min: 813.5, y_max: 321.5, y_min: 305.875}
   path: rgb/test/30524.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 821.625, x_min: 813.875, y_max: 321.375,
+    y_min: 305.5}
+  path: rgb/test/30526.png
+- boxes:
   - {label: Green, occluded: false, x_max: 821.75, x_min: 814.625, y_max: 321.0, y_min: 306.375}
   path: rgb/test/30528.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 821.5, x_min: 815.625, y_max: 322.0, y_min: 306.625}
+  path: rgb/test/30530.png
 - boxes:
   - {label: Green, occluded: false, x_max: 821.875, x_min: 816.0, y_max: 321.75, y_min: 306.375}
   path: rgb/test/30532.png
@@ -10942,6 +13453,12 @@
     y_min: 293.875}
   path: rgb/test/30552.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 829.625, x_min: 822.125, y_max: 313.75,
+    y_min: 294.75}
+  - {label: Green, occluded: false, x_max: 296.25, x_min: 288.375, y_max: 315.375,
+    y_min: 294.25}
+  path: rgb/test/30554.png
+- boxes:
   - {label: Green, occluded: false, x_max: 830.75, x_min: 822.875, y_max: 316.875,
     y_min: 295.75}
   - {label: Green, occluded: false, x_max: 293.125, x_min: 285.25, y_max: 317.5, y_min: 296.625}
@@ -10957,6 +13474,12 @@
   - {label: Green, occluded: false, x_max: 286.75, x_min: 279.125, y_max: 321.75,
     y_min: 298.75}
   path: rgb/test/30560.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 833.5, x_min: 825.125, y_max: 319.125,
+    y_min: 297.75}
+  - {label: Green, occluded: false, x_max: 282.875, x_min: 275.25, y_max: 320.75,
+    y_min: 299.0}
+  path: rgb/test/30562.png
 - boxes:
   - {label: Green, occluded: false, x_max: 833.625, x_min: 826.125, y_max: 317.0,
     y_min: 297.625}
@@ -10987,6 +13510,11 @@
   - {label: Green, occluded: false, x_max: 262.125, x_min: 254.0, y_max: 316.5, y_min: 293.375}
   path: rgb/test/30574.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 838.0, x_min: 830.75, y_max: 314.25, y_min: 293.0}
+  - {label: Green, occluded: false, x_max: 259.125, x_min: 251.25, y_max: 316.125,
+    y_min: 292.375}
+  path: rgb/test/30576.png
+- boxes:
   - {label: Green, occluded: false, x_max: 840.0, x_min: 831.5, y_max: 315.25, y_min: 294.125}
   - {label: Green, occluded: false, x_max: 254.625, x_min: 247.375, y_max: 315.125,
     y_min: 293.625}
@@ -11007,6 +13535,11 @@
   - {label: Green, occluded: false, x_max: 243.0, x_min: 235.5, y_max: 317.25, y_min: 294.625}
   path: rgb/test/30584.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 844.0, x_min: 834.375, y_max: 313.5, y_min: 294.125}
+  - {label: Green, occluded: false, x_max: 240.0, x_min: 230.875, y_max: 315.875,
+    y_min: 293.0}
+  path: rgb/test/30586.png
+- boxes:
   - {label: Green, occluded: false, x_max: 845.375, x_min: 835.375, y_max: 313.125,
     y_min: 292.5}
   - {label: Green, occluded: false, x_max: 235.625, x_min: 227.25, y_max: 314.625,
@@ -11022,6 +13555,12 @@
     y_min: 291.625}
   - {label: Green, occluded: false, x_max: 227.0, x_min: 219.125, y_max: 312.5, y_min: 288.625}
   path: rgb/test/30592.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 848.875, x_min: 839.625, y_max: 311.625,
+    y_min: 290.5}
+  - {label: Green, occluded: false, x_max: 222.875, x_min: 214.375, y_max: 311.75,
+    y_min: 287.375}
+  path: rgb/test/30594.png
 - boxes:
   - {label: Green, occluded: false, x_max: 850.125, x_min: 840.5, y_max: 309.75, y_min: 288.125}
   - {label: Green, occluded: false, x_max: 219.25, x_min: 210.25, y_max: 311.25, y_min: 286.125}
@@ -11072,6 +13611,11 @@
   - {label: Green, occluded: false, x_max: 175.75, x_min: 165.75, y_max: 306.25, y_min: 279.875}
   path: rgb/test/30614.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 864.125, x_min: 853.75, y_max: 305.5, y_min: 281.0}
+  - {label: Green, occluded: false, x_max: 170.625, x_min: 161.625, y_max: 306.125,
+    y_min: 278.875}
+  path: rgb/test/30616.png
+- boxes:
   - {label: Green, occluded: false, x_max: 865.875, x_min: 855.125, y_max: 304.625,
     y_min: 279.625}
   - {label: Green, occluded: false, x_max: 164.5, x_min: 155.5, y_max: 305.5, y_min: 277.875}
@@ -11086,6 +13630,11 @@
   - {label: Green, occluded: false, x_max: 154.625, x_min: 145.0, y_max: 304.625,
     y_min: 276.5}
   path: rgb/test/30622.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 871.625, x_min: 860.625, y_max: 304.5,
+    y_min: 278.0}
+  - {label: Green, occluded: false, x_max: 148.5, x_min: 140.125, y_max: 304.5, y_min: 275.875}
+  path: rgb/test/30624.png
 - boxes:
   - {label: Green, occluded: false, x_max: 873.375, x_min: 861.75, y_max: 299.875,
     y_min: 274.5}
@@ -11207,6 +13756,21 @@
   - {label: Green, occluded: false, x_max: 827.375, x_min: 813.0, y_max: 267.0, y_min: 230.875}
   path: rgb/test/30678.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 818.0, x_min: 802.875, y_max: 268.75, y_min: 232.75}
+  path: rgb/test/30680.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 808.875, x_min: 792.125, y_max: 271.25,
+    y_min: 234.0}
+  path: rgb/test/30682.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 799.625, x_min: 782.375, y_max: 272.875,
+    y_min: 236.75}
+  path: rgb/test/30684.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 787.625, x_min: 769.5, y_max: 277.375,
+    y_min: 237.875}
+  path: rgb/test/30686.png
+- boxes:
   - {label: Green, occluded: false, x_max: 775.375, x_min: 759.0, y_max: 275.125,
     y_min: 238.5}
   path: rgb/test/30688.png
@@ -11219,6 +13783,9 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 740.75, x_min: 724.5, y_max: 273.75, y_min: 234.25}
   path: rgb/test/30694.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 730.0, x_min: 712.25, y_max: 269.25, y_min: 231.0}
+  path: rgb/test/30696.png
 - boxes:
   - {label: Green, occluded: false, x_max: 717.625, x_min: 700.0, y_max: 268.125,
     y_min: 227.375}
@@ -11256,6 +13823,14 @@
     y_min: 210.625}
   path: rgb/test/30714.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 601.375, x_min: 586.75, y_max: 251.625,
+    y_min: 207.0}
+  path: rgb/test/30716.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 593.875, x_min: 579.0, y_max: 249.375,
+    y_min: 205.25}
+  path: rgb/test/30718.png
+- boxes:
   - {label: Green, occluded: false, x_max: 586.875, x_min: 571.125, y_max: 247.375,
     y_min: 203.25}
   path: rgb/test/30720.png
@@ -11265,6 +13840,9 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 577.0, x_min: 562.5, y_max: 243.875, y_min: 198.375}
   path: rgb/test/30724.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 573.5, x_min: 557.25, y_max: 241.5, y_min: 195.625}
+  path: rgb/test/30726.png
 - boxes:
   - {label: Green, occluded: false, x_max: 569.75, x_min: 553.25, y_max: 238.5, y_min: 191.75}
   path: rgb/test/30728.png
@@ -11277,6 +13855,10 @@
     y_min: 190.125}
   path: rgb/test/30732.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 561.625, x_min: 543.625, y_max: 237.0,
+    y_min: 189.125}
+  path: rgb/test/30734.png
+- boxes:
   - {label: Green, occluded: false, x_max: 559.75, x_min: 541.375, y_max: 235.625,
     y_min: 188.125}
   path: rgb/test/30736.png
@@ -11285,8 +13867,14 @@
     y_min: 188.75}
   path: rgb/test/30738.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 556.5, x_min: 538.0, y_max: 236.25, y_min: 188.875}
+  path: rgb/test/30740.png
+- boxes:
   - {label: Green, occluded: false, x_max: 555.25, x_min: 536.0, y_max: 236.5, y_min: 188.125}
   path: rgb/test/30742.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 553.75, x_min: 535.0, y_max: 236.875, y_min: 187.5}
+  path: rgb/test/30744.png
 - boxes:
   - {label: Green, occluded: false, x_max: 552.125, x_min: 533.75, y_max: 235.25,
     y_min: 188.0}
@@ -11295,9 +13883,16 @@
   - {label: Green, occluded: false, x_max: 550.25, x_min: 532.5, y_max: 234.375, y_min: 185.625}
   path: rgb/test/30748.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 549.375, x_min: 531.5, y_max: 235.125,
+    y_min: 183.75}
+  path: rgb/test/30750.png
+- boxes:
   - {label: Green, occluded: false, x_max: 548.125, x_min: 528.375, y_max: 234.5,
     y_min: 182.75}
   path: rgb/test/30752.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 545.375, x_min: 526.75, y_max: 233.5, y_min: 182.625}
+  path: rgb/test/30754.png
 - boxes:
   - {label: Green, occluded: false, x_max: 544.375, x_min: 525.0, y_max: 234.0, y_min: 181.625}
   path: rgb/test/30756.png
@@ -11315,6 +13910,12 @@
   - {label: Green, occluded: false, x_max: 539.25, x_min: 520.0, y_max: 234.0, y_min: 181.0}
   path: rgb/test/30764.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 538.5, x_min: 519.625, y_max: 237.0, y_min: 183.625}
+  path: rgb/test/30766.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 538.75, x_min: 518.75, y_max: 238.0, y_min: 183.125}
+  path: rgb/test/30768.png
+- boxes:
   - {label: Green, occluded: false, x_max: 538.125, x_min: 518.25, y_max: 236.375,
     y_min: 182.75}
   path: rgb/test/30770.png
@@ -11329,6 +13930,9 @@
   - {label: Green, occluded: false, x_max: 532.25, x_min: 513.25, y_max: 234.0, y_min: 178.125}
   path: rgb/test/30776.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 530.5, x_min: 511.5, y_max: 232.0, y_min: 177.0}
+  path: rgb/test/30778.png
+- boxes:
   - {label: Green, occluded: false, x_max: 527.5, x_min: 508.0, y_max: 231.5, y_min: 172.5}
   path: rgb/test/30780.png
 - boxes:
@@ -11341,11 +13945,17 @@
   - {label: Green, occluded: false, x_max: 518.5, x_min: 496.5, y_max: 220.0, y_min: 161.0}
   path: rgb/test/30786.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 515.0, x_min: 492.0, y_max: 215.5, y_min: 158.0}
+  path: rgb/test/30788.png
+- boxes:
   - {label: Green, occluded: false, x_max: 507.0, x_min: 487.5, y_max: 216.0, y_min: 156.0}
   path: rgb/test/30790.png
 - boxes:
   - {label: Green, occluded: false, x_max: 503.5, x_min: 482.0, y_max: 217.5, y_min: 156.5}
   path: rgb/test/30792.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 496.5, x_min: 476.0, y_max: 216.0, y_min: 155.5}
+  path: rgb/test/30794.png
 - boxes:
   - {label: Green, occluded: false, x_max: 490.0, x_min: 470.5, y_max: 215.0, y_min: 154.5}
   path: rgb/test/30796.png
@@ -11356,17 +13966,32 @@
   - {label: Green, occluded: false, x_max: 478.0, x_min: 457.5, y_max: 210.5, y_min: 149.5}
   path: rgb/test/30800.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 470.5, x_min: 450.5, y_max: 205.5, y_min: 148.5}
+  path: rgb/test/30802.png
+- boxes:
   - {label: Green, occluded: false, x_max: 466.0, x_min: 442.5, y_max: 205.5, y_min: 142.5}
   path: rgb/test/30804.png
 - boxes:
   - {label: Green, occluded: false, x_max: 457.5, x_min: 434.5, y_max: 204.5, y_min: 142.0}
   path: rgb/test/30806.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 449.0, x_min: 427.0, y_max: 203.5, y_min: 140.0}
+  path: rgb/test/30808.png
+- boxes:
   - {label: Green, occluded: false, x_max: 440.5, x_min: 418.0, y_max: 201.0, y_min: 139.0}
   path: rgb/test/30810.png
 - boxes:
   - {label: Green, occluded: false, x_max: 428.5, x_min: 405.5, y_max: 204.5, y_min: 138.5}
   path: rgb/test/30812.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 417.5, x_min: 392.0, y_max: 200.0, y_min: 137.0}
+  path: rgb/test/30814.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 400.0, x_min: 379.0, y_max: 202.0, y_min: 139.0}
+  path: rgb/test/30816.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 386.0, x_min: 364.5, y_max: 207.0, y_min: 142.0}
+  path: rgb/test/30818.png
 - boxes:
   - {label: Green, occluded: false, x_max: 370.5, x_min: 346.0, y_max: 203.5, y_min: 141.5}
   path: rgb/test/30820.png
@@ -11392,8 +14017,17 @@
   - {label: Green, occluded: false, x_max: 204.5, x_min: 179.0, y_max: 196.0, y_min: 126.5}
   path: rgb/test/30834.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 170.0, x_min: 143.0, y_max: 195.5, y_min: 121.5}
+  path: rgb/test/30836.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 132.0, x_min: 107.0, y_max: 194.0, y_min: 118.0}
+  path: rgb/test/30838.png
+- boxes:
   - {label: Green, occluded: false, x_max: 93.5, x_min: 65.0, y_max: 191.5, y_min: 115.0}
   path: rgb/test/30840.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 48.5, x_min: 22.5, y_max: 189.5, y_min: 111.0}
+  path: rgb/test/30842.png
 - boxes: []
   path: rgb/test/30844.png
 - boxes: []
@@ -11401,11 +14035,19 @@
 - boxes: []
   path: rgb/test/30848.png
 - boxes: []
+  path: rgb/test/30850.png
+- boxes: []
+  path: rgb/test/30852.png
+- boxes: []
+  path: rgb/test/30854.png
+- boxes: []
   path: rgb/test/30856.png
 - boxes: []
   path: rgb/test/30858.png
 - boxes: []
   path: rgb/test/30860.png
+- boxes: []
+  path: rgb/test/30862.png
 - boxes: []
   path: rgb/test/30864.png
 - boxes: []
@@ -11417,6 +14059,8 @@
 - boxes: []
   path: rgb/test/30872.png
 - boxes: []
+  path: rgb/test/30874.png
+- boxes: []
   path: rgb/test/30876.png
 - boxes: []
   path: rgb/test/30878.png
@@ -11425,7 +14069,11 @@
 - boxes: []
   path: rgb/test/30882.png
 - boxes: []
+  path: rgb/test/30884.png
+- boxes: []
   path: rgb/test/30886.png
+- boxes: []
+  path: rgb/test/30888.png
 - boxes: []
   path: rgb/test/30890.png
 - boxes: []
@@ -11434,6 +14082,10 @@
   path: rgb/test/30894.png
 - boxes: []
   path: rgb/test/30896.png
+- boxes: []
+  path: rgb/test/30898.png
+- boxes: []
+  path: rgb/test/30900.png
 - boxes: []
   path: rgb/test/30902.png
 - boxes: []
@@ -11459,11 +14111,17 @@
 - boxes: []
   path: rgb/test/30924.png
 - boxes: []
+  path: rgb/test/30926.png
+- boxes: []
   path: rgb/test/30928.png
 - boxes: []
   path: rgb/test/30930.png
 - boxes: []
+  path: rgb/test/30932.png
+- boxes: []
   path: rgb/test/30934.png
+- boxes: []
+  path: rgb/test/30936.png
 - boxes: []
   path: rgb/test/30938.png
 - boxes: []
@@ -11473,17 +14131,27 @@
 - boxes: []
   path: rgb/test/30944.png
 - boxes: []
+  path: rgb/test/30946.png
+- boxes: []
+  path: rgb/test/30948.png
+- boxes: []
   path: rgb/test/30950.png
 - boxes: []
   path: rgb/test/30952.png
 - boxes: []
+  path: rgb/test/30954.png
+- boxes: []
   path: rgb/test/30956.png
+- boxes: []
+  path: rgb/test/30958.png
 - boxes: []
   path: rgb/test/30960.png
 - boxes: []
   path: rgb/test/30962.png
 - boxes: []
   path: rgb/test/30964.png
+- boxes: []
+  path: rgb/test/30966.png
 - boxes: []
   path: rgb/test/30968.png
 - boxes: []
@@ -11499,9 +14167,13 @@
 - boxes: []
   path: rgb/test/30980.png
 - boxes: []
+  path: rgb/test/30982.png
+- boxes: []
   path: rgb/test/30984.png
 - boxes: []
   path: rgb/test/30986.png
+- boxes: []
+  path: rgb/test/30988.png
 - boxes: []
   path: rgb/test/30990.png
 - boxes: []
@@ -11509,7 +14181,11 @@
 - boxes: []
   path: rgb/test/30994.png
 - boxes: []
+  path: rgb/test/30996.png
+- boxes: []
   path: rgb/test/30998.png
+- boxes: []
+  path: rgb/test/31000.png
 - boxes: []
   path: rgb/test/31002.png
 - boxes: []
@@ -11530,6 +14206,8 @@
   path: rgb/test/31018.png
 - boxes: []
   path: rgb/test/31020.png
+- boxes: []
+  path: rgb/test/31022.png
 - boxes: []
   path: rgb/test/31024.png
 - boxes: []
@@ -11565,9 +14243,13 @@
 - boxes: []
   path: rgb/test/31056.png
 - boxes: []
+  path: rgb/test/31058.png
+- boxes: []
   path: rgb/test/31060.png
 - boxes: []
   path: rgb/test/31062.png
+- boxes: []
+  path: rgb/test/31064.png
 - boxes: []
   path: rgb/test/31066.png
 - boxes: []
@@ -11583,6 +14265,8 @@
 - boxes: []
   path: rgb/test/31078.png
 - boxes: []
+  path: rgb/test/31080.png
+- boxes: []
   path: rgb/test/31082.png
 - boxes: []
   path: rgb/test/31084.png
@@ -11591,15 +14275,21 @@
 - boxes: []
   path: rgb/test/31088.png
 - boxes: []
+  path: rgb/test/31090.png
+- boxes: []
   path: rgb/test/31092.png
 - boxes: []
   path: rgb/test/31094.png
 - boxes: []
   path: rgb/test/31096.png
 - boxes: []
+  path: rgb/test/31098.png
+- boxes: []
   path: rgb/test/31100.png
 - boxes: []
   path: rgb/test/31102.png
+- boxes: []
+  path: rgb/test/31104.png
 - boxes: []
   path: rgb/test/31106.png
 - boxes: []
@@ -11611,17 +14301,27 @@
 - boxes: []
   path: rgb/test/31114.png
 - boxes: []
+  path: rgb/test/31116.png
+- boxes: []
+  path: rgb/test/31118.png
+- boxes: []
   path: rgb/test/31120.png
 - boxes: []
   path: rgb/test/31122.png
 - boxes: []
   path: rgb/test/31124.png
 - boxes: []
+  path: rgb/test/31126.png
+- boxes: []
   path: rgb/test/31128.png
 - boxes: []
   path: rgb/test/31130.png
 - boxes: []
+  path: rgb/test/31132.png
+- boxes: []
   path: rgb/test/31134.png
+- boxes: []
+  path: rgb/test/31136.png
 - boxes: []
   path: rgb/test/31138.png
 - boxes: []
@@ -11635,6 +14335,8 @@
 - boxes: []
   path: rgb/test/31148.png
 - boxes: []
+  path: rgb/test/31150.png
+- boxes: []
   path: rgb/test/31152.png
 - boxes: []
   path: rgb/test/31154.png
@@ -11646,6 +14348,8 @@
   path: rgb/test/31160.png
 - boxes: []
   path: rgb/test/31162.png
+- boxes: []
+  path: rgb/test/31164.png
 - boxes: []
   path: rgb/test/31166.png
 - boxes: []
@@ -11691,6 +14395,10 @@
 - boxes: []
   path: rgb/test/31208.png
 - boxes: []
+  path: rgb/test/31210.png
+- boxes: []
+  path: rgb/test/31212.png
+- boxes: []
   path: rgb/test/31214.png
 - boxes: []
   path: rgb/test/31216.png
@@ -11698,6 +14406,10 @@
   path: rgb/test/31218.png
 - boxes: []
   path: rgb/test/31220.png
+- boxes: []
+  path: rgb/test/31222.png
+- boxes: []
+  path: rgb/test/31224.png
 - boxes: []
   path: rgb/test/31226.png
 - boxes: []
@@ -11707,7 +14419,13 @@
 - boxes: []
   path: rgb/test/31232.png
 - boxes: []
+  path: rgb/test/31234.png
+- boxes: []
+  path: rgb/test/31236.png
+- boxes: []
   path: rgb/test/31238.png
+- boxes: []
+  path: rgb/test/31240.png
 - boxes: []
   path: rgb/test/31242.png
 - boxes: []
@@ -11719,11 +14437,19 @@
 - boxes: []
   path: rgb/test/31250.png
 - boxes: []
+  path: rgb/test/31252.png
+- boxes: []
+  path: rgb/test/31254.png
+- boxes: []
   path: rgb/test/31256.png
+- boxes: []
+  path: rgb/test/31258.png
 - boxes: []
   path: rgb/test/31260.png
 - boxes: []
   path: rgb/test/31262.png
+- boxes: []
+  path: rgb/test/31264.png
 - boxes: []
   path: rgb/test/31266.png
 - boxes: []
@@ -11733,9 +14459,17 @@
 - boxes: []
   path: rgb/test/31272.png
 - boxes: []
+  path: rgb/test/31274.png
+- boxes: []
+  path: rgb/test/31276.png
+- boxes: []
+  path: rgb/test/31278.png
+- boxes: []
   path: rgb/test/31280.png
 - boxes: []
   path: rgb/test/31282.png
+- boxes: []
+  path: rgb/test/31284.png
 - boxes: []
   path: rgb/test/31286.png
 - boxes: []
@@ -11744,6 +14478,8 @@
   path: rgb/test/31290.png
 - boxes: []
   path: rgb/test/31292.png
+- boxes: []
+  path: rgb/test/31294.png
 - boxes: []
   path: rgb/test/31296.png
 - boxes: []
@@ -11759,6 +14495,14 @@
 - boxes: []
   path: rgb/test/31308.png
 - boxes: []
+  path: rgb/test/31310.png
+- boxes: []
+  path: rgb/test/31312.png
+- boxes: []
+  path: rgb/test/31314.png
+- boxes: []
+  path: rgb/test/31316.png
+- boxes: []
   path: rgb/test/31318.png
 - boxes: []
   path: rgb/test/31320.png
@@ -11772,6 +14516,12 @@
   path: rgb/test/31328.png
 - boxes: []
   path: rgb/test/31330.png
+- boxes: []
+  path: rgb/test/31332.png
+- boxes: []
+  path: rgb/test/31334.png
+- boxes: []
+  path: rgb/test/31336.png
 - boxes: []
   path: rgb/test/31338.png
 - boxes: []
@@ -11807,6 +14557,10 @@
     y_min: 295.25}
   path: rgb/test/31358.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 148.625, x_min: 141.25, y_max: 313.625,
+    y_min: 295.0}
+  path: rgb/test/31360.png
+- boxes:
   - {label: Green, occluded: false, x_max: 152.25, x_min: 144.75, y_max: 313.375,
     y_min: 295.125}
   path: rgb/test/31362.png
@@ -11826,6 +14580,9 @@
     y_min: 300.0}
   path: rgb/test/31370.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 152.5, x_min: 145.25, y_max: 319.25, y_min: 301.375}
+  path: rgb/test/31372.png
+- boxes:
   - {label: Green, occluded: false, x_max: 152.25, x_min: 144.375, y_max: 318.75,
     y_min: 300.75}
   path: rgb/test/31374.png
@@ -11833,6 +14590,9 @@
   - {label: Green, occluded: false, x_max: 152.125, x_min: 145.5, y_max: 317.625,
     y_min: 299.25}
   path: rgb/test/31376.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 152.0, x_min: 144.75, y_max: 317.125, y_min: 297.875}
+  path: rgb/test/31378.png
 - boxes:
   - {label: Green, occluded: false, x_max: 152.75, x_min: 145.125, y_max: 317.125,
     y_min: 298.625}
@@ -11844,6 +14604,9 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 152.0, x_min: 144.875, y_max: 317.5, y_min: 298.375}
   path: rgb/test/31384.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 152.25, x_min: 144.5, y_max: 316.625, y_min: 297.75}
+  path: rgb/test/31386.png
 - boxes:
   - {label: Green, occluded: false, x_max: 151.5, x_min: 144.0, y_max: 315.875, y_min: 296.875}
   path: rgb/test/31388.png
@@ -11864,6 +14627,10 @@
     y_min: 295.625}
   path: rgb/test/31396.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 148.625, x_min: 141.75, y_max: 314.125,
+    y_min: 295.125}
+  path: rgb/test/31398.png
+- boxes:
   - {label: Green, occluded: false, x_max: 148.75, x_min: 141.125, y_max: 313.5, y_min: 293.375}
   path: rgb/test/31400.png
 - boxes:
@@ -11874,12 +14641,19 @@
     y_min: 293.75}
   path: rgb/test/31404.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 148.0, x_min: 140.375, y_max: 312.5, y_min: 293.25}
+  path: rgb/test/31406.png
+- boxes:
   - {label: Green, occluded: false, x_max: 147.875, x_min: 140.5, y_max: 311.75, y_min: 292.375}
   path: rgb/test/31408.png
 - boxes:
   - {label: Green, occluded: false, x_max: 147.375, x_min: 140.25, y_max: 310.875,
     y_min: 292.5}
   path: rgb/test/31410.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 147.0, x_min: 139.875, y_max: 311.375,
+    y_min: 293.625}
+  path: rgb/test/31412.png
 - boxes:
   - {label: Green, occluded: false, x_max: 147.125, x_min: 139.5, y_max: 310.625,
     y_min: 292.625}
@@ -11895,6 +14669,10 @@
   - {label: Green, occluded: false, x_max: 144.75, x_min: 138.875, y_max: 310.375,
     y_min: 292.0}
   path: rgb/test/31420.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 145.25, x_min: 139.125, y_max: 310.125,
+    y_min: 291.5}
+  path: rgb/test/31422.png
 - boxes:
   - {label: Green, occluded: false, x_max: 144.125, x_min: 137.25, y_max: 309.5, y_min: 290.375}
   path: rgb/test/31424.png
@@ -11939,6 +14717,9 @@
     y_min: 289.875}
   path: rgb/test/31446.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 141.25, x_min: 135.0, y_max: 309.375, y_min: 290.5}
+  path: rgb/test/31448.png
+- boxes:
   - {label: Green, occluded: false, x_max: 141.875, x_min: 135.375, y_max: 309.125,
     y_min: 290.125}
   path: rgb/test/31450.png
@@ -11946,9 +14727,17 @@
   - {label: Green, occluded: false, x_max: 142.75, x_min: 135.75, y_max: 309.75, y_min: 290.5}
   path: rgb/test/31452.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 143.375, x_min: 136.875, y_max: 309.5,
+    y_min: 290.0}
+  path: rgb/test/31454.png
+- boxes:
   - {label: Green, occluded: false, x_max: 143.875, x_min: 137.75, y_max: 309.125,
     y_min: 290.25}
   path: rgb/test/31456.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 145.375, x_min: 138.25, y_max: 309.25,
+    y_min: 290.125}
+  path: rgb/test/31458.png
 - boxes:
   - {label: Green, occluded: false, x_max: 146.125, x_min: 139.75, y_max: 309.75,
     y_min: 290.75}
@@ -11958,12 +14747,23 @@
     y_min: 290.625}
   path: rgb/test/31462.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 148.75, x_min: 142.0, y_max: 310.375, y_min: 290.5}
+  path: rgb/test/31464.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 149.375, x_min: 143.125, y_max: 309.75,
+    y_min: 291.125}
+  path: rgb/test/31466.png
+- boxes:
   - {label: Green, occluded: false, x_max: 151.25, x_min: 144.5, y_max: 310.125, y_min: 290.0}
   path: rgb/test/31468.png
 - boxes:
   - {label: Green, occluded: false, x_max: 152.625, x_min: 146.25, y_max: 309.375,
     y_min: 290.375}
   path: rgb/test/31470.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 154.75, x_min: 148.625, y_max: 310.25,
+    y_min: 290.875}
+  path: rgb/test/31472.png
 - boxes:
   - {label: Green, occluded: false, x_max: 156.5, x_min: 150.375, y_max: 309.75, y_min: 290.5}
   path: rgb/test/31474.png
@@ -12017,6 +14817,9 @@
     y_min: 289.875}
   path: rgb/test/31500.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 273.0, x_min: 265.875, y_max: 309.0, y_min: 289.875}
+  path: rgb/test/31502.png
+- boxes:
   - {label: Green, occluded: false, x_max: 291.25, x_min: 284.125, y_max: 309.125,
     y_min: 290.75}
   path: rgb/test/31504.png
@@ -12039,9 +14842,23 @@
     y_min: 296.25}
   path: rgb/test/31514.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 396.875, x_min: 391.0, y_max: 315.5, y_min: 297.75}
+  - {label: Green, occluded: false, x_max: 5.875, x_min: 0.0, y_max: 328.5, y_min: 307.875}
+  path: rgb/test/31516.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 410.875, x_min: 405.5, y_max: 316.375,
+    y_min: 298.0}
+  - {label: Green, occluded: false, x_max: 21.375, x_min: 14.375, y_max: 327.625,
+    y_min: 309.25}
+  path: rgb/test/31518.png
+- boxes:
   - {label: Green, occluded: false, x_max: 423.5, x_min: 418.375, y_max: 317.5, y_min: 299.25}
   - {label: Green, occluded: false, x_max: 34.875, x_min: 28.0, y_max: 329.0, y_min: 309.0}
   path: rgb/test/31520.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 434.25, x_min: 428.25, y_max: 317.5, y_min: 300.25}
+  - {label: Green, occluded: false, x_max: 46.25, x_min: 39.375, y_max: 329.375, y_min: 310.375}
+  path: rgb/test/31522.png
 - boxes:
   - {label: Green, occluded: false, x_max: 442.875, x_min: 437.625, y_max: 318.125,
     y_min: 300.875}
@@ -12056,6 +14873,11 @@
     y_min: 300.75}
   - {label: Green, occluded: false, x_max: 73.25, x_min: 65.75, y_max: 331.125, y_min: 311.75}
   path: rgb/test/31528.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 464.25, x_min: 459.625, y_max: 317.625,
+    y_min: 300.625}
+  - {label: Green, occluded: false, x_max: 79.625, x_min: 72.25, y_max: 329.75, y_min: 311.625}
+  path: rgb/test/31530.png
 - boxes:
   - {label: Green, occluded: false, x_max: 470.25, x_min: 464.75, y_max: 318.875,
     y_min: 301.125}
@@ -12081,6 +14903,15 @@
   - {label: Green, occluded: false, x_max: 99.25, x_min: 92.875, y_max: 330.375, y_min: 312.0}
   path: rgb/test/31540.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 484.875, x_min: 479.25, y_max: 319.5, y_min: 301.5}
+  - {label: Green, occluded: false, x_max: 101.375, x_min: 95.125, y_max: 330.875,
+    y_min: 311.875}
+  path: rgb/test/31542.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 486.125, x_min: 480.75, y_max: 320.0, y_min: 302.25}
+  - {label: Green, occluded: false, x_max: 103.125, x_min: 96.625, y_max: 332.0, y_min: 313.25}
+  path: rgb/test/31544.png
+- boxes:
   - {label: Green, occluded: false, x_max: 486.5, x_min: 480.5, y_max: 322.25, y_min: 303.875}
   - {label: Green, occluded: false, x_max: 103.75, x_min: 97.5, y_max: 333.5, y_min: 315.0}
   path: rgb/test/31546.png
@@ -12093,6 +14924,15 @@
   - {label: Green, occluded: false, x_max: 486.625, x_min: 480.5, y_max: 326.75, y_min: 308.0}
   - {label: Green, occluded: false, x_max: 104.125, x_min: 97.25, y_max: 337.5, y_min: 320.375}
   path: rgb/test/31550.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 486.0, x_min: 480.5, y_max: 325.875, y_min: 308.25}
+  - {label: Green, occluded: false, x_max: 103.125, x_min: 97.875, y_max: 338.75,
+    y_min: 320.375}
+  path: rgb/test/31552.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 486.875, x_min: 480.25, y_max: 326.5, y_min: 308.75}
+  - {label: Green, occluded: false, x_max: 104.5, x_min: 97.375, y_max: 338.0, y_min: 319.125}
+  path: rgb/test/31554.png
 - boxes:
   - {label: Green, occluded: false, x_max: 486.25, x_min: 480.25, y_max: 326.375,
     y_min: 308.5}
@@ -12131,6 +14971,17 @@
     y_min: 325.75}
   path: rgb/test/31568.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 513.0, x_min: 508.125, y_max: 330.0, y_min: 312.5}
+  - {label: Green, occluded: false, x_max: 130.625, x_min: 123.25, y_max: 344.25,
+    y_min: 326.375}
+  path: rgb/test/31570.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 524.875, x_min: 518.75, y_max: 330.375,
+    y_min: 312.875}
+  - {label: Green, occluded: false, x_max: 141.375, x_min: 134.625, y_max: 344.75,
+    y_min: 326.375}
+  path: rgb/test/31572.png
+- boxes:
   - {label: Green, occluded: false, x_max: 537.5, x_min: 531.375, y_max: 330.0, y_min: 311.5}
   - {label: Green, occluded: false, x_max: 154.0, x_min: 146.875, y_max: 344.625,
     y_min: 325.5}
@@ -12148,6 +14999,11 @@
     y_min: 324.125}
   path: rgb/test/31578.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 584.5, x_min: 579.5, y_max: 326.75, y_min: 309.25}
+  - {label: Green, occluded: false, x_max: 200.75, x_min: 193.75, y_max: 340.875,
+    y_min: 323.375}
+  path: rgb/test/31580.png
+- boxes:
   - {label: Green, occluded: false, x_max: 603.25, x_min: 596.875, y_max: 325.625,
     y_min: 308.375}
   - {label: Green, occluded: false, x_max: 218.125, x_min: 212.0, y_max: 340.75, y_min: 322.5}
@@ -12164,6 +15020,12 @@
     y_min: 319.0}
   path: rgb/test/31586.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 663.375, x_min: 657.125, y_max: 320.25,
+    y_min: 302.625}
+  - {label: Green, occluded: false, x_max: 276.625, x_min: 270.375, y_max: 335.75,
+    y_min: 317.125}
+  path: rgb/test/31588.png
+- boxes:
   - {label: Green, occluded: false, x_max: 685.0, x_min: 678.25, y_max: 318.25, y_min: 300.0}
   - {label: Green, occluded: false, x_max: 298.25, x_min: 292.0, y_max: 333.25, y_min: 315.25}
   path: rgb/test/31590.png
@@ -12172,6 +15034,12 @@
   - {label: Green, occluded: false, x_max: 318.875, x_min: 312.75, y_max: 331.25,
     y_min: 313.875}
   path: rgb/test/31592.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 728.375, x_min: 721.375, y_max: 316.5,
+    y_min: 296.875}
+  - {label: Green, occluded: false, x_max: 340.375, x_min: 333.375, y_max: 329.875,
+    y_min: 312.25}
+  path: rgb/test/31594.png
 - boxes:
   - {label: Green, occluded: false, x_max: 749.25, x_min: 742.625, y_max: 315.375,
     y_min: 296.125}
@@ -12182,15 +15050,30 @@
   - {label: Green, occluded: false, x_max: 380.625, x_min: 374.0, y_max: 329.0, y_min: 309.375}
   path: rgb/test/31598.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 791.625, x_min: 784.375, y_max: 313.375,
+    y_min: 293.875}
+  - {label: Green, occluded: false, x_max: 399.875, x_min: 392.625, y_max: 326.0,
+    y_min: 307.75}
+  path: rgb/test/31600.png
+- boxes:
   - {label: Green, occluded: false, x_max: 809.125, x_min: 803.75, y_max: 311.125,
     y_min: 292.625}
   - {label: Green, occluded: false, x_max: 418.125, x_min: 411.0, y_max: 325.25, y_min: 306.0}
   path: rgb/test/31602.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 826.5, x_min: 820.25, y_max: 310.625, y_min: 292.5}
+  - {label: Green, occluded: false, x_max: 434.0, x_min: 426.75, y_max: 322.875, y_min: 305.0}
+  path: rgb/test/31604.png
+- boxes:
   - {label: Green, occluded: false, x_max: 841.375, x_min: 835.75, y_max: 310.875,
     y_min: 292.75}
   - {label: Green, occluded: false, x_max: 447.0, x_min: 441.625, y_max: 323.25, y_min: 304.875}
   path: rgb/test/31606.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 855.0, x_min: 849.25, y_max: 310.5, y_min: 292.625}
+  - {label: Green, occluded: false, x_max: 459.625, x_min: 453.0, y_max: 323.625,
+    y_min: 304.5}
+  path: rgb/test/31608.png
 - boxes:
   - {label: Green, occluded: false, x_max: 866.75, x_min: 861.0, y_max: 311.125, y_min: 292.625}
   - {label: Green, occluded: false, x_max: 469.75, x_min: 463.125, y_max: 323.0, y_min: 305.125}
@@ -12249,6 +15132,11 @@
     y_min: 304.5}
   path: rgb/test/31630.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 921.625, x_min: 916.125, y_max: 312.875,
+    y_min: 294.0}
+  - {label: Green, occluded: false, x_max: 507.75, x_min: 501.25, y_max: 323.75, y_min: 303.625}
+  path: rgb/test/31632.png
+- boxes:
   - {label: Green, occluded: false, x_max: 924.375, x_min: 917.625, y_max: 313.5,
     y_min: 294.0}
   - {label: Green, occluded: false, x_max: 508.5, x_min: 500.5, y_max: 323.625, y_min: 303.75}
@@ -12280,6 +15168,16 @@
     y_min: 304.875}
   path: rgb/test/31644.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 928.5, x_min: 921.25, y_max: 315.625, y_min: 296.125}
+  - {label: Green, occluded: false, x_max: 498.875, x_min: 491.125, y_max: 324.375,
+    y_min: 304.5}
+  path: rgb/test/31646.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 926.5, x_min: 919.5, y_max: 315.875, y_min: 296.25}
+  - {label: Green, occluded: false, x_max: 495.375, x_min: 487.75, y_max: 326.125,
+    y_min: 304.75}
+  path: rgb/test/31648.png
+- boxes:
   - {label: Green, occluded: false, x_max: 924.5, x_min: 916.125, y_max: 317.25, y_min: 296.0}
   - {label: Green, occluded: false, x_max: 491.0, x_min: 483.0, y_max: 325.25, y_min: 304.25}
   path: rgb/test/31650.png
@@ -12298,6 +15196,12 @@
   - {label: Green, occluded: false, x_max: 914.25, x_min: 906.0, y_max: 318.5, y_min: 298.875}
   - {label: Green, occluded: false, x_max: 473.5, x_min: 465.625, y_max: 327.75, y_min: 305.125}
   path: rgb/test/31656.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 910.875, x_min: 903.5, y_max: 319.375,
+    y_min: 298.75}
+  - {label: Green, occluded: false, x_max: 467.5, x_min: 459.625, y_max: 327.125,
+    y_min: 305.25}
+  path: rgb/test/31658.png
 - boxes:
   - {label: Green, occluded: false, x_max: 906.875, x_min: 899.625, y_max: 318.875,
     y_min: 298.0}
@@ -12364,6 +15268,12 @@
   - {label: Green, occluded: false, x_max: 393.75, x_min: 383.5, y_max: 315.125, y_min: 292.0}
   path: rgb/test/31684.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 873.125, x_min: 863.625, y_max: 305.625,
+    y_min: 282.25}
+  - {label: Green, occluded: false, x_max: 386.75, x_min: 377.25, y_max: 314.125,
+    y_min: 291.5}
+  path: rgb/test/31686.png
+- boxes:
   - {label: Green, occluded: false, x_max: 870.125, x_min: 860.875, y_max: 304.75,
     y_min: 281.0}
   - {label: Green, occluded: false, x_max: 380.5, x_min: 371.625, y_max: 313.875,
@@ -12390,6 +15300,10 @@
     y_min: 287.875}
   path: rgb/test/31696.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 861.5, x_min: 852.5, y_max: 304.375, y_min: 279.375}
+  - {label: Green, occluded: false, x_max: 351.75, x_min: 342.5, y_max: 312.25, y_min: 288.75}
+  path: rgb/test/31698.png
+- boxes:
   - {label: Green, occluded: false, x_max: 861.5, x_min: 850.75, y_max: 305.25, y_min: 280.25}
   - {label: Green, occluded: false, x_max: 346.5, x_min: 337.625, y_max: 313.875,
     y_min: 289.625}
@@ -12406,11 +15320,29 @@
     y_min: 292.5}
   path: rgb/test/31704.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 856.0, x_min: 844.875, y_max: 309.75, y_min: 282.75}
+  - {label: Green, occluded: false, x_max: 328.875, x_min: 319.875, y_max: 319.25,
+    y_min: 293.875}
+  path: rgb/test/31706.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 853.25, x_min: 843.5, y_max: 308.125, y_min: 282.625}
+  - {label: Green, occluded: false, x_max: 322.375, x_min: 313.75, y_max: 319.125,
+    y_min: 292.75}
+  path: rgb/test/31708.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 850.5, x_min: 841.875, y_max: 306.5, y_min: 281.75}
+  - {label: Green, occluded: false, x_max: 316.25, x_min: 307.0, y_max: 315.375, y_min: 290.125}
+  path: rgb/test/31710.png
+- boxes:
   - {label: Green, occluded: false, x_max: 850.625, x_min: 840.5, y_max: 306.125,
     y_min: 281.0}
   - {label: Green, occluded: false, x_max: 310.625, x_min: 301.125, y_max: 313.0,
     y_min: 287.125}
   path: rgb/test/31712.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 848.5, x_min: 839.75, y_max: 305.0, y_min: 280.5}
+  - {label: Green, occluded: false, x_max: 305.25, x_min: 294.5, y_max: 313.5, y_min: 286.25}
+  path: rgb/test/31714.png
 - boxes:
   - {label: Green, occluded: false, x_max: 847.75, x_min: 837.75, y_max: 303.0, y_min: 277.875}
   - {label: Green, occluded: false, x_max: 298.125, x_min: 288.125, y_max: 312.125,
@@ -12426,6 +15358,12 @@
   - {label: Green, occluded: false, x_max: 286.375, x_min: 276.75, y_max: 306.25,
     y_min: 279.75}
   path: rgb/test/31720.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 845.125, x_min: 834.25, y_max: 294.875,
+    y_min: 268.75}
+  - {label: Green, occluded: false, x_max: 280.75, x_min: 270.125, y_max: 302.375,
+    y_min: 276.375}
+  path: rgb/test/31722.png
 - boxes:
   - {label: Green, occluded: true, x_max: 843.625, x_min: 834.75, y_max: 292.5, y_min: 266.5}
   - {label: Green, occluded: false, x_max: 274.375, x_min: 265.375, y_max: 301.125,
@@ -12448,12 +15386,19 @@
   - {label: Green, occluded: false, x_max: 242.375, x_min: 233.0, y_max: 295.0, y_min: 266.0}
   path: rgb/test/31734.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 234.375, x_min: 226.25, y_max: 294.25,
+    y_min: 264.625}
+  path: rgb/test/31736.png
+- boxes:
   - {label: Green, occluded: false, x_max: 229.0, x_min: 218.5, y_max: 293.25, y_min: 263.25}
   path: rgb/test/31738.png
 - boxes:
   - {label: Green, occluded: false, x_max: 221.625, x_min: 211.125, y_max: 291.25,
     y_min: 261.25}
   path: rgb/test/31740.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 214.5, x_min: 204.75, y_max: 289.25, y_min: 258.75}
+  path: rgb/test/31742.png
 - boxes:
   - {label: Green, occluded: false, x_max: 206.375, x_min: 195.5, y_max: 287.25, y_min: 256.125}
   path: rgb/test/31744.png
@@ -12513,6 +15458,11 @@
     y_min: 253.125}
   path: rgb/test/31768.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 827.625, x_min: 816.5, y_max: 273.875,
+    y_min: 241.75}
+  - {label: Green, occluded: false, x_max: 109.25, x_min: 97.125, y_max: 287.25, y_min: 251.0}
+  path: rgb/test/31770.png
+- boxes:
   - {label: Green, occluded: false, x_max: 828.625, x_min: 816.375, y_max: 272.0,
     y_min: 238.75}
   - {label: Green, occluded: false, x_max: 103.375, x_min: 89.875, y_max: 284.25,
@@ -12524,9 +15474,19 @@
   - {label: Green, occluded: false, x_max: 96.625, x_min: 84.0, y_max: 283.375, y_min: 246.75}
   path: rgb/test/31774.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 830.875, x_min: 817.75, y_max: 267.0, y_min: 232.75}
+  - {label: Green, occluded: false, x_max: 89.125, x_min: 76.875, y_max: 279.875,
+    y_min: 244.125}
+  path: rgb/test/31776.png
+- boxes:
   - {label: Green, occluded: false, x_max: 832.25, x_min: 819.0, y_max: 263.0, y_min: 229.375}
   - {label: Green, occluded: false, x_max: 82.625, x_min: 69.75, y_max: 278.75, y_min: 241.125}
   path: rgb/test/31778.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 833.75, x_min: 821.0, y_max: 261.625, y_min: 227.25}
+  - {label: Green, occluded: false, x_max: 77.625, x_min: 64.375, y_max: 276.375,
+    y_min: 240.125}
+  path: rgb/test/31780.png
 - boxes:
   - {label: Green, occluded: false, x_max: 834.0, x_min: 822.5, y_max: 258.75, y_min: 225.375}
   - {label: Green, occluded: false, x_max: 70.75, x_min: 57.625, y_max: 276.0, y_min: 237.875}
@@ -12557,6 +15517,12 @@
   - {label: Green, occluded: false, x_max: 41.875, x_min: 25.25, y_max: 273.0, y_min: 231.375}
   path: rgb/test/31792.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 844.625, x_min: 831.625, y_max: 257.25,
+    y_min: 219.625}
+  - {label: Green, occluded: false, x_max: 35.625, x_min: 18.375, y_max: 272.125,
+    y_min: 231.75}
+  path: rgb/test/31794.png
+- boxes:
   - {label: Green, occluded: false, x_max: 845.75, x_min: 832.75, y_max: 255.875,
     y_min: 218.75}
   - {label: Green, occluded: false, x_max: 29.75, x_min: 12.375, y_max: 272.125, y_min: 232.0}
@@ -12571,6 +15537,11 @@
     y_min: 215.25}
   - {label: Green, occluded: false, x_max: 15.625, x_min: 0.25, y_max: 270.375, y_min: 229.625}
   path: rgb/test/31800.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 849.875, x_min: 837.125, y_max: 252.5,
+    y_min: 213.25}
+  - {label: Green, occluded: false, x_max: 8.75, x_min: 0.375, y_max: 267.375, y_min: 227.375}
+  path: rgb/test/31802.png
 - boxes:
   - {label: Green, occluded: false, x_max: 850.625, x_min: 838.125, y_max: 248.875,
     y_min: 211.75}
@@ -12587,13 +15558,24 @@
     y_min: 205.5}
   path: rgb/test/31810.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 857.5, x_min: 844.0, y_max: 243.375, y_min: 204.375}
+  path: rgb/test/31812.png
+- boxes:
   - {label: Green, occluded: false, x_max: 858.375, x_min: 846.0, y_max: 243.125,
     y_min: 202.75}
   path: rgb/test/31814.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 859.375, x_min: 847.25, y_max: 242.125,
+    y_min: 200.875}
+  path: rgb/test/31816.png
+- boxes:
   - {label: Green, occluded: false, x_max: 861.75, x_min: 848.25, y_max: 241.375,
     y_min: 199.5}
   path: rgb/test/31818.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 863.125, x_min: 849.375, y_max: 240.5,
+    y_min: 199.0}
+  path: rgb/test/31820.png
 - boxes:
   - {label: Green, occluded: false, x_max: 864.75, x_min: 850.75, y_max: 240.875,
     y_min: 198.875}
@@ -12606,8 +15588,16 @@
   - {label: Green, occluded: false, x_max: 866.875, x_min: 854.0, y_max: 238.0, y_min: 195.75}
   path: rgb/test/31826.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 868.625, x_min: 854.0, y_max: 237.875,
+    y_min: 193.25}
+  path: rgb/test/31828.png
+- boxes:
   - {label: Green, occluded: false, x_max: 869.5, x_min: 855.5, y_max: 234.25, y_min: 191.875}
   path: rgb/test/31830.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 870.25, x_min: 855.625, y_max: 234.375,
+    y_min: 190.375}
+  path: rgb/test/31832.png
 - boxes:
   - {label: Green, occluded: false, x_max: 870.875, x_min: 856.875, y_max: 232.625,
     y_min: 188.75}
@@ -12619,6 +15609,9 @@
   - {label: Green, occluded: false, x_max: 873.875, x_min: 859.0, y_max: 231.5, y_min: 186.75}
   path: rgb/test/31838.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 874.875, x_min: 861.0, y_max: 231.25, y_min: 186.375}
+  path: rgb/test/31840.png
+- boxes:
   - {label: Green, occluded: false, x_max: 876.375, x_min: 862.5, y_max: 231.0, y_min: 185.625}
   path: rgb/test/31842.png
 - boxes:
@@ -12629,12 +15622,24 @@
     y_min: 185.125}
   path: rgb/test/31846.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 878.25, x_min: 863.25, y_max: 230.375,
+    y_min: 185.375}
+  path: rgb/test/31848.png
+- boxes:
   - {label: Green, occluded: false, x_max: 878.5, x_min: 864.25, y_max: 230.875, y_min: 185.25}
   path: rgb/test/31850.png
 - boxes:
   - {label: Green, occluded: false, x_max: 880.625, x_min: 864.75, y_max: 231.875,
     y_min: 185.125}
   path: rgb/test/31852.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 881.25, x_min: 866.125, y_max: 233.375,
+    y_min: 186.0}
+  path: rgb/test/31854.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 881.625, x_min: 866.125, y_max: 233.625,
+    y_min: 186.875}
+  path: rgb/test/31856.png
 - boxes:
   - {label: Green, occluded: false, x_max: 882.625, x_min: 867.75, y_max: 234.75,
     y_min: 188.875}
@@ -12652,6 +15657,10 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 885.125, x_min: 869.75, y_max: 239.0, y_min: 191.875}
   path: rgb/test/31866.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 886.125, x_min: 871.0, y_max: 239.375,
+    y_min: 192.5}
+  path: rgb/test/31868.png
 - boxes:
   - {label: Green, occluded: false, x_max: 886.375, x_min: 871.125, y_max: 239.875,
     y_min: 192.125}
@@ -12674,6 +15683,13 @@
   - {label: Green, occluded: false, x_max: 889.5, x_min: 873.625, y_max: 245.5, y_min: 197.5}
   path: rgb/test/31880.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 890.0, x_min: 874.625, y_max: 248.125,
+    y_min: 199.5}
+  path: rgb/test/31882.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 890.75, x_min: 875.75, y_max: 248.5, y_min: 199.75}
+  path: rgb/test/31884.png
+- boxes:
   - {label: Green, occluded: false, x_max: 890.875, x_min: 875.375, y_max: 249.25,
     y_min: 199.75}
   path: rgb/test/31886.png
@@ -12681,6 +15697,9 @@
   - {label: Green, occluded: false, x_max: 891.375, x_min: 877.125, y_max: 247.875,
     y_min: 200.125}
   path: rgb/test/31888.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 892.75, x_min: 878.5, y_max: 249.0, y_min: 198.375}
+  path: rgb/test/31890.png
 - boxes:
   - {label: Green, occluded: false, x_max: 892.625, x_min: 878.0, y_max: 249.25, y_min: 198.5}
   path: rgb/test/31892.png
@@ -12694,6 +15713,9 @@
   - {label: Green, occluded: false, x_max: 895.375, x_min: 881.25, y_max: 253.875,
     y_min: 203.375}
   path: rgb/test/31898.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 897.125, x_min: 882.0, y_max: 257.0, y_min: 204.75}
+  path: rgb/test/31900.png
 - boxes:
   - {label: Green, occluded: false, x_max: 898.625, x_min: 883.25, y_max: 258.875,
     y_min: 206.625}
@@ -12715,8 +15737,16 @@
     y_min: 210.75}
   path: rgb/test/31910.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 915.0, x_min: 899.125, y_max: 261.875,
+    y_min: 209.25}
+  path: rgb/test/31912.png
+- boxes:
   - {label: Green, occluded: false, x_max: 919.625, x_min: 903.5, y_max: 261.0, y_min: 208.75}
   path: rgb/test/31914.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 924.625, x_min: 908.875, y_max: 261.25,
+    y_min: 208.75}
+  path: rgb/test/31916.png
 - boxes:
   - {label: Green, occluded: false, x_max: 932.625, x_min: 915.375, y_max: 261.75,
     y_min: 208.625}
@@ -12733,6 +15763,10 @@
   - {label: Green, occluded: false, x_max: 959.375, x_min: 940.875, y_max: 258.0,
     y_min: 204.75}
   path: rgb/test/31924.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 969.875, x_min: 952.375, y_max: 257.125,
+    y_min: 203.0}
+  path: rgb/test/31926.png
 - boxes:
   - {label: Green, occluded: false, x_max: 981.375, x_min: 963.875, y_max: 255.625,
     y_min: 202.25}
@@ -12772,6 +15806,10 @@
     y_min: 176.875}
   path: rgb/test/31946.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1188.375, x_min: 1168.75, y_max: 236.5,
+    y_min: 174.75}
+  path: rgb/test/31948.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1218.375, x_min: 1196.875, y_max: 233.75,
     y_min: 170.375}
   path: rgb/test/31950.png
@@ -12784,10 +15822,18 @@
     y_min: 160.375}
   path: rgb/test/31954.png
 - boxes: []
+  path: rgb/test/31956.png
+- boxes: []
   path: rgb/test/31958.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 7.375, x_min: 0.25, y_max: 242.375, y_min: 171.625}
   path: rgb/test/31960.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 28.5, x_min: 8.875, y_max: 237.5, y_min: 171.125}
+  path: rgb/test/31962.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 52.625, x_min: 33.0, y_max: 238.625, y_min: 172.0}
+  path: rgb/test/31964.png
 - boxes:
   - {label: Green, occluded: false, x_max: 77.875, x_min: 57.75, y_max: 239.625, y_min: 171.125}
   path: rgb/test/31966.png
@@ -12806,6 +15852,9 @@
   - {label: Green, occluded: false, x_max: 187.25, x_min: 167.25, y_max: 228.125,
     y_min: 156.625}
   path: rgb/test/31974.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 219.75, x_min: 199.25, y_max: 225.25, y_min: 151.375}
+  path: rgb/test/31976.png
 - boxes:
   - {label: Green, occluded: false, x_max: 253.75, x_min: 232.25, y_max: 221.375,
     y_min: 148.0}
@@ -12844,14 +15893,33 @@
     y_min: 79.875}
   path: rgb/test/31996.png
 - boxes:
+  - {label: 'off', occluded: false, x_max: 617.375, x_min: 593.875, y_max: 162.0,
+    y_min: 73.875}
+  path: rgb/test/31998.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 658.75, x_min: 634.875, y_max: 157.375,
+    y_min: 66.5}
+  path: rgb/test/32000.png
+- boxes:
   - {label: 'off', occluded: false, x_max: 704.5, x_min: 667.625, y_max: 152.25, y_min: 62.25}
   path: rgb/test/32002.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 751.125, x_min: 708.5, y_max: 146.0, y_min: 54.125}
   path: rgb/test/32004.png
 - boxes:
+  - {label: 'off', occluded: false, x_max: 791.625, x_min: 750.625, y_max: 137.375,
+    y_min: 44.75}
+  path: rgb/test/32006.png
+- boxes:
   - {label: 'off', occluded: false, x_max: 840.0, x_min: 796.75, y_max: 129.625, y_min: 35.125}
   path: rgb/test/32008.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 882.75, x_min: 843.5, y_max: 118.125, y_min: 24.5}
+  path: rgb/test/32010.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 933.375, x_min: 891.125, y_max: 107.25,
+    y_min: 12.625}
+  path: rgb/test/32012.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 990.0, x_min: 942.0, y_max: 98.75, y_min: 0.125}
   path: rgb/test/32014.png
@@ -12861,7 +15929,17 @@
 - boxes: []
   path: rgb/test/32018.png
 - boxes: []
+  path: rgb/test/32020.png
+- boxes: []
+  path: rgb/test/32022.png
+- boxes: []
+  path: rgb/test/32024.png
+- boxes: []
+  path: rgb/test/32026.png
+- boxes: []
   path: rgb/test/32028.png
+- boxes: []
+  path: rgb/test/32030.png
 - boxes: []
   path: rgb/test/32032.png
 - boxes: []
@@ -12869,13 +15947,21 @@
 - boxes: []
   path: rgb/test/32036.png
 - boxes: []
+  path: rgb/test/32038.png
+- boxes: []
+  path: rgb/test/32040.png
+- boxes: []
   path: rgb/test/32042.png
 - boxes: []
   path: rgb/test/32044.png
 - boxes: []
+  path: rgb/test/32046.png
+- boxes: []
   path: rgb/test/32048.png
 - boxes: []
   path: rgb/test/32050.png
+- boxes: []
+  path: rgb/test/32052.png
 - boxes: []
   path: rgb/test/32054.png
 - boxes: []
@@ -12893,6 +15979,10 @@
 - boxes: []
   path: rgb/test/32068.png
 - boxes: []
+  path: rgb/test/32070.png
+- boxes: []
+  path: rgb/test/32072.png
+- boxes: []
   path: rgb/test/32074.png
 - boxes: []
   path: rgb/test/32076.png
@@ -12907,9 +15997,15 @@
 - boxes: []
   path: rgb/test/32086.png
 - boxes: []
+  path: rgb/test/32088.png
+- boxes: []
   path: rgb/test/32090.png
 - boxes: []
   path: rgb/test/32092.png
+- boxes: []
+  path: rgb/test/32094.png
+- boxes: []
+  path: rgb/test/32096.png
 - boxes: []
   path: rgb/test/32098.png
 - boxes: []
@@ -12918,6 +16014,10 @@
   path: rgb/test/32102.png
 - boxes: []
   path: rgb/test/32104.png
+- boxes: []
+  path: rgb/test/32106.png
+- boxes: []
+  path: rgb/test/32108.png
 - boxes: []
   path: rgb/test/32110.png
 - boxes: []
@@ -12931,9 +16031,15 @@
 - boxes: []
   path: rgb/test/32120.png
 - boxes: []
+  path: rgb/test/32122.png
+- boxes: []
   path: rgb/test/32124.png
 - boxes: []
+  path: rgb/test/32126.png
+- boxes: []
   path: rgb/test/32128.png
+- boxes: []
+  path: rgb/test/32130.png
 - boxes: []
   path: rgb/test/32132.png
 - boxes: []
@@ -12943,6 +16049,8 @@
 - boxes: []
   path: rgb/test/32138.png
 - boxes: []
+  path: rgb/test/32140.png
+- boxes: []
   path: rgb/test/32142.png
 - boxes: []
   path: rgb/test/32144.png
@@ -12951,7 +16059,13 @@
 - boxes: []
   path: rgb/test/32148.png
 - boxes: []
+  path: rgb/test/32150.png
+- boxes: []
+  path: rgb/test/32152.png
+- boxes: []
   path: rgb/test/32154.png
+- boxes: []
+  path: rgb/test/32156.png
 - boxes: []
   path: rgb/test/32158.png
 - boxes: []
@@ -12973,7 +16087,11 @@
 - boxes: []
   path: rgb/test/32176.png
 - boxes: []
+  path: rgb/test/32178.png
+- boxes: []
   path: rgb/test/32180.png
+- boxes: []
+  path: rgb/test/32182.png
 - boxes: []
   path: rgb/test/32184.png
 - boxes: []
@@ -12983,6 +16101,8 @@
 - boxes: []
   path: rgb/test/32190.png
 - boxes: []
+  path: rgb/test/32192.png
+- boxes: []
   path: rgb/test/32194.png
 - boxes: []
   path: rgb/test/32196.png
@@ -12991,7 +16111,13 @@
 - boxes: []
   path: rgb/test/32200.png
 - boxes: []
+  path: rgb/test/32202.png
+- boxes: []
+  path: rgb/test/32204.png
+- boxes: []
   path: rgb/test/32206.png
+- boxes: []
+  path: rgb/test/32208.png
 - boxes: []
   path: rgb/test/32210.png
 - boxes: []
@@ -12999,11 +16125,21 @@
 - boxes: []
   path: rgb/test/32214.png
 - boxes: []
+  path: rgb/test/32216.png
+- boxes: []
   path: rgb/test/32218.png
 - boxes: []
   path: rgb/test/32220.png
 - boxes: []
+  path: rgb/test/32222.png
+- boxes: []
+  path: rgb/test/32224.png
+- boxes: []
   path: rgb/test/32226.png
+- boxes: []
+  path: rgb/test/32228.png
+- boxes: []
+  path: rgb/test/32230.png
 - boxes: []
   path: rgb/test/32232.png
 - boxes: []
@@ -13019,15 +16155,21 @@
 - boxes: []
   path: rgb/test/32244.png
 - boxes: []
+  path: rgb/test/32246.png
+- boxes: []
   path: rgb/test/32248.png
 - boxes: []
   path: rgb/test/32250.png
 - boxes: []
   path: rgb/test/32252.png
 - boxes: []
+  path: rgb/test/32254.png
+- boxes: []
   path: rgb/test/32256.png
 - boxes: []
   path: rgb/test/32258.png
+- boxes: []
+  path: rgb/test/32260.png
 - boxes: []
   path: rgb/test/32262.png
 - boxes: []
@@ -13043,13 +16185,19 @@
 - boxes: []
   path: rgb/test/32274.png
 - boxes: []
+  path: rgb/test/32276.png
+- boxes: []
   path: rgb/test/32278.png
 - boxes: []
   path: rgb/test/32280.png
 - boxes: []
+  path: rgb/test/32282.png
+- boxes: []
   path: rgb/test/32284.png
 - boxes: []
   path: rgb/test/32286.png
+- boxes: []
+  path: rgb/test/32288.png
 - boxes: []
   path: rgb/test/32290.png
 - boxes: []
@@ -13061,15 +16209,23 @@
 - boxes: []
   path: rgb/test/32298.png
 - boxes: []
+  path: rgb/test/32300.png
+- boxes: []
   path: rgb/test/32302.png
 - boxes: []
   path: rgb/test/32304.png
 - boxes: []
   path: rgb/test/32306.png
 - boxes: []
+  path: rgb/test/32308.png
+- boxes: []
   path: rgb/test/32310.png
 - boxes: []
+  path: rgb/test/32312.png
+- boxes: []
   path: rgb/test/32314.png
+- boxes: []
+  path: rgb/test/32316.png
 - boxes: []
   path: rgb/test/32318.png
 - boxes: []
@@ -13093,9 +16249,13 @@
 - boxes: []
   path: rgb/test/32338.png
 - boxes: []
+  path: rgb/test/32340.png
+- boxes: []
   path: rgb/test/32342.png
 - boxes: []
   path: rgb/test/32344.png
+- boxes: []
+  path: rgb/test/32346.png
 - boxes: []
   path: rgb/test/32348.png
 - boxes: []
@@ -13113,6 +16273,8 @@
 - boxes: []
   path: rgb/test/32362.png
 - boxes: []
+  path: rgb/test/32364.png
+- boxes: []
   path: rgb/test/32366.png
 - boxes: []
   path: rgb/test/32368.png
@@ -13121,9 +16283,13 @@
 - boxes: []
   path: rgb/test/32372.png
 - boxes: []
+  path: rgb/test/32374.png
+- boxes: []
   path: rgb/test/32376.png
 - boxes: []
   path: rgb/test/32378.png
+- boxes: []
+  path: rgb/test/32380.png
 - boxes: []
   path: rgb/test/32382.png
 - boxes: []
@@ -13143,6 +16309,8 @@
 - boxes: []
   path: rgb/test/32398.png
 - boxes: []
+  path: rgb/test/32400.png
+- boxes: []
   path: rgb/test/32402.png
 - boxes: []
   path: rgb/test/32404.png
@@ -13159,6 +16327,8 @@
 - boxes: []
   path: rgb/test/32416.png
 - boxes: []
+  path: rgb/test/32418.png
+- boxes: []
   path: rgb/test/32420.png
 - boxes: []
   path: rgb/test/32422.png
@@ -13171,23 +16341,41 @@
 - boxes: []
   path: rgb/test/32430.png
 - boxes: []
+  path: rgb/test/32432.png
+- boxes: []
+  path: rgb/test/32434.png
+- boxes: []
   path: rgb/test/32436.png
 - boxes: []
   path: rgb/test/32438.png
 - boxes: []
   path: rgb/test/32440.png
 - boxes: []
+  path: rgb/test/32442.png
+- boxes: []
+  path: rgb/test/32444.png
+- boxes: []
   path: rgb/test/32446.png
+- boxes: []
+  path: rgb/test/32448.png
 - boxes: []
   path: rgb/test/32450.png
 - boxes: []
+  path: rgb/test/32452.png
+- boxes: []
   path: rgb/test/32454.png
 - boxes: []
+  path: rgb/test/32456.png
+- boxes: []
   path: rgb/test/32458.png
+- boxes: []
+  path: rgb/test/32460.png
 - boxes: []
   path: rgb/test/32462.png
 - boxes: []
   path: rgb/test/32464.png
+- boxes: []
+  path: rgb/test/32466.png
 - boxes: []
   path: rgb/test/32468.png
 - boxes: []
@@ -13199,11 +16387,17 @@
 - boxes: []
   path: rgb/test/32476.png
 - boxes: []
+  path: rgb/test/32478.png
+- boxes: []
+  path: rgb/test/32480.png
+- boxes: []
   path: rgb/test/32482.png
 - boxes: []
   path: rgb/test/32484.png
 - boxes: []
   path: rgb/test/32486.png
+- boxes: []
+  path: rgb/test/32488.png
 - boxes: []
   path: rgb/test/32490.png
 - boxes: []
@@ -13217,7 +16411,11 @@
 - boxes: []
   path: rgb/test/32500.png
 - boxes: []
+  path: rgb/test/32502.png
+- boxes: []
   path: rgb/test/32504.png
+- boxes: []
+  path: rgb/test/32506.png
 - boxes: []
   path: rgb/test/32508.png
 - boxes: []
@@ -13235,6 +16433,8 @@
 - boxes: []
   path: rgb/test/32522.png
 - boxes: []
+  path: rgb/test/32524.png
+- boxes: []
   path: rgb/test/32526.png
 - boxes: []
   path: rgb/test/32528.png
@@ -13245,9 +16445,16 @@
 - boxes: []
   path: rgb/test/32534.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 888.5, x_min: 883.75, y_max: 340.375, y_min: 328.0}
+  path: rgb/test/32536.png
+- boxes:
   - {label: Green, occluded: true, x_max: 888.625, x_min: 883.375, y_max: 339.875,
     y_min: 327.75}
   path: rgb/test/32538.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 888.625, x_min: 883.375, y_max: 341.625,
+    y_min: 328.75}
+  path: rgb/test/32540.png
 - boxes:
   - {label: Green, occluded: false, x_max: 888.625, x_min: 882.625, y_max: 340.625,
     y_min: 327.375}
@@ -13257,8 +16464,15 @@
     y_min: 326.0}
   path: rgb/test/32544.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 887.75, x_min: 882.0, y_max: 337.875, y_min: 325.0}
+  path: rgb/test/32546.png
+- boxes:
   - {label: Green, occluded: false, x_max: 886.625, x_min: 881.75, y_max: 336.5, y_min: 324.0}
   path: rgb/test/32548.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 886.125, x_min: 881.375, y_max: 336.875,
+    y_min: 324.125}
+  path: rgb/test/32550.png
 - boxes:
   - {label: Green, occluded: false, x_max: 886.375, x_min: 881.25, y_max: 335.625,
     y_min: 323.5}
@@ -13267,6 +16481,9 @@
   - {label: Green, occluded: false, x_max: 885.875, x_min: 881.25, y_max: 335.25,
     y_min: 322.5}
   path: rgb/test/32554.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 886.5, x_min: 881.75, y_max: 334.375, y_min: 321.75}
+  path: rgb/test/32556.png
 - boxes:
   - {label: Green, occluded: false, x_max: 886.125, x_min: 881.375, y_max: 332.625,
     y_min: 321.0}
@@ -13287,12 +16504,23 @@
     y_min: 318.25}
   path: rgb/test/32566.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 888.125, x_min: 883.0, y_max: 331.875,
+    y_min: 318.625}
+  path: rgb/test/32568.png
+- boxes:
   - {label: Green, occluded: false, x_max: 889.25, x_min: 883.875, y_max: 331.0, y_min: 318.125}
   path: rgb/test/32570.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 890.0, x_min: 884.75, y_max: 329.5, y_min: 316.75}
+  path: rgb/test/32572.png
 - boxes:
   - {label: Green, occluded: false, x_max: 890.375, x_min: 885.5, y_max: 327.375,
     y_min: 315.375}
   path: rgb/test/32574.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 891.125, x_min: 885.375, y_max: 327.625,
+    y_min: 314.875}
+  path: rgb/test/32576.png
 - boxes:
   - {label: Green, occluded: false, x_max: 892.625, x_min: 887.625, y_max: 327.625,
     y_min: 315.5}
@@ -13322,8 +16550,15 @@
   - {label: Green, occluded: false, x_max: 897.25, x_min: 893.0, y_max: 328.5, y_min: 316.25}
   path: rgb/test/32592.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 899.125, x_min: 894.25, y_max: 329.75,
+    y_min: 316.625}
+  path: rgb/test/32594.png
+- boxes:
   - {label: Green, occluded: false, x_max: 899.375, x_min: 895.5, y_max: 329.25, y_min: 317.0}
   path: rgb/test/32596.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 900.5, x_min: 895.5, y_max: 328.625, y_min: 315.25}
+  path: rgb/test/32598.png
 - boxes:
   - {label: Green, occluded: false, x_max: 901.125, x_min: 896.125, y_max: 326.5,
     y_min: 313.625}
@@ -13332,9 +16567,15 @@
   - {label: Green, occluded: false, x_max: 901.0, x_min: 897.0, y_max: 326.125, y_min: 312.875}
   path: rgb/test/32602.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 902.0, x_min: 897.25, y_max: 325.75, y_min: 312.375}
+  path: rgb/test/32604.png
+- boxes:
   - {label: Green, occluded: false, x_max: 901.375, x_min: 897.125, y_max: 326.25,
     y_min: 312.875}
   path: rgb/test/32606.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 901.625, x_min: 897.25, y_max: 326.0, y_min: 312.375}
+  path: rgb/test/32608.png
 - boxes:
   - {label: Green, occluded: false, x_max: 900.75, x_min: 896.75, y_max: 325.25, y_min: 311.5}
   path: rgb/test/32610.png
@@ -13367,6 +16608,11 @@
   - {label: Green, occluded: false, x_max: 898.5, x_min: 894.5, y_max: 321.625, y_min: 309.25}
   - {label: 'off', occluded: true, x_max: 546.125, x_min: 541.375, y_max: 326.0, y_min: 310.875}
   path: rgb/test/32626.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 898.25, x_min: 894.125, y_max: 321.375,
+    y_min: 309.0}
+  - {label: 'off', occluded: true, x_max: 544.5, x_min: 540.125, y_max: 325.25, y_min: 309.0}
+  path: rgb/test/32628.png
 - boxes:
   - {label: Green, occluded: false, x_max: 897.875, x_min: 893.75, y_max: 321.625,
     y_min: 309.25}
@@ -13443,6 +16689,10 @@
   - {label: Green, occluded: false, x_max: 508.875, x_min: 503.5, y_max: 332.25, y_min: 316.0}
   path: rgb/test/32664.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 507.125, x_min: 501.125, y_max: 333.875,
+    y_min: 316.875}
+  path: rgb/test/32666.png
+- boxes:
   - {label: Green, occluded: false, x_max: 505.875, x_min: 499.5, y_max: 333.875,
     y_min: 316.625}
   path: rgb/test/32668.png
@@ -13454,9 +16704,16 @@
   - {label: Green, occluded: false, x_max: 502.5, x_min: 496.375, y_max: 334.0, y_min: 317.0}
   path: rgb/test/32672.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 500.625, x_min: 494.5, y_max: 333.75, y_min: 316.5}
+  path: rgb/test/32674.png
+- boxes:
   - {label: Green, occluded: false, x_max: 498.625, x_min: 492.875, y_max: 333.625,
     y_min: 316.375}
   path: rgb/test/32676.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 497.125, x_min: 491.875, y_max: 332.125,
+    y_min: 316.875}
+  path: rgb/test/32678.png
 - boxes:
   - {label: Green, occluded: false, x_max: 496.0, x_min: 490.25, y_max: 330.875, y_min: 315.0}
   path: rgb/test/32680.png
@@ -13465,6 +16722,11 @@
   - {label: Green, occluded: true, x_max: 879.375, x_min: 875.625, y_max: 323.875,
     y_min: 312.375}
   path: rgb/test/32682.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 492.875, x_min: 486.125, y_max: 328.625,
+    y_min: 313.25}
+  - {label: Green, occluded: true, x_max: 878.375, x_min: 874.125, y_max: 323.5, y_min: 311.625}
+  path: rgb/test/32684.png
 - boxes:
   - {label: Green, occluded: true, x_max: 877.5, x_min: 874.25, y_max: 323.125, y_min: 312.625}
   - {label: Green, occluded: false, x_max: 490.875, x_min: 484.25, y_max: 329.0, y_min: 312.0}
@@ -13512,6 +16774,11 @@
   - {label: Green, occluded: true, x_max: 869.375, x_min: 864.0, y_max: 315.25, y_min: 302.875}
   - {label: Green, occluded: false, x_max: 469.5, x_min: 463.875, y_max: 322.0, y_min: 305.5}
   path: rgb/test/32704.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 869.0, x_min: 863.75, y_max: 315.75, y_min: 299.875}
+  - {label: Green, occluded: false, x_max: 468.875, x_min: 462.125, y_max: 321.5,
+    y_min: 304.75}
+  path: rgb/test/32706.png
 - boxes:
   - {label: Green, occluded: false, x_max: 868.5, x_min: 862.875, y_max: 315.875,
     y_min: 300.0}
@@ -13606,6 +16873,12 @@
     y_min: 309.375}
   path: rgb/test/32744.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 862.375, x_min: 855.875, y_max: 322.875,
+    y_min: 306.0}
+  - {label: Green, occluded: false, x_max: 434.375, x_min: 428.0, y_max: 326.875,
+    y_min: 309.0}
+  path: rgb/test/32746.png
+- boxes:
   - {label: Green, occluded: false, x_max: 862.5, x_min: 856.375, y_max: 323.125,
     y_min: 306.375}
   - {label: Green, occluded: false, x_max: 433.125, x_min: 426.625, y_max: 327.625,
@@ -13622,6 +16895,12 @@
   - {label: Green, occluded: false, x_max: 431.0, x_min: 424.375, y_max: 330.5, y_min: 311.625}
   path: rgb/test/32752.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 861.875, x_min: 856.125, y_max: 326.5,
+    y_min: 308.25}
+  - {label: Green, occluded: false, x_max: 428.625, x_min: 422.375, y_max: 331.5,
+    y_min: 313.625}
+  path: rgb/test/32754.png
+- boxes:
   - {label: Green, occluded: false, x_max: 862.25, x_min: 855.625, y_max: 326.875,
     y_min: 309.0}
   - {label: Green, occluded: false, x_max: 427.5, x_min: 420.875, y_max: 333.375,
@@ -13633,6 +16912,11 @@
     y_min: 312.625}
   path: rgb/test/32758.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 862.25, x_min: 855.5, y_max: 326.375, y_min: 307.875}
+  - {label: Green, occluded: false, x_max: 424.375, x_min: 417.875, y_max: 330.875,
+    y_min: 312.5}
+  path: rgb/test/32760.png
+- boxes:
   - {label: Green, occluded: false, x_max: 862.25, x_min: 855.875, y_max: 323.5, y_min: 305.5}
   - {label: Green, occluded: false, x_max: 423.0, x_min: 416.25, y_max: 329.875, y_min: 310.375}
   path: rgb/test/32762.png
@@ -13641,6 +16925,16 @@
     y_min: 304.0}
   - {label: Green, occluded: false, x_max: 422.125, x_min: 414.5, y_max: 327.25, y_min: 308.125}
   path: rgb/test/32764.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 863.0, x_min: 856.125, y_max: 320.5, y_min: 303.25}
+  - {label: Green, occluded: false, x_max: 419.625, x_min: 413.0, y_max: 325.5, y_min: 305.5}
+  path: rgb/test/32766.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 862.375, x_min: 856.375, y_max: 320.875,
+    y_min: 302.875}
+  - {label: Green, occluded: false, x_max: 418.125, x_min: 410.375, y_max: 326.25,
+    y_min: 305.75}
+  path: rgb/test/32768.png
 - boxes:
   - {label: Green, occluded: false, x_max: 862.75, x_min: 856.375, y_max: 321.0, y_min: 302.625}
   - {label: Green, occluded: false, x_max: 416.25, x_min: 408.5, y_max: 326.125, y_min: 306.625}
@@ -13698,6 +16992,12 @@
   - {label: Green, occluded: false, x_max: 399.5, x_min: 392.25, y_max: 324.625, y_min: 304.375}
   path: rgb/test/32790.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 866.75, x_min: 860.375, y_max: 320.625,
+    y_min: 302.0}
+  - {label: Green, occluded: false, x_max: 398.375, x_min: 390.25, y_max: 326.25,
+    y_min: 304.75}
+  path: rgb/test/32792.png
+- boxes:
   - {label: Green, occluded: false, x_max: 867.5, x_min: 861.375, y_max: 320.625,
     y_min: 302.375}
   - {label: Green, occluded: false, x_max: 397.5, x_min: 389.5, y_max: 327.5, y_min: 306.375}
@@ -13719,6 +17019,16 @@
   - {label: Green, occluded: false, x_max: 393.5, x_min: 384.25, y_max: 330.5, y_min: 308.5}
   path: rgb/test/32800.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 871.5, x_min: 864.25, y_max: 327.375, y_min: 306.375}
+  - {label: Green, occluded: false, x_max: 391.875, x_min: 383.5, y_max: 330.375,
+    y_min: 308.5}
+  path: rgb/test/32802.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 872.0, x_min: 865.375, y_max: 325.625,
+    y_min: 305.25}
+  - {label: Green, occluded: false, x_max: 390.0, x_min: 382.25, y_max: 329.875, y_min: 308.5}
+  path: rgb/test/32804.png
+- boxes:
   - {label: Green, occluded: false, x_max: 873.25, x_min: 866.25, y_max: 325.375,
     y_min: 304.75}
   - {label: Green, occluded: false, x_max: 388.375, x_min: 380.375, y_max: 330.0,
@@ -13739,6 +17049,11 @@
   - {label: Green, occluded: false, x_max: 383.625, x_min: 375.375, y_max: 326.25,
     y_min: 304.125}
   path: rgb/test/32812.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 878.125, x_min: 870.125, y_max: 321.0,
+    y_min: 300.25}
+  - {label: Green, occluded: false, x_max: 382.75, x_min: 374.5, y_max: 325.125, y_min: 302.0}
+  path: rgb/test/32814.png
 - boxes:
   - {label: Green, occluded: false, x_max: 879.25, x_min: 872.125, y_max: 320.25,
     y_min: 298.75}
@@ -13795,6 +17110,11 @@
   - {label: Green, occluded: false, x_max: 365.5, x_min: 356.5, y_max: 317.5, y_min: 295.75}
   path: rgb/test/32836.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 895.125, x_min: 887.0, y_max: 311.625,
+    y_min: 290.0}
+  - {label: Green, occluded: false, x_max: 362.75, x_min: 354.75, y_max: 317.25, y_min: 294.625}
+  path: rgb/test/32838.png
+- boxes:
   - {label: Green, occluded: false, x_max: 896.25, x_min: 889.5, y_max: 311.25, y_min: 289.75}
   - {label: Green, occluded: false, x_max: 360.625, x_min: 353.5, y_max: 316.0, y_min: 294.25}
   path: rgb/test/32840.png
@@ -13804,6 +17124,12 @@
   - {label: Green, occluded: false, x_max: 359.625, x_min: 352.0, y_max: 316.125,
     y_min: 294.125}
   path: rgb/test/32842.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 900.0, x_min: 892.125, y_max: 310.375,
+    y_min: 287.875}
+  - {label: Green, occluded: false, x_max: 357.5, x_min: 349.375, y_max: 315.875,
+    y_min: 294.375}
+  path: rgb/test/32844.png
 - boxes:
   - {label: Green, occluded: false, x_max: 901.875, x_min: 894.0, y_max: 309.25, y_min: 287.125}
   - {label: Green, occluded: false, x_max: 355.875, x_min: 348.125, y_max: 314.75,
@@ -13846,6 +17172,11 @@
   - {label: Green, occluded: false, x_max: 344.875, x_min: 335.0, y_max: 313.75, y_min: 288.5}
   path: rgb/test/32860.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 917.0, x_min: 908.625, y_max: 307.25, y_min: 282.75}
+  - {label: Green, occluded: false, x_max: 341.75, x_min: 332.75, y_max: 312.625,
+    y_min: 288.25}
+  path: rgb/test/32862.png
+- boxes:
   - {label: Green, occluded: false, x_max: 918.5, x_min: 911.125, y_max: 307.25, y_min: 282.25}
   - {label: Green, occluded: false, x_max: 340.25, x_min: 330.875, y_max: 312.375,
     y_min: 288.875}
@@ -13871,6 +17202,12 @@
     y_min: 286.25}
   path: rgb/test/32872.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 929.375, x_min: 920.75, y_max: 306.25,
+    y_min: 279.75}
+  - {label: Green, occluded: false, x_max: 330.75, x_min: 321.625, y_max: 309.125,
+    y_min: 285.375}
+  path: rgb/test/32874.png
+- boxes:
   - {label: Green, occluded: false, x_max: 930.875, x_min: 922.5, y_max: 303.25, y_min: 278.625}
   - {label: Green, occluded: false, x_max: 329.125, x_min: 318.875, y_max: 309.0,
     y_min: 284.375}
@@ -13881,6 +17218,13 @@
   - {label: Green, occluded: false, x_max: 326.625, x_min: 317.5, y_max: 308.0, y_min: 283.125}
   - {label: Red, occluded: true, x_max: 537.875, x_min: 533.75, y_max: 341.0, y_min: 332.625}
   path: rgb/test/32878.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 935.375, x_min: 926.125, y_max: 299.875,
+    y_min: 274.0}
+  - {label: Green, occluded: false, x_max: 324.875, x_min: 315.125, y_max: 307.625,
+    y_min: 282.5}
+  - {label: Red, occluded: true, x_max: 538.5, x_min: 534.5, y_max: 341.625, y_min: 332.25}
+  path: rgb/test/32880.png
 - boxes:
   - {label: Green, occluded: false, x_max: 937.75, x_min: 928.625, y_max: 298.75,
     y_min: 272.875}
@@ -13904,6 +17248,13 @@
   - {label: Green, occluded: false, x_max: 317.125, x_min: 307.75, y_max: 306.0, y_min: 280.875}
   path: rgb/test/32888.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 537.875, x_min: 533.375, y_max: 343.0, y_min: 332.375}
+  - {label: Green, occluded: false, x_max: 947.375, x_min: 936.625, y_max: 298.875,
+    y_min: 272.0}
+  - {label: Green, occluded: false, x_max: 315.125, x_min: 305.75, y_max: 305.125,
+    y_min: 279.0}
+  path: rgb/test/32890.png
+- boxes:
   - {label: Red, occluded: true, x_max: 537.5, x_min: 533.25, y_max: 340.75, y_min: 330.75}
   - {label: Green, occluded: false, x_max: 949.125, x_min: 938.625, y_max: 296.5,
     y_min: 269.625}
@@ -13915,6 +17266,19 @@
   - {label: Green, occluded: false, x_max: 310.5, x_min: 300.75, y_max: 300.375, y_min: 273.875}
   path: rgb/test/32894.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 536.25, x_min: 532.875, y_max: 338.25, y_min: 329.0}
+  - {label: Green, occluded: false, x_max: 952.875, x_min: 942.625, y_max: 293.75,
+    y_min: 267.25}
+  - {label: Green, occluded: false, x_max: 307.5, x_min: 298.5, y_max: 300.625, y_min: 273.75}
+  path: rgb/test/32896.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 536.5, x_min: 532.125, y_max: 339.0, y_min: 329.375}
+  - {label: Green, occluded: false, x_max: 954.125, x_min: 944.875, y_max: 292.0,
+    y_min: 266.5}
+  - {label: Green, occluded: false, x_max: 305.375, x_min: 295.625, y_max: 302.625,
+    y_min: 273.875}
+  path: rgb/test/32898.png
+- boxes:
   - {label: Red, occluded: true, x_max: 535.625, x_min: 530.875, y_max: 340.0, y_min: 330.25}
   - {label: Green, occluded: false, x_max: 955.25, x_min: 946.125, y_max: 294.0, y_min: 266.25}
   - {label: Green, occluded: false, x_max: 302.0, x_min: 292.5, y_max: 302.75, y_min: 275.25}
@@ -13924,6 +17288,13 @@
   - {label: Green, occluded: false, x_max: 957.25, x_min: 947.625, y_max: 293.0, y_min: 267.25}
   - {label: Green, occluded: false, x_max: 299.0, x_min: 290.25, y_max: 303.25, y_min: 276.625}
   path: rgb/test/32902.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 533.75, x_min: 530.0, y_max: 343.625, y_min: 331.75}
+  - {label: Green, occluded: false, x_max: 959.125, x_min: 949.875, y_max: 293.375,
+    y_min: 266.25}
+  - {label: Green, occluded: false, x_max: 296.25, x_min: 286.875, y_max: 303.375,
+    y_min: 276.0}
+  path: rgb/test/32904.png
 - boxes:
   - {label: Red, occluded: true, x_max: 533.375, x_min: 529.875, y_max: 343.5, y_min: 331.875}
   - {label: Green, occluded: false, x_max: 962.0, x_min: 951.375, y_max: 293.875,
@@ -13949,6 +17320,12 @@
   - {label: Green, occluded: false, x_max: 285.625, x_min: 275.25, y_max: 301.75,
     y_min: 272.875}
   path: rgb/test/32912.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 529.375, x_min: 525.625, y_max: 343.375, y_min: 332.875}
+  - {label: Green, occluded: false, x_max: 967.0, x_min: 956.75, y_max: 294.25, y_min: 264.875}
+  - {label: Green, occluded: false, x_max: 281.625, x_min: 271.125, y_max: 300.5,
+    y_min: 271.875}
+  path: rgb/test/32914.png
 - boxes:
   - {label: Red, occluded: true, x_max: 528.25, x_min: 522.625, y_max: 343.125, y_min: 332.625}
   - {label: Green, occluded: false, x_max: 968.625, x_min: 958.125, y_max: 293.875,
@@ -13988,6 +17365,13 @@
   - {label: Green, occluded: false, x_max: 260.5, x_min: 250.5, y_max: 297.0, y_min: 268.0}
   path: rgb/test/32926.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 520.875, x_min: 516.75, y_max: 344.25, y_min: 331.375}
+  - {label: Green, occluded: false, x_max: 976.375, x_min: 965.75, y_max: 289.875,
+    y_min: 259.5}
+  - {label: Green, occluded: false, x_max: 256.0, x_min: 246.625, y_max: 296.375,
+    y_min: 267.75}
+  path: rgb/test/32928.png
+- boxes:
   - {label: Red, occluded: true, x_max: 520.0, x_min: 515.125, y_max: 345.625, y_min: 330.875}
   - {label: Green, occluded: false, x_max: 977.375, x_min: 965.375, y_max: 290.125,
     y_min: 259.5}
@@ -14001,11 +17385,22 @@
     y_min: 266.5}
   path: rgb/test/32932.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 516.25, x_min: 511.5, y_max: 344.25, y_min: 331.0}
+  - {label: Green, occluded: false, x_max: 978.625, x_min: 967.75, y_max: 288.75,
+    y_min: 257.625}
+  - {label: Green, occluded: false, x_max: 244.5, x_min: 233.75, y_max: 296.25, y_min: 266.375}
+  path: rgb/test/32934.png
+- boxes:
   - {label: Red, occluded: true, x_max: 513.75, x_min: 509.0, y_max: 343.25, y_min: 330.375}
   - {label: Green, occluded: false, x_max: 979.0, x_min: 968.5, y_max: 287.875, y_min: 257.5}
   - {label: Green, occluded: false, x_max: 240.625, x_min: 229.25, y_max: 296.375,
     y_min: 265.5}
   path: rgb/test/32936.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 512.5, x_min: 507.75, y_max: 342.375, y_min: 330.875}
+  - {label: Green, occluded: false, x_max: 980.0, x_min: 968.5, y_max: 287.5, y_min: 256.125}
+  - {label: Green, occluded: false, x_max: 235.5, x_min: 225.625, y_max: 296.25, y_min: 265.375}
+  path: rgb/test/32938.png
 - boxes:
   - {label: Red, occluded: true, x_max: 511.0, x_min: 505.625, y_max: 343.875, y_min: 331.125}
   - {label: Green, occluded: false, x_max: 980.875, x_min: 968.875, y_max: 286.875,
@@ -14039,6 +17434,30 @@
     y_min: 261.75}
   path: rgb/test/32948.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 502.125, x_min: 497.0, y_max: 345.125, y_min: 331.0}
+  - {label: Green, occluded: false, x_max: 985.0, x_min: 973.375, y_max: 285.25, y_min: 251.75}
+  - {label: Green, occluded: false, x_max: 209.5, x_min: 198.5, y_max: 292.75, y_min: 259.875}
+  path: rgb/test/32950.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 499.75, x_min: 495.75, y_max: 344.75, y_min: 332.375}
+  - {label: Green, occluded: false, x_max: 986.125, x_min: 974.875, y_max: 286.25,
+    y_min: 252.0}
+  - {label: Green, occluded: false, x_max: 206.25, x_min: 194.0, y_max: 293.875, y_min: 260.875}
+  path: rgb/test/32952.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 498.75, x_min: 493.375, y_max: 346.625, y_min: 334.0}
+  - {label: Green, occluded: false, x_max: 987.25, x_min: 975.25, y_max: 286.5, y_min: 251.875}
+  - {label: Green, occluded: false, x_max: 201.875, x_min: 189.0, y_max: 294.125,
+    y_min: 261.75}
+  path: rgb/test/32954.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 497.125, x_min: 492.25, y_max: 347.0, y_min: 334.0}
+  - {label: Green, occluded: false, x_max: 989.125, x_min: 976.125, y_max: 287.0,
+    y_min: 252.375}
+  - {label: Green, occluded: false, x_max: 197.625, x_min: 184.625, y_max: 293.875,
+    y_min: 262.125}
+  path: rgb/test/32956.png
+- boxes:
   - {label: Red, occluded: true, x_max: 496.25, x_min: 490.625, y_max: 346.5, y_min: 334.75}
   - {label: Green, occluded: false, x_max: 989.125, x_min: 976.625, y_max: 286.75,
     y_min: 252.0}
@@ -14055,6 +17474,12 @@
     y_min: 249.5}
   - {label: Green, occluded: false, x_max: 185.0, x_min: 170.0, y_max: 293.375, y_min: 260.125}
   path: rgb/test/32962.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 491.125, x_min: 485.75, y_max: 344.25, y_min: 332.125}
+  - {label: Green, occluded: false, x_max: 991.875, x_min: 980.625, y_max: 281.125,
+    y_min: 247.375}
+  - {label: Green, occluded: false, x_max: 178.75, x_min: 167.0, y_max: 291.375, y_min: 258.75}
+  path: rgb/test/32964.png
 - boxes:
   - {label: Red, occluded: true, x_max: 488.875, x_min: 484.875, y_max: 343.25, y_min: 330.5}
   - {label: Green, occluded: false, x_max: 994.25, x_min: 981.125, y_max: 279.25,
@@ -14080,6 +17505,13 @@
   - {label: Green, occluded: false, x_max: 161.75, x_min: 149.0, y_max: 288.375, y_min: 253.25}
   path: rgb/test/32972.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 484.75, x_min: 479.625, y_max: 344.75, y_min: 330.75}
+  - {label: Green, occluded: false, x_max: 999.625, x_min: 986.875, y_max: 278.625,
+    y_min: 242.375}
+  - {label: Green, occluded: false, x_max: 157.875, x_min: 144.5, y_max: 287.375,
+    y_min: 252.875}
+  path: rgb/test/32974.png
+- boxes:
   - {label: Red, occluded: true, x_max: 483.375, x_min: 478.75, y_max: 344.125, y_min: 330.5}
   - {label: Green, occluded: false, x_max: 1002.375, x_min: 989.0, y_max: 278.25,
     y_min: 241.125}
@@ -14091,6 +17523,13 @@
   - {label: Green, occluded: false, x_max: 1004.5, x_min: 991.0, y_max: 277.375, y_min: 240.5}
   - {label: Green, occluded: false, x_max: 149.0, x_min: 135.5, y_max: 287.125, y_min: 251.625}
   path: rgb/test/32978.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 481.0, x_min: 476.75, y_max: 344.5, y_min: 330.5}
+  - {label: Green, occluded: false, x_max: 1006.125, x_min: 992.625, y_max: 276.25,
+    y_min: 238.75}
+  - {label: Green, occluded: false, x_max: 144.25, x_min: 132.875, y_max: 286.375,
+    y_min: 250.375}
+  path: rgb/test/32980.png
 - boxes:
   - {label: Red, occluded: true, x_max: 481.0, x_min: 475.5, y_max: 344.75, y_min: 331.0}
   - {label: Green, occluded: false, x_max: 1008.5, x_min: 994.625, y_max: 275.0, y_min: 237.125}
@@ -14129,6 +17568,13 @@
   - {label: Green, occluded: false, x_max: 118.625, x_min: 105.0, y_max: 285.25, y_min: 247.25}
   path: rgb/test/32992.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 476.375, x_min: 470.5, y_max: 347.625, y_min: 331.875}
+  - {label: Green, occluded: false, x_max: 1022.0, x_min: 1008.0, y_max: 272.875,
+    y_min: 233.625}
+  - {label: Green, occluded: false, x_max: 114.125, x_min: 100.0, y_max: 283.875,
+    y_min: 245.25}
+  path: rgb/test/32994.png
+- boxes:
   - {label: Red, occluded: false, x_max: 475.5, x_min: 469.75, y_max: 346.5, y_min: 332.25}
   - {label: Green, occluded: false, x_max: 1025.125, x_min: 1010.375, y_max: 272.75,
     y_min: 232.875}
@@ -14136,11 +17582,24 @@
     y_min: 244.0}
   path: rgb/test/32996.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 475.375, x_min: 469.125, y_max: 345.0, y_min: 330.75}
+  - {label: Green, occluded: false, x_max: 1027.5, x_min: 1013.5, y_max: 270.625,
+    y_min: 230.375}
+  - {label: Green, occluded: false, x_max: 105.0, x_min: 92.0, y_max: 279.5, y_min: 242.625}
+  path: rgb/test/32998.png
+- boxes:
   - {label: Red, occluded: false, x_max: 473.875, x_min: 469.0, y_max: 344.5, y_min: 329.5}
   - {label: Green, occluded: false, x_max: 1030.5, x_min: 1014.75, y_max: 268.75,
     y_min: 229.75}
   - {label: Green, occluded: false, x_max: 100.0, x_min: 86.625, y_max: 279.75, y_min: 239.0}
   path: rgb/test/33000.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 473.375, x_min: 467.25, y_max: 345.5, y_min: 328.75}
+  - {label: Green, occluded: false, x_max: 1034.25, x_min: 1018.25, y_max: 269.875,
+    y_min: 228.625}
+  - {label: Green, occluded: false, x_max: 96.125, x_min: 81.875, y_max: 277.875,
+    y_min: 238.625}
+  path: rgb/test/33002.png
 - boxes:
   - {label: Red, occluded: false, x_max: 472.125, x_min: 466.75, y_max: 344.625, y_min: 329.0}
   - {label: Green, occluded: false, x_max: 1036.75, x_min: 1021.5, y_max: 269.875,
@@ -14209,6 +17668,13 @@
   - {label: Green, occluded: false, x_max: 41.375, x_min: 27.375, y_max: 264.25, y_min: 221.375}
   path: rgb/test/33024.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 465.625, x_min: 460.375, y_max: 340.875,
+    y_min: 325.75}
+  - {label: Green, occluded: false, x_max: 1072.125, x_min: 1057.125, y_max: 259.375,
+    y_min: 214.5}
+  - {label: Green, occluded: false, x_max: 37.125, x_min: 22.75, y_max: 263.875, y_min: 219.0}
+  path: rgb/test/33026.png
+- boxes:
   - {label: Red, occluded: false, x_max: 465.25, x_min: 459.75, y_max: 339.625, y_min: 323.875}
   - {label: Green, occluded: false, x_max: 1076.0, x_min: 1060.125, y_max: 257.5,
     y_min: 212.75}
@@ -14227,6 +17693,12 @@
     y_min: 210.375}
   - {label: Green, occluded: false, x_max: 21.75, x_min: 6.75, y_max: 258.625, y_min: 212.75}
   path: rgb/test/33032.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 463.375, x_min: 457.5, y_max: 339.0, y_min: 324.625}
+  - {label: Green, occluded: false, x_max: 1086.0, x_min: 1071.0, y_max: 256.375,
+    y_min: 210.0}
+  - {label: Green, occluded: false, x_max: 15.25, x_min: 1.125, y_max: 259.375, y_min: 213.0}
+  path: rgb/test/33034.png
 - boxes:
   - {label: Red, occluded: false, x_max: 462.25, x_min: 456.875, y_max: 340.5, y_min: 325.625}
   - {label: Green, occluded: false, x_max: 1090.0, x_min: 1074.0, y_max: 256.0, y_min: 209.0}
@@ -14293,6 +17765,11 @@
     y_min: 200.375}
   path: rgb/test/33060.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 457.375, x_min: 452.0, y_max: 344.5, y_min: 332.25}
+  - {label: Yellow, occluded: false, x_max: 1130.375, x_min: 1113.5, y_max: 251.125,
+    y_min: 199.625}
+  path: rgb/test/33062.png
+- boxes:
   - {label: Red, occluded: false, x_max: 456.875, x_min: 451.375, y_max: 345.75, y_min: 331.625}
   - {label: Yellow, occluded: false, x_max: 1133.25, x_min: 1115.375, y_max: 250.125,
     y_min: 197.75}
@@ -14308,10 +17785,21 @@
     y_min: 195.625}
   path: rgb/test/33068.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 456.25, x_min: 450.75, y_max: 344.875, y_min: 331.625}
+  - {label: Yellow, occluded: false, x_max: 1140.125, x_min: 1122.0, y_max: 247.0,
+    y_min: 194.375}
+  path: rgb/test/33070.png
+- boxes:
   - {label: Red, occluded: false, x_max: 455.375, x_min: 450.5, y_max: 342.625, y_min: 330.0}
   - {label: Yellow, occluded: false, x_max: 1142.75, x_min: 1123.875, y_max: 244.375,
     y_min: 192.75}
   path: rgb/test/33072.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 454.625, x_min: 449.625, y_max: 341.375,
+    y_min: 329.625}
+  - {label: Yellow, occluded: false, x_max: 1144.875, x_min: 1125.75, y_max: 244.5,
+    y_min: 190.875}
+  path: rgb/test/33074.png
 - boxes:
   - {label: Red, occluded: false, x_max: 455.5, x_min: 450.0, y_max: 341.5, y_min: 330.25}
   - {label: Yellow, occluded: false, x_max: 1146.875, x_min: 1127.75, y_max: 243.375,
@@ -14364,6 +17852,16 @@
     y_min: 189.0}
   path: rgb/test/33094.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 452.625, x_min: 447.875, y_max: 345.25, y_min: 333.875}
+  - {label: Yellow, occluded: false, x_max: 1158.125, x_min: 1140.375, y_max: 243.875,
+    y_min: 188.75}
+  path: rgb/test/33096.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 452.75, x_min: 447.625, y_max: 346.625, y_min: 334.0}
+  - {label: Yellow, occluded: false, x_max: 1159.625, x_min: 1141.75, y_max: 244.75,
+    y_min: 189.25}
+  path: rgb/test/33098.png
+- boxes:
   - {label: Red, occluded: false, x_max: 453.125, x_min: 447.625, y_max: 344.875,
     y_min: 334.375}
   - {label: Yellow, occluded: false, x_max: 1160.375, x_min: 1141.375, y_max: 244.25,
@@ -14400,16 +17898,36 @@
     y_min: 188.75}
   path: rgb/test/33112.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 452.75, x_min: 447.5, y_max: 347.25, y_min: 334.5}
+  - {label: Yellow, occluded: false, x_max: 1163.875, x_min: 1143.25, y_max: 243.625,
+    y_min: 189.375}
+  path: rgb/test/33114.png
+- boxes:
   - {label: Red, occluded: false, x_max: 452.375, x_min: 447.375, y_max: 346.125,
     y_min: 334.125}
   - {label: Yellow, occluded: false, x_max: 1163.5, x_min: 1142.875, y_max: 244.625,
     y_min: 189.25}
   path: rgb/test/33116.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 453.25, x_min: 447.75, y_max: 348.375, y_min: 335.5}
+  - {label: Yellow, occluded: false, x_max: 1162.25, x_min: 1143.25, y_max: 244.375,
+    y_min: 189.25}
+  path: rgb/test/33118.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 452.75, x_min: 448.25, y_max: 346.0, y_min: 335.875}
+  - {label: Yellow, occluded: false, x_max: 1163.0, x_min: 1142.75, y_max: 245.0,
+    y_min: 190.75}
+  path: rgb/test/33120.png
+- boxes:
   - {label: Red, occluded: false, x_max: 452.25, x_min: 447.125, y_max: 348.625, y_min: 338.0}
   - {label: Yellow, occluded: false, x_max: 1162.625, x_min: 1143.25, y_max: 247.375,
     y_min: 192.25}
   path: rgb/test/33122.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 451.5, x_min: 447.5, y_max: 348.625, y_min: 338.375}
+  - {label: Yellow, occluded: false, x_max: 1163.25, x_min: 1143.125, y_max: 248.125,
+    y_min: 191.625}
+  path: rgb/test/33124.png
 - boxes:
   - {label: Red, occluded: false, x_max: 451.875, x_min: 447.375, y_max: 347.875,
     y_min: 337.625}
@@ -14431,6 +17949,11 @@
   - {label: Yellow, occluded: false, x_max: 1162.125, x_min: 1142.0, y_max: 246.5,
     y_min: 191.875}
   path: rgb/test/33132.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 453.0, x_min: 447.75, y_max: 350.125, y_min: 338.25}
+  - {label: Yellow, occluded: false, x_max: 1162.125, x_min: 1142.0, y_max: 246.5,
+    y_min: 191.875}
+  path: rgb/test/33134.png
 - boxes:
   - {label: Red, occluded: false, x_max: 452.625, x_min: 447.5, y_max: 348.5, y_min: 337.0}
   - {label: Yellow, occluded: false, x_max: 1162.125, x_min: 1142.0, y_max: 246.5,
@@ -14475,7 +17998,17 @@
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
   - {label: Red, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33152.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Red, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
   path: rgb/test/33154.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Red, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33156.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -14486,6 +18019,16 @@
     y_min: 192.875}
   - {label: Red, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
   path: rgb/test/33160.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Red, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33162.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Red, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33164.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -14501,6 +18044,11 @@
     y_min: 192.875}
   - {label: Red, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
   path: rgb/test/33170.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Red, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33172.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -14525,12 +18073,27 @@
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
   - {label: Red, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33182.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Red, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33184.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Red, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
   path: rgb/test/33186.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
   - {label: Red, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
   path: rgb/test/33188.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Red, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33190.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -14545,7 +18108,17 @@
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
   - {label: Red, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33196.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Red, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
   path: rgb/test/33198.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Red, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33200.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -14581,6 +18154,18 @@
     y_min: 192.875}
   - {label: 'off', occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
   path: rgb/test/33214.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.25, x_min: 691.75, y_max: 344.0, y_min: 332.875}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33216.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.25, x_min: 691.75, y_max: 344.0, y_min: 332.875}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33218.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -14652,6 +18237,12 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33242.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
   path: rgb/test/33244.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
@@ -14677,6 +18268,18 @@
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
   path: rgb/test/33252.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33254.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33256.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -14712,7 +18315,19 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33268.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
   path: rgb/test/33270.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33272.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -14726,6 +18341,12 @@
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
   path: rgb/test/33276.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 447.75, y_max: 348.875, y_min: 337.5}
+  path: rgb/test/33278.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -14809,6 +18430,12 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33306.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33308.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
@@ -14840,6 +18467,12 @@
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33318.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33320.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -14905,6 +18538,12 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33342.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33344.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
@@ -14912,6 +18551,18 @@
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33346.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33348.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33350.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -14977,6 +18628,16 @@
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33374.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33376.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33378.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
@@ -15023,6 +18684,11 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   path: rgb/test/33398.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  path: rgb/test/33400.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15111,6 +18777,12 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33432.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33434.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
@@ -15135,7 +18807,31 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33442.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33444.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33446.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33448.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33450.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15148,6 +18844,18 @@
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33454.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33456.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33458.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15189,6 +18897,12 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33472.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33474.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
@@ -15217,6 +18931,16 @@
     y_min: 192.875}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33484.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33486.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33488.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15251,8 +18975,19 @@
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  path: rgb/test/33502.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33504.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33506.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15277,6 +19012,12 @@
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33514.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33516.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15318,6 +19059,12 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33530.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33532.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
@@ -15330,7 +19077,19 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33536.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33538.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33540.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15342,6 +19101,11 @@
     y_min: 192.875}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33544.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33546.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15360,6 +19124,18 @@
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33552.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33554.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: true, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33556.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15383,7 +19159,19 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: true, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33564.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: true, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33566.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: true, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33568.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15394,6 +19182,11 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   path: rgb/test/33572.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  path: rgb/test/33574.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15440,6 +19233,12 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: true, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33592.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: true, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33594.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
@@ -15470,7 +19269,25 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33604.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33606.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33608.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33610.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15512,6 +19329,12 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33624.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33626.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
@@ -15531,13 +19354,36 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33634.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33636.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33638.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33640.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33642.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  path: rgb/test/33644.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  path: rgb/test/33646.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15568,7 +19414,22 @@
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  path: rgb/test/33660.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   path: rgb/test/33662.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  path: rgb/test/33664.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  path: rgb/test/33666.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15591,6 +19452,18 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33674.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33676.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33678.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
@@ -15603,13 +19476,37 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33682.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33684.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33686.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33688.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33690.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33692.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15628,6 +19525,12 @@
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33698.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33700.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15658,6 +19561,12 @@
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33710.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33712.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15711,7 +19620,25 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33730.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33732.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33734.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33736.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15730,6 +19657,18 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33742.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33744.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33746.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
@@ -15742,7 +19681,19 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33750.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33752.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33754.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15776,6 +19727,17 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33766.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33768.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33770.png
@@ -15803,6 +19765,12 @@
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33778.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33780.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15843,6 +19811,11 @@
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  path: rgb/test/33794.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   path: rgb/test/33796.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
@@ -15865,6 +19838,17 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33804.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33806.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33808.png
 - boxes:
@@ -15872,7 +19856,19 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33810.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33812.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33814.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15902,6 +19898,12 @@
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   path: rgb/test/33824.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33826.png
+- boxes:
   - {label: Red, occluded: true, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
@@ -15913,6 +19915,12 @@
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33830.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33832.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15942,7 +19950,19 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33842.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33844.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33846.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -15984,6 +20004,12 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33860.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33862.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
@@ -16014,7 +20040,19 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33872.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33874.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33876.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -16050,6 +20088,12 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33888.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33890.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
@@ -16068,7 +20112,19 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33896.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33898.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33900.png
 - boxes:
   - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -16093,6 +20149,12 @@
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33908.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33910.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -16129,6 +20191,12 @@
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33922.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33924.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
     y_min: 192.875}
@@ -16188,7 +20256,19 @@
     y_min: 192.875}
   - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33944.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33946.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1161.375, x_min: 1143.75, y_max: 245.875,
+    y_min: 192.875}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 691.625, y_max: 345.125, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
+  path: rgb/test/33948.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1163.75, x_min: 1145.5, y_max: 246.25,
     y_min: 193.25}
@@ -16214,6 +20294,13 @@
   - {label: Green, occluded: false, x_max: 452.5, x_min: 448.0, y_max: 350.0, y_min: 338.375}
   path: rgb/test/33956.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1165.25, x_min: 1146.75, y_max: 246.5,
+    y_min: 192.75}
+  - {label: Green, occluded: true, x_max: 695.375, x_min: 690.625, y_max: 346.375,
+    y_min: 334.25}
+  - {label: Green, occluded: false, x_max: 452.0, x_min: 447.75, y_max: 351.5, y_min: 339.75}
+  path: rgb/test/33958.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1166.0, x_min: 1147.0, y_max: 247.5, y_min: 192.625}
   - {label: Green, occluded: true, x_max: 695.25, x_min: 691.25, y_max: 347.625, y_min: 335.75}
   - {label: Green, occluded: false, x_max: 452.5, x_min: 447.625, y_max: 352.5, y_min: 340.125}
@@ -16232,6 +20319,13 @@
   - {label: Green, occluded: true, x_max: 695.375, x_min: 690.75, y_max: 349.5, y_min: 338.5}
   - {label: Green, occluded: false, x_max: 451.875, x_min: 447.25, y_max: 355.0, y_min: 343.0}
   path: rgb/test/33964.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1167.0, x_min: 1148.875, y_max: 251.625,
+    y_min: 196.0}
+  - {label: Green, occluded: true, x_max: 695.5, x_min: 690.75, y_max: 351.125, y_min: 340.375}
+  - {label: Green, occluded: false, x_max: 451.125, x_min: 446.375, y_max: 356.25,
+    y_min: 344.75}
+  path: rgb/test/33966.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1167.875, x_min: 1150.875, y_max: 251.875,
     y_min: 197.5}
@@ -16252,6 +20346,14 @@
   - {label: Green, occluded: false, x_max: 451.125, x_min: 445.5, y_max: 362.125,
     y_min: 348.875}
   path: rgb/test/33972.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1172.875, x_min: 1154.5, y_max: 253.375,
+    y_min: 198.5}
+  - {label: Green, occluded: true, x_max: 694.25, x_min: 690.0, y_max: 356.5, y_min: 344.625}
+  - {label: Green, occluded: true, x_max: 694.25, x_min: 690.0, y_max: 356.5, y_min: 344.625}
+  - {label: Green, occluded: false, x_max: 450.75, x_min: 444.75, y_max: 361.375,
+    y_min: 350.125}
+  path: rgb/test/33974.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1174.75, x_min: 1156.125, y_max: 252.625,
     y_min: 198.0}
@@ -16288,6 +20390,14 @@
     y_min: 348.875}
   path: rgb/test/33984.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1189.375, x_min: 1169.75, y_max: 243.625,
+    y_min: 187.75}
+  - {label: Green, occluded: true, x_max: 693.375, x_min: 688.875, y_max: 351.625,
+    y_min: 339.875}
+  - {label: Green, occluded: false, x_max: 446.625, x_min: 442.75, y_max: 358.125,
+    y_min: 348.625}
+  path: rgb/test/33986.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1191.625, x_min: 1173.125, y_max: 242.625,
     y_min: 184.5}
   - {label: Green, occluded: true, x_max: 693.125, x_min: 688.5, y_max: 351.125, y_min: 340.5}
@@ -16316,6 +20426,13 @@
   - {label: Green, occluded: false, x_max: 444.25, x_min: 440.125, y_max: 355.5, y_min: 346.5}
   path: rgb/test/33994.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1209.75, x_min: 1189.5, y_max: 240.625,
+    y_min: 180.25}
+  - {label: Green, occluded: true, x_max: 692.375, x_min: 688.625, y_max: 350.125,
+    y_min: 340.625}
+  - {label: Green, occluded: false, x_max: 444.375, x_min: 440.0, y_max: 355.5, y_min: 345.5}
+  path: rgb/test/33996.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1213.625, x_min: 1194.125, y_max: 239.625,
     y_min: 179.0}
   - {label: Green, occluded: true, x_max: 692.5, x_min: 687.75, y_max: 350.0, y_min: 338.5}
@@ -16343,6 +20460,12 @@
   - {label: Green, occluded: true, x_max: 690.5, x_min: 685.875, y_max: 349.25, y_min: 338.0}
   - {label: Green, occluded: false, x_max: 441.5, x_min: 436.5, y_max: 357.125, y_min: 348.125}
   path: rgb/test/34004.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1231.625, x_min: 1209.625, y_max: 225.625,
+    y_min: 163.125}
+  - {label: Green, occluded: true, x_max: 690.125, x_min: 685.25, y_max: 347.0, y_min: 336.5}
+  - {label: Green, occluded: false, x_max: 439.375, x_min: 435.25, y_max: 355.0, y_min: 346.0}
+  path: rgb/test/34006.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1235.875, x_min: 1216.0, y_max: 221.75,
     y_min: 160.125}
@@ -16393,11 +20516,24 @@
   - {label: Green, occluded: false, x_max: 429.25, x_min: 424.5, y_max: 353.625, y_min: 343.75}
   path: rgb/test/34020.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1277.875, x_min: 1251.625, y_max: 210.375,
+    y_min: 142.875}
+  - {label: Green, occluded: true, x_max: 681.5, x_min: 676.5, y_max: 345.375, y_min: 335.125}
+  - {label: Green, occluded: false, x_max: 427.5, x_min: 422.5, y_max: 353.375, y_min: 344.0}
+  path: rgb/test/34022.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1278.625, x_min: 1258.625, y_max: 211.25,
     y_min: 141.25}
   - {label: Green, occluded: true, x_max: 679.5, x_min: 675.125, y_max: 346.125, y_min: 336.0}
   - {label: Green, occluded: false, x_max: 425.25, x_min: 420.0, y_max: 353.625, y_min: 344.25}
   path: rgb/test/34024.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1278.625, x_min: 1264.875, y_max: 209.5,
+    y_min: 138.75}
+  - {label: Green, occluded: true, x_max: 678.375, x_min: 674.125, y_max: 344.875,
+    y_min: 334.5}
+  - {label: Green, occluded: false, x_max: 423.0, x_min: 418.0, y_max: 351.75, y_min: 342.75}
+  path: rgb/test/34026.png
 - boxes:
   - {label: Green, occluded: true, x_max: 676.5, x_min: 672.625, y_max: 341.25, y_min: 331.375}
   - {label: Green, occluded: false, x_max: 420.875, x_min: 416.125, y_max: 348.625,
@@ -16430,6 +20566,14 @@
   - {label: Green, occluded: true, x_max: 665.25, x_min: 661.0, y_max: 340.125, y_min: 329.25}
   path: rgb/test/34040.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 663.625, x_min: 659.125, y_max: 338.75,
+    y_min: 326.125}
+  path: rgb/test/34042.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 661.875, x_min: 657.25, y_max: 340.125,
+    y_min: 328.25}
+  path: rgb/test/34044.png
+- boxes:
   - {label: Green, occluded: true, x_max: 659.625, x_min: 655.5, y_max: 344.0, y_min: 332.25}
   path: rgb/test/34046.png
 - boxes:
@@ -16449,12 +20593,19 @@
   - {label: Green, occluded: true, x_max: 656.875, x_min: 652.0, y_max: 351.125, y_min: 339.375}
   path: rgb/test/34056.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 655.75, x_min: 650.875, y_max: 351.5, y_min: 339.375}
+  path: rgb/test/34058.png
+- boxes:
   - {label: Green, occluded: true, x_max: 654.5, x_min: 650.5, y_max: 353.625, y_min: 341.375}
   path: rgb/test/34060.png
 - boxes:
   - {label: Green, occluded: true, x_max: 654.75, x_min: 650.125, y_max: 352.625,
     y_min: 341.375}
   path: rgb/test/34062.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 654.625, x_min: 650.25, y_max: 350.375,
+    y_min: 338.375}
+  path: rgb/test/34064.png
 - boxes:
   - {label: Green, occluded: true, x_max: 653.75, x_min: 649.375, y_max: 345.375,
     y_min: 333.25}
@@ -16465,6 +20616,10 @@
 - boxes:
   - {label: Green, occluded: true, x_max: 652.5, x_min: 648.125, y_max: 339.0, y_min: 326.25}
   path: rgb/test/34070.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 652.75, x_min: 647.875, y_max: 337.625,
+    y_min: 325.125}
+  path: rgb/test/34072.png
 - boxes:
   - {label: Green, occluded: true, x_max: 652.625, x_min: 648.125, y_max: 335.5, y_min: 324.25}
   path: rgb/test/34074.png
@@ -16491,6 +20646,11 @@
   - {label: Green, occluded: true, x_max: 653.25, x_min: 648.0, y_max: 336.625, y_min: 321.875}
   path: rgb/test/34086.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 652.875, x_min: 648.375, y_max: 336.25,
+    y_min: 323.5}
+  - {label: Green, occluded: true, x_max: 371.75, x_min: 367.875, y_max: 342.0, y_min: 330.375}
+  path: rgb/test/34088.png
+- boxes:
   - {label: Green, occluded: true, x_max: 653.125, x_min: 648.375, y_max: 336.25,
     y_min: 323.25}
   path: rgb/test/34090.png
@@ -16508,6 +20668,17 @@
   - {label: Green, occluded: true, x_max: 654.125, x_min: 649.0, y_max: 330.5, y_min: 317.25}
   - {label: Green, occluded: true, x_max: 367.75, x_min: 363.5, y_max: 337.5, y_min: 324.5}
   path: rgb/test/34098.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 654.375, x_min: 649.75, y_max: 329.625,
+    y_min: 316.25}
+  - {label: Green, occluded: true, x_max: 367.25, x_min: 362.375, y_max: 335.5, y_min: 324.0}
+  path: rgb/test/34100.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 654.125, x_min: 650.125, y_max: 327.75,
+    y_min: 315.25}
+  - {label: Green, occluded: true, x_max: 367.375, x_min: 361.375, y_max: 336.25,
+    y_min: 323.5}
+  path: rgb/test/34102.png
 - boxes:
   - {label: Green, occluded: false, x_max: 655.0, x_min: 650.75, y_max: 328.5, y_min: 314.0}
   - {label: Green, occluded: true, x_max: 365.125, x_min: 360.25, y_max: 335.625,
@@ -16532,8 +20703,16 @@
     y_min: 311.5}
   path: rgb/test/34114.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 657.5, x_min: 652.375, y_max: 321.875,
+    y_min: 309.5}
+  path: rgb/test/34116.png
+- boxes:
   - {label: Green, occluded: false, x_max: 658.75, x_min: 654.0, y_max: 320.0, y_min: 308.125}
   path: rgb/test/34118.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 660.625, x_min: 655.875, y_max: 319.5,
+    y_min: 306.375}
+  path: rgb/test/34120.png
 - boxes:
   - {label: Green, occluded: false, x_max: 661.75, x_min: 656.75, y_max: 316.875,
     y_min: 304.5}
@@ -16564,11 +20743,21 @@
     y_min: 310.625}
   path: rgb/test/34134.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 669.0, x_min: 663.75, y_max: 303.125, y_min: 290.625}
+  - {label: Green, occluded: true, x_max: 360.375, x_min: 355.75, y_max: 322.875,
+    y_min: 311.875}
+  path: rgb/test/34136.png
+- boxes:
   - {label: Green, occluded: false, x_max: 671.625, x_min: 665.875, y_max: 306.75,
     y_min: 292.875}
   - {label: Green, occluded: true, x_max: 361.125, x_min: 356.25, y_max: 326.125,
     y_min: 315.375}
   path: rgb/test/34138.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 673.125, x_min: 667.25, y_max: 311.75,
+    y_min: 298.0}
+  - {label: Green, occluded: true, x_max: 360.125, x_min: 356.375, y_max: 333.0, y_min: 322.375}
+  path: rgb/test/34140.png
 - boxes:
   - {label: Green, occluded: false, x_max: 675.25, x_min: 669.875, y_max: 315.5, y_min: 302.75}
   - {label: Green, occluded: true, x_max: 361.125, x_min: 357.0, y_max: 337.5, y_min: 325.375}
@@ -16583,6 +20772,11 @@
     y_min: 302.25}
   - {label: Green, occluded: true, x_max: 364.125, x_min: 358.625, y_max: 339.0, y_min: 327.625}
   path: rgb/test/34146.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 682.25, x_min: 676.125, y_max: 314.5, y_min: 301.0}
+  - {label: Green, occluded: true, x_max: 364.375, x_min: 359.125, y_max: 338.25,
+    y_min: 325.75}
+  path: rgb/test/34148.png
 - boxes:
   - {label: Green, occluded: false, x_max: 684.0, x_min: 677.75, y_max: 314.625, y_min: 301.0}
   - {label: Green, occluded: true, x_max: 365.125, x_min: 359.375, y_max: 339.25,
@@ -16688,6 +20882,12 @@
   - {label: Green, occluded: true, x_max: 372.0, x_min: 366.875, y_max: 340.125, y_min: 326.5}
   path: rgb/test/34196.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 735.875, x_min: 730.125, y_max: 326.125,
+    y_min: 310.875}
+  - {label: Green, occluded: false, x_max: 370.875, x_min: 365.375, y_max: 348.125,
+    y_min: 333.75}
+  path: rgb/test/34198.png
+- boxes:
   - {label: Green, occluded: false, x_max: 739.125, x_min: 732.375, y_max: 333.625,
     y_min: 318.625}
   - {label: Green, occluded: false, x_max: 371.5, x_min: 366.25, y_max: 355.875, y_min: 341.125}
@@ -16696,6 +20896,12 @@
   - {label: Green, occluded: false, x_max: 740.5, x_min: 734.25, y_max: 339.875, y_min: 323.375}
   - {label: Green, occluded: false, x_max: 370.75, x_min: 364.5, y_max: 359.875, y_min: 345.625}
   path: rgb/test/34202.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 743.375, x_min: 735.625, y_max: 340.125,
+    y_min: 323.625}
+  - {label: Green, occluded: false, x_max: 370.125, x_min: 364.125, y_max: 360.25,
+    y_min: 344.75}
+  path: rgb/test/34204.png
 - boxes:
   - {label: Green, occluded: false, x_max: 744.5, x_min: 737.875, y_max: 338.0, y_min: 322.125}
   - {label: Green, occluded: false, x_max: 370.25, x_min: 363.5, y_max: 357.5, y_min: 343.625}
@@ -16722,6 +20928,11 @@
     y_min: 322.625}
   path: rgb/test/34214.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 754.375, x_min: 747.875, y_max: 312.375,
+    y_min: 297.125}
+  - {label: Green, occluded: false, x_max: 366.0, x_min: 360.125, y_max: 332.25, y_min: 317.625}
+  path: rgb/test/34216.png
+- boxes:
   - {label: Green, occluded: false, x_max: 756.5, x_min: 748.875, y_max: 307.25, y_min: 291.25}
   - {label: Green, occluded: false, x_max: 365.375, x_min: 358.625, y_max: 325.875,
     y_min: 312.375}
@@ -16738,6 +20949,11 @@
   - {label: Green, occluded: false, x_max: 759.125, x_min: 752.0, y_max: 305.75, y_min: 288.5}
   path: rgb/test/34222.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 760.75, x_min: 754.125, y_max: 310.125,
+    y_min: 293.75}
+  - {label: Green, occluded: false, x_max: 361.625, x_min: 355.5, y_max: 329.25, y_min: 314.625}
+  path: rgb/test/34224.png
+- boxes:
   - {label: Green, occluded: false, x_max: 761.75, x_min: 755.375, y_max: 316.25,
     y_min: 298.875}
   - {label: Green, occluded: false, x_max: 360.375, x_min: 354.875, y_max: 336.125,
@@ -16753,6 +20969,11 @@
   - {label: Green, occluded: false, x_max: 766.625, x_min: 759.0, y_max: 320.25, y_min: 303.5}
   - {label: Green, occluded: false, x_max: 358.75, x_min: 353.0, y_max: 341.75, y_min: 325.875}
   path: rgb/test/34230.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 768.75, x_min: 760.75, y_max: 318.375,
+    y_min: 302.25}
+  - {label: Green, occluded: false, x_max: 357.5, x_min: 351.75, y_max: 341.0, y_min: 326.125}
+  path: rgb/test/34232.png
 - boxes:
   - {label: Green, occluded: false, x_max: 770.875, x_min: 763.0, y_max: 318.75, y_min: 300.0}
   - {label: Green, occluded: false, x_max: 355.625, x_min: 350.125, y_max: 338.75,
@@ -16796,6 +21017,11 @@
     y_min: 308.25}
   path: rgb/test/34250.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 789.0, x_min: 780.375, y_max: 298.75, y_min: 280.875}
+  - {label: Green, occluded: false, x_max: 343.875, x_min: 337.5, y_max: 324.125,
+    y_min: 305.75}
+  path: rgb/test/34252.png
+- boxes:
   - {label: Green, occluded: true, x_max: 791.0, x_min: 783.375, y_max: 298.5, y_min: 281.5}
   - {label: Green, occluded: false, x_max: 343.125, x_min: 335.375, y_max: 326.125,
     y_min: 306.125}
@@ -16818,6 +21044,10 @@
   - {label: Green, occluded: false, x_max: 336.375, x_min: 328.125, y_max: 333.0,
     y_min: 312.125}
   path: rgb/test/34262.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 334.125, x_min: 325.875, y_max: 332.5,
+    y_min: 311.875}
+  path: rgb/test/34264.png
 - boxes:
   - {label: Green, occluded: false, x_max: 331.375, x_min: 323.875, y_max: 330.875,
     y_min: 311.375}
@@ -16873,6 +21103,10 @@
   - {label: Green, occluded: false, x_max: 291.25, x_min: 282.75, y_max: 315.75, y_min: 295.5}
   path: rgb/test/34296.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 287.0, x_min: 279.125, y_max: 312.125,
+    y_min: 291.5}
+  path: rgb/test/34298.png
+- boxes:
   - {label: Green, occluded: true, x_max: 838.5, x_min: 832.375, y_max: 283.625, y_min: 261.125}
   - {label: Green, occluded: false, x_max: 283.75, x_min: 275.75, y_max: 311.0, y_min: 288.5}
   path: rgb/test/34300.png
@@ -16887,6 +21121,12 @@
   - {label: Green, occluded: false, x_max: 275.875, x_min: 268.625, y_max: 311.5,
     y_min: 288.25}
   path: rgb/test/34304.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 847.125, x_min: 838.25, y_max: 284.375,
+    y_min: 260.125}
+  - {label: Green, occluded: false, x_max: 273.375, x_min: 263.875, y_max: 311.75,
+    y_min: 289.875}
+  path: rgb/test/34306.png
 - boxes:
   - {label: Green, occluded: false, x_max: 849.25, x_min: 839.75, y_max: 285.75, y_min: 259.875}
   - {label: Green, occluded: false, x_max: 269.125, x_min: 260.5, y_max: 314.5, y_min: 291.25}
@@ -16904,11 +21144,22 @@
     y_min: 289.375}
   path: rgb/test/34312.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 855.125, x_min: 845.875, y_max: 279.625,
+    y_min: 254.625}
+  - {label: Green, occluded: false, x_max: 256.125, x_min: 247.25, y_max: 312.5, y_min: 287.5}
+  path: rgb/test/34314.png
+- boxes:
   - {label: Green, occluded: false, x_max: 857.625, x_min: 848.125, y_max: 279.5,
     y_min: 252.875}
   - {label: Green, occluded: false, x_max: 251.75, x_min: 243.125, y_max: 311.125,
     y_min: 286.5}
   path: rgb/test/34316.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 859.75, x_min: 850.125, y_max: 278.625,
+    y_min: 252.5}
+  - {label: Green, occluded: false, x_max: 247.25, x_min: 239.25, y_max: 310.125,
+    y_min: 286.25}
+  path: rgb/test/34318.png
 - boxes:
   - {label: Green, occluded: false, x_max: 862.0, x_min: 852.75, y_max: 277.125, y_min: 250.75}
   - {label: Green, occluded: false, x_max: 243.0, x_min: 233.125, y_max: 309.625,
@@ -16921,6 +21172,18 @@
     y_min: 283.875}
   - {label: Red, occluded: false, x_max: 512.0, x_min: 507.5, y_max: 346.75, y_min: 337.375}
   path: rgb/test/34322.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 867.5, x_min: 857.375, y_max: 276.625,
+    y_min: 250.375}
+  - {label: Green, occluded: false, x_max: 235.125, x_min: 225.0, y_max: 311.125,
+    y_min: 285.125}
+  - {label: Red, occluded: false, x_max: 511.75, x_min: 506.625, y_max: 348.25, y_min: 338.125}
+  path: rgb/test/34324.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 870.0, x_min: 860.125, y_max: 276.5, y_min: 249.5}
+  - {label: Green, occluded: false, x_max: 230.5, x_min: 221.0, y_max: 310.875, y_min: 284.375}
+  - {label: Red, occluded: false, x_max: 510.625, x_min: 506.25, y_max: 348.625, y_min: 338.875}
+  path: rgb/test/34326.png
 - boxes:
   - {label: Green, occluded: false, x_max: 872.5, x_min: 862.75, y_max: 276.375, y_min: 249.0}
   - {label: Green, occluded: false, x_max: 225.75, x_min: 216.0, y_max: 310.875, y_min: 282.375}
@@ -16960,6 +21223,13 @@
   - {label: Red, occluded: false, x_max: 508.5, x_min: 503.625, y_max: 348.625, y_min: 338.375}
   path: rgb/test/34338.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 890.875, x_min: 880.375, y_max: 270.875,
+    y_min: 241.0}
+  - {label: Green, occluded: false, x_max: 196.25, x_min: 186.0, y_max: 302.875, y_min: 274.25}
+  - {label: Red, occluded: false, x_max: 508.375, x_min: 503.125, y_max: 347.125,
+    y_min: 336.75}
+  path: rgb/test/34340.png
+- boxes:
   - {label: Green, occluded: false, x_max: 894.25, x_min: 883.25, y_max: 269.5, y_min: 238.625}
   - {label: Green, occluded: false, x_max: 191.125, x_min: 180.75, y_max: 302.0, y_min: 272.5}
   - {label: Red, occluded: false, x_max: 507.5, x_min: 503.0, y_max: 347.0, y_min: 335.625}
@@ -16970,6 +21240,12 @@
     y_min: 270.75}
   - {label: Red, occluded: false, x_max: 507.0, x_min: 502.25, y_max: 346.0, y_min: 335.25}
   path: rgb/test/34344.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 900.5, x_min: 890.0, y_max: 265.75, y_min: 235.0}
+  - {label: Green, occluded: false, x_max: 180.0, x_min: 169.625, y_max: 298.125,
+    y_min: 269.75}
+  - {label: Red, occluded: false, x_max: 506.5, x_min: 501.625, y_max: 346.5, y_min: 335.625}
+  path: rgb/test/34346.png
 - boxes:
   - {label: Green, occluded: false, x_max: 903.5, x_min: 892.125, y_max: 264.0, y_min: 232.5}
   - {label: Green, occluded: false, x_max: 174.375, x_min: 163.5, y_max: 298.125,
@@ -16983,6 +21259,13 @@
     y_min: 265.375}
   - {label: Red, occluded: false, x_max: 505.5, x_min: 500.625, y_max: 344.25, y_min: 333.375}
   path: rgb/test/34350.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 909.875, x_min: 898.25, y_max: 258.75,
+    y_min: 226.875}
+  - {label: Green, occluded: false, x_max: 162.25, x_min: 150.75, y_max: 294.625,
+    y_min: 263.375}
+  - {label: Red, occluded: false, x_max: 504.75, x_min: 499.5, y_max: 343.125, y_min: 332.375}
+  path: rgb/test/34352.png
 - boxes:
   - {label: Green, occluded: false, x_max: 913.375, x_min: 900.75, y_max: 257.125,
     y_min: 224.25}
@@ -17012,6 +21295,19 @@
     y_min: 328.625}
   path: rgb/test/34360.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 927.0, x_min: 914.75, y_max: 251.125, y_min: 215.75}
+  - {label: Green, occluded: false, x_max: 128.125, x_min: 115.75, y_max: 290.375,
+    y_min: 257.875}
+  - {label: Red, occluded: false, x_max: 501.625, x_min: 496.5, y_max: 342.0, y_min: 331.375}
+  path: rgb/test/34362.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 931.125, x_min: 918.75, y_max: 254.875,
+    y_min: 219.625}
+  - {label: Green, occluded: false, x_max: 121.5, x_min: 109.875, y_max: 293.875,
+    y_min: 259.625}
+  - {label: Red, occluded: false, x_max: 500.75, x_min: 496.25, y_max: 346.75, y_min: 336.0}
+  path: rgb/test/34364.png
+- boxes:
   - {label: Green, occluded: false, x_max: 936.125, x_min: 923.75, y_max: 256.875,
     y_min: 223.0}
   - {label: Green, occluded: false, x_max: 114.875, x_min: 102.625, y_max: 295.5,
@@ -17037,6 +21333,11 @@
   - {label: Red, occluded: false, x_max: 499.625, x_min: 495.25, y_max: 354.75, y_min: 345.0}
   path: rgb/test/34372.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 953.5, x_min: 939.0, y_max: 251.5, y_min: 215.375}
+  - {label: Green, occluded: false, x_max: 85.375, x_min: 71.125, y_max: 298.5, y_min: 262.0}
+  - {label: Red, occluded: false, x_max: 499.875, x_min: 495.0, y_max: 354.875, y_min: 343.25}
+  path: rgb/test/34374.png
+- boxes:
   - {label: Green, occluded: false, x_max: 958.125, x_min: 944.625, y_max: 246.375,
     y_min: 209.625}
   - {label: Green, occluded: false, x_max: 78.125, x_min: 63.75, y_max: 293.5, y_min: 255.375}
@@ -17059,10 +21360,21 @@
   - {label: Red, occluded: false, x_max: 498.375, x_min: 493.375, y_max: 342.5, y_min: 332.5}
   path: rgb/test/34382.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 979.875, x_min: 964.75, y_max: 233.25,
+    y_min: 193.0}
+  - {label: Green, occluded: false, x_max: 43.75, x_min: 27.5, y_max: 286.125, y_min: 241.25}
+  - {label: Red, occluded: false, x_max: 498.125, x_min: 493.25, y_max: 343.875, y_min: 332.5}
+  path: rgb/test/34384.png
+- boxes:
   - {label: Green, occluded: false, x_max: 985.0, x_min: 970.25, y_max: 231.625, y_min: 190.5}
   - {label: Green, occluded: false, x_max: 33.75, x_min: 19.125, y_max: 283.5, y_min: 241.125}
   - {label: Red, occluded: false, x_max: 497.375, x_min: 492.875, y_max: 344.25, y_min: 333.125}
   path: rgb/test/34386.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 991.25, x_min: 975.0, y_max: 228.625, y_min: 186.75}
+  - {label: Green, occluded: false, x_max: 25.625, x_min: 8.125, y_max: 280.0, y_min: 238.625}
+  - {label: Red, occluded: false, x_max: 497.5, x_min: 492.5, y_max: 343.25, y_min: 332.125}
+  path: rgb/test/34388.png
 - boxes:
   - {label: Green, occluded: false, x_max: 996.0, x_min: 981.125, y_max: 224.75, y_min: 182.625}
   - {label: Green, occluded: false, x_max: 14.375, x_min: 0.0, y_max: 279.75, y_min: 233.625}
@@ -17073,6 +21385,10 @@
     y_min: 179.0}
   - {label: Red, occluded: false, x_max: 496.375, x_min: 492.25, y_max: 339.875, y_min: 328.625}
   path: rgb/test/34392.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1010.0, x_min: 994.0, y_max: 220.375, y_min: 175.375}
+  - {label: Red, occluded: false, x_max: 496.375, x_min: 492.125, y_max: 339.5, y_min: 328.125}
+  path: rgb/test/34394.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1017.0, x_min: 1000.25, y_max: 216.5, y_min: 171.875}
   - {label: Red, occluded: false, x_max: 498.0, x_min: 492.5, y_max: 337.875, y_min: 327.125}
@@ -17089,6 +21405,11 @@
     y_min: 327.875}
   path: rgb/test/34400.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1038.75, x_min: 1023.125, y_max: 211.125,
+    y_min: 163.875}
+  - {label: Red, occluded: false, x_max: 497.625, x_min: 493.25, y_max: 340.375, y_min: 329.5}
+  path: rgb/test/34402.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1046.75, x_min: 1030.75, y_max: 210.75,
     y_min: 163.5}
   - {label: Red, occluded: false, x_max: 497.875, x_min: 493.25, y_max: 340.875, y_min: 330.5}
@@ -17104,6 +21425,11 @@
   - {label: Red, occluded: false, x_max: 498.5, x_min: 494.5, y_max: 344.125, y_min: 334.5}
   path: rgb/test/34408.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1074.125, x_min: 1055.625, y_max: 205.625,
+    y_min: 157.75}
+  - {label: Red, occluded: false, x_max: 499.625, x_min: 495.375, y_max: 344.75, y_min: 334.125}
+  path: rgb/test/34410.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1083.375, x_min: 1067.0, y_max: 203.625,
     y_min: 153.25}
   - {label: Red, occluded: false, x_max: 500.375, x_min: 495.875, y_max: 343.5, y_min: 333.0}
@@ -17113,6 +21439,11 @@
     y_min: 150.75}
   - {label: Red, occluded: false, x_max: 501.0, x_min: 496.625, y_max: 343.5, y_min: 332.875}
   path: rgb/test/34414.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1104.0, x_min: 1086.875, y_max: 201.375,
+    y_min: 148.0}
+  - {label: Red, occluded: false, x_max: 501.5, x_min: 497.0, y_max: 344.75, y_min: 334.0}
+  path: rgb/test/34416.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1113.625, x_min: 1097.0, y_max: 197.125,
     y_min: 144.625}
@@ -17134,6 +21465,11 @@
   - {label: Red, occluded: false, x_max: 504.75, x_min: 499.5, y_max: 350.5, y_min: 339.5}
   path: rgb/test/34424.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1159.375, x_min: 1141.25, y_max: 186.5,
+    y_min: 129.0}
+  - {label: Red, occluded: false, x_max: 505.5, x_min: 500.875, y_max: 348.875, y_min: 338.125}
+  path: rgb/test/34426.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1173.375, x_min: 1155.375, y_max: 180.625,
     y_min: 123.375}
   - {label: Red, occluded: false, x_max: 507.875, x_min: 503.25, y_max: 347.5, y_min: 336.375}
@@ -17150,6 +21486,16 @@
   - {label: Red, occluded: false, x_max: 512.875, x_min: 507.75, y_max: 349.625, y_min: 338.625}
   path: rgb/test/34432.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1219.125, x_min: 1199.5, y_max: 170.25,
+    y_min: 105.875}
+  - {label: Red, occluded: false, x_max: 514.375, x_min: 510.375, y_max: 349.5, y_min: 338.375}
+  path: rgb/test/34434.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1236.375, x_min: 1215.25, y_max: 159.125,
+    y_min: 95.625}
+  - {label: Red, occluded: false, x_max: 517.625, x_min: 513.5, y_max: 344.375, y_min: 334.125}
+  path: rgb/test/34436.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1253.375, x_min: 1232.125, y_max: 151.25,
     y_min: 84.875}
   - {label: Red, occluded: false, x_max: 519.625, x_min: 514.375, y_max: 343.125,
@@ -17161,8 +21507,14 @@
   - {label: Red, occluded: false, x_max: 522.125, x_min: 517.0, y_max: 344.75, y_min: 333.875}
   path: rgb/test/34440.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 523.875, x_min: 520.375, y_max: 345.75, y_min: 336.5}
+  path: rgb/test/34442.png
+- boxes:
   - {label: Red, occluded: false, x_max: 526.125, x_min: 522.0, y_max: 345.25, y_min: 334.875}
   path: rgb/test/34444.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 528.875, x_min: 524.25, y_max: 344.875, y_min: 332.625}
+  path: rgb/test/34446.png
 - boxes:
   - {label: Red, occluded: false, x_max: 531.375, x_min: 526.625, y_max: 345.375,
     y_min: 334.25}
@@ -17197,11 +21549,20 @@
   - {label: Red, occluded: false, x_max: 553.5, x_min: 547.875, y_max: 348.5, y_min: 334.375}
   path: rgb/test/34466.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 554.5, x_min: 549.25, y_max: 350.5, y_min: 337.625}
+  path: rgb/test/34468.png
+- boxes:
   - {label: Red, occluded: false, x_max: 557.25, x_min: 551.5, y_max: 355.75, y_min: 342.875}
   path: rgb/test/34470.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 559.5, x_min: 553.25, y_max: 358.5, y_min: 345.875}
+  path: rgb/test/34472.png
+- boxes:
   - {label: Red, occluded: false, x_max: 561.75, x_min: 555.75, y_max: 359.375, y_min: 347.5}
   path: rgb/test/34474.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 563.75, x_min: 557.5, y_max: 360.375, y_min: 347.625}
+  path: rgb/test/34476.png
 - boxes:
   - {label: Red, occluded: false, x_max: 564.125, x_min: 558.875, y_max: 360.875,
     y_min: 348.5}
@@ -17219,6 +21580,10 @@
   - {label: Red, occluded: false, x_max: 570.875, x_min: 565.125, y_max: 359.375,
     y_min: 346.5}
   path: rgb/test/34486.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 571.125, x_min: 566.625, y_max: 354.25, y_min: 342.5}
+  - {label: Red, occluded: true, x_max: 855.75, x_min: 850.75, y_max: 347.375, y_min: 336.125}
+  path: rgb/test/34488.png
 - boxes:
   - {label: Red, occluded: false, x_max: 572.375, x_min: 566.875, y_max: 349.125,
     y_min: 338.125}
@@ -17245,9 +21610,22 @@
   - {label: Red, occluded: true, x_max: 866.375, x_min: 860.75, y_max: 330.0, y_min: 316.125}
   path: rgb/test/34500.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 575.125, x_min: 569.625, y_max: 335.125,
+    y_min: 322.625}
+  - {label: Red, occluded: true, x_max: 867.25, x_min: 861.875, y_max: 329.375, y_min: 316.875}
+  path: rgb/test/34502.png
+- boxes:
   - {label: Red, occluded: false, x_max: 574.0, x_min: 569.0, y_max: 337.125, y_min: 323.75}
   - {label: Red, occluded: true, x_max: 868.25, x_min: 862.375, y_max: 331.375, y_min: 318.375}
   path: rgb/test/34504.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 574.25, x_min: 569.0, y_max: 337.0, y_min: 325.125}
+  - {label: Red, occluded: true, x_max: 868.625, x_min: 863.125, y_max: 332.0, y_min: 320.5}
+  path: rgb/test/34506.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 573.75, x_min: 568.0, y_max: 338.75, y_min: 325.875}
+  - {label: Red, occluded: true, x_max: 868.875, x_min: 863.875, y_max: 331.75, y_min: 319.875}
+  path: rgb/test/34508.png
 - boxes:
   - {label: Red, occluded: false, x_max: 572.375, x_min: 566.875, y_max: 338.25, y_min: 326.125}
   - {label: Red, occluded: true, x_max: 869.375, x_min: 863.625, y_max: 331.0, y_min: 319.0}
@@ -17262,6 +21640,10 @@
     y_min: 318.5}
   path: rgb/test/34514.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 569.375, x_min: 564.5, y_max: 338.0, y_min: 325.625}
+  - {label: Red, occluded: true, x_max: 870.875, x_min: 865.375, y_max: 331.25, y_min: 319.375}
+  path: rgb/test/34516.png
+- boxes:
   - {label: Red, occluded: false, x_max: 569.75, x_min: 563.875, y_max: 339.875, y_min: 328.25}
   - {label: Red, occluded: true, x_max: 871.25, x_min: 866.25, y_max: 334.625, y_min: 323.875}
   path: rgb/test/34518.png
@@ -17274,9 +21656,17 @@
   - {label: Red, occluded: true, x_max: 872.375, x_min: 866.0, y_max: 341.875, y_min: 327.625}
   path: rgb/test/34522.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 567.0, x_min: 561.375, y_max: 349.75, y_min: 337.375}
+  - {label: Red, occluded: true, x_max: 872.375, x_min: 866.125, y_max: 344.5, y_min: 330.75}
+  path: rgb/test/34524.png
+- boxes:
   - {label: Red, occluded: false, x_max: 565.25, x_min: 560.625, y_max: 351.0, y_min: 339.375}
   - {label: Red, occluded: true, x_max: 872.5, x_min: 866.625, y_max: 345.25, y_min: 332.5}
   path: rgb/test/34526.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 564.0, x_min: 558.75, y_max: 351.875, y_min: 339.375}
+  - {label: Red, occluded: true, x_max: 873.0, x_min: 866.75, y_max: 345.125, y_min: 331.875}
+  path: rgb/test/34528.png
 - boxes:
   - {label: Red, occluded: false, x_max: 563.0, x_min: 557.75, y_max: 350.5, y_min: 337.375}
   - {label: Red, occluded: true, x_max: 872.875, x_min: 867.125, y_max: 343.25, y_min: 329.875}
@@ -17314,11 +21704,17 @@
   - {label: Red, occluded: true, x_max: 875.75, x_min: 869.625, y_max: 316.25, y_min: 302.0}
   path: rgb/test/34546.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 553.0, x_min: 547.625, y_max: 320.125, y_min: 307.375}
+  path: rgb/test/34548.png
+- boxes:
   - {label: Red, occluded: false, x_max: 552.0, x_min: 546.375, y_max: 318.5, y_min: 305.75}
   path: rgb/test/34550.png
 - boxes:
   - {label: Red, occluded: false, x_max: 550.625, x_min: 545.5, y_max: 322.375, y_min: 309.5}
   path: rgb/test/34552.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 549.125, x_min: 543.875, y_max: 329.0, y_min: 315.0}
+  path: rgb/test/34554.png
 - boxes:
   - {label: Red, occluded: false, x_max: 547.875, x_min: 542.875, y_max: 330.875,
     y_min: 318.5}
@@ -17346,6 +21742,9 @@
   - {label: Red, occluded: false, x_max: 534.375, x_min: 529.0, y_max: 328.625, y_min: 314.0}
   path: rgb/test/34570.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 532.125, x_min: 526.0, y_max: 324.75, y_min: 311.5}
+  path: rgb/test/34572.png
+- boxes:
   - {label: Red, occluded: false, x_max: 529.875, x_min: 523.75, y_max: 323.875, y_min: 310.125}
   path: rgb/test/34574.png
 - boxes:
@@ -17359,12 +21758,24 @@
   - {label: Red, occluded: false, x_max: 523.125, x_min: 517.375, y_max: 325.25, y_min: 311.25}
   path: rgb/test/34580.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 519.5, x_min: 514.125, y_max: 324.5, y_min: 311.125}
+  path: rgb/test/34582.png
+- boxes:
   - {label: Red, occluded: false, x_max: 517.125, x_min: 511.625, y_max: 324.875,
     y_min: 311.0}
   path: rgb/test/34584.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 514.75, x_min: 510.125, y_max: 323.75, y_min: 311.5}
+  path: rgb/test/34586.png
+- boxes:
   - {label: Red, occluded: false, x_max: 513.0, x_min: 507.125, y_max: 324.625, y_min: 310.875}
   path: rgb/test/34588.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 511.375, x_min: 505.25, y_max: 324.5, y_min: 311.0}
+  path: rgb/test/34590.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 508.5, x_min: 503.375, y_max: 324.0, y_min: 310.875}
+  path: rgb/test/34592.png
 - boxes:
   - {label: Red, occluded: false, x_max: 506.0, x_min: 500.0, y_max: 325.0, y_min: 310.25}
   path: rgb/test/34594.png
@@ -17398,6 +21809,14 @@
   - {label: Red, occluded: false, x_max: 491.0, x_min: 484.875, y_max: 326.125, y_min: 311.25}
   - {label: Red, occluded: false, x_max: 855.875, x_min: 849.875, y_max: 323.75, y_min: 308.5}
   path: rgb/test/34608.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 488.25, x_min: 482.625, y_max: 325.625, y_min: 311.25}
+  - {label: Red, occluded: false, x_max: 856.125, x_min: 848.375, y_max: 322.25, y_min: 307.625}
+  path: rgb/test/34610.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 486.75, x_min: 480.375, y_max: 325.0, y_min: 310.375}
+  - {label: Red, occluded: false, x_max: 855.375, x_min: 849.0, y_max: 322.5, y_min: 307.25}
+  path: rgb/test/34612.png
 - boxes:
   - {label: Red, occluded: false, x_max: 484.875, x_min: 478.25, y_max: 324.125, y_min: 308.625}
   - {label: Red, occluded: false, x_max: 854.25, x_min: 848.125, y_max: 319.25, y_min: 304.875}
@@ -17453,6 +21872,10 @@
   - {label: Red, occluded: true, x_max: 847.5, x_min: 839.375, y_max: 333.5, y_min: 314.75}
   path: rgb/test/34638.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 453.875, x_min: 447.875, y_max: 333.5, y_min: 318.5}
+  - {label: Red, occluded: true, x_max: 846.125, x_min: 839.125, y_max: 331.125, y_min: 314.375}
+  path: rgb/test/34640.png
+- boxes:
   - {label: Red, occluded: false, x_max: 451.5, x_min: 445.375, y_max: 333.0, y_min: 316.5}
   - {label: Red, occluded: true, x_max: 845.625, x_min: 837.875, y_max: 331.0, y_min: 313.375}
   path: rgb/test/34642.png
@@ -17464,6 +21887,10 @@
   - {label: Red, occluded: false, x_max: 446.5, x_min: 440.75, y_max: 329.25, y_min: 314.5}
   - {label: Red, occluded: false, x_max: 843.875, x_min: 836.5, y_max: 328.625, y_min: 310.25}
   path: rgb/test/34646.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 444.875, x_min: 438.75, y_max: 327.875, y_min: 312.75}
+  - {label: Red, occluded: false, x_max: 843.875, x_min: 836.125, y_max: 327.5, y_min: 308.625}
+  path: rgb/test/34648.png
 - boxes:
   - {label: Red, occluded: false, x_max: 443.625, x_min: 436.75, y_max: 326.0, y_min: 310.75}
   - {label: Red, occluded: false, x_max: 843.75, x_min: 836.125, y_max: 322.0, y_min: 305.375}
@@ -17478,6 +21905,11 @@
     y_min: 301.0}
   path: rgb/test/34654.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 437.875, x_min: 430.875, y_max: 320.875,
+    y_min: 304.25}
+  - {label: Red, occluded: false, x_max: 844.875, x_min: 835.625, y_max: 317.0, y_min: 298.75}
+  path: rgb/test/34656.png
+- boxes:
   - {label: Red, occluded: false, x_max: 436.125, x_min: 430.125, y_max: 319.375,
     y_min: 303.0}
   - {label: Red, occluded: false, x_max: 844.25, x_min: 835.375, y_max: 316.25, y_min: 296.375}
@@ -17490,6 +21922,10 @@
   - {label: Red, occluded: false, x_max: 432.875, x_min: 426.75, y_max: 317.5, y_min: 301.5}
   - {label: Red, occluded: false, x_max: 844.75, x_min: 836.75, y_max: 315.625, y_min: 295.0}
   path: rgb/test/34662.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 431.0, x_min: 425.5, y_max: 317.5, y_min: 301.125}
+  - {label: Red, occluded: false, x_max: 844.625, x_min: 837.25, y_max: 317.875, y_min: 296.25}
+  path: rgb/test/34664.png
 - boxes:
   - {label: Red, occluded: false, x_max: 430.125, x_min: 422.875, y_max: 319.125,
     y_min: 302.375}
@@ -17512,6 +21948,10 @@
   - {label: Red, occluded: false, x_max: 847.5, x_min: 838.5, y_max: 322.375, y_min: 300.625}
   path: rgb/test/34674.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 422.75, x_min: 415.875, y_max: 321.75, y_min: 304.25}
+  - {label: Red, occluded: false, x_max: 846.375, x_min: 839.25, y_max: 319.625, y_min: 299.875}
+  path: rgb/test/34676.png
+- boxes:
   - {label: Red, occluded: false, x_max: 420.875, x_min: 415.5, y_max: 322.25, y_min: 304.875}
   - {label: Red, occluded: false, x_max: 847.875, x_min: 839.625, y_max: 321.25, y_min: 300.25}
   path: rgb/test/34678.png
@@ -17523,6 +21963,11 @@
   - {label: Red, occluded: false, x_max: 417.375, x_min: 411.5, y_max: 321.875, y_min: 304.875}
   - {label: Red, occluded: false, x_max: 847.75, x_min: 840.75, y_max: 321.75, y_min: 301.25}
   path: rgb/test/34682.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 416.875, x_min: 410.5, y_max: 320.375, y_min: 304.0}
+  - {label: Red, occluded: false, x_max: 847.875, x_min: 840.875, y_max: 321.125,
+    y_min: 300.25}
+  path: rgb/test/34684.png
 - boxes:
   - {label: Red, occluded: false, x_max: 414.125, x_min: 407.75, y_max: 320.5, y_min: 304.625}
   - {label: Red, occluded: false, x_max: 849.5, x_min: 841.75, y_max: 321.125, y_min: 298.875}
@@ -17547,6 +21992,11 @@
   - {label: Red, occluded: false, x_max: 409.375, x_min: 402.125, y_max: 322.0, y_min: 305.0}
   - {label: Red, occluded: false, x_max: 852.875, x_min: 845.125, y_max: 321.0, y_min: 301.125}
   path: rgb/test/34696.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 408.125, x_min: 400.875, y_max: 320.625,
+    y_min: 303.75}
+  - {label: Red, occluded: false, x_max: 852.5, x_min: 845.0, y_max: 319.625, y_min: 299.375}
+  path: rgb/test/34698.png
 - boxes:
   - {label: Red, occluded: false, x_max: 408.5, x_min: 399.75, y_max: 321.625, y_min: 303.0}
   - {label: Red, occluded: false, x_max: 852.75, x_min: 845.875, y_max: 317.75, y_min: 298.375}
@@ -17573,6 +22023,10 @@
     y_min: 293.25}
   path: rgb/test/34710.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 399.375, x_min: 392.75, y_max: 314.625, y_min: 295.5}
+  - {label: Red, occluded: false, x_max: 857.125, x_min: 850.0, y_max: 311.375, y_min: 291.375}
+  path: rgb/test/34712.png
+- boxes:
   - {label: Red, occluded: false, x_max: 397.5, x_min: 391.25, y_max: 311.5, y_min: 294.75}
   - {label: Red, occluded: false, x_max: 858.875, x_min: 851.25, y_max: 311.0, y_min: 291.25}
   path: rgb/test/34714.png
@@ -17589,6 +22043,10 @@
   - {label: Red, occluded: false, x_max: 393.625, x_min: 387.25, y_max: 313.25, y_min: 295.25}
   - {label: Red, occluded: false, x_max: 859.75, x_min: 853.5, y_max: 309.375, y_min: 291.625}
   path: rgb/test/34720.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 391.5, x_min: 386.0, y_max: 314.0, y_min: 295.0}
+  - {label: Red, occluded: false, x_max: 860.25, x_min: 854.0, y_max: 310.25, y_min: 291.875}
+  path: rgb/test/34722.png
 - boxes:
   - {label: Red, occluded: false, x_max: 389.875, x_min: 385.0, y_max: 312.125, y_min: 295.25}
   - {label: Red, occluded: false, x_max: 860.5, x_min: 853.25, y_max: 308.25, y_min: 290.0}
@@ -17647,6 +22105,10 @@
     y_min: 288.5}
   path: rgb/test/34748.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 369.0, x_min: 361.5, y_max: 310.875, y_min: 291.0}
+  - {label: Red, occluded: false, x_max: 863.25, x_min: 857.0, y_max: 307.625, y_min: 288.25}
+  path: rgb/test/34750.png
+- boxes:
   - {label: Red, occluded: false, x_max: 367.0, x_min: 360.375, y_max: 309.25, y_min: 290.25}
   - {label: Red, occluded: false, x_max: 863.25, x_min: 856.125, y_max: 305.75, y_min: 286.875}
   path: rgb/test/34752.png
@@ -17663,6 +22125,10 @@
   - {label: Red, occluded: false, x_max: 361.875, x_min: 354.375, y_max: 309.0, y_min: 290.25}
   - {label: Red, occluded: false, x_max: 864.25, x_min: 857.0, y_max: 306.625, y_min: 285.75}
   path: rgb/test/34758.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 361.25, x_min: 353.875, y_max: 309.375, y_min: 289.875}
+  - {label: Red, occluded: false, x_max: 864.25, x_min: 857.625, y_max: 305.125, y_min: 286.625}
+  path: rgb/test/34760.png
 - boxes:
   - {label: Red, occluded: false, x_max: 358.75, x_min: 352.5, y_max: 309.125, y_min: 290.5}
   - {label: Red, occluded: false, x_max: 865.375, x_min: 857.375, y_max: 306.5, y_min: 285.875}
@@ -17746,14 +22212,27 @@
   - {label: Red, occluded: false, x_max: 873.5, x_min: 865.625, y_max: 310.625, y_min: 286.125}
   path: rgb/test/34796.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 339.375, x_min: 330.625, y_max: 313.5, y_min: 290.25}
+  - {label: Red, occluded: false, x_max: 875.375, x_min: 866.0, y_max: 311.625, y_min: 284.75}
+  path: rgb/test/34798.png
+- boxes:
   - {label: Red, occluded: false, x_max: 338.125, x_min: 330.125, y_max: 312.125,
     y_min: 288.625}
   - {label: Red, occluded: false, x_max: 876.125, x_min: 866.625, y_max: 309.5, y_min: 284.75}
   path: rgb/test/34800.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 337.625, x_min: 328.375, y_max: 310.625,
+    y_min: 287.75}
+  - {label: Red, occluded: false, x_max: 875.625, x_min: 866.875, y_max: 308.5, y_min: 284.75}
+  path: rgb/test/34802.png
+- boxes:
   - {label: Red, occluded: false, x_max: 339.125, x_min: 328.25, y_max: 311.625, y_min: 287.25}
   - {label: Red, occluded: false, x_max: 876.625, x_min: 867.5, y_max: 307.75, y_min: 283.125}
   path: rgb/test/34804.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 335.25, x_min: 326.375, y_max: 311.375, y_min: 286.25}
+  - {label: Red, occluded: false, x_max: 877.5, x_min: 867.875, y_max: 306.625, y_min: 281.5}
+  path: rgb/test/34806.png
 - boxes:
   - {label: Red, occluded: false, x_max: 334.625, x_min: 325.625, y_max: 310.625,
     y_min: 285.625}
@@ -17778,9 +22257,22 @@
     y_min: 280.125}
   path: rgb/test/34816.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 330.25, x_min: 321.875, y_max: 305.25, y_min: 282.625}
+  - {label: Red, occluded: false, x_max: 878.75, x_min: 869.75, y_max: 304.5, y_min: 279.875}
+  path: rgb/test/34818.png
+- boxes:
   - {label: Red, occluded: false, x_max: 330.125, x_min: 321.0, y_max: 305.25, y_min: 282.75}
   - {label: Red, occluded: false, x_max: 879.25, x_min: 870.5, y_max: 304.5, y_min: 279.75}
   path: rgb/test/34820.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 329.625, x_min: 320.875, y_max: 306.875,
+    y_min: 282.875}
+  - {label: Red, occluded: false, x_max: 879.25, x_min: 871.125, y_max: 304.0, y_min: 279.5}
+  path: rgb/test/34822.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 329.625, x_min: 319.625, y_max: 308.0, y_min: 282.5}
+  - {label: Red, occluded: false, x_max: 879.75, x_min: 871.0, y_max: 303.75, y_min: 279.375}
+  path: rgb/test/34824.png
 - boxes:
   - {label: Red, occluded: false, x_max: 327.875, x_min: 318.625, y_max: 307.25, y_min: 282.25}
   - {label: Red, occluded: false, x_max: 879.625, x_min: 870.375, y_max: 304.5, y_min: 278.75}
@@ -17827,9 +22319,17 @@
   - {label: Red, occluded: false, x_max: 883.125, x_min: 873.25, y_max: 303.25, y_min: 278.375}
   path: rgb/test/34846.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 321.875, x_min: 313.5, y_max: 305.75, y_min: 281.125}
+  - {label: Red, occluded: false, x_max: 882.125, x_min: 874.75, y_max: 302.0, y_min: 278.375}
+  path: rgb/test/34848.png
+- boxes:
   - {label: Red, occluded: false, x_max: 322.5, x_min: 313.375, y_max: 305.25, y_min: 281.125}
   - {label: Red, occluded: false, x_max: 884.25, x_min: 874.875, y_max: 302.75, y_min: 279.0}
   path: rgb/test/34850.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 321.375, x_min: 313.25, y_max: 305.0, y_min: 281.25}
+  - {label: Red, occluded: false, x_max: 884.0, x_min: 875.375, y_max: 302.5, y_min: 278.375}
+  path: rgb/test/34852.png
 - boxes:
   - {label: Red, occluded: false, x_max: 321.625, x_min: 312.75, y_max: 304.25, y_min: 280.75}
   - {label: Red, occluded: false, x_max: 883.75, x_min: 875.5, y_max: 302.125, y_min: 278.25}
@@ -17861,6 +22361,10 @@
     y_min: 277.375}
   path: rgb/test/34866.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 319.75, x_min: 310.75, y_max: 304.75, y_min: 279.875}
+  - {label: Red, occluded: false, x_max: 885.25, x_min: 877.0, y_max: 302.25, y_min: 277.375}
+  path: rgb/test/34868.png
+- boxes:
   - {label: Red, occluded: false, x_max: 319.0, x_min: 310.25, y_max: 304.125, y_min: 279.75}
   - {label: Red, occluded: false, x_max: 885.375, x_min: 876.625, y_max: 302.0, y_min: 276.875}
   path: rgb/test/34870.png
@@ -17882,18 +22386,39 @@
   - {label: Red, occluded: false, x_max: 886.25, x_min: 877.5, y_max: 300.625, y_min: 276.5}
   path: rgb/test/34878.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 317.75, x_min: 308.25, y_max: 303.0, y_min: 278.375}
+  - {label: Red, occluded: false, x_max: 885.625, x_min: 877.125, y_max: 300.75, y_min: 277.0}
+  path: rgb/test/34880.png
+- boxes:
   - {label: Red, occluded: false, x_max: 318.125, x_min: 308.0, y_max: 303.125, y_min: 278.5}
   - {label: Red, occluded: false, x_max: 886.0, x_min: 876.625, y_max: 301.0, y_min: 276.875}
   path: rgb/test/34882.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 317.125, x_min: 306.625, y_max: 302.375,
+    y_min: 278.0}
+  - {label: Red, occluded: false, x_max: 885.375, x_min: 877.0, y_max: 300.25, y_min: 276.5}
+  path: rgb/test/34884.png
 - boxes:
   - {label: Red, occluded: false, x_max: 317.0, x_min: 307.0, y_max: 305.75, y_min: 278.375}
   - {label: Red, occluded: false, x_max: 886.875, x_min: 878.0, y_max: 301.125, y_min: 276.25}
   path: rgb/test/34886.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 316.875, x_min: 306.5, y_max: 304.75, y_min: 277.75}
+  - {label: Red, occluded: false, x_max: 887.0, x_min: 878.0, y_max: 301.375, y_min: 276.625}
+  path: rgb/test/34888.png
+- boxes:
   - {label: Red, occluded: false, x_max: 316.5, x_min: 306.5, y_max: 304.625, y_min: 277.125}
   - {label: Red, occluded: false, x_max: 887.125, x_min: 878.125, y_max: 300.875,
     y_min: 276.5}
   path: rgb/test/34890.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 317.625, x_min: 305.875, y_max: 304.0, y_min: 278.125}
+  - {label: Red, occluded: false, x_max: 887.5, x_min: 878.0, y_max: 300.75, y_min: 276.75}
+  path: rgb/test/34892.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 316.375, x_min: 306.125, y_max: 303.5, y_min: 278.125}
+  - {label: Red, occluded: false, x_max: 887.0, x_min: 878.5, y_max: 300.5, y_min: 276.5}
+  path: rgb/test/34894.png
 - boxes:
   - {label: Red, occluded: false, x_max: 315.125, x_min: 306.25, y_max: 302.625, y_min: 279.375}
   - {label: Red, occluded: false, x_max: 888.25, x_min: 878.5, y_max: 301.0, y_min: 276.625}
@@ -17920,9 +22445,17 @@
   - {label: Red, occluded: false, x_max: 888.5, x_min: 878.875, y_max: 300.875, y_min: 276.0}
   path: rgb/test/34906.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 313.875, x_min: 305.0, y_max: 304.125, y_min: 280.0}
+  - {label: Red, occluded: false, x_max: 888.25, x_min: 879.25, y_max: 301.5, y_min: 276.5}
+  path: rgb/test/34908.png
+- boxes:
   - {label: Red, occluded: false, x_max: 312.875, x_min: 305.125, y_max: 303.5, y_min: 279.875}
   - {label: Red, occluded: false, x_max: 887.75, x_min: 878.75, y_max: 300.875, y_min: 276.625}
   path: rgb/test/34910.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 314.25, x_min: 305.125, y_max: 304.125, y_min: 279.875}
+  - {label: Red, occluded: false, x_max: 887.5, x_min: 878.875, y_max: 300.875, y_min: 276.375}
+  path: rgb/test/34912.png
 - boxes:
   - {label: Red, occluded: false, x_max: 315.0, x_min: 305.0, y_max: 304.5, y_min: 279.875}
   - {label: Red, occluded: false, x_max: 888.0, x_min: 878.625, y_max: 301.75, y_min: 275.75}
@@ -17951,11 +22484,19 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
+  path: rgb/test/34926.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
   path: rgb/test/34928.png
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
   path: rgb/test/34930.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
+  path: rgb/test/34932.png
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
@@ -17971,6 +22512,10 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
+  path: rgb/test/34940.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
   path: rgb/test/34942.png
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
@@ -17983,7 +22528,15 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
+  path: rgb/test/34948.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
   path: rgb/test/34950.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
+  path: rgb/test/34952.png
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
@@ -17999,7 +22552,15 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
+  path: rgb/test/34960.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
   path: rgb/test/34962.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
+  path: rgb/test/34964.png
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
@@ -18011,7 +22572,19 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
+  path: rgb/test/34970.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
+  path: rgb/test/34972.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
   path: rgb/test/34974.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
+  path: rgb/test/34976.png
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
@@ -18023,6 +22596,10 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
+  path: rgb/test/34982.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
   path: rgb/test/34984.png
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
@@ -18031,11 +22608,23 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
+  path: rgb/test/34988.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
   path: rgb/test/34990.png
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
+  path: rgb/test/34992.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
   path: rgb/test/34994.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
+  path: rgb/test/34996.png
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
@@ -18091,6 +22680,10 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
+  path: rgb/test/35024.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
   path: rgb/test/35026.png
 - boxes:
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
@@ -18100,6 +22693,11 @@
   - {label: Red, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Red, occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125, y_min: 276.75}
   path: rgb/test/35030.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: 'off', occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125,
+    y_min: 276.75}
+  path: rgb/test/35032.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: 'off', occluded: false, x_max: 888.75, x_min: 878.75, y_max: 301.125,
@@ -18131,6 +22729,14 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
+  path: rgb/test/35046.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
+  path: rgb/test/35048.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
   path: rgb/test/35050.png
 - boxes:
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
@@ -18159,6 +22765,10 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
+  path: rgb/test/35064.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
   path: rgb/test/35066.png
 - boxes:
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
@@ -18172,6 +22782,10 @@
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
   path: rgb/test/35072.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
+  path: rgb/test/35074.png
 - boxes:
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
@@ -18211,7 +22825,15 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
+  path: rgb/test/35094.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
   path: rgb/test/35096.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
+  path: rgb/test/35098.png
 - boxes:
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
@@ -18235,7 +22857,15 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
+  path: rgb/test/35110.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
   path: rgb/test/35112.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
+  path: rgb/test/35114.png
 - boxes:
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
@@ -18263,11 +22893,19 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
+  path: rgb/test/35128.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
   path: rgb/test/35130.png
 - boxes:
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
   path: rgb/test/35132.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
+  path: rgb/test/35134.png
 - boxes:
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
@@ -18287,11 +22925,23 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
+  path: rgb/test/35144.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
+  path: rgb/test/35146.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
   path: rgb/test/35148.png
 - boxes:
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
   path: rgb/test/35150.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
+  path: rgb/test/35152.png
 - boxes:
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
@@ -18320,6 +22970,10 @@
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
   path: rgb/test/35166.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
+  - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
+  path: rgb/test/35168.png
 - boxes:
   - {label: Green, occluded: false, x_max: 313.75, x_min: 305.0, y_max: 304.125, y_min: 279.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
@@ -18355,16 +23009,33 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 314.5, x_min: 304.625, y_max: 305.75, y_min: 280.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
+  path: rgb/test/35186.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 314.5, x_min: 304.625, y_max: 305.75, y_min: 280.75}
+  - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
   path: rgb/test/35188.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 314.5, x_min: 304.625, y_max: 305.75, y_min: 280.75}
+  - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
+  path: rgb/test/35190.png
 - boxes:
   - {label: Green, occluded: false, x_max: 314.5, x_min: 304.625, y_max: 305.75, y_min: 280.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
   path: rgb/test/35192.png
 - boxes:
   - {label: Green, occluded: false, x_max: 314.5, x_min: 304.625, y_max: 305.75, y_min: 280.75}
+  - {label: Green, occluded: false, x_max: 888.0, x_min: 878.5, y_max: 302.25, y_min: 277.125}
+  path: rgb/test/35194.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 314.5, x_min: 304.625, y_max: 305.75, y_min: 280.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 879.125, y_max: 302.625,
     y_min: 278.125}
   path: rgb/test/35196.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 314.5, x_min: 304.625, y_max: 305.75, y_min: 280.75}
+  - {label: Green, occluded: false, x_max: 888.375, x_min: 879.125, y_max: 302.875,
+    y_min: 278.25}
+  path: rgb/test/35198.png
 - boxes:
   - {label: Green, occluded: false, x_max: 314.5, x_min: 304.625, y_max: 305.75, y_min: 280.75}
   - {label: Green, occluded: false, x_max: 888.0, x_min: 879.625, y_max: 303.25, y_min: 278.75}
@@ -18395,6 +23066,12 @@
     y_min: 279.375}
   path: rgb/test/35210.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 312.5, x_min: 303.625, y_max: 307.125,
+    y_min: 282.375}
+  - {label: Green, occluded: false, x_max: 888.75, x_min: 879.125, y_max: 303.375,
+    y_min: 279.375}
+  path: rgb/test/35212.png
+- boxes:
   - {label: Green, occluded: false, x_max: 311.625, x_min: 303.25, y_max: 307.375,
     y_min: 283.0}
   - {label: Green, occluded: false, x_max: 888.5, x_min: 879.5, y_max: 304.5, y_min: 279.75}
@@ -18414,6 +23091,11 @@
     y_min: 282.5}
   path: rgb/test/35220.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 309.5, x_min: 302.375, y_max: 310.25, y_min: 286.125}
+  - {label: Green, occluded: false, x_max: 889.25, x_min: 880.375, y_max: 307.375,
+    y_min: 283.25}
+  path: rgb/test/35222.png
+- boxes:
   - {label: Green, occluded: false, x_max: 310.625, x_min: 300.75, y_max: 312.0, y_min: 286.875}
   - {label: Green, occluded: false, x_max: 889.625, x_min: 881.125, y_max: 306.875,
     y_min: 283.875}
@@ -18422,6 +23104,12 @@
   - {label: Green, occluded: false, x_max: 309.125, x_min: 300.5, y_max: 311.75, y_min: 286.0}
   - {label: Green, occluded: false, x_max: 890.0, x_min: 881.0, y_max: 308.5, y_min: 284.125}
   path: rgb/test/35226.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 308.625, x_min: 299.625, y_max: 312.0,
+    y_min: 286.75}
+  - {label: Green, occluded: false, x_max: 890.25, x_min: 880.75, y_max: 308.125,
+    y_min: 284.375}
+  path: rgb/test/35228.png
 - boxes:
   - {label: Green, occluded: false, x_max: 307.875, x_min: 299.625, y_max: 311.875,
     y_min: 287.125}
@@ -18477,10 +23165,20 @@
   - {label: Green, occluded: false, x_max: 895.875, x_min: 886.5, y_max: 304.0, y_min: 279.5}
   path: rgb/test/35248.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 299.625, x_min: 290.75, y_max: 307.5, y_min: 280.25}
+  - {label: Green, occluded: false, x_max: 895.875, x_min: 887.125, y_max: 305.375,
+    y_min: 279.625}
+  path: rgb/test/35250.png
+- boxes:
   - {label: Green, occluded: false, x_max: 298.75, x_min: 288.25, y_max: 307.625,
     y_min: 280.375}
   - {label: Green, occluded: false, x_max: 896.75, x_min: 887.75, y_max: 305.75, y_min: 280.5}
   path: rgb/test/35252.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 297.875, x_min: 288.375, y_max: 306.375,
+    y_min: 281.25}
+  - {label: Green, occluded: false, x_max: 896.875, x_min: 888.0, y_max: 304.5, y_min: 280.375}
+  path: rgb/test/35254.png
 - boxes:
   - {label: Green, occluded: false, x_max: 296.125, x_min: 286.875, y_max: 307.75,
     y_min: 281.875}
@@ -18498,6 +23196,12 @@
   - {label: Green, occluded: false, x_max: 900.0, x_min: 890.375, y_max: 306.625,
     y_min: 280.5}
   path: rgb/test/35260.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 292.625, x_min: 283.125, y_max: 307.125,
+    y_min: 281.375}
+  - {label: Green, occluded: false, x_max: 900.375, x_min: 891.25, y_max: 306.25,
+    y_min: 280.25}
+  path: rgb/test/35262.png
 - boxes:
   - {label: Green, occluded: false, x_max: 290.5, x_min: 281.875, y_max: 305.625,
     y_min: 280.0}
@@ -18526,6 +23230,11 @@
   - {label: Green, occluded: false, x_max: 906.25, x_min: 896.5, y_max: 306.125, y_min: 280.0}
   path: rgb/test/35272.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 283.5, x_min: 274.375, y_max: 305.5, y_min: 279.125}
+  - {label: Green, occluded: false, x_max: 906.25, x_min: 897.125, y_max: 304.875,
+    y_min: 279.625}
+  path: rgb/test/35274.png
+- boxes:
   - {label: Green, occluded: false, x_max: 281.5, x_min: 272.0, y_max: 306.0, y_min: 278.875}
   - {label: Green, occluded: false, x_max: 907.0, x_min: 897.875, y_max: 305.75, y_min: 279.0}
   path: rgb/test/35276.png
@@ -18535,6 +23244,12 @@
   - {label: Green, occluded: false, x_max: 909.75, x_min: 899.625, y_max: 305.625,
     y_min: 278.625}
   path: rgb/test/35278.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 279.375, x_min: 268.75, y_max: 306.25,
+    y_min: 278.0}
+  - {label: Green, occluded: false, x_max: 911.0, x_min: 899.875, y_max: 305.125,
+    y_min: 277.75}
+  path: rgb/test/35280.png
 - boxes:
   - {label: Green, occluded: false, x_max: 277.75, x_min: 267.625, y_max: 306.0, y_min: 279.0}
   - {label: Green, occluded: false, x_max: 911.625, x_min: 901.625, y_max: 304.125,
@@ -18585,6 +23300,12 @@
     y_min: 274.5}
   - {label: Green, occluded: false, x_max: 934.75, x_min: 924.5, y_max: 302.0, y_min: 274.0}
   path: rgb/test/35300.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 269.75, x_min: 259.25, y_max: 302.125,
+    y_min: 272.75}
+  - {label: Green, occluded: false, x_max: 937.875, x_min: 927.625, y_max: 301.375,
+    y_min: 273.0}
+  path: rgb/test/35302.png
 - boxes:
   - {label: Green, occluded: false, x_max: 269.125, x_min: 258.75, y_max: 302.125,
     y_min: 271.125}
@@ -18684,11 +23405,28 @@
     y_min: 259.0}
   path: rgb/test/35340.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 214.75, x_min: 203.625, y_max: 290.375,
+    y_min: 256.375}
+  - {label: Green, occluded: false, x_max: 976.25, x_min: 964.375, y_max: 291.5, y_min: 257.625}
+  path: rgb/test/35342.png
+- boxes:
   - {label: Green, occluded: false, x_max: 208.25, x_min: 196.875, y_max: 288.75,
     y_min: 255.5}
   - {label: Green, occluded: false, x_max: 976.375, x_min: 964.75, y_max: 291.125,
     y_min: 257.375}
   path: rgb/test/35344.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 203.25, x_min: 191.625, y_max: 289.25,
+    y_min: 256.5}
+  - {label: Green, occluded: false, x_max: 977.375, x_min: 964.875, y_max: 290.625,
+    y_min: 257.125}
+  path: rgb/test/35346.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 197.625, x_min: 185.125, y_max: 290.375,
+    y_min: 257.75}
+  - {label: Green, occluded: false, x_max: 976.625, x_min: 964.625, y_max: 291.875,
+    y_min: 256.75}
+  path: rgb/test/35348.png
 - boxes:
   - {label: Green, occluded: false, x_max: 193.0, x_min: 179.375, y_max: 291.0, y_min: 257.625}
   - {label: Green, occluded: false, x_max: 976.625, x_min: 964.75, y_max: 291.375,
@@ -18706,6 +23444,10 @@
   - {label: Green, occluded: false, x_max: 979.625, x_min: 966.625, y_max: 289.25,
     y_min: 256.625}
   path: rgb/test/35354.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 174.0, x_min: 162.75, y_max: 286.25, y_min: 254.875}
+  - {label: Green, occluded: false, x_max: 980.0, x_min: 967.0, y_max: 288.0, y_min: 254.875}
+  path: rgb/test/35356.png
 - boxes:
   - {label: Green, occluded: false, x_max: 169.0, x_min: 158.875, y_max: 285.25, y_min: 249.75}
   - {label: Green, occluded: false, x_max: 982.75, x_min: 968.75, y_max: 286.75, y_min: 250.875}
@@ -18770,6 +23512,11 @@
   - {label: Green, occluded: false, x_max: 1004.125, x_min: 989.5, y_max: 260.0, y_min: 220.75}
   path: rgb/test/35382.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 92.5, x_min: 80.875, y_max: 265.375, y_min: 227.375}
+  - {label: Green, occluded: false, x_max: 1007.125, x_min: 990.875, y_max: 261.875,
+    y_min: 220.625}
+  path: rgb/test/35384.png
+- boxes:
   - {label: Green, occluded: false, x_max: 86.75, x_min: 75.5, y_max: 263.25, y_min: 226.0}
   - {label: Green, occluded: false, x_max: 1009.875, x_min: 994.0, y_max: 260.25,
     y_min: 219.375}
@@ -18783,6 +23530,11 @@
   - {label: Green, occluded: false, x_max: 1015.0, x_min: 999.75, y_max: 255.375,
     y_min: 213.5}
   path: rgb/test/35390.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 64.875, x_min: 52.25, y_max: 260.625, y_min: 221.75}
+  - {label: Green, occluded: false, x_max: 1017.375, x_min: 1002.875, y_max: 253.5,
+    y_min: 211.625}
+  path: rgb/test/35392.png
 - boxes:
   - {label: Green, occluded: false, x_max: 58.875, x_min: 46.25, y_max: 260.5, y_min: 220.875}
   - {label: Green, occluded: false, x_max: 1021.375, x_min: 1004.875, y_max: 253.875,
@@ -18821,6 +23573,10 @@
     y_min: 197.25}
   path: rgb/test/35408.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1044.0, x_min: 1024.625, y_max: 243.875,
+    y_min: 196.125}
+  path: rgb/test/35410.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1047.125, x_min: 1028.125, y_max: 246.0,
     y_min: 195.75}
   path: rgb/test/35412.png
@@ -18828,6 +23584,10 @@
   - {label: Green, occluded: false, x_max: 1050.75, x_min: 1031.5, y_max: 245.125,
     y_min: 195.125}
   path: rgb/test/35414.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1052.625, x_min: 1033.875, y_max: 244.375,
+    y_min: 193.875}
+  path: rgb/test/35416.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1057.125, x_min: 1038.0, y_max: 242.125,
     y_min: 191.75}
@@ -18860,6 +23620,10 @@
   - {label: Green, occluded: false, x_max: 1083.875, x_min: 1063.875, y_max: 222.625,
     y_min: 170.125}
   path: rgb/test/35432.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1087.875, x_min: 1066.875, y_max: 224.875,
+    y_min: 169.125}
+  path: rgb/test/35434.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1092.25, x_min: 1071.375, y_max: 222.5,
     y_min: 166.5}
@@ -18908,12 +23672,31 @@
     y_min: 134.0}
   path: rgb/test/35458.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1172.5, x_min: 1148.5, y_max: 197.0, y_min: 131.875}
+  path: rgb/test/35460.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1181.875, x_min: 1159.125, y_max: 194.25,
     y_min: 128.625}
   path: rgb/test/35462.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1192.25, x_min: 1168.0, y_max: 192.0, y_min: 124.375}
   path: rgb/test/35464.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1204.375, x_min: 1178.25, y_max: 190.5,
+    y_min: 122.5}
+  path: rgb/test/35466.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1215.875, x_min: 1189.125, y_max: 187.25,
+    y_min: 119.5}
+  path: rgb/test/35468.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1225.75, x_min: 1199.75, y_max: 184.125,
+    y_min: 116.5}
+  path: rgb/test/35470.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1244.125, x_min: 1211.125, y_max: 185.0,
+    y_min: 110.75}
+  path: rgb/test/35472.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1253.0, x_min: 1225.0, y_max: 176.75, y_min: 105.375}
   path: rgb/test/35474.png
@@ -18938,6 +23721,8 @@
 - boxes: []
   path: rgb/test/35488.png
 - boxes: []
+  path: rgb/test/35490.png
+- boxes: []
   path: rgb/test/35492.png
 - boxes: []
   path: rgb/test/35494.png
@@ -18950,6 +23735,8 @@
 - boxes: []
   path: rgb/test/35502.png
 - boxes: []
+  path: rgb/test/35504.png
+- boxes: []
   path: rgb/test/35506.png
 - boxes: []
   path: rgb/test/35508.png
@@ -18959,6 +23746,16 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 418.375, x_min: 413.25, y_max: 354.375, y_min: 340.5}
   path: rgb/test/35512.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 418.25, x_min: 413.75, y_max: 353.625, y_min: 340.625}
+  path: rgb/test/35514.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 419.0, x_min: 413.875, y_max: 353.875, y_min: 340.5}
+  path: rgb/test/35516.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 419.375, x_min: 413.625, y_max: 353.625,
+    y_min: 340.5}
+  path: rgb/test/35518.png
 - boxes:
   - {label: Red, occluded: false, x_max: 419.375, x_min: 413.625, y_max: 353.625,
     y_min: 340.5}
@@ -19024,11 +23821,20 @@
   - {label: Red, occluded: true, x_max: 415.625, x_min: 410.5, y_max: 327.625, y_min: 316.125}
   path: rgb/test/35558.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 415.625, x_min: 411.0, y_max: 321.25, y_min: 311.0}
+  path: rgb/test/35560.png
+- boxes:
   - {label: Red, occluded: true, x_max: 415.5, x_min: 410.625, y_max: 325.375, y_min: 311.875}
   path: rgb/test/35562.png
 - boxes:
   - {label: Red, occluded: true, x_max: 414.875, x_min: 409.5, y_max: 328.0, y_min: 315.625}
   path: rgb/test/35564.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 414.5, x_min: 409.0, y_max: 330.625, y_min: 317.875}
+  path: rgb/test/35566.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 413.375, x_min: 407.625, y_max: 331.625, y_min: 317.0}
+  path: rgb/test/35568.png
 - boxes: []
   path: rgb/test/35570.png
 - boxes: []
@@ -19045,6 +23851,8 @@
   path: rgb/test/35582.png
 - boxes: []
   path: rgb/test/35584.png
+- boxes: []
+  path: rgb/test/35586.png
 - boxes: []
   path: rgb/test/35588.png
 - boxes: []
@@ -19096,11 +23904,28 @@
     y_min: 324.625}
   path: rgb/test/35622.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 389.625, x_min: 383.125, y_max: 340.0, y_min: 325.125}
+  path: rgb/test/35624.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 387.625, x_min: 381.875, y_max: 339.125,
+    y_min: 325.0}
+  path: rgb/test/35626.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 386.875, x_min: 381.375, y_max: 337.625,
+    y_min: 322.75}
+  path: rgb/test/35628.png
+- boxes:
   - {label: Red, occluded: false, x_max: 386.125, x_min: 380.625, y_max: 336.5, y_min: 320.875}
   path: rgb/test/35630.png
 - boxes:
   - {label: Red, occluded: false, x_max: 386.0, x_min: 379.5, y_max: 336.125, y_min: 318.75}
   path: rgb/test/35632.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 385.125, x_min: 379.75, y_max: 334.625, y_min: 319.0}
+  path: rgb/test/35634.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 384.75, x_min: 379.0, y_max: 335.0, y_min: 318.75}
+  path: rgb/test/35636.png
 - boxes:
   - {label: Red, occluded: false, x_max: 383.5, x_min: 377.125, y_max: 333.375, y_min: 318.25}
   path: rgb/test/35638.png
@@ -19108,14 +23933,23 @@
   - {label: Red, occluded: false, x_max: 384.0, x_min: 377.625, y_max: 335.25, y_min: 319.25}
   path: rgb/test/35640.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 384.125, x_min: 376.875, y_max: 335.75, y_min: 320.625}
+  path: rgb/test/35642.png
+- boxes:
   - {label: Red, occluded: false, x_max: 383.0, x_min: 376.25, y_max: 338.0, y_min: 322.25}
   path: rgb/test/35644.png
 - boxes:
   - {label: Red, occluded: false, x_max: 382.875, x_min: 376.625, y_max: 341.0, y_min: 325.625}
   path: rgb/test/35646.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 382.0, x_min: 375.5, y_max: 343.375, y_min: 328.0}
+  path: rgb/test/35648.png
+- boxes:
   - {label: Red, occluded: false, x_max: 381.5, x_min: 374.875, y_max: 345.25, y_min: 330.375}
   path: rgb/test/35650.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 382.0, x_min: 374.75, y_max: 347.25, y_min: 332.5}
+  path: rgb/test/35652.png
 - boxes:
   - {label: Red, occluded: false, x_max: 381.125, x_min: 374.75, y_max: 349.75, y_min: 334.375}
   path: rgb/test/35654.png
@@ -19132,6 +23966,9 @@
   - {label: Red, occluded: false, x_max: 379.75, x_min: 373.0, y_max: 352.125, y_min: 337.375}
   path: rgb/test/35662.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 379.25, x_min: 372.75, y_max: 349.625, y_min: 334.875}
+  path: rgb/test/35664.png
+- boxes:
   - {label: Red, occluded: false, x_max: 379.125, x_min: 372.875, y_max: 348.375,
     y_min: 333.125}
   - {label: Red, occluded: true, x_max: 737.375, x_min: 730.375, y_max: 331.875, y_min: 315.25}
@@ -19140,6 +23977,14 @@
   - {label: Red, occluded: false, x_max: 378.125, x_min: 371.5, y_max: 347.0, y_min: 331.625}
   - {label: Red, occluded: true, x_max: 738.625, x_min: 732.125, y_max: 329.5, y_min: 313.875}
   path: rgb/test/35668.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 377.75, x_min: 371.0, y_max: 347.5, y_min: 331.25}
+  - {label: Red, occluded: true, x_max: 739.75, x_min: 733.25, y_max: 331.5, y_min: 313.875}
+  path: rgb/test/35670.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 377.375, x_min: 370.75, y_max: 347.125, y_min: 331.375}
+  - {label: Red, occluded: true, x_max: 741.0, x_min: 733.75, y_max: 332.875, y_min: 314.5}
+  path: rgb/test/35672.png
 - boxes:
   - {label: Red, occluded: false, x_max: 376.875, x_min: 369.625, y_max: 345.875,
     y_min: 330.25}
@@ -19155,10 +24000,18 @@
   - {label: Red, occluded: true, x_max: 742.75, x_min: 736.125, y_max: 328.625, y_min: 310.875}
   path: rgb/test/35678.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 374.0, x_min: 367.75, y_max: 341.125, y_min: 324.875}
+  - {label: Red, occluded: true, x_max: 744.375, x_min: 737.5, y_max: 327.875, y_min: 310.25}
+  path: rgb/test/35680.png
+- boxes:
   - {label: Red, occluded: false, x_max: 373.375, x_min: 366.625, y_max: 340.625,
     y_min: 324.0}
   - {label: Red, occluded: true, x_max: 744.75, x_min: 737.875, y_max: 327.375, y_min: 308.5}
   path: rgb/test/35682.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 372.375, x_min: 365.5, y_max: 339.875, y_min: 323.375}
+  - {label: Red, occluded: true, x_max: 745.75, x_min: 738.625, y_max: 327.125, y_min: 305.875}
+  path: rgb/test/35684.png
 - boxes:
   - {label: Red, occluded: false, x_max: 371.25, x_min: 365.0, y_max: 339.25, y_min: 322.75}
   - {label: Red, occluded: true, x_max: 745.5, x_min: 738.625, y_max: 326.25, y_min: 304.75}
@@ -19187,6 +24040,10 @@
   - {label: Red, occluded: false, x_max: 366.5, x_min: 359.5, y_max: 328.625, y_min: 311.5}
   - {label: Red, occluded: true, x_max: 751.75, x_min: 744.25, y_max: 314.375, y_min: 294.25}
   path: rgb/test/35698.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 365.125, x_min: 358.25, y_max: 329.125, y_min: 313.25}
+  - {label: Red, occluded: true, x_max: 752.875, x_min: 745.0, y_max: 316.5, y_min: 295.375}
+  path: rgb/test/35700.png
 - boxes:
   - {label: Red, occluded: false, x_max: 364.5, x_min: 357.75, y_max: 330.875, y_min: 314.5}
   - {label: Red, occluded: true, x_max: 753.25, x_min: 746.0, y_max: 315.5, y_min: 295.75}
@@ -19230,9 +24087,21 @@
   - {label: Red, occluded: true, x_max: 762.375, x_min: 754.125, y_max: 309.375, y_min: 290.375}
   path: rgb/test/35720.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 356.125, x_min: 349.875, y_max: 328.5, y_min: 312.375}
+  - {label: Red, occluded: true, x_max: 762.125, x_min: 755.5, y_max: 308.5, y_min: 290.625}
+  path: rgb/test/35722.png
+- boxes:
   - {label: Red, occluded: false, x_max: 355.875, x_min: 348.75, y_max: 328.125, y_min: 311.875}
   - {label: Red, occluded: true, x_max: 764.25, x_min: 756.25, y_max: 308.5, y_min: 290.125}
   path: rgb/test/35724.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 354.625, x_min: 347.875, y_max: 328.5, y_min: 311.375}
+  - {label: Red, occluded: true, x_max: 763.25, x_min: 756.5, y_max: 307.125, y_min: 288.625}
+  path: rgb/test/35726.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 353.375, x_min: 346.625, y_max: 329.25, y_min: 312.875}
+  - {label: Red, occluded: true, x_max: 764.5, x_min: 757.625, y_max: 309.625, y_min: 291.0}
+  path: rgb/test/35728.png
 - boxes:
   - {label: Red, occluded: false, x_max: 352.25, x_min: 345.875, y_max: 334.0, y_min: 317.5}
   - {label: Red, occluded: true, x_max: 765.75, x_min: 758.625, y_max: 310.625, y_min: 292.5}
@@ -19241,6 +24110,10 @@
   - {label: Red, occluded: false, x_max: 351.5, x_min: 344.375, y_max: 338.125, y_min: 321.25}
   - {label: Red, occluded: true, x_max: 766.5, x_min: 758.5, y_max: 313.75, y_min: 293.5}
   path: rgb/test/35732.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 350.125, x_min: 343.5, y_max: 335.625, y_min: 318.5}
+  - {label: Red, occluded: true, x_max: 766.625, x_min: 758.875, y_max: 312.0, y_min: 292.875}
+  path: rgb/test/35734.png
 - boxes:
   - {label: Red, occluded: false, x_max: 349.75, x_min: 342.75, y_max: 330.875, y_min: 313.0}
   - {label: Red, occluded: true, x_max: 768.0, x_min: 760.375, y_max: 310.25, y_min: 289.5}
@@ -19266,6 +24139,10 @@
   - {label: Red, occluded: false, x_max: 774.875, x_min: 766.625, y_max: 308.75, y_min: 289.125}
   path: rgb/test/35746.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 346.375, x_min: 338.75, y_max: 328.875, y_min: 311.75}
+  - {label: Red, occluded: false, x_max: 775.5, x_min: 767.75, y_max: 307.375, y_min: 288.5}
+  path: rgb/test/35748.png
+- boxes:
   - {label: Red, occluded: false, x_max: 345.75, x_min: 339.625, y_max: 329.75, y_min: 310.375}
   - {label: Red, occluded: false, x_max: 777.0, x_min: 769.125, y_max: 307.5, y_min: 285.875}
   path: rgb/test/35750.png
@@ -19282,6 +24159,10 @@
   - {label: Red, occluded: false, x_max: 343.125, x_min: 334.875, y_max: 323.0, y_min: 304.125}
   - {label: Red, occluded: false, x_max: 779.375, x_min: 771.625, y_max: 304.0, y_min: 281.25}
   path: rgb/test/35756.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 342.5, x_min: 334.625, y_max: 321.875, y_min: 303.0}
+  - {label: Red, occluded: false, x_max: 780.625, x_min: 774.25, y_max: 304.0, y_min: 281.875}
+  path: rgb/test/35758.png
 - boxes:
   - {label: Red, occluded: false, x_max: 341.75, x_min: 333.75, y_max: 321.125, y_min: 302.625}
   - {label: Red, occluded: false, x_max: 782.625, x_min: 774.125, y_max: 303.75, y_min: 280.5}
@@ -19301,6 +24182,11 @@
   - {label: Red, occluded: false, x_max: 784.75, x_min: 776.375, y_max: 301.875, y_min: 280.125}
   path: rgb/test/35766.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 336.625, x_min: 329.125, y_max: 323.625,
+    y_min: 304.625}
+  - {label: Red, occluded: false, x_max: 785.0, x_min: 777.25, y_max: 303.25, y_min: 281.375}
+  path: rgb/test/35768.png
+- boxes:
   - {label: Red, occluded: false, x_max: 336.875, x_min: 328.875, y_max: 322.125,
     y_min: 302.75}
   - {label: Red, occluded: false, x_max: 786.25, x_min: 777.625, y_max: 301.875, y_min: 280.0}
@@ -19314,9 +24200,22 @@
   - {label: Red, occluded: false, x_max: 787.5, x_min: 779.125, y_max: 302.75, y_min: 281.25}
   path: rgb/test/35774.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 333.25, x_min: 325.125, y_max: 324.375, y_min: 304.0}
+  - {label: Red, occluded: false, x_max: 788.25, x_min: 780.125, y_max: 302.125, y_min: 281.625}
+  path: rgb/test/35776.png
+- boxes:
   - {label: Red, occluded: false, x_max: 332.875, x_min: 324.625, y_max: 324.25, y_min: 304.625}
   - {label: Red, occluded: false, x_max: 788.75, x_min: 780.5, y_max: 303.25, y_min: 282.75}
   path: rgb/test/35778.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 332.625, x_min: 322.875, y_max: 326.125,
+    y_min: 304.875}
+  - {label: Red, occluded: false, x_max: 790.125, x_min: 781.5, y_max: 304.25, y_min: 283.125}
+  path: rgb/test/35780.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 330.375, x_min: 322.625, y_max: 325.0, y_min: 304.125}
+  - {label: Red, occluded: false, x_max: 791.0, x_min: 782.875, y_max: 304.125, y_min: 283.375}
+  path: rgb/test/35782.png
 - boxes:
   - {label: Red, occluded: false, x_max: 329.875, x_min: 321.375, y_max: 322.875,
     y_min: 303.375}
@@ -19343,6 +24242,14 @@
   - {label: Red, occluded: false, x_max: 324.125, x_min: 315.375, y_max: 321.5, y_min: 300.75}
   - {label: Red, occluded: false, x_max: 796.25, x_min: 787.0, y_max: 298.875, y_min: 278.0}
   path: rgb/test/35794.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 322.0, x_min: 314.5, y_max: 321.875, y_min: 301.125}
+  - {label: Red, occluded: false, x_max: 796.25, x_min: 787.125, y_max: 299.75, y_min: 277.625}
+  path: rgb/test/35796.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 321.0, x_min: 313.5, y_max: 320.75, y_min: 301.0}
+  - {label: Red, occluded: false, x_max: 796.5, x_min: 789.125, y_max: 298.25, y_min: 278.5}
+  path: rgb/test/35798.png
 - boxes:
   - {label: Red, occluded: false, x_max: 320.75, x_min: 312.5, y_max: 320.25, y_min: 299.875}
   - {label: Red, occluded: false, x_max: 797.5, x_min: 790.0, y_max: 299.375, y_min: 278.0}
@@ -19397,6 +24304,10 @@
   - {label: Red, occluded: false, x_max: 806.5, x_min: 798.875, y_max: 298.875, y_min: 276.0}
   path: rgb/test/35822.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 309.125, x_min: 300.0, y_max: 327.0, y_min: 300.0}
+  - {label: Red, occluded: false, x_max: 807.375, x_min: 799.0, y_max: 298.125, y_min: 276.125}
+  path: rgb/test/35824.png
+- boxes:
   - {label: Red, occluded: false, x_max: 308.5, x_min: 298.625, y_max: 324.0, y_min: 299.875}
   - {label: Red, occluded: false, x_max: 808.75, x_min: 801.125, y_max: 299.875, y_min: 277.625}
   path: rgb/test/35826.png
@@ -19449,6 +24360,14 @@
   - {label: Red, occluded: false, x_max: 818.875, x_min: 809.25, y_max: 296.0, y_min: 272.875}
   path: rgb/test/35848.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 296.875, x_min: 287.25, y_max: 322.25, y_min: 296.0}
+  - {label: Red, occluded: false, x_max: 819.125, x_min: 810.0, y_max: 296.625, y_min: 272.375}
+  path: rgb/test/35850.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 295.0, x_min: 286.625, y_max: 322.5, y_min: 296.125}
+  - {label: Red, occluded: false, x_max: 819.875, x_min: 811.0, y_max: 296.5, y_min: 271.5}
+  path: rgb/test/35852.png
+- boxes:
   - {label: Red, occluded: false, x_max: 294.75, x_min: 285.75, y_max: 318.75, y_min: 294.875}
   - {label: Red, occluded: false, x_max: 821.0, x_min: 811.375, y_max: 295.0, y_min: 270.625}
   path: rgb/test/35854.png
@@ -19490,6 +24409,11 @@
   - {label: Red, occluded: false, x_max: 826.75, x_min: 818.375, y_max: 289.5, y_min: 264.375}
   path: rgb/test/35872.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 287.25, x_min: 276.75, y_max: 314.375, y_min: 288.625}
+  - {label: Red, occluded: false, x_max: 826.625, x_min: 818.125, y_max: 287.375,
+    y_min: 261.75}
+  path: rgb/test/35874.png
+- boxes:
   - {label: Red, occluded: false, x_max: 285.375, x_min: 276.5, y_max: 312.375, y_min: 288.125}
   - {label: Red, occluded: false, x_max: 826.75, x_min: 818.25, y_max: 285.625, y_min: 260.0}
   path: rgb/test/35876.png
@@ -19524,9 +24448,18 @@
   - {label: Red, occluded: false, x_max: 831.0, x_min: 823.5, y_max: 292.0, y_min: 265.875}
   path: rgb/test/35890.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 280.5, x_min: 271.125, y_max: 316.375, y_min: 291.625}
+  - {label: Red, occluded: false, x_max: 831.75, x_min: 823.375, y_max: 291.75, y_min: 264.5}
+  path: rgb/test/35892.png
+- boxes:
   - {label: Red, occluded: false, x_max: 280.625, x_min: 270.875, y_max: 317.5, y_min: 291.75}
   - {label: Red, occluded: false, x_max: 832.375, x_min: 823.625, y_max: 291.5, y_min: 265.5}
   path: rgb/test/35894.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 279.5, x_min: 270.25, y_max: 318.0, y_min: 291.75}
+  - {label: Red, occluded: false, x_max: 832.125, x_min: 824.125, y_max: 290.875,
+    y_min: 265.0}
+  path: rgb/test/35896.png
 - boxes:
   - {label: Red, occluded: false, x_max: 278.875, x_min: 268.875, y_max: 317.625,
     y_min: 291.375}
@@ -19537,6 +24470,10 @@
     y_min: 291.625}
   - {label: Red, occluded: false, x_max: 833.375, x_min: 825.375, y_max: 289.5, y_min: 264.375}
   path: rgb/test/35900.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 277.375, x_min: 267.625, y_max: 316.75, y_min: 291.625}
+  - {label: Red, occluded: false, x_max: 833.75, x_min: 825.5, y_max: 289.25, y_min: 263.625}
+  path: rgb/test/35902.png
 - boxes:
   - {label: Red, occluded: false, x_max: 276.5, x_min: 266.5, y_max: 317.625, y_min: 291.0}
   - {label: Red, occluded: true, x_max: 834.25, x_min: 826.0, y_max: 288.0, y_min: 263.25}
@@ -19550,6 +24487,10 @@
   - {label: Red, occluded: true, x_max: 835.75, x_min: 827.125, y_max: 287.625, y_min: 262.0}
   path: rgb/test/35908.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 273.0, x_min: 264.375, y_max: 314.75, y_min: 290.25}
+  - {label: Red, occluded: true, x_max: 836.625, x_min: 828.5, y_max: 287.125, y_min: 261.0}
+  path: rgb/test/35910.png
+- boxes:
   - {label: Red, occluded: false, x_max: 273.125, x_min: 263.5, y_max: 314.25, y_min: 289.875}
   - {label: Red, occluded: true, x_max: 836.625, x_min: 827.0, y_max: 287.375, y_min: 261.25}
   path: rgb/test/35912.png
@@ -19557,6 +24498,10 @@
   - {label: Red, occluded: false, x_max: 271.25, x_min: 262.375, y_max: 314.375, y_min: 290.25}
   - {label: Red, occluded: true, x_max: 837.0, x_min: 828.5, y_max: 286.625, y_min: 260.75}
   path: rgb/test/35914.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 270.25, x_min: 261.5, y_max: 314.625, y_min: 289.875}
+  - {label: Red, occluded: true, x_max: 837.625, x_min: 828.875, y_max: 286.875, y_min: 260.625}
+  path: rgb/test/35916.png
 - boxes:
   - {label: Red, occluded: false, x_max: 269.75, x_min: 260.875, y_max: 313.75, y_min: 289.875}
   - {label: Red, occluded: true, x_max: 839.0, x_min: 829.5, y_max: 287.375, y_min: 260.25}
@@ -19606,6 +24551,11 @@
   - {label: Red, occluded: false, x_max: 842.375, x_min: 833.25, y_max: 283.125, y_min: 257.375}
   path: rgb/test/35938.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 263.125, x_min: 254.625, y_max: 309.625,
+    y_min: 285.125}
+  - {label: Red, occluded: false, x_max: 842.625, x_min: 833.0, y_max: 283.625, y_min: 257.25}
+  path: rgb/test/35940.png
+- boxes:
   - {label: Red, occluded: false, x_max: 262.25, x_min: 253.875, y_max: 310.5, y_min: 284.75}
   - {label: Red, occluded: false, x_max: 841.875, x_min: 833.625, y_max: 284.5, y_min: 257.75}
   path: rgb/test/35942.png
@@ -19618,10 +24568,22 @@
   - {label: Red, occluded: true, x_max: 842.625, x_min: 832.875, y_max: 283.875, y_min: 256.125}
   path: rgb/test/35946.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 261.5, x_min: 252.75, y_max: 311.625, y_min: 287.0}
+  - {label: Red, occluded: true, x_max: 842.25, x_min: 833.5, y_max: 284.375, y_min: 257.25}
+  path: rgb/test/35948.png
+- boxes:
   - {label: Red, occluded: false, x_max: 262.125, x_min: 253.125, y_max: 312.375,
     y_min: 287.625}
   - {label: Red, occluded: true, x_max: 842.5, x_min: 834.25, y_max: 284.5, y_min: 256.75}
   path: rgb/test/35950.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 261.5, x_min: 252.75, y_max: 312.375, y_min: 287.75}
+  - {label: Red, occluded: true, x_max: 842.875, x_min: 834.0, y_max: 285.25, y_min: 258.0}
+  path: rgb/test/35952.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 261.75, x_min: 252.25, y_max: 312.75, y_min: 287.375}
+  - {label: Red, occluded: true, x_max: 843.5, x_min: 834.375, y_max: 285.375, y_min: 258.125}
+  path: rgb/test/35954.png
 - boxes:
   - {label: Red, occluded: false, x_max: 262.625, x_min: 252.125, y_max: 314.25, y_min: 287.5}
   - {label: Red, occluded: true, x_max: 843.875, x_min: 834.125, y_max: 285.625, y_min: 258.75}
@@ -19661,6 +24623,10 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 260.0, x_min: 251.25, y_max: 312.875, y_min: 287.5}
   - {label: Red, occluded: true, x_max: 843.375, x_min: 834.25, y_max: 284.625, y_min: 258.875}
+  path: rgb/test/35974.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 260.0, x_min: 251.25, y_max: 312.875, y_min: 287.5}
+  - {label: Red, occluded: true, x_max: 843.375, x_min: 834.25, y_max: 284.625, y_min: 258.875}
   path: rgb/test/35976.png
 - boxes:
   - {label: Red, occluded: false, x_max: 260.0, x_min: 251.25, y_max: 312.875, y_min: 287.5}
@@ -19674,6 +24640,18 @@
   - {label: Red, occluded: false, x_max: 260.0, x_min: 251.25, y_max: 312.875, y_min: 287.5}
   - {label: Red, occluded: true, x_max: 843.375, x_min: 835.0, y_max: 285.375, y_min: 260.5}
   path: rgb/test/35982.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 259.5, x_min: 251.25, y_max: 314.875, y_min: 289.25}
+  - {label: Red, occluded: true, x_max: 843.375, x_min: 835.0, y_max: 285.375, y_min: 260.5}
+  path: rgb/test/35984.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 259.5, x_min: 251.25, y_max: 314.875, y_min: 289.25}
+  - {label: Red, occluded: true, x_max: 843.375, x_min: 835.0, y_max: 285.375, y_min: 260.5}
+  path: rgb/test/35986.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875, y_min: 289.75}
+  - {label: Red, occluded: true, x_max: 843.5, x_min: 835.5, y_max: 286.625, y_min: 261.625}
+  path: rgb/test/35988.png
 - boxes:
   - {label: Red, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875, y_min: 289.75}
   - {label: Red, occluded: true, x_max: 843.5, x_min: 835.5, y_max: 286.625, y_min: 261.625}
@@ -19714,6 +24692,10 @@
   - {label: Red, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875, y_min: 289.75}
   - {label: Red, occluded: true, x_max: 842.875, x_min: 834.625, y_max: 286.125, y_min: 260.375}
   path: rgb/test/36008.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875, y_min: 289.75}
+  - {label: Red, occluded: true, x_max: 842.875, x_min: 834.625, y_max: 286.125, y_min: 260.375}
+  path: rgb/test/36010.png
 - boxes:
   - {label: Red, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875, y_min: 289.75}
   - {label: Red, occluded: true, x_max: 842.875, x_min: 834.625, y_max: 286.125, y_min: 260.375}
@@ -19761,6 +24743,14 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875, y_min: 289.75}
   - {label: Red, occluded: true, x_max: 842.875, x_min: 834.625, y_max: 286.125, y_min: 260.375}
+  path: rgb/test/36034.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875, y_min: 289.75}
+  - {label: Red, occluded: true, x_max: 842.875, x_min: 834.625, y_max: 286.125, y_min: 260.375}
+  path: rgb/test/36036.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875, y_min: 289.75}
+  - {label: Red, occluded: true, x_max: 842.875, x_min: 834.625, y_max: 286.125, y_min: 260.375}
   path: rgb/test/36038.png
 - boxes:
   - {label: Red, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875, y_min: 289.75}
@@ -19790,6 +24780,14 @@
   - {label: Red, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875, y_min: 289.75}
   - {label: Red, occluded: true, x_max: 842.875, x_min: 834.625, y_max: 286.125, y_min: 260.375}
   path: rgb/test/36052.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875, y_min: 289.75}
+  - {label: Red, occluded: true, x_max: 842.875, x_min: 834.625, y_max: 286.125, y_min: 260.375}
+  path: rgb/test/36054.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875, y_min: 289.75}
+  - {label: Red, occluded: true, x_max: 842.875, x_min: 834.625, y_max: 286.125, y_min: 260.375}
+  path: rgb/test/36056.png
 - boxes:
   - {label: Red, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875, y_min: 289.75}
   - {label: Red, occluded: true, x_max: 842.875, x_min: 834.625, y_max: 286.125, y_min: 260.375}
@@ -19832,6 +24830,11 @@
   path: rgb/test/36076.png
 - boxes:
   - {label: Red, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875, y_min: 289.75}
+  - {label: Red, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875, y_min: 289.75}
+  - {label: Red, occluded: true, x_max: 842.875, x_min: 834.625, y_max: 286.125, y_min: 260.375}
+  path: rgb/test/36078.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875, y_min: 289.75}
   - {label: Red, occluded: true, x_max: 842.875, x_min: 834.625, y_max: 286.125, y_min: 260.375}
   path: rgb/test/36080.png
 - boxes:
@@ -19840,6 +24843,18 @@
   - {label: 'off', occluded: true, x_max: 842.875, x_min: 834.625, y_max: 286.125,
     y_min: 260.375}
   path: rgb/test/36082.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875,
+    y_min: 289.75}
+  - {label: Green, occluded: true, x_max: 842.875, x_min: 834.625, y_max: 286.125,
+    y_min: 260.375}
+  path: rgb/test/36084.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875,
+    y_min: 289.75}
+  - {label: Green, occluded: true, x_max: 842.875, x_min: 834.625, y_max: 286.125,
+    y_min: 260.375}
+  path: rgb/test/36086.png
 - boxes:
   - {label: Green, occluded: false, x_max: 259.75, x_min: 251.125, y_max: 314.875,
     y_min: 289.75}
@@ -19856,6 +24871,11 @@
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
     y_min: 262.5}
   path: rgb/test/36092.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
+    y_min: 262.5}
+  path: rgb/test/36094.png
 - boxes:
   - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
@@ -19885,6 +24905,11 @@
   - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
     y_min: 262.5}
+  path: rgb/test/36106.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
+    y_min: 262.5}
   path: rgb/test/36108.png
 - boxes:
   - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
@@ -19895,7 +24920,22 @@
   - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
     y_min: 262.5}
+  path: rgb/test/36112.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
+    y_min: 262.5}
+  path: rgb/test/36114.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
+    y_min: 262.5}
   path: rgb/test/36116.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
+    y_min: 262.5}
+  path: rgb/test/36118.png
 - boxes:
   - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
@@ -19911,6 +24951,11 @@
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
     y_min: 262.5}
   path: rgb/test/36124.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
+    y_min: 262.5}
+  path: rgb/test/36126.png
 - boxes:
   - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
@@ -19931,6 +24976,11 @@
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
     y_min: 262.5}
   path: rgb/test/36134.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
+    y_min: 262.5}
+  path: rgb/test/36136.png
 - boxes:
   - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
@@ -19956,6 +25006,11 @@
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
     y_min: 262.5}
   path: rgb/test/36146.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
+    y_min: 262.5}
+  path: rgb/test/36148.png
 - boxes:
   - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
@@ -19991,6 +25046,16 @@
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
     y_min: 262.5}
   path: rgb/test/36162.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
+    y_min: 262.5}
+  path: rgb/test/36164.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
+    y_min: 262.5}
+  path: rgb/test/36166.png
 - boxes:
   - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
@@ -20145,6 +25210,11 @@
   - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
     y_min: 262.5}
+  path: rgb/test/36228.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
+    y_min: 262.5}
   path: rgb/test/36230.png
 - boxes:
   - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
@@ -20165,7 +25235,17 @@
   - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
     y_min: 262.5}
+  path: rgb/test/36238.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
+    y_min: 262.5}
   path: rgb/test/36240.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
+    y_min: 262.5}
+  path: rgb/test/36242.png
 - boxes:
   - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
@@ -20191,6 +25271,11 @@
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
     y_min: 262.5}
   path: rgb/test/36252.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
+    y_min: 262.5}
+  path: rgb/test/36254.png
 - boxes:
   - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
@@ -20240,7 +25325,17 @@
   - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
     y_min: 262.5}
+  path: rgb/test/36274.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
+    y_min: 262.5}
   path: rgb/test/36276.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
+    y_min: 262.5}
+  path: rgb/test/36278.png
 - boxes:
   - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
   - {label: Green, occluded: true, x_max: 843.625, x_min: 835.625, y_max: 287.125,
@@ -20266,6 +25361,11 @@
   - {label: Green, occluded: true, x_max: 844.25, x_min: 834.625, y_max: 287.125,
     y_min: 261.0}
   path: rgb/test/36288.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 844.25, x_min: 834.625, y_max: 287.125,
+    y_min: 261.0}
+  path: rgb/test/36290.png
 - boxes:
   - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
   - {label: Green, occluded: true, x_max: 844.25, x_min: 834.625, y_max: 287.125,
@@ -20302,6 +25402,11 @@
     y_min: 261.0}
   path: rgb/test/36304.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 261.125, x_min: 252.5, y_max: 315.0, y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 844.25, x_min: 834.625, y_max: 287.125,
+    y_min: 261.0}
+  path: rgb/test/36306.png
+- boxes:
   - {label: Green, occluded: false, x_max: 260.625, x_min: 251.5, y_max: 316.5, y_min: 290.125}
   - {label: Green, occluded: true, x_max: 844.25, x_min: 834.625, y_max: 287.125,
     y_min: 261.0}
@@ -20328,6 +25433,11 @@
     y_min: 260.625}
   path: rgb/test/36316.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 259.375, x_min: 250.875, y_max: 317.0,
+    y_min: 289.375}
+  - {label: Green, occluded: true, x_max: 844.125, x_min: 836.25, y_max: 286.5, y_min: 260.25}
+  path: rgb/test/36318.png
+- boxes:
   - {label: Green, occluded: false, x_max: 259.5, x_min: 250.125, y_max: 316.875,
     y_min: 289.125}
   - {label: Green, occluded: true, x_max: 844.625, x_min: 836.75, y_max: 286.625,
@@ -20351,9 +25461,19 @@
   - {label: Green, occluded: true, x_max: 846.25, x_min: 836.125, y_max: 286.0, y_min: 260.875}
   path: rgb/test/36328.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 257.625, x_min: 248.75, y_max: 316.0, y_min: 289.875}
+  - {label: Green, occluded: true, x_max: 845.5, x_min: 836.625, y_max: 286.375, y_min: 261.0}
+  path: rgb/test/36330.png
+- boxes:
   - {label: Green, occluded: false, x_max: 258.0, x_min: 249.125, y_max: 315.75, y_min: 289.375}
   - {label: Green, occluded: true, x_max: 845.25, x_min: 836.125, y_max: 286.0, y_min: 261.375}
   path: rgb/test/36332.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 257.625, x_min: 249.375, y_max: 315.75,
+    y_min: 289.0}
+  - {label: Green, occluded: true, x_max: 846.25, x_min: 836.125, y_max: 285.875,
+    y_min: 262.0}
+  path: rgb/test/36334.png
 - boxes:
   - {label: Green, occluded: false, x_max: 257.5, x_min: 249.0, y_max: 316.875, y_min: 288.875}
   - {label: Green, occluded: true, x_max: 846.0, x_min: 836.75, y_max: 286.25, y_min: 260.875}
@@ -20369,9 +25489,18 @@
     y_min: 262.125}
   path: rgb/test/36340.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 256.25, x_min: 248.25, y_max: 315.75, y_min: 288.75}
+  - {label: Green, occluded: true, x_max: 846.375, x_min: 837.0, y_max: 285.75, y_min: 261.375}
+  path: rgb/test/36342.png
+- boxes:
   - {label: Green, occluded: false, x_max: 256.5, x_min: 248.125, y_max: 316.75, y_min: 287.75}
   - {label: Green, occluded: true, x_max: 846.125, x_min: 836.75, y_max: 285.0, y_min: 260.5}
   path: rgb/test/36344.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 257.375, x_min: 246.625, y_max: 315.625,
+    y_min: 287.875}
+  - {label: Green, occluded: true, x_max: 846.375, x_min: 838.125, y_max: 286.0, y_min: 261.5}
+  path: rgb/test/36346.png
 - boxes:
   - {label: Green, occluded: false, x_max: 256.625, x_min: 247.0, y_max: 315.375,
     y_min: 288.25}
@@ -20422,6 +25551,11 @@
     y_min: 263.0}
   path: rgb/test/36366.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 254.375, x_min: 246.125, y_max: 316.625,
+    y_min: 289.25}
+  - {label: Green, occluded: true, x_max: 847.0, x_min: 838.25, y_max: 285.75, y_min: 260.75}
+  path: rgb/test/36368.png
+- boxes:
   - {label: Green, occluded: false, x_max: 254.375, x_min: 245.625, y_max: 316.125,
     y_min: 290.125}
   - {label: Green, occluded: true, x_max: 847.375, x_min: 838.5, y_max: 286.25, y_min: 261.375}
@@ -20438,6 +25572,10 @@
     y_min: 261.5}
   path: rgb/test/36374.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 253.875, x_min: 244.5, y_max: 316.25, y_min: 289.625}
+  - {label: Green, occluded: true, x_max: 847.375, x_min: 839.5, y_max: 285.75, y_min: 262.0}
+  path: rgb/test/36376.png
+- boxes:
   - {label: Green, occluded: false, x_max: 253.625, x_min: 244.5, y_max: 316.375,
     y_min: 288.75}
   - {label: Green, occluded: true, x_max: 848.5, x_min: 838.875, y_max: 286.5, y_min: 261.5}
@@ -20447,10 +25585,24 @@
   - {label: Green, occluded: true, x_max: 847.25, x_min: 840.0, y_max: 285.875, y_min: 262.125}
   path: rgb/test/36380.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 252.875, x_min: 244.125, y_max: 316.5,
+    y_min: 289.5}
+  - {label: Green, occluded: true, x_max: 847.75, x_min: 839.0, y_max: 286.25, y_min: 261.625}
+  path: rgb/test/36382.png
+- boxes:
   - {label: Green, occluded: false, x_max: 252.25, x_min: 243.625, y_max: 315.75,
     y_min: 289.125}
   - {label: Green, occluded: true, x_max: 848.875, x_min: 839.625, y_max: 287.0, y_min: 262.5}
   path: rgb/test/36384.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 252.125, x_min: 242.875, y_max: 315.375,
+    y_min: 288.5}
+  - {label: Green, occluded: true, x_max: 847.5, x_min: 839.75, y_max: 285.875, y_min: 261.5}
+  path: rgb/test/36386.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 252.25, x_min: 242.625, y_max: 317.875,
+    y_min: 289.875}
+  path: rgb/test/36388.png
 - boxes:
   - {label: Green, occluded: false, x_max: 251.625, x_min: 242.25, y_max: 316.375,
     y_min: 289.0}
@@ -20462,6 +25614,10 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 251.0, x_min: 242.5, y_max: 317.125, y_min: 288.75}
   path: rgb/test/36394.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 250.875, x_min: 241.5, y_max: 315.125,
+    y_min: 288.875}
+  path: rgb/test/36396.png
 - boxes:
   - {label: Green, occluded: false, x_max: 249.625, x_min: 241.125, y_max: 316.0,
     y_min: 289.5}
@@ -20501,6 +25657,10 @@
   - {label: Green, occluded: false, x_max: 245.5, x_min: 236.375, y_max: 314.0, y_min: 287.125}
   path: rgb/test/36418.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 244.25, x_min: 235.125, y_max: 314.625,
+    y_min: 287.125}
+  path: rgb/test/36420.png
+- boxes:
   - {label: Green, occluded: false, x_max: 243.625, x_min: 234.875, y_max: 314.25,
     y_min: 286.875}
   path: rgb/test/36422.png
@@ -20530,6 +25690,9 @@
   - {label: Green, occluded: false, x_max: 239.0, x_min: 231.25, y_max: 315.5, y_min: 288.75}
   path: rgb/test/36436.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 238.5, x_min: 229.25, y_max: 316.0, y_min: 289.125}
+  path: rgb/test/36438.png
+- boxes:
   - {label: Green, occluded: false, x_max: 237.0, x_min: 228.75, y_max: 316.875, y_min: 290.75}
   path: rgb/test/36440.png
 - boxes:
@@ -20551,6 +25714,9 @@
     y_min: 290.0}
   path: rgb/test/36450.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 231.25, x_min: 223.0, y_max: 315.5, y_min: 289.875}
+  path: rgb/test/36452.png
+- boxes:
   - {label: Green, occluded: false, x_max: 230.0, x_min: 221.75, y_max: 317.75, y_min: 290.375}
   path: rgb/test/36454.png
 - boxes:
@@ -20568,6 +25734,10 @@
   - {label: Green, occluded: false, x_max: 226.75, x_min: 218.0, y_max: 316.0, y_min: 286.625}
   path: rgb/test/36462.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 224.875, x_min: 215.625, y_max: 315.375,
+    y_min: 286.0}
+  path: rgb/test/36464.png
+- boxes:
   - {label: Green, occluded: false, x_max: 223.25, x_min: 213.875, y_max: 314.5, y_min: 287.0}
   path: rgb/test/36466.png
 - boxes:
@@ -20583,6 +25753,10 @@
 - boxes:
   - {label: Green, occluded: true, x_max: 218.5, x_min: 209.75, y_max: 317.75, y_min: 288.125}
   path: rgb/test/36474.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 217.375, x_min: 207.25, y_max: 317.375,
+    y_min: 287.25}
+  path: rgb/test/36476.png
 - boxes:
   - {label: Green, occluded: false, x_max: 215.375, x_min: 205.125, y_max: 316.0,
     y_min: 285.875}
@@ -20639,6 +25813,11 @@
   - {label: Green, occluded: false, x_max: 887.0, x_min: 875.0, y_max: 281.375, y_min: 251.125}
   path: rgb/test/36498.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 194.625, x_min: 183.875, y_max: 314.25,
+    y_min: 284.875}
+  - {label: Green, occluded: false, x_max: 888.5, x_min: 876.25, y_max: 280.125, y_min: 249.25}
+  path: rgb/test/36500.png
+- boxes:
   - {label: Green, occluded: false, x_max: 193.625, x_min: 182.0, y_max: 312.5, y_min: 283.125}
   - {label: Green, occluded: false, x_max: 890.25, x_min: 878.125, y_max: 278.875,
     y_min: 247.875}
@@ -20650,11 +25829,23 @@
     y_min: 247.0}
   path: rgb/test/36504.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 188.25, x_min: 178.0, y_max: 313.375, y_min: 281.875}
+  - {label: Green, occluded: false, x_max: 894.0, x_min: 881.125, y_max: 277.25, y_min: 245.5}
+  path: rgb/test/36506.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 186.75, x_min: 175.5, y_max: 312.125, y_min: 280.75}
+  - {label: Green, occluded: false, x_max: 895.75, x_min: 884.125, y_max: 277.0, y_min: 245.25}
+  path: rgb/test/36508.png
+- boxes:
   - {label: Green, occluded: false, x_max: 182.625, x_min: 171.25, y_max: 311.125,
     y_min: 279.625}
   - {label: Green, occluded: false, x_max: 897.875, x_min: 885.875, y_max: 275.75,
     y_min: 243.75}
   path: rgb/test/36510.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 181.75, x_min: 168.75, y_max: 310.5, y_min: 279.0}
+  - {label: Green, occluded: false, x_max: 899.0, x_min: 887.75, y_max: 273.75, y_min: 242.75}
+  path: rgb/test/36512.png
 - boxes:
   - {label: Green, occluded: false, x_max: 177.625, x_min: 166.0, y_max: 307.625,
     y_min: 276.875}
@@ -20671,6 +25862,11 @@
   - {label: Green, occluded: false, x_max: 904.875, x_min: 893.75, y_max: 269.125,
     y_min: 237.875}
   path: rgb/test/36518.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 169.625, x_min: 157.5, y_max: 304.75, y_min: 273.125}
+  - {label: Green, occluded: false, x_max: 907.125, x_min: 896.25, y_max: 268.125,
+    y_min: 236.125}
+  path: rgb/test/36520.png
 - boxes:
   - {label: Green, occluded: false, x_max: 166.0, x_min: 154.375, y_max: 303.875,
     y_min: 271.875}
@@ -20693,11 +25889,22 @@
     y_min: 229.625}
   path: rgb/test/36528.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 152.125, x_min: 141.375, y_max: 299.75,
+    y_min: 267.625}
+  - {label: Green, occluded: false, x_max: 918.875, x_min: 906.875, y_max: 262.625,
+    y_min: 229.25}
+  path: rgb/test/36530.png
+- boxes:
   - {label: Green, occluded: false, x_max: 149.125, x_min: 137.125, y_max: 298.125,
     y_min: 265.125}
   - {label: Green, occluded: false, x_max: 921.625, x_min: 908.5, y_max: 259.875,
     y_min: 226.125}
   path: rgb/test/36532.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 146.0, x_min: 133.75, y_max: 297.25, y_min: 262.875}
+  - {label: Green, occluded: false, x_max: 923.625, x_min: 911.25, y_max: 256.25,
+    y_min: 223.125}
+  path: rgb/test/36534.png
 - boxes:
   - {label: Green, occluded: false, x_max: 141.625, x_min: 129.0, y_max: 294.5, y_min: 260.125}
   - {label: Green, occluded: false, x_max: 925.75, x_min: 914.0, y_max: 254.625, y_min: 220.625}
@@ -20713,6 +25920,11 @@
     y_min: 216.625}
   path: rgb/test/36540.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 130.5, x_min: 116.5, y_max: 293.375, y_min: 256.875}
+  - {label: Green, occluded: false, x_max: 933.625, x_min: 921.25, y_max: 250.75,
+    y_min: 215.875}
+  path: rgb/test/36542.png
+- boxes:
   - {label: Green, occluded: false, x_max: 126.25, x_min: 111.25, y_max: 293.25, y_min: 256.75}
   - {label: Green, occluded: false, x_max: 936.125, x_min: 923.0, y_max: 249.875,
     y_min: 214.0}
@@ -20722,6 +25934,11 @@
   - {label: Green, occluded: false, x_max: 938.0, x_min: 924.875, y_max: 248.625,
     y_min: 213.0}
   path: rgb/test/36546.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 116.625, x_min: 103.5, y_max: 292.125,
+    y_min: 256.75}
+  - {label: Green, occluded: false, x_max: 940.5, x_min: 928.0, y_max: 248.25, y_min: 212.0}
+  path: rgb/test/36548.png
 - boxes:
   - {label: Green, occluded: false, x_max: 113.0, x_min: 99.25, y_max: 293.25, y_min: 257.125}
   - {label: Green, occluded: false, x_max: 943.0, x_min: 929.75, y_max: 247.125, y_min: 211.25}
@@ -20735,6 +25952,18 @@
   - {label: Green, occluded: false, x_max: 948.125, x_min: 935.75, y_max: 247.125,
     y_min: 210.625}
   path: rgb/test/36554.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 100.25, x_min: 84.625, y_max: 296.75, y_min: 258.875}
+  - {label: Green, occluded: false, x_max: 951.5, x_min: 938.375, y_max: 248.75, y_min: 211.625}
+  path: rgb/test/36556.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 96.5, x_min: 80.5, y_max: 297.75, y_min: 258.75}
+  - {label: Green, occluded: false, x_max: 953.25, x_min: 940.875, y_max: 249.5, y_min: 212.25}
+  path: rgb/test/36558.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 92.125, x_min: 75.75, y_max: 297.625, y_min: 259.25}
+  - {label: Green, occluded: false, x_max: 957.0, x_min: 943.375, y_max: 248.5, y_min: 211.5}
+  path: rgb/test/36560.png
 - boxes:
   - {label: Green, occluded: false, x_max: 86.375, x_min: 70.375, y_max: 297.5, y_min: 259.625}
   - {label: Green, occluded: false, x_max: 959.375, x_min: 946.0, y_max: 248.5, y_min: 210.125}
@@ -20751,6 +25980,12 @@
     y_min: 209.0}
   - {label: Green, occluded: true, x_max: 493.125, x_min: 488.625, y_max: 353.0, y_min: 341.5}
   path: rgb/test/36566.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 71.625, x_min: 55.875, y_max: 295.625,
+    y_min: 256.125}
+  - {label: Green, occluded: false, x_max: 968.625, x_min: 955.0, y_max: 246.5, y_min: 207.125}
+  - {label: Green, occluded: true, x_max: 492.875, x_min: 488.5, y_max: 351.5, y_min: 340.625}
+  path: rgb/test/36568.png
 - boxes:
   - {label: Green, occluded: false, x_max: 66.625, x_min: 51.75, y_max: 294.875, y_min: 255.375}
   - {label: Green, occluded: false, x_max: 972.75, x_min: 958.125, y_max: 243.5, y_min: 204.625}
@@ -20780,10 +26015,20 @@
   - {label: Green, occluded: true, x_max: 492.0, x_min: 487.25, y_max: 349.125, y_min: 338.25}
   path: rgb/test/36578.png
 - boxes:
+  - {label: 'off', occluded: true, x_max: 40.75, x_min: 23.625, y_max: 283.75, y_min: 246.625}
+  - {label: Green, occluded: false, x_max: 989.5, x_min: 975.0, y_max: 237.0, y_min: 195.875}
+  - {label: Green, occluded: true, x_max: 492.25, x_min: 487.5, y_max: 350.0, y_min: 338.25}
+  path: rgb/test/36580.png
+- boxes:
   - {label: 'off', occluded: true, x_max: 35.0, x_min: 19.0, y_max: 286.75, y_min: 244.375}
   - {label: Green, occluded: false, x_max: 993.75, x_min: 979.0, y_max: 235.375, y_min: 193.75}
   - {label: Green, occluded: true, x_max: 492.375, x_min: 487.75, y_max: 348.75, y_min: 338.125}
   path: rgb/test/36582.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 32.125, x_min: 15.0, y_max: 284.5, y_min: 242.75}
+  - {label: Green, occluded: false, x_max: 997.5, x_min: 982.875, y_max: 233.25, y_min: 190.75}
+  - {label: Green, occluded: true, x_max: 492.5, x_min: 488.25, y_max: 348.25, y_min: 337.25}
+  path: rgb/test/36584.png
 - boxes:
   - {label: Green, occluded: true, x_max: 26.5, x_min: 9.125, y_max: 281.75, y_min: 241.0}
   - {label: Green, occluded: false, x_max: 1002.25, x_min: 986.625, y_max: 230.0,
@@ -20813,10 +26058,20 @@
   - {label: Green, occluded: true, x_max: 492.25, x_min: 488.125, y_max: 345.0, y_min: 334.375}
   path: rgb/test/36594.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1021.375, x_min: 1006.625, y_max: 222.125,
+    y_min: 178.125}
+  - {label: Green, occluded: true, x_max: 493.0, x_min: 488.25, y_max: 345.5, y_min: 334.5}
+  path: rgb/test/36596.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1025.375, x_min: 1011.375, y_max: 221.0,
     y_min: 176.75}
   - {label: Green, occluded: true, x_max: 493.0, x_min: 488.25, y_max: 345.5, y_min: 334.5}
   path: rgb/test/36598.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1029.875, x_min: 1015.25, y_max: 220.125,
+    y_min: 173.25}
+  - {label: Green, occluded: true, x_max: 493.0, x_min: 488.25, y_max: 345.5, y_min: 334.5}
+  path: rgb/test/36600.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1034.5, x_min: 1018.75, y_max: 219.375,
     y_min: 172.875}
@@ -20859,6 +26114,11 @@
   - {label: Green, occluded: true, x_max: 494.5, x_min: 490.125, y_max: 343.0, y_min: 331.5}
   path: rgb/test/36616.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1070.0, x_min: 1053.875, y_max: 205.0,
+    y_min: 156.125}
+  - {label: Green, occluded: true, x_max: 494.125, x_min: 490.125, y_max: 343.5, y_min: 332.125}
+  path: rgb/test/36618.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1074.75, x_min: 1056.25, y_max: 206.25,
     y_min: 154.625}
   - {label: Green, occluded: true, x_max: 494.875, x_min: 490.375, y_max: 344.5, y_min: 332.625}
@@ -20885,10 +26145,32 @@
   - {label: Green, occluded: true, x_max: 495.125, x_min: 490.625, y_max: 344.5, y_min: 332.375}
   path: rgb/test/36628.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1092.625, x_min: 1073.75, y_max: 199.875,
+    y_min: 147.0}
+  - {label: Green, occluded: true, x_max: 495.25, x_min: 490.375, y_max: 345.5, y_min: 334.0}
+  path: rgb/test/36630.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1095.625, x_min: 1077.0, y_max: 199.125,
+    y_min: 146.375}
+  - {label: Green, occluded: true, x_max: 495.5, x_min: 490.75, y_max: 345.375, y_min: 335.25}
+  path: rgb/test/36632.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1098.75, x_min: 1080.5, y_max: 199.25,
+    y_min: 145.875}
+  - {label: Green, occluded: true, x_max: 495.25, x_min: 491.375, y_max: 346.875,
+    y_min: 335.25}
+  path: rgb/test/36634.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1101.5, x_min: 1082.875, y_max: 199.125,
     y_min: 146.0}
   - {label: Green, occluded: true, x_max: 496.125, x_min: 491.5, y_max: 348.25, y_min: 336.0}
   path: rgb/test/36636.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1104.75, x_min: 1086.75, y_max: 199.375,
+    y_min: 146.5}
+  - {label: Green, occluded: true, x_max: 496.25, x_min: 491.375, y_max: 349.375,
+    y_min: 337.75}
+  path: rgb/test/36638.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1106.375, x_min: 1089.0, y_max: 198.5,
     y_min: 145.5}
@@ -20900,6 +26182,15 @@
   - {label: Green, occluded: true, x_max: 495.25, x_min: 491.125, y_max: 350.625,
     y_min: 339.0}
   path: rgb/test/36642.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1112.75, x_min: 1092.75, y_max: 198.25,
+    y_min: 143.875}
+  - {label: Green, occluded: true, x_max: 495.875, x_min: 492.0, y_max: 351.0, y_min: 339.5}
+  path: rgb/test/36644.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1114.75, x_min: 1095.875, y_max: 197.625,
+    y_min: 142.125}
+  path: rgb/test/36646.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1117.75, x_min: 1097.875, y_max: 196.625,
     y_min: 142.0}
@@ -20947,6 +26238,10 @@
   - {label: Green, occluded: false, x_max: 1139.75, x_min: 1121.0, y_max: 191.0, y_min: 135.125}
   path: rgb/test/36670.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1143.0, x_min: 1123.375, y_max: 190.375,
+    y_min: 133.0}
+  path: rgb/test/36672.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1145.5, x_min: 1124.875, y_max: 190.625,
     y_min: 132.75}
   path: rgb/test/36674.png
@@ -20975,9 +26270,17 @@
     y_min: 134.875}
   path: rgb/test/36686.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1163.625, x_min: 1143.0, y_max: 193.125,
+    y_min: 132.25}
+  path: rgb/test/36688.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1165.25, x_min: 1145.5, y_max: 190.375,
     y_min: 130.625}
   path: rgb/test/36690.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1170.125, x_min: 1149.25, y_max: 189.875,
+    y_min: 129.625}
+  path: rgb/test/36692.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1173.25, x_min: 1152.375, y_max: 191.125,
     y_min: 130.5}
@@ -20991,6 +26294,14 @@
     y_min: 131.625}
   path: rgb/test/36698.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1188.625, x_min: 1168.5, y_max: 192.625,
+    y_min: 131.125}
+  path: rgb/test/36700.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1193.25, x_min: 1172.75, y_max: 191.625,
+    y_min: 130.5}
+  path: rgb/test/36702.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1199.0, x_min: 1178.375, y_max: 191.125,
     y_min: 127.875}
   path: rgb/test/36704.png
@@ -21003,6 +26314,14 @@
     y_min: 121.375}
   path: rgb/test/36708.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1217.75, x_min: 1197.375, y_max: 181.375,
+    y_min: 117.625}
+  path: rgb/test/36710.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1224.375, x_min: 1204.0, y_max: 179.75,
+    y_min: 116.0}
+  path: rgb/test/36712.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1233.0, x_min: 1212.25, y_max: 176.625,
     y_min: 113.125}
   path: rgb/test/36714.png
@@ -21011,9 +26330,17 @@
     y_min: 110.75}
   path: rgb/test/36716.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1248.125, x_min: 1226.5, y_max: 177.125,
+    y_min: 111.5}
+  path: rgb/test/36718.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1255.25, x_min: 1232.75, y_max: 176.75,
     y_min: 109.875}
   path: rgb/test/36720.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1263.875, x_min: 1241.0, y_max: 175.0,
+    y_min: 108.0}
+  path: rgb/test/36722.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1271.875, x_min: 1248.125, y_max: 172.0,
     y_min: 104.625}
@@ -21025,11 +26352,15 @@
 - boxes: []
   path: rgb/test/36728.png
 - boxes: []
+  path: rgb/test/36730.png
+- boxes: []
   path: rgb/test/36732.png
 - boxes: []
   path: rgb/test/36734.png
 - boxes: []
   path: rgb/test/36736.png
+- boxes: []
+  path: rgb/test/36738.png
 - boxes: []
   path: rgb/test/36740.png
 - boxes: []
@@ -21037,9 +26368,13 @@
 - boxes: []
   path: rgb/test/36744.png
 - boxes: []
+  path: rgb/test/36746.png
+- boxes: []
   path: rgb/test/36748.png
 - boxes: []
   path: rgb/test/36750.png
+- boxes: []
+  path: rgb/test/36752.png
 - boxes: []
   path: rgb/test/36754.png
 - boxes: []
@@ -21051,6 +26386,8 @@
 - boxes: []
   path: rgb/test/36762.png
 - boxes: []
+  path: rgb/test/36764.png
+- boxes: []
   path: rgb/test/36766.png
 - boxes: []
   path: rgb/test/36768.png
@@ -21058,6 +26395,8 @@
   path: rgb/test/36770.png
 - boxes: []
   path: rgb/test/36772.png
+- boxes: []
+  path: rgb/test/36774.png
 - boxes: []
   path: rgb/test/36776.png
 - boxes: []
@@ -21114,6 +26453,10 @@
   - {label: Green, occluded: true, x_max: 589.25, x_min: 583.875, y_max: 339.0, y_min: 324.5}
   path: rgb/test/36816.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 588.75, x_min: 583.375, y_max: 338.375,
+    y_min: 323.125}
+  path: rgb/test/36818.png
+- boxes:
   - {label: Green, occluded: true, x_max: 590.0, x_min: 583.875, y_max: 338.125, y_min: 321.875}
   path: rgb/test/36820.png
 - boxes:
@@ -21127,11 +26470,21 @@
     y_min: 318.875}
   path: rgb/test/36826.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 591.5, x_min: 585.5, y_max: 336.0, y_min: 319.125}
+  path: rgb/test/36828.png
+- boxes:
   - {label: Green, occluded: true, x_max: 591.0, x_min: 585.0, y_max: 336.75, y_min: 319.625}
   path: rgb/test/36830.png
 - boxes:
   - {label: Green, occluded: true, x_max: 590.625, x_min: 584.0, y_max: 335.25, y_min: 318.0}
   path: rgb/test/36832.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 591.125, x_min: 584.875, y_max: 330.25,
+    y_min: 314.375}
+  path: rgb/test/36834.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 591.125, x_min: 586.5, y_max: 326.875, y_min: 311.25}
+  path: rgb/test/36836.png
 - boxes:
   - {label: Green, occluded: true, x_max: 592.125, x_min: 586.375, y_max: 327.875,
     y_min: 311.75}
@@ -21146,12 +26499,20 @@
   - {label: Green, occluded: true, x_max: 592.25, x_min: 586.5, y_max: 341.375, y_min: 324.375}
   path: rgb/test/36844.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 592.25, x_min: 586.625, y_max: 340.625,
+    y_min: 324.375}
+  path: rgb/test/36846.png
+- boxes:
   - {label: Green, occluded: true, x_max: 592.75, x_min: 587.0, y_max: 342.875, y_min: 325.625}
   path: rgb/test/36848.png
 - boxes:
   - {label: Green, occluded: true, x_max: 593.125, x_min: 587.25, y_max: 346.375,
     y_min: 329.25}
   path: rgb/test/36850.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 593.125, x_min: 586.875, y_max: 351.25,
+    y_min: 335.0}
+  path: rgb/test/36852.png
 - boxes:
   - {label: Green, occluded: true, x_max: 592.25, x_min: 586.25, y_max: 351.25, y_min: 333.75}
   path: rgb/test/36854.png
@@ -21167,9 +26528,18 @@
     y_min: 317.375}
   path: rgb/test/36860.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 593.0, x_min: 586.25, y_max: 332.0, y_min: 314.25}
+  path: rgb/test/36862.png
+- boxes:
   - {label: Green, occluded: true, x_max: 592.875, x_min: 585.875, y_max: 331.125,
     y_min: 314.5}
   path: rgb/test/36864.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 592.75, x_min: 586.875, y_max: 328.375,
+    y_min: 312.5}
+  - {label: Green, occluded: true, x_max: 924.625, x_min: 920.375, y_max: 320.125,
+    y_min: 309.125}
+  path: rgb/test/36866.png
 - boxes:
   - {label: Green, occluded: true, x_max: 593.75, x_min: 586.125, y_max: 328.25, y_min: 309.875}
   - {label: Green, occluded: true, x_max: 926.625, x_min: 921.0, y_max: 318.25, y_min: 307.75}
@@ -21183,6 +26553,11 @@
     y_min: 309.75}
   - {label: Green, occluded: true, x_max: 928.625, x_min: 923.0, y_max: 320.125, y_min: 305.25}
   path: rgb/test/36872.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 591.0, x_min: 584.25, y_max: 328.875, y_min: 312.375}
+  - {label: Green, occluded: false, x_max: 928.75, x_min: 922.875, y_max: 321.375,
+    y_min: 306.25}
+  path: rgb/test/36874.png
 - boxes:
   - {label: Green, occluded: true, x_max: 590.0, x_min: 583.125, y_max: 331.25, y_min: 314.375}
   - {label: Green, occluded: false, x_max: 929.5, x_min: 922.5, y_max: 322.875, y_min: 306.5}
@@ -21202,6 +26577,10 @@
     y_min: 310.75}
   path: rgb/test/36882.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 584.25, x_min: 577.625, y_max: 334.0, y_min: 318.0}
+  - {label: Green, occluded: false, x_max: 929.5, x_min: 923.125, y_max: 328.0, y_min: 310.875}
+  path: rgb/test/36884.png
+- boxes:
   - {label: Green, occluded: true, x_max: 581.875, x_min: 575.25, y_max: 333.75, y_min: 316.875}
   - {label: Green, occluded: false, x_max: 929.375, x_min: 922.5, y_max: 328.375,
     y_min: 310.75}
@@ -21212,9 +26591,19 @@
     y_min: 309.75}
   path: rgb/test/36888.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 578.25, x_min: 571.875, y_max: 330.25, y_min: 314.875}
+  - {label: Green, occluded: false, x_max: 927.875, x_min: 921.875, y_max: 325.125,
+    y_min: 309.0}
+  path: rgb/test/36890.png
+- boxes:
   - {label: Green, occluded: true, x_max: 576.5, x_min: 570.75, y_max: 328.5, y_min: 313.625}
   - {label: Green, occluded: false, x_max: 929.0, x_min: 922.875, y_max: 323.5, y_min: 306.75}
   path: rgb/test/36892.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 576.375, x_min: 571.125, y_max: 329.5, y_min: 313.5}
+  - {label: Green, occluded: false, x_max: 930.375, x_min: 924.0, y_max: 321.875,
+    y_min: 305.875}
+  path: rgb/test/36894.png
 - boxes:
   - {label: Green, occluded: true, x_max: 577.625, x_min: 571.0, y_max: 330.5, y_min: 314.375}
   - {label: Green, occluded: false, x_max: 932.25, x_min: 926.25, y_max: 321.875,
@@ -21247,6 +26636,10 @@
     y_min: 307.875}
   path: rgb/test/36906.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 576.75, x_min: 570.25, y_max: 328.875, y_min: 310.875}
+  - {label: Green, occluded: true, x_max: 941.0, x_min: 936.375, y_max: 322.5, y_min: 307.25}
+  path: rgb/test/36908.png
+- boxes:
   - {label: Green, occluded: true, x_max: 574.125, x_min: 567.5, y_max: 330.375, y_min: 311.75}
   path: rgb/test/36910.png
 - boxes:
@@ -21255,6 +26648,13 @@
 - boxes:
   - {label: Green, occluded: true, x_max: 567.75, x_min: 561.75, y_max: 328.875, y_min: 311.75}
   path: rgb/test/36914.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 562.75, x_min: 556.0, y_max: 327.25, y_min: 310.25}
+  path: rgb/test/36916.png
+- boxes:
+  - {label: Green, occluded: true, x_max: 557.375, x_min: 551.625, y_max: 327.125,
+    y_min: 309.75}
+  path: rgb/test/36918.png
 - boxes:
   - {label: Green, occluded: true, x_max: 552.0, x_min: 545.375, y_max: 326.25, y_min: 310.0}
   path: rgb/test/36920.png
@@ -21282,6 +26682,9 @@
   - {label: Green, occluded: false, x_max: 506.0, x_min: 498.75, y_max: 330.625, y_min: 312.5}
   path: rgb/test/36934.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 499.25, x_min: 492.25, y_max: 330.75, y_min: 312.0}
+  path: rgb/test/36936.png
+- boxes:
   - {label: Green, occluded: false, x_max: 494.0, x_min: 486.875, y_max: 329.625,
     y_min: 311.125}
   path: rgb/test/36938.png
@@ -21295,6 +26698,9 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 477.25, x_min: 468.5, y_max: 329.625, y_min: 309.0}
   path: rgb/test/36944.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 470.5, x_min: 463.875, y_max: 330.75, y_min: 311.0}
+  path: rgb/test/36946.png
 - boxes:
   - {label: Green, occluded: false, x_max: 466.875, x_min: 458.5, y_max: 334.25, y_min: 313.75}
   path: rgb/test/36948.png
@@ -21330,6 +26736,11 @@
   - {label: Green, occluded: true, x_max: 859.75, x_min: 854.875, y_max: 326.75, y_min: 311.625}
   path: rgb/test/36962.png
 - boxes:
+  - {label: Yellow, occluded: false, x_max: 437.625, x_min: 430.375, y_max: 328.0,
+    y_min: 310.0}
+  - {label: Green, occluded: true, x_max: 860.125, x_min: 855.0, y_max: 322.875, y_min: 309.125}
+  path: rgb/test/36964.png
+- boxes:
   - {label: Yellow, occluded: false, x_max: 435.25, x_min: 426.625, y_max: 328.125,
     y_min: 308.5}
   - {label: Yellow, occluded: true, x_max: 860.125, x_min: 855.0, y_max: 321.625,
@@ -21346,6 +26757,12 @@
     y_min: 304.25}
   - {label: Yellow, occluded: true, x_max: 860.75, x_min: 854.5, y_max: 316.25, y_min: 300.875}
   path: rgb/test/36970.png
+- boxes:
+  - {label: Yellow, occluded: false, x_max: 428.0, x_min: 419.625, y_max: 320.625,
+    y_min: 300.5}
+  - {label: Yellow, occluded: false, x_max: 861.625, x_min: 854.75, y_max: 316.125,
+    y_min: 299.75}
+  path: rgb/test/36972.png
 - boxes:
   - {label: Yellow, occluded: false, x_max: 425.5, x_min: 417.125, y_max: 321.25,
     y_min: 300.375}
@@ -21377,6 +26794,11 @@
     y_min: 302.0}
   path: rgb/test/36982.png
 - boxes:
+  - {label: Yellow, occluded: false, x_max: 413.5, x_min: 405.875, y_max: 326.25,
+    y_min: 306.25}
+  - {label: Yellow, occluded: false, x_max: 864.0, x_min: 857.75, y_max: 319.75, y_min: 302.375}
+  path: rgb/test/36984.png
+- boxes:
   - {label: Yellow, occluded: false, x_max: 411.25, x_min: 402.375, y_max: 323.0,
     y_min: 303.375}
   - {label: Yellow, occluded: false, x_max: 864.625, x_min: 858.0, y_max: 319.125,
@@ -21387,6 +26809,12 @@
     y_min: 302.125}
   - {label: Yellow, occluded: false, x_max: 865.0, x_min: 858.375, y_max: 318.0, y_min: 300.5}
   path: rgb/test/36988.png
+- boxes:
+  - {label: Yellow, occluded: false, x_max: 406.625, x_min: 399.125, y_max: 322.5,
+    y_min: 302.875}
+  - {label: Yellow, occluded: false, x_max: 866.5, x_min: 859.375, y_max: 316.625,
+    y_min: 298.625}
+  path: rgb/test/36990.png
 - boxes:
   - {label: Yellow, occluded: false, x_max: 404.375, x_min: 397.25, y_max: 320.75,
     y_min: 302.0}
@@ -21404,6 +26832,16 @@
   - {label: Yellow, occluded: false, x_max: 868.875, x_min: 861.0, y_max: 309.625,
     y_min: 292.25}
   path: rgb/test/36996.png
+- boxes:
+  - {label: Yellow, occluded: false, x_max: 397.5, x_min: 389.75, y_max: 317.75, y_min: 296.5}
+  - {label: Yellow, occluded: false, x_max: 869.5, x_min: 862.625, y_max: 311.625,
+    y_min: 292.25}
+  path: rgb/test/36998.png
+- boxes:
+  - {label: Yellow, occluded: false, x_max: 395.5, x_min: 386.375, y_max: 322.5, y_min: 298.375}
+  - {label: Yellow, occluded: false, x_max: 870.125, x_min: 862.75, y_max: 311.75,
+    y_min: 292.125}
+  path: rgb/test/37000.png
 - boxes:
   - {label: Yellow, occluded: false, x_max: 393.375, x_min: 384.125, y_max: 324.25,
     y_min: 301.0}
@@ -21437,6 +26875,12 @@
     y_min: 296.5}
   path: rgb/test/37012.png
 - boxes:
+  - {label: Yellow, occluded: false, x_max: 376.625, x_min: 368.75, y_max: 321.625,
+    y_min: 304.75}
+  - {label: Yellow, occluded: false, x_max: 876.75, x_min: 869.75, y_max: 315.375,
+    y_min: 295.875}
+  path: rgb/test/37014.png
+- boxes:
   - {label: Yellow, occluded: false, x_max: 375.5, x_min: 366.625, y_max: 322.75,
     y_min: 301.25}
   - {label: Yellow, occluded: false, x_max: 878.0, x_min: 870.875, y_max: 313.375,
@@ -21447,6 +26891,17 @@
   - {label: Yellow, occluded: false, x_max: 879.25, x_min: 872.5, y_max: 311.625,
     y_min: 292.375}
   path: rgb/test/37018.png
+- boxes:
+  - {label: Yellow, occluded: false, x_max: 371.125, x_min: 361.5, y_max: 322.25,
+    y_min: 298.0}
+  - {label: Yellow, occluded: false, x_max: 881.375, x_min: 873.625, y_max: 310.875,
+    y_min: 291.5}
+  path: rgb/test/37020.png
+- boxes:
+  - {label: Yellow, occluded: false, x_max: 369.75, x_min: 360.0, y_max: 319.25, y_min: 296.75}
+  - {label: Yellow, occluded: false, x_max: 882.875, x_min: 875.375, y_max: 309.375,
+    y_min: 290.125}
+  path: rgb/test/37022.png
 - boxes:
   - {label: Yellow, occluded: false, x_max: 367.125, x_min: 357.25, y_max: 318.0,
     y_min: 295.125}
@@ -21472,11 +26927,23 @@
     y_min: 284.125}
   path: rgb/test/37030.png
 - boxes:
+  - {label: Yellow, occluded: false, x_max: 357.375, x_min: 348.125, y_max: 313.25,
+    y_min: 287.125}
+  - {label: Yellow, occluded: false, x_max: 892.25, x_min: 884.375, y_max: 303.875,
+    y_min: 283.375}
+  path: rgb/test/37032.png
+- boxes:
   - {label: Yellow, occluded: false, x_max: 353.75, x_min: 345.375, y_max: 312.25,
     y_min: 287.25}
   - {label: Yellow, occluded: false, x_max: 893.625, x_min: 886.125, y_max: 303.25,
     y_min: 281.75}
   path: rgb/test/37034.png
+- boxes:
+  - {label: Yellow, occluded: false, x_max: 351.875, x_min: 341.625, y_max: 310.375,
+    y_min: 285.5}
+  - {label: Yellow, occluded: false, x_max: 895.5, x_min: 888.125, y_max: 302.75,
+    y_min: 280.875}
+  path: rgb/test/37036.png
 - boxes:
   - {label: Yellow, occluded: false, x_max: 348.5, x_min: 339.5, y_max: 308.875, y_min: 284.125}
   - {label: Yellow, occluded: false, x_max: 897.375, x_min: 889.25, y_max: 300.875,
@@ -21504,6 +26971,12 @@
   - {label: Yellow, occluded: false, x_max: 903.25, x_min: 895.25, y_max: 299.25,
     y_min: 278.625}
   path: rgb/test/37046.png
+- boxes:
+  - {label: Yellow, occluded: false, x_max: 333.625, x_min: 323.875, y_max: 307.375,
+    y_min: 284.875}
+  - {label: Yellow, occluded: false, x_max: 904.5, x_min: 896.875, y_max: 298.875,
+    y_min: 277.875}
+  path: rgb/test/37048.png
 - boxes:
   - {label: Yellow, occluded: false, x_max: 330.875, x_min: 321.625, y_max: 308.625,
     y_min: 284.625}
@@ -21554,6 +27027,10 @@
     y_min: 272.875}
   path: rgb/test/37066.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 301.25, x_min: 291.25, y_max: 307.5, y_min: 280.5}
+  - {label: Red, occluded: false, x_max: 919.625, x_min: 911.5, y_max: 296.5, y_min: 273.125}
+  path: rgb/test/37068.png
+- boxes:
   - {label: Red, occluded: false, x_max: 298.125, x_min: 286.875, y_max: 306.125,
     y_min: 280.125}
   - {label: Red, occluded: false, x_max: 921.875, x_min: 913.625, y_max: 296.0, y_min: 271.25}
@@ -21568,9 +27045,21 @@
   - {label: Red, occluded: false, x_max: 924.125, x_min: 915.625, y_max: 291.5, y_min: 266.25}
   path: rgb/test/37074.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 286.375, x_min: 276.625, y_max: 300.25, y_min: 272.625}
+  - {label: Red, occluded: false, x_max: 925.75, x_min: 917.625, y_max: 287.625, y_min: 262.875}
+  path: rgb/test/37076.png
+- boxes:
   - {label: Red, occluded: false, x_max: 283.375, x_min: 273.125, y_max: 296.75, y_min: 269.5}
   - {label: Red, occluded: false, x_max: 926.75, x_min: 919.125, y_max: 285.375, y_min: 260.5}
   path: rgb/test/37078.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 280.375, x_min: 269.25, y_max: 296.0, y_min: 268.5}
+  - {label: Red, occluded: false, x_max: 929.125, x_min: 920.5, y_max: 285.125, y_min: 259.5}
+  path: rgb/test/37080.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 277.875, x_min: 267.125, y_max: 296.25, y_min: 268.125}
+  - {label: Red, occluded: false, x_max: 929.75, x_min: 922.0, y_max: 284.25, y_min: 258.5}
+  path: rgb/test/37082.png
 - boxes:
   - {label: Red, occluded: false, x_max: 273.875, x_min: 262.375, y_max: 295.5, y_min: 267.5}
   - {label: Red, occluded: false, x_max: 932.5, x_min: 923.75, y_max: 284.625, y_min: 258.5}
@@ -21592,6 +27081,10 @@
   - {label: Red, occluded: false, x_max: 936.875, x_min: 928.625, y_max: 282.625,
     y_min: 256.0}
   path: rgb/test/37092.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 255.0, x_min: 245.375, y_max: 294.375, y_min: 265.75}
+  - {label: Red, occluded: false, x_max: 939.5, x_min: 930.25, y_max: 284.25, y_min: 257.125}
+  path: rgb/test/37094.png
 - boxes:
   - {label: Red, occluded: false, x_max: 251.25, x_min: 241.625, y_max: 295.125, y_min: 266.5}
   - {label: Red, occluded: false, x_max: 938.625, x_min: 930.875, y_max: 285.0, y_min: 257.875}
@@ -21616,6 +27109,11 @@
   - {label: Red, occluded: false, x_max: 231.375, x_min: 218.75, y_max: 294.25, y_min: 265.75}
   - {label: Red, occluded: false, x_max: 941.0, x_min: 931.375, y_max: 282.5, y_min: 253.875}
   path: rgb/test/37106.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 226.125, x_min: 214.125, y_max: 295.375,
+    y_min: 265.0}
+  - {label: Red, occluded: false, x_max: 941.25, x_min: 931.5, y_max: 283.5, y_min: 254.75}
+  path: rgb/test/37108.png
 - boxes:
   - {label: Red, occluded: false, x_max: 223.75, x_min: 210.375, y_max: 295.75, y_min: 265.375}
   - {label: Red, occluded: false, x_max: 941.375, x_min: 931.25, y_max: 284.25, y_min: 254.625}
@@ -21645,9 +27143,32 @@
   - {label: Red, occluded: false, x_max: 943.25, x_min: 931.625, y_max: 284.0, y_min: 254.25}
   path: rgb/test/37122.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 191.375, x_min: 178.5, y_max: 297.875, y_min: 264.125}
+  - {label: Red, occluded: false, x_max: 943.0, x_min: 931.875, y_max: 283.875, y_min: 253.25}
+  path: rgb/test/37124.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 186.0, x_min: 174.25, y_max: 297.125, y_min: 265.25}
+  - {label: Red, occluded: false, x_max: 942.125, x_min: 931.25, y_max: 284.25, y_min: 253.75}
+  path: rgb/test/37126.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 182.125, x_min: 169.625, y_max: 298.375,
+    y_min: 263.625}
+  - {label: Red, occluded: false, x_max: 943.125, x_min: 932.375, y_max: 285.625,
+    y_min: 254.0}
+  path: rgb/test/37128.png
+- boxes:
   - {label: Red, occluded: false, x_max: 178.125, x_min: 166.25, y_max: 298.125, y_min: 263.75}
   - {label: Red, occluded: false, x_max: 942.75, x_min: 931.875, y_max: 286.125, y_min: 254.25}
   path: rgb/test/37130.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 172.875, x_min: 162.25, y_max: 296.375, y_min: 264.125}
+  - {label: Red, occluded: false, x_max: 943.375, x_min: 932.875, y_max: 284.875,
+    y_min: 254.375}
+  path: rgb/test/37132.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 169.875, x_min: 157.625, y_max: 296.25, y_min: 263.375}
+  - {label: Red, occluded: false, x_max: 944.375, x_min: 932.875, y_max: 284.5, y_min: 253.25}
+  path: rgb/test/37134.png
 - boxes:
   - {label: Red, occluded: false, x_max: 166.375, x_min: 154.625, y_max: 297.75, y_min: 263.75}
   - {label: Red, occluded: false, x_max: 943.75, x_min: 933.5, y_max: 284.75, y_min: 252.0}
@@ -21696,6 +27217,11 @@
   - {label: Red, occluded: false, x_max: 950.0, x_min: 939.5, y_max: 274.75, y_min: 242.125}
   path: rgb/test/37156.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 134.125, x_min: 119.0, y_max: 289.375, y_min: 253.0}
+  - {label: Red, occluded: false, x_max: 951.625, x_min: 940.125, y_max: 274.625,
+    y_min: 241.125}
+  path: rgb/test/37158.png
+- boxes:
   - {label: Red, occluded: false, x_max: 131.875, x_min: 115.625, y_max: 288.0, y_min: 252.75}
   - {label: Red, occluded: false, x_max: 952.5, x_min: 940.875, y_max: 273.375, y_min: 240.25}
   path: rgb/test/37160.png
@@ -21704,14 +27230,26 @@
   - {label: Red, occluded: false, x_max: 953.0, x_min: 942.5, y_max: 272.625, y_min: 238.625}
   path: rgb/test/37162.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 126.75, x_min: 111.0, y_max: 283.5, y_min: 249.75}
+  - {label: Red, occluded: false, x_max: 953.375, x_min: 942.5, y_max: 270.875, y_min: 236.25}
+  path: rgb/test/37164.png
+- boxes:
   - {label: Red, occluded: false, x_max: 123.375, x_min: 108.75, y_max: 283.25, y_min: 248.625}
   - {label: Red, occluded: false, x_max: 955.625, x_min: 944.25, y_max: 269.25, y_min: 234.125}
   path: rgb/test/37166.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 122.0, x_min: 106.75, y_max: 281.0, y_min: 246.375}
+  - {label: Red, occluded: false, x_max: 956.25, x_min: 945.375, y_max: 268.0, y_min: 232.75}
+  path: rgb/test/37168.png
 - boxes:
   - {label: Red, occluded: false, x_max: 119.875, x_min: 104.375, y_max: 280.125,
     y_min: 243.625}
   - {label: Red, occluded: false, x_max: 957.75, x_min: 946.375, y_max: 265.25, y_min: 230.25}
   path: rgb/test/37170.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 118.75, x_min: 102.75, y_max: 276.125, y_min: 241.5}
+  - {label: Red, occluded: false, x_max: 958.75, x_min: 947.125, y_max: 261.875, y_min: 227.875}
+  path: rgb/test/37172.png
 - boxes:
   - {label: Red, occluded: true, x_max: 115.375, x_min: 101.0, y_max: 276.625, y_min: 239.75}
   - {label: Red, occluded: false, x_max: 958.875, x_min: 947.375, y_max: 261.125,
@@ -21726,6 +27264,10 @@
   - {label: Red, occluded: false, x_max: 960.125, x_min: 948.5, y_max: 260.25, y_min: 223.375}
   path: rgb/test/37178.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 111.625, x_min: 94.0, y_max: 278.75, y_min: 237.0}
+  - {label: Red, occluded: false, x_max: 961.0, x_min: 949.75, y_max: 258.875, y_min: 223.125}
+  path: rgb/test/37180.png
+- boxes:
   - {label: Red, occluded: true, x_max: 108.375, x_min: 92.625, y_max: 275.0, y_min: 236.25}
   - {label: Red, occluded: false, x_max: 961.75, x_min: 949.375, y_max: 258.75, y_min: 222.625}
   path: rgb/test/37182.png
@@ -21734,9 +27276,18 @@
   - {label: Red, occluded: false, x_max: 962.625, x_min: 949.5, y_max: 259.75, y_min: 222.375}
   path: rgb/test/37184.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 105.625, x_min: 89.125, y_max: 276.75, y_min: 234.875}
+  - {label: Red, occluded: false, x_max: 963.125, x_min: 950.625, y_max: 258.375,
+    y_min: 221.25}
+  path: rgb/test/37186.png
+- boxes:
   - {label: Red, occluded: true, x_max: 104.25, x_min: 87.625, y_max: 275.75, y_min: 234.25}
   - {label: Red, occluded: false, x_max: 964.625, x_min: 951.875, y_max: 257.0, y_min: 220.625}
   path: rgb/test/37188.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 102.25, x_min: 85.875, y_max: 274.125, y_min: 233.875}
+  - {label: Red, occluded: false, x_max: 964.125, x_min: 951.25, y_max: 255.875, y_min: 219.125}
+  path: rgb/test/37190.png
 - boxes:
   - {label: Red, occluded: true, x_max: 101.125, x_min: 85.0, y_max: 274.875, y_min: 233.0}
   - {label: Red, occluded: false, x_max: 965.375, x_min: 952.375, y_max: 255.375,
@@ -21795,10 +27346,19 @@
   - {label: Red, occluded: false, x_max: 971.375, x_min: 958.75, y_max: 243.375, y_min: 205.375}
   path: rgb/test/37218.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 81.25, x_min: 66.25, y_max: 263.875, y_min: 223.375}
+  - {label: Red, occluded: false, x_max: 972.375, x_min: 959.0, y_max: 243.5, y_min: 204.5}
+  path: rgb/test/37220.png
+- boxes:
   - {label: Red, occluded: true, x_max: 83.25, x_min: 66.375, y_max: 262.625, y_min: 223.0}
   - {label: Red, occluded: false, x_max: 971.875, x_min: 959.375, y_max: 243.125,
     y_min: 204.25}
   path: rgb/test/37222.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 80.625, x_min: 64.75, y_max: 260.625, y_min: 222.625}
+  - {label: Red, occluded: false, x_max: 972.875, x_min: 960.375, y_max: 243.375,
+    y_min: 204.5}
+  path: rgb/test/37224.png
 - boxes:
   - {label: Red, occluded: true, x_max: 80.25, x_min: 65.0, y_max: 262.875, y_min: 223.125}
   - {label: Red, occluded: false, x_max: 973.75, x_min: 959.75, y_max: 242.875, y_min: 203.125}
@@ -21808,6 +27368,10 @@
   - {label: Red, occluded: false, x_max: 973.0, x_min: 960.375, y_max: 242.5, y_min: 204.25}
   path: rgb/test/37228.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 77.625, x_min: 62.875, y_max: 263.25, y_min: 221.875}
+  - {label: Red, occluded: false, x_max: 973.625, x_min: 960.25, y_max: 242.25, y_min: 203.75}
+  path: rgb/test/37230.png
+- boxes:
   - {label: Red, occluded: false, x_max: 77.375, x_min: 62.75, y_max: 261.5, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 974.125, x_min: 960.625, y_max: 243.0, y_min: 204.125}
   path: rgb/test/37232.png
@@ -21815,6 +27379,10 @@
   - {label: Red, occluded: false, x_max: 75.125, x_min: 61.5, y_max: 261.875, y_min: 223.875}
   - {label: Red, occluded: false, x_max: 974.5, x_min: 960.75, y_max: 242.625, y_min: 204.25}
   path: rgb/test/37234.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 74.25, x_min: 61.625, y_max: 260.625, y_min: 224.875}
+  - {label: Red, occluded: false, x_max: 975.0, x_min: 961.25, y_max: 242.625, y_min: 204.875}
+  path: rgb/test/37236.png
 - boxes:
   - {label: Red, occluded: false, x_max: 72.875, x_min: 59.75, y_max: 261.0, y_min: 224.0}
   - {label: Red, occluded: false, x_max: 975.125, x_min: 960.75, y_max: 243.125, y_min: 204.25}
@@ -21828,6 +27396,14 @@
   - {label: Red, occluded: false, x_max: 975.5, x_min: 963.0, y_max: 243.75, y_min: 204.0}
   path: rgb/test/37242.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 71.375, x_min: 58.25, y_max: 261.25, y_min: 222.875}
+  - {label: Red, occluded: false, x_max: 975.75, x_min: 963.5, y_max: 242.0, y_min: 203.875}
+  path: rgb/test/37244.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 70.5, x_min: 57.0, y_max: 260.375, y_min: 223.25}
+  - {label: Red, occluded: false, x_max: 976.625, x_min: 963.0, y_max: 242.625, y_min: 204.0}
+  path: rgb/test/37246.png
+- boxes:
   - {label: Red, occluded: false, x_max: 69.75, x_min: 56.0, y_max: 261.125, y_min: 222.375}
   - {label: Red, occluded: false, x_max: 976.375, x_min: 963.625, y_max: 241.375,
     y_min: 203.625}
@@ -21840,6 +27416,10 @@
   - {label: Red, occluded: false, x_max: 68.375, x_min: 55.0, y_max: 259.875, y_min: 222.875}
   - {label: Red, occluded: false, x_max: 976.875, x_min: 963.75, y_max: 241.0, y_min: 203.0}
   path: rgb/test/37252.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 67.875, x_min: 55.0, y_max: 259.0, y_min: 223.25}
+  - {label: Red, occluded: false, x_max: 977.75, x_min: 964.375, y_max: 241.0, y_min: 203.0}
+  path: rgb/test/37254.png
 - boxes:
   - {label: Red, occluded: false, x_max: 68.375, x_min: 53.875, y_max: 260.5, y_min: 222.125}
   - {label: Red, occluded: false, x_max: 978.5, x_min: 965.0, y_max: 241.5, y_min: 202.625}
@@ -21879,6 +27459,10 @@
   - {label: Red, occluded: false, x_max: 979.625, x_min: 965.875, y_max: 241.5, y_min: 202.125}
   path: rgb/test/37272.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 64.5, x_min: 48.875, y_max: 259.75, y_min: 220.875}
+  - {label: Red, occluded: false, x_max: 979.875, x_min: 966.5, y_max: 240.875, y_min: 202.375}
+  path: rgb/test/37274.png
+- boxes:
   - {label: Red, occluded: false, x_max: 62.25, x_min: 48.875, y_max: 259.625, y_min: 221.5}
   - {label: Red, occluded: false, x_max: 979.875, x_min: 965.875, y_max: 241.25, y_min: 201.625}
   path: rgb/test/37276.png
@@ -21890,6 +27474,10 @@
   - {label: Red, occluded: false, x_max: 63.0, x_min: 48.25, y_max: 259.5, y_min: 221.375}
   - {label: Red, occluded: false, x_max: 981.625, x_min: 966.5, y_max: 241.375, y_min: 202.5}
   path: rgb/test/37280.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 61.25, x_min: 47.25, y_max: 258.25, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 981.125, x_min: 966.875, y_max: 240.5, y_min: 202.125}
+  path: rgb/test/37282.png
 - boxes:
   - {label: Red, occluded: false, x_max: 60.875, x_min: 46.875, y_max: 259.125, y_min: 220.875}
   - {label: Red, occluded: false, x_max: 981.75, x_min: 967.0, y_max: 241.625, y_min: 202.0}
@@ -21928,9 +27516,17 @@
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37300.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 59.75, x_min: 45.25, y_max: 259.125, y_min: 220.875}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37302.png
+- boxes:
   - {label: Red, occluded: false, x_max: 59.375, x_min: 45.625, y_max: 258.875, y_min: 220.25}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37304.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 59.125, x_min: 45.375, y_max: 259.375, y_min: 219.625}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37306.png
 - boxes:
   - {label: Red, occluded: false, x_max: 60.25, x_min: 45.375, y_max: 260.875, y_min: 221.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -21943,6 +27539,10 @@
   - {label: Red, occluded: false, x_max: 60.25, x_min: 45.375, y_max: 260.875, y_min: 221.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37312.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 60.25, x_min: 45.375, y_max: 260.875, y_min: 221.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37314.png
 - boxes:
   - {label: Red, occluded: false, x_max: 60.25, x_min: 45.375, y_max: 260.875, y_min: 221.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -21974,6 +27574,10 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37330.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37332.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
@@ -21983,6 +27587,14 @@
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37336.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37338.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37340.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -21998,6 +27610,14 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37348.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37350.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37352.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
@@ -22010,6 +27630,10 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37358.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37360.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
@@ -22019,6 +27643,10 @@
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37364.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37366.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22054,7 +27682,15 @@
 - boxes:
   - {label: Red, occluded: true, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37384.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37386.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37388.png
 - boxes:
   - {label: Red, occluded: true, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22078,7 +27714,15 @@
 - boxes:
   - {label: Red, occluded: true, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37400.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37402.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37404.png
 - boxes:
   - {label: Red, occluded: true, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22087,6 +27731,30 @@
   - {label: Red, occluded: true, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37408.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37410.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37412.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37414.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37416.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37418.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37420.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22103,6 +27771,10 @@
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37428.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37430.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22131,6 +27803,10 @@
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37444.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37446.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22167,6 +27843,10 @@
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37464.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37466.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22222,6 +27902,10 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37494.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37496.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
@@ -22239,6 +27923,10 @@
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37504.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37506.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22306,6 +27994,10 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37540.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37542.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
@@ -22319,6 +28011,10 @@
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37548.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37550.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22346,6 +28042,10 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37564.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37566.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
@@ -22355,6 +28055,10 @@
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37570.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37572.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22422,6 +28126,10 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37606.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37608.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
@@ -22430,7 +28138,15 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37612.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37614.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37616.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22474,6 +28190,10 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37638.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37640.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
@@ -22490,11 +28210,19 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37648.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37650.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37652.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37654.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22538,6 +28266,14 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37676.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37678.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37680.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
@@ -22554,11 +28290,19 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37688.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37690.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37692.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37694.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22598,6 +28342,10 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37714.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37716.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
@@ -22606,11 +28354,23 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37720.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37722.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37724.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37726.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37728.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22650,7 +28410,15 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37748.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37750.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37752.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22691,6 +28459,18 @@
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37772.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37774.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37776.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37778.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22742,6 +28522,10 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37804.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37806.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
@@ -22754,7 +28538,15 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37812.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37814.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37816.png
 - boxes:
   - {label: Red, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Red, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22814,6 +28606,10 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Green, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37846.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Green, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37848.png
 - boxes:
   - {label: Green, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
@@ -22826,6 +28622,10 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Green, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37854.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Green, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37856.png
 - boxes:
   - {label: Green, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
@@ -22835,6 +28635,10 @@
   - {label: Green, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Green, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37860.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Green, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37862.png
 - boxes:
   - {label: Green, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Green, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22855,6 +28659,14 @@
   - {label: Green, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Green, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37872.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Green, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37874.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
+  - {label: Green, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
+  path: rgb/test/37876.png
 - boxes:
   - {label: Green, occluded: false, x_max: 57.5, x_min: 44.875, y_max: 260.875, y_min: 222.0}
   - {label: Green, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
@@ -22879,6 +28691,21 @@
   - {label: Green, occluded: false, x_max: 54.5, x_min: 41.75, y_max: 260.5, y_min: 223.125}
   - {label: Green, occluded: false, x_max: 982.625, x_min: 967.0, y_max: 240.75, y_min: 201.625}
   path: rgb/test/37888.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 54.375, x_min: 41.375, y_max: 261.875,
+    y_min: 223.875}
+  - {label: Green, occluded: false, x_max: 983.375, x_min: 969.5, y_max: 241.75, y_min: 203.0}
+  path: rgb/test/37890.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 54.0, x_min: 41.5, y_max: 260.0, y_min: 223.375}
+  - {label: Green, occluded: false, x_max: 983.625, x_min: 970.0, y_max: 240.625,
+    y_min: 203.125}
+  path: rgb/test/37892.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 52.875, x_min: 40.5, y_max: 260.75, y_min: 223.25}
+  - {label: Green, occluded: false, x_max: 983.625, x_min: 969.875, y_max: 239.875,
+    y_min: 203.25}
+  path: rgb/test/37894.png
 - boxes:
   - {label: Green, occluded: false, x_max: 53.125, x_min: 39.5, y_max: 260.25, y_min: 222.875}
   - {label: Green, occluded: false, x_max: 984.0, x_min: 970.5, y_max: 241.125, y_min: 203.75}
@@ -22935,6 +28762,10 @@
     y_min: 204.875}
   path: rgb/test/37918.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 39.875, x_min: 27.75, y_max: 264.125, y_min: 225.125}
+  - {label: Green, occluded: false, x_max: 990.0, x_min: 975.5, y_max: 243.625, y_min: 205.375}
+  path: rgb/test/37920.png
+- boxes:
   - {label: Green, occluded: false, x_max: 38.375, x_min: 26.125, y_max: 264.5, y_min: 225.75}
   - {label: Green, occluded: false, x_max: 991.25, x_min: 975.625, y_max: 244.25,
     y_min: 205.75}
@@ -22960,6 +28791,12 @@
   - {label: Green, occluded: false, x_max: 28.5, x_min: 14.625, y_max: 263.375, y_min: 223.0}
   - {label: Green, occluded: false, x_max: 995.5, x_min: 980.75, y_max: 240.75, y_min: 202.75}
   path: rgb/test/37932.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 25.625, x_min: 13.125, y_max: 261.625,
+    y_min: 223.5}
+  - {label: Green, occluded: false, x_max: 996.75, x_min: 982.625, y_max: 241.375,
+    y_min: 201.125}
+  path: rgb/test/37934.png
 - boxes:
   - {label: Green, occluded: false, x_max: 23.75, x_min: 11.0, y_max: 262.625, y_min: 221.875}
   - {label: Green, occluded: false, x_max: 998.125, x_min: 983.5, y_max: 239.125,
@@ -22996,6 +28833,10 @@
     y_min: 196.25}
   path: rgb/test/37948.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1009.75, x_min: 994.875, y_max: 237.125,
+    y_min: 196.375}
+  path: rgb/test/37950.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1011.875, x_min: 997.375, y_max: 237.5,
     y_min: 196.375}
   path: rgb/test/37952.png
@@ -23024,6 +28865,10 @@
     y_min: 199.0}
   path: rgb/test/37964.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1025.375, x_min: 1009.75, y_max: 240.875,
+    y_min: 198.25}
+  path: rgb/test/37966.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1027.25, x_min: 1011.625, y_max: 241.75,
     y_min: 199.0}
   path: rgb/test/37968.png
@@ -23035,6 +28880,10 @@
   - {label: Green, occluded: false, x_max: 1033.125, x_min: 1015.875, y_max: 242.625,
     y_min: 200.5}
   path: rgb/test/37972.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1034.125, x_min: 1018.0, y_max: 245.0,
+    y_min: 200.625}
+  path: rgb/test/37974.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1038.625, x_min: 1020.375, y_max: 246.5,
     y_min: 200.875}
@@ -23070,6 +28919,9 @@
     y_min: 192.25}
   path: rgb/test/37992.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1061.0, x_min: 1043.0, y_max: 236.75, y_min: 189.125}
+  path: rgb/test/37994.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1063.5, x_min: 1046.625, y_max: 234.0,
     y_min: 187.375}
   path: rgb/test/37996.png
@@ -23085,6 +28937,10 @@
   - {label: Green, occluded: false, x_max: 1072.75, x_min: 1055.125, y_max: 229.875,
     y_min: 182.0}
   path: rgb/test/38002.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1075.375, x_min: 1058.125, y_max: 229.125,
+    y_min: 181.25}
+  path: rgb/test/38004.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1079.375, x_min: 1060.75, y_max: 230.625,
     y_min: 181.125}
@@ -23160,6 +29016,17 @@
   - {label: Green, occluded: false, x_max: 672.25, x_min: 668.5, y_max: 354.5, y_min: 344.375}
   path: rgb/test/38034.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1149.25, x_min: 1129.375, y_max: 217.875,
+    y_min: 162.875}
+  - {label: Green, occluded: false, x_max: 673.0, x_min: 668.875, y_max: 353.5, y_min: 343.25}
+  path: rgb/test/38036.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1155.875, x_min: 1135.75, y_max: 214.75,
+    y_min: 159.75}
+  - {label: Green, occluded: false, x_max: 673.875, x_min: 669.625, y_max: 353.0,
+    y_min: 342.875}
+  path: rgb/test/38038.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1161.625, x_min: 1139.75, y_max: 211.375,
     y_min: 155.75}
   - {label: Green, occluded: false, x_max: 674.25, x_min: 670.25, y_max: 350.75, y_min: 340.5}
@@ -23171,12 +29038,26 @@
     y_min: 337.5}
   path: rgb/test/38042.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1174.5, x_min: 1153.75, y_max: 201.625,
+    y_min: 145.125}
+  - {label: Green, occluded: false, x_max: 406.5, x_min: 402.625, y_max: 355.875,
+    y_min: 344.375}
+  - {label: Green, occluded: false, x_max: 675.375, x_min: 671.5, y_max: 344.25, y_min: 334.125}
+  path: rgb/test/38044.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1182.75, x_min: 1161.375, y_max: 198.625,
     y_min: 139.25}
   - {label: Green, occluded: false, x_max: 407.0, x_min: 403.625, y_max: 353.25, y_min: 341.75}
   - {label: Green, occluded: false, x_max: 676.75, x_min: 673.125, y_max: 341.75,
     y_min: 332.375}
   path: rgb/test/38046.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1188.5, x_min: 1167.875, y_max: 195.5,
+    y_min: 136.375}
+  - {label: Green, occluded: false, x_max: 408.25, x_min: 403.5, y_max: 353.125, y_min: 341.5}
+  - {label: Green, occluded: false, x_max: 677.625, x_min: 673.75, y_max: 341.125,
+    y_min: 331.25}
+  path: rgb/test/38048.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1195.75, x_min: 1176.0, y_max: 196.75,
     y_min: 136.375}
@@ -23237,6 +29118,12 @@
     y_min: 342.5}
   path: rgb/test/38064.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1269.75, x_min: 1243.0, y_max: 189.0, y_min: 120.125}
+  - {label: Green, occluded: false, x_max: 408.5, x_min: 404.125, y_max: 361.5, y_min: 349.25}
+  - {label: Green, occluded: false, x_max: 684.125, x_min: 680.375, y_max: 351.875,
+    y_min: 341.625}
+  path: rgb/test/38066.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1278.25, x_min: 1252.125, y_max: 186.375,
     y_min: 117.375}
   - {label: Green, occluded: false, x_max: 408.625, x_min: 404.0, y_max: 360.875,
@@ -23296,6 +29183,18 @@
   - {label: Green, occluded: false, x_max: 695.0, x_min: 691.0, y_max: 352.25, y_min: 341.375}
   path: rgb/test/38086.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 411.625, x_min: 407.625, y_max: 359.625,
+    y_min: 348.625}
+  - {label: Green, occluded: false, x_max: 696.125, x_min: 691.875, y_max: 354.125,
+    y_min: 343.375}
+  path: rgb/test/38088.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 412.375, x_min: 408.25, y_max: 360.25,
+    y_min: 349.375}
+  - {label: Green, occluded: false, x_max: 697.625, x_min: 693.625, y_max: 354.5,
+    y_min: 344.125}
+  path: rgb/test/38090.png
+- boxes:
   - {label: Green, occluded: false, x_max: 412.875, x_min: 408.75, y_max: 360.5, y_min: 349.5}
   - {label: Green, occluded: true, x_max: 698.875, x_min: 694.75, y_max: 355.25, y_min: 344.125}
   path: rgb/test/38092.png
@@ -23309,6 +29208,16 @@
     y_min: 351.375}
   - {label: Green, occluded: true, x_max: 702.625, x_min: 698.0, y_max: 356.75, y_min: 346.625}
   path: rgb/test/38096.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 413.875, x_min: 410.0, y_max: 365.125,
+    y_min: 353.75}
+  - {label: Green, occluded: true, x_max: 703.375, x_min: 699.25, y_max: 359.5, y_min: 349.0}
+  path: rgb/test/38098.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 413.375, x_min: 408.625, y_max: 366.375,
+    y_min: 354.875}
+  - {label: Green, occluded: true, x_max: 704.0, x_min: 698.75, y_max: 361.125, y_min: 349.125}
+  path: rgb/test/38100.png
 - boxes:
   - {label: Green, occluded: false, x_max: 414.125, x_min: 409.25, y_max: 365.75,
     y_min: 353.625}
@@ -23325,10 +29234,21 @@
   - {label: Green, occluded: true, x_max: 706.125, x_min: 700.0, y_max: 355.5, y_min: 341.25}
   path: rgb/test/38106.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 413.375, x_min: 408.25, y_max: 354.75,
+    y_min: 342.375}
+  - {label: Green, occluded: true, x_max: 707.375, x_min: 700.625, y_max: 353.25,
+    y_min: 338.5}
+  path: rgb/test/38108.png
+- boxes:
   - {label: Green, occluded: false, x_max: 413.125, x_min: 408.25, y_max: 352.625,
     y_min: 340.5}
   - {label: Green, occluded: true, x_max: 708.0, x_min: 701.0, y_max: 349.75, y_min: 334.375}
   path: rgb/test/38110.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 411.625, x_min: 406.5, y_max: 351.0, y_min: 338.375}
+  - {label: Green, occluded: true, x_max: 708.75, x_min: 701.875, y_max: 348.875,
+    y_min: 333.0}
+  path: rgb/test/38112.png
 - boxes:
   - {label: Green, occluded: false, x_max: 410.625, x_min: 405.625, y_max: 350.25,
     y_min: 337.875}
@@ -23343,6 +29263,9 @@
   - {label: Green, occluded: false, x_max: 407.75, x_min: 402.125, y_max: 343.375,
     y_min: 329.25}
   path: rgb/test/38120.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 406.625, x_min: 401.5, y_max: 339.75, y_min: 326.75}
+  path: rgb/test/38122.png
 - boxes:
   - {label: Green, occluded: false, x_max: 406.625, x_min: 400.625, y_max: 337.875,
     y_min: 324.25}
@@ -23363,6 +29286,10 @@
 - boxes:
   - {label: Green, occluded: false, x_max: 400.875, x_min: 395.25, y_max: 326.0, y_min: 312.5}
   path: rgb/test/38134.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 399.125, x_min: 393.75, y_max: 323.625,
+    y_min: 310.75}
+  path: rgb/test/38136.png
 - boxes:
   - {label: Green, occluded: false, x_max: 398.75, x_min: 392.625, y_max: 322.875,
     y_min: 309.0}
@@ -23392,6 +29319,10 @@
     y_min: 327.0}
   path: rgb/test/38150.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 391.625, x_min: 385.875, y_max: 340.625,
+    y_min: 326.0}
+  path: rgb/test/38152.png
+- boxes:
   - {label: Green, occluded: false, x_max: 390.25, x_min: 384.625, y_max: 337.375,
     y_min: 323.375}
   path: rgb/test/38154.png
@@ -23399,9 +29330,16 @@
   - {label: Green, occluded: false, x_max: 389.25, x_min: 384.0, y_max: 333.375, y_min: 320.125}
   path: rgb/test/38156.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 388.0, x_min: 382.0, y_max: 333.125, y_min: 319.0}
+  path: rgb/test/38158.png
+- boxes:
   - {label: Green, occluded: false, x_max: 386.625, x_min: 381.125, y_max: 336.5,
     y_min: 322.5}
   path: rgb/test/38160.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 386.5, x_min: 380.125, y_max: 338.375,
+    y_min: 324.125}
+  path: rgb/test/38162.png
 - boxes:
   - {label: Green, occluded: false, x_max: 385.25, x_min: 379.75, y_max: 340.25, y_min: 325.375}
   path: rgb/test/38164.png
@@ -23436,17 +29374,35 @@
     y_min: 318.25}
   path: rgb/test/38180.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 374.625, x_min: 367.875, y_max: 334.625,
+    y_min: 318.875}
+  path: rgb/test/38182.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 373.0, x_min: 366.875, y_max: 336.625,
+    y_min: 320.625}
+  path: rgb/test/38184.png
+- boxes:
   - {label: Green, occluded: false, x_max: 370.5, x_min: 364.875, y_max: 337.5, y_min: 321.625}
   path: rgb/test/38186.png
 - boxes:
   - {label: Green, occluded: false, x_max: 370.0, x_min: 363.75, y_max: 338.5, y_min: 322.5}
   path: rgb/test/38188.png
+- boxes:
+  - {label: 'off', occluded: true, x_max: 367.375, x_min: 361.5, y_max: 337.875, y_min: 324.25}
+  path: rgb/test/38190.png
+- boxes:
+  - {label: 'off', occluded: true, x_max: 367.125, x_min: 360.75, y_max: 339.0, y_min: 323.375}
+  path: rgb/test/38192.png
 - boxes: []
   path: rgb/test/38194.png
 - boxes: []
   path: rgb/test/38196.png
 - boxes: []
   path: rgb/test/38198.png
+- boxes: []
+  path: rgb/test/38200.png
+- boxes: []
+  path: rgb/test/38202.png
 - boxes: []
   path: rgb/test/38204.png
 - boxes: []
@@ -23505,6 +29461,11 @@
   - {label: Green, occluded: false, x_max: 741.0, x_min: 733.625, y_max: 328.75, y_min: 311.5}
   path: rgb/test/38238.png
 - boxes:
+  - {label: Green, occluded: true, x_max: 331.75, x_min: 324.75, y_max: 345.0, y_min: 326.5}
+  - {label: Green, occluded: false, x_max: 742.375, x_min: 735.625, y_max: 328.125,
+    y_min: 311.5}
+  path: rgb/test/38240.png
+- boxes:
   - {label: Green, occluded: false, x_max: 330.5, x_min: 323.625, y_max: 344.5, y_min: 325.625}
   - {label: Green, occluded: false, x_max: 744.5, x_min: 737.0, y_max: 328.125, y_min: 311.0}
   path: rgb/test/38242.png
@@ -23518,6 +29479,12 @@
   - {label: Green, occluded: false, x_max: 748.125, x_min: 740.125, y_max: 324.75,
     y_min: 307.0}
   path: rgb/test/38246.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 326.125, x_min: 319.25, y_max: 339.75,
+    y_min: 321.25}
+  - {label: Green, occluded: false, x_max: 749.625, x_min: 742.0, y_max: 322.625,
+    y_min: 305.375}
+  path: rgb/test/38248.png
 - boxes:
   - {label: Green, occluded: false, x_max: 324.875, x_min: 318.875, y_max: 340.0,
     y_min: 320.875}
@@ -23590,6 +29557,15 @@
   - {label: Green, occluded: false, x_max: 785.875, x_min: 778.25, y_max: 309.5, y_min: 288.75}
   path: rgb/test/38276.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 308.75, x_min: 300.5, y_max: 325.375, y_min: 305.75}
+  - {label: Green, occluded: false, x_max: 787.5, x_min: 780.625, y_max: 308.5, y_min: 289.625}
+  path: rgb/test/38278.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 306.875, x_min: 299.25, y_max: 325.375,
+    y_min: 305.875}
+  - {label: Green, occluded: false, x_max: 790.375, x_min: 783.0, y_max: 309.5, y_min: 289.125}
+  path: rgb/test/38280.png
+- boxes:
   - {label: Green, occluded: false, x_max: 305.25, x_min: 297.625, y_max: 328.25,
     y_min: 307.25}
   - {label: Green, occluded: true, x_max: 792.25, x_min: 785.125, y_max: 312.0, y_min: 291.25}
@@ -23599,6 +29575,11 @@
     y_min: 308.0}
   - {label: Green, occluded: true, x_max: 794.25, x_min: 786.5, y_max: 311.0, y_min: 291.625}
   path: rgb/test/38284.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 299.25, x_min: 292.125, y_max: 329.625,
+    y_min: 309.125}
+  - {label: Green, occluded: true, x_max: 795.625, x_min: 788.5, y_max: 313.375, y_min: 293.0}
+  path: rgb/test/38286.png
 - boxes:
   - {label: Green, occluded: false, x_max: 296.75, x_min: 289.625, y_max: 333.875,
     y_min: 312.625}
@@ -23645,9 +29626,20 @@
     y_min: 304.375}
   path: rgb/test/38306.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 516.125, x_min: 513.5, y_max: 351.0, y_min: 343.625}
+  - {label: Green, occluded: false, x_max: 271.125, x_min: 263.25, y_max: 326.375,
+    y_min: 302.75}
+  path: rgb/test/38308.png
+- boxes:
   - {label: Green, occluded: false, x_max: 515.5, x_min: 513.625, y_max: 350.0, y_min: 343.75}
   - {label: Green, occluded: false, x_max: 268.5, x_min: 260.0, y_max: 326.25, y_min: 300.875}
   path: rgb/test/38310.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 515.125, x_min: 512.75, y_max: 351.375,
+    y_min: 344.5}
+  - {label: Green, occluded: false, x_max: 264.25, x_min: 256.125, y_max: 325.25,
+    y_min: 300.25}
+  path: rgb/test/38312.png
 - boxes:
   - {label: Green, occluded: false, x_max: 515.0, x_min: 511.875, y_max: 352.625,
     y_min: 344.625}
@@ -23697,6 +29689,20 @@
     y_min: 282.625}
   - {label: Green, occluded: true, x_max: 841.625, x_min: 830.5, y_max: 290.375, y_min: 265.75}
   path: rgb/test/38328.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 504.625, x_min: 501.75, y_max: 341.625, y_min: 333.0}
+  - {label: Green, occluded: false, x_max: 219.125, x_min: 210.875, y_max: 312.75,
+    y_min: 285.5}
+  - {label: Green, occluded: false, x_max: 841.625, x_min: 832.125, y_max: 291.875,
+    y_min: 268.75}
+  path: rgb/test/38330.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 502.625, x_min: 500.0, y_max: 346.25, y_min: 337.625}
+  - {label: Green, occluded: false, x_max: 213.5, x_min: 204.375, y_max: 317.375,
+    y_min: 288.75}
+  - {label: Green, occluded: false, x_max: 843.0, x_min: 833.125, y_max: 296.125,
+    y_min: 271.25}
+  path: rgb/test/38332.png
 - boxes:
   - {label: Red, occluded: false, x_max: 501.625, x_min: 499.125, y_max: 348.625,
     y_min: 340.875}
@@ -23756,11 +29762,32 @@
     y_min: 265.375}
   path: rgb/test/38348.png
 - boxes:
+  - {label: 'off', occluded: false, x_max: 494.375, x_min: 491.75, y_max: 346.75,
+    y_min: 338.625}
+  - {label: Green, occluded: false, x_max: 161.25, x_min: 152.125, y_max: 311.625,
+    y_min: 281.875}
+  - {label: Green, occluded: false, x_max: 863.125, x_min: 851.625, y_max: 292.375,
+    y_min: 263.625}
+  path: rgb/test/38350.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 493.875, x_min: 491.25, y_max: 346.375,
+    y_min: 338.625}
+  - {label: Green, occluded: false, x_max: 155.75, x_min: 146.5, y_max: 312.5, y_min: 280.625}
+  - {label: Green, occluded: false, x_max: 865.25, x_min: 854.25, y_max: 291.0, y_min: 262.375}
+  path: rgb/test/38352.png
+- boxes:
   - {label: 'off', occluded: false, x_max: 492.75, x_min: 489.75, y_max: 346.5, y_min: 338.5}
   - {label: Green, occluded: false, x_max: 149.75, x_min: 139.5, y_max: 312.0, y_min: 283.375}
   - {label: Green, occluded: false, x_max: 867.375, x_min: 857.25, y_max: 289.75,
     y_min: 260.125}
   path: rgb/test/38354.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 493.375, x_min: 489.75, y_max: 347.125,
+    y_min: 339.625}
+  - {label: Green, occluded: false, x_max: 144.125, x_min: 131.875, y_max: 313.25,
+    y_min: 283.125}
+  - {label: Green, occluded: false, x_max: 871.375, x_min: 860.5, y_max: 288.25, y_min: 258.75}
+  path: rgb/test/38356.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 492.0, x_min: 489.0, y_max: 346.75, y_min: 338.5}
   - {label: Green, occluded: false, x_max: 137.125, x_min: 127.0, y_max: 312.0, y_min: 281.75}
@@ -23789,6 +29816,14 @@
   - {label: Green, occluded: false, x_max: 885.5, x_min: 875.125, y_max: 287.25, y_min: 255.75}
   path: rgb/test/38364.png
 - boxes:
+  - {label: 'off', occluded: false, x_max: 493.25, x_min: 490.125, y_max: 345.875,
+    y_min: 337.75}
+  - {label: Green, occluded: false, x_max: 113.125, x_min: 101.375, y_max: 307.125,
+    y_min: 273.25}
+  - {label: Green, occluded: false, x_max: 890.375, x_min: 878.875, y_max: 285.75,
+    y_min: 254.25}
+  path: rgb/test/38366.png
+- boxes:
   - {label: 'off', occluded: false, x_max: 492.25, x_min: 489.625, y_max: 343.875,
     y_min: 335.75}
   - {label: Green, occluded: false, x_max: 107.0, x_min: 95.375, y_max: 303.625, y_min: 271.5}
@@ -23806,6 +29841,13 @@
   - {label: Green, occluded: false, x_max: 93.5, x_min: 81.625, y_max: 298.75, y_min: 267.75}
   - {label: Green, occluded: false, x_max: 901.5, x_min: 889.125, y_max: 272.75, y_min: 240.25}
   path: rgb/test/38372.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 493.375, x_min: 489.75, y_max: 338.125,
+    y_min: 329.125}
+  - {label: Green, occluded: false, x_max: 86.375, x_min: 74.875, y_max: 297.0, y_min: 265.125}
+  - {label: Green, occluded: false, x_max: 905.125, x_min: 894.25, y_max: 270.125,
+    y_min: 237.25}
+  path: rgb/test/38374.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 493.625, x_min: 489.75, y_max: 338.0, y_min: 329.875}
   - {label: Green, occluded: false, x_max: 79.875, x_min: 68.375, y_max: 295.375,
@@ -23857,6 +29899,12 @@
     y_min: 223.25}
   path: rgb/test/38390.png
 - boxes:
+  - {label: 'off', occluded: false, x_max: 496.75, x_min: 494.0, y_max: 345.875, y_min: 335.125}
+  - {label: Green, occluded: false, x_max: 20.75, x_min: 6.75, y_max: 298.5, y_min: 261.0}
+  - {label: Green, occluded: false, x_max: 955.375, x_min: 941.5, y_max: 262.125,
+    y_min: 224.875}
+  path: rgb/test/38392.png
+- boxes:
   - {label: 'off', occluded: false, x_max: 499.375, x_min: 496.0, y_max: 348.75, y_min: 339.875}
   - {label: Green, occluded: false, x_max: 13.25, x_min: 0.125, y_max: 303.625, y_min: 265.125}
   - {label: Green, occluded: false, x_max: 963.0, x_min: 949.75, y_max: 264.125, y_min: 225.625}
@@ -23867,6 +29915,10 @@
   - {label: Green, occluded: false, x_max: 971.875, x_min: 956.0, y_max: 263.875,
     y_min: 223.625}
   path: rgb/test/38396.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 504.125, x_min: 500.5, y_max: 352.25, y_min: 343.0}
+  - {label: Green, occluded: false, x_max: 979.5, x_min: 965.375, y_max: 264.0, y_min: 222.0}
+  path: rgb/test/38398.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 506.125, x_min: 502.75, y_max: 352.625,
     y_min: 343.0}
@@ -23976,6 +30028,20 @@
     y_min: 159.125}
   path: rgb/test/38438.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 559.625, x_min: 555.375, y_max: 362.875,
+    y_min: 351.5}
+  - {label: Green, occluded: false, x_max: 1262.0, x_min: 1236.25, y_max: 220.25,
+    y_min: 157.625}
+  path: rgb/test/38440.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 562.5, x_min: 557.25, y_max: 360.25, y_min: 348.375}
+  - {label: Green, occluded: false, x_max: 1278.375, x_min: 1255.375, y_max: 216.375,
+    y_min: 151.125}
+  path: rgb/test/38442.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 564.875, x_min: 560.25, y_max: 354.625, y_min: 343.25}
+  path: rgb/test/38444.png
+- boxes:
   - {label: Red, occluded: false, x_max: 566.75, x_min: 562.625, y_max: 348.0, y_min: 335.5}
   path: rgb/test/38446.png
 - boxes:
@@ -24000,12 +30066,22 @@
   - {label: Red, occluded: false, x_max: 580.25, x_min: 575.0, y_max: 352.875, y_min: 340.75}
   path: rgb/test/38460.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 582.125, x_min: 577.25, y_max: 349.625, y_min: 338.0}
+  path: rgb/test/38462.png
+- boxes:
   - {label: Red, occluded: false, x_max: 582.75, x_min: 577.375, y_max: 342.0, y_min: 329.625}
   path: rgb/test/38464.png
 - boxes:
   - {label: Red, occluded: false, x_max: 582.875, x_min: 578.625, y_max: 333.875,
     y_min: 321.75}
   path: rgb/test/38466.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 584.5, x_min: 579.625, y_max: 333.75, y_min: 321.75}
+  path: rgb/test/38468.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 585.875, x_min: 581.625, y_max: 340.625,
+    y_min: 328.0}
+  path: rgb/test/38470.png
 - boxes:
   - {label: Red, occluded: false, x_max: 586.75, x_min: 582.0, y_max: 346.625, y_min: 334.875}
   path: rgb/test/38472.png
@@ -24022,11 +30098,17 @@
   - {label: Red, occluded: false, x_max: 590.75, x_min: 586.625, y_max: 346.375, y_min: 334.5}
   path: rgb/test/38480.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 592.25, x_min: 587.5, y_max: 336.375, y_min: 324.125}
+  path: rgb/test/38482.png
+- boxes:
   - {label: Red, occluded: false, x_max: 592.875, x_min: 588.125, y_max: 329.5, y_min: 316.75}
   path: rgb/test/38484.png
 - boxes:
   - {label: Red, occluded: false, x_max: 594.125, x_min: 589.5, y_max: 325.875, y_min: 312.375}
   path: rgb/test/38486.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 593.5, x_min: 589.125, y_max: 323.875, y_min: 310.875}
+  path: rgb/test/38488.png
 - boxes:
   - {label: Red, occluded: false, x_max: 594.25, x_min: 589.125, y_max: 323.875, y_min: 310.625}
   path: rgb/test/38490.png
@@ -24050,11 +30132,21 @@
   - {label: Red, occluded: false, x_max: 598.625, x_min: 592.5, y_max: 324.5, y_min: 310.375}
   path: rgb/test/38502.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 598.625, x_min: 593.0, y_max: 319.125, y_min: 306.125}
+  path: rgb/test/38504.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 598.5, x_min: 592.625, y_max: 318.125, y_min: 304.5}
+  path: rgb/test/38506.png
+- boxes:
   - {label: Red, occluded: false, x_max: 598.625, x_min: 592.75, y_max: 324.125, y_min: 310.5}
   path: rgb/test/38508.png
 - boxes:
   - {label: Red, occluded: false, x_max: 597.375, x_min: 591.375, y_max: 330.5, y_min: 316.625}
   path: rgb/test/38510.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 596.125, x_min: 590.75, y_max: 336.25, y_min: 322.125}
+  - {label: 'off', occluded: true, x_max: 905.5, x_min: 901.75, y_max: 332.25, y_min: 319.75}
+  path: rgb/test/38512.png
 - boxes:
   - {label: Red, occluded: false, x_max: 595.625, x_min: 590.25, y_max: 340.625, y_min: 325.375}
   - {label: 'off', occluded: true, x_max: 906.375, x_min: 903.0, y_max: 334.25, y_min: 322.375}
@@ -24068,6 +30160,10 @@
   - {label: Red, occluded: false, x_max: 907.375, x_min: 903.0, y_max: 328.75, y_min: 315.625}
   path: rgb/test/38518.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 589.875, x_min: 582.875, y_max: 331.0, y_min: 316.125}
+  - {label: Red, occluded: false, x_max: 905.5, x_min: 901.875, y_max: 326.375, y_min: 312.75}
+  path: rgb/test/38520.png
+- boxes:
   - {label: Red, occluded: false, x_max: 587.625, x_min: 580.625, y_max: 328.25, y_min: 313.375}
   - {label: Red, occluded: false, x_max: 905.375, x_min: 900.75, y_max: 324.125, y_min: 311.25}
   path: rgb/test/38522.png
@@ -24075,6 +30171,15 @@
   - {label: Red, occluded: false, x_max: 583.75, x_min: 577.125, y_max: 325.625, y_min: 310.75}
   - {label: Red, occluded: false, x_max: 904.25, x_min: 900.25, y_max: 322.625, y_min: 308.875}
   path: rgb/test/38524.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 580.625, x_min: 573.125, y_max: 323.5, y_min: 307.75}
+  - {label: Red, occluded: false, x_max: 902.875, x_min: 899.625, y_max: 319.875,
+    y_min: 306.0}
+  path: rgb/test/38526.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 576.75, x_min: 569.375, y_max: 323.5, y_min: 307.375}
+  - {label: Red, occluded: false, x_max: 900.875, x_min: 897.25, y_max: 320.375, y_min: 306.375}
+  path: rgb/test/38528.png
 - boxes:
   - {label: Red, occluded: false, x_max: 571.25, x_min: 564.375, y_max: 324.375, y_min: 309.0}
   - {label: Red, occluded: false, x_max: 897.75, x_min: 893.625, y_max: 321.875, y_min: 307.625}
@@ -24088,6 +30193,14 @@
   - {label: Red, occluded: false, x_max: 561.25, x_min: 554.375, y_max: 327.875, y_min: 312.875}
   - {label: Red, occluded: false, x_max: 891.625, x_min: 887.5, y_max: 325.0, y_min: 309.25}
   path: rgb/test/38534.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 555.625, x_min: 549.0, y_max: 330.75, y_min: 316.0}
+  - {label: Red, occluded: false, x_max: 888.375, x_min: 884.0, y_max: 328.25, y_min: 313.125}
+  path: rgb/test/38536.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 550.125, x_min: 543.0, y_max: 334.625, y_min: 320.0}
+  - {label: Red, occluded: false, x_max: 885.0, x_min: 881.375, y_max: 332.375, y_min: 318.0}
+  path: rgb/test/38538.png
 - boxes:
   - {label: Red, occluded: false, x_max: 544.75, x_min: 537.25, y_max: 337.5, y_min: 321.5}
   - {label: Red, occluded: false, x_max: 881.625, x_min: 877.875, y_max: 334.5, y_min: 319.75}
@@ -24105,9 +30218,21 @@
   - {label: Red, occluded: false, x_max: 871.125, x_min: 867.0, y_max: 331.0, y_min: 316.0}
   path: rgb/test/38546.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 522.0, x_min: 515.25, y_max: 332.0, y_min: 316.625}
+  - {label: Red, occluded: false, x_max: 867.75, x_min: 863.0, y_max: 328.625, y_min: 312.5}
+  path: rgb/test/38548.png
+- boxes:
   - {label: Red, occluded: false, x_max: 516.125, x_min: 508.375, y_max: 331.0, y_min: 314.375}
   - {label: Red, occluded: false, x_max: 864.125, x_min: 860.125, y_max: 327.25, y_min: 312.25}
   path: rgb/test/38550.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 510.5, x_min: 503.25, y_max: 329.125, y_min: 314.125}
+  - {label: Red, occluded: false, x_max: 860.875, x_min: 856.5, y_max: 326.25, y_min: 310.625}
+  path: rgb/test/38552.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 505.0, x_min: 497.75, y_max: 327.375, y_min: 312.25}
+  - {label: Red, occluded: false, x_max: 857.125, x_min: 853.0, y_max: 324.5, y_min: 309.625}
+  path: rgb/test/38554.png
 - boxes:
   - {label: Red, occluded: false, x_max: 498.0, x_min: 492.125, y_max: 325.75, y_min: 310.25}
   - {label: Red, occluded: false, x_max: 854.25, x_min: 849.5, y_max: 323.25, y_min: 307.0}
@@ -24140,9 +30265,18 @@
   - {label: Red, occluded: false, x_max: 837.0, x_min: 832.75, y_max: 316.625, y_min: 301.0}
   path: rgb/test/38568.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 461.625, x_min: 455.0, y_max: 320.625, y_min: 305.25}
+  - {label: Red, occluded: false, x_max: 835.125, x_min: 830.75, y_max: 316.125, y_min: 300.25}
+  path: rgb/test/38570.png
+- boxes:
   - {label: Red, occluded: false, x_max: 457.375, x_min: 451.0, y_max: 322.0, y_min: 305.75}
   - {label: Red, occluded: false, x_max: 833.625, x_min: 829.125, y_max: 316.75, y_min: 301.125}
   path: rgb/test/38572.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 454.0, x_min: 447.5, y_max: 322.5, y_min: 306.375}
+  - {label: Red, occluded: false, x_max: 832.875, x_min: 827.625, y_max: 317.375,
+    y_min: 301.875}
+  path: rgb/test/38574.png
 - boxes:
   - {label: Red, occluded: false, x_max: 450.5, x_min: 443.5, y_max: 324.25, y_min: 308.875}
   - {label: Red, occluded: false, x_max: 831.0, x_min: 826.25, y_max: 319.375, y_min: 302.625}
@@ -24168,13 +30302,29 @@
   - {label: Red, occluded: false, x_max: 828.75, x_min: 824.375, y_max: 319.125, y_min: 302.5}
   path: rgb/test/38586.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 431.375, x_min: 425.0, y_max: 324.375, y_min: 307.625}
+  - {label: Red, occluded: false, x_max: 828.875, x_min: 823.75, y_max: 320.375, y_min: 303.375}
+  path: rgb/test/38588.png
+- boxes:
   - {label: Red, occluded: false, x_max: 429.75, x_min: 422.375, y_max: 326.125, y_min: 309.25}
   - {label: Red, occluded: false, x_max: 828.75, x_min: 824.0, y_max: 322.25, y_min: 305.75}
   path: rgb/test/38590.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 425.375, x_min: 418.875, y_max: 326.5, y_min: 310.125}
+  - {label: Red, occluded: false, x_max: 828.75, x_min: 823.875, y_max: 323.375, y_min: 307.125}
+  path: rgb/test/38592.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 423.0, x_min: 416.5, y_max: 327.125, y_min: 310.625}
+  - {label: Red, occluded: false, x_max: 828.375, x_min: 823.5, y_max: 323.625, y_min: 306.5}
+  path: rgb/test/38594.png
+- boxes:
   - {label: Red, occluded: false, x_max: 419.75, x_min: 412.875, y_max: 327.75, y_min: 309.375}
   - {label: Red, occluded: false, x_max: 827.625, x_min: 822.375, y_max: 324.25, y_min: 307.25}
   path: rgb/test/38596.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 416.75, x_min: 409.125, y_max: 327.125, y_min: 309.125}
+  - {label: Red, occluded: false, x_max: 827.5, x_min: 823.25, y_max: 323.75, y_min: 306.375}
+  path: rgb/test/38598.png
 - boxes:
   - {label: Red, occluded: false, x_max: 413.625, x_min: 406.875, y_max: 325.25, y_min: 307.375}
   - {label: Red, occluded: false, x_max: 827.375, x_min: 822.75, y_max: 322.375, y_min: 305.25}
@@ -24194,6 +30344,10 @@
   - {label: Red, occluded: false, x_max: 827.625, x_min: 822.875, y_max: 320.375,
     y_min: 302.875}
   path: rgb/test/38606.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 403.125, x_min: 395.875, y_max: 324.5, y_min: 306.375}
+  - {label: Red, occluded: false, x_max: 827.625, x_min: 823.0, y_max: 320.125, y_min: 302.875}
+  path: rgb/test/38608.png
 - boxes:
   - {label: Red, occluded: false, x_max: 399.875, x_min: 393.0, y_max: 324.5, y_min: 305.125}
   - {label: Red, occluded: false, x_max: 828.5, x_min: 823.625, y_max: 319.75, y_min: 301.5}
@@ -24222,6 +30376,10 @@
   - {label: Red, occluded: false, x_max: 388.25, x_min: 379.625, y_max: 325.125, y_min: 305.375}
   - {label: Red, occluded: true, x_max: 835.625, x_min: 828.5, y_max: 318.75, y_min: 300.375}
   path: rgb/test/38622.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 386.375, x_min: 379.5, y_max: 325.875, y_min: 305.5}
+  - {label: Red, occluded: true, x_max: 837.25, x_min: 829.25, y_max: 318.125, y_min: 299.75}
+  path: rgb/test/38624.png
 - boxes:
   - {label: Red, occluded: false, x_max: 385.25, x_min: 377.125, y_max: 326.0, y_min: 306.875}
   - {label: Red, occluded: true, x_max: 838.5, x_min: 832.5, y_max: 319.0, y_min: 300.25}
@@ -24263,8 +30421,18 @@
   - {label: Red, occluded: false, x_max: 376.375, x_min: 368.25, y_max: 318.5, y_min: 297.5}
   path: rgb/test/38644.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 375.0, x_min: 367.0, y_max: 319.375, y_min: 297.5}
+  path: rgb/test/38646.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 373.0, x_min: 364.375, y_max: 320.0, y_min: 298.875}
+  path: rgb/test/38648.png
+- boxes:
   - {label: Red, occluded: false, x_max: 370.625, x_min: 362.75, y_max: 322.125, y_min: 300.375}
   path: rgb/test/38650.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 368.125, x_min: 360.125, y_max: 322.625,
+    y_min: 300.5}
+  path: rgb/test/38652.png
 - boxes:
   - {label: Red, occluded: false, x_max: 365.75, x_min: 356.875, y_max: 323.5, y_min: 300.75}
   path: rgb/test/38654.png
@@ -24275,6 +30443,9 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 361.5, x_min: 353.0, y_max: 320.25, y_min: 298.0}
   path: rgb/test/38658.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 358.625, x_min: 350.75, y_max: 318.5, y_min: 296.625}
+  path: rgb/test/38660.png
 - boxes:
   - {label: Red, occluded: false, x_max: 356.375, x_min: 348.5, y_max: 319.25, y_min: 296.0}
   path: rgb/test/38662.png
@@ -24287,6 +30458,9 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 348.125, x_min: 339.5, y_max: 315.25, y_min: 291.0}
   path: rgb/test/38668.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 345.0, x_min: 336.25, y_max: 315.125, y_min: 291.125}
+  path: rgb/test/38670.png
 - boxes:
   - {label: Red, occluded: false, x_max: 342.125, x_min: 334.0, y_max: 315.625, y_min: 291.25}
   path: rgb/test/38672.png
@@ -24307,8 +30481,14 @@
   - {label: Red, occluded: false, x_max: 326.0, x_min: 317.375, y_max: 311.875, y_min: 287.375}
   path: rgb/test/38682.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 323.875, x_min: 314.125, y_max: 312.75, y_min: 287.875}
+  path: rgb/test/38684.png
+- boxes:
   - {label: Red, occluded: false, x_max: 319.625, x_min: 310.75, y_max: 311.5, y_min: 287.875}
   path: rgb/test/38686.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 316.875, x_min: 307.75, y_max: 311.25, y_min: 287.625}
+  path: rgb/test/38688.png
 - boxes:
   - {label: Red, occluded: false, x_max: 314.0, x_min: 303.75, y_max: 311.625, y_min: 286.25}
   path: rgb/test/38690.png
@@ -24320,17 +30500,30 @@
     y_min: 286.375}
   path: rgb/test/38694.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 302.25, x_min: 293.5, y_max: 312.5, y_min: 287.875}
+  path: rgb/test/38696.png
+- boxes:
   - {label: Red, occluded: false, x_max: 299.25, x_min: 289.5, y_max: 311.5, y_min: 286.75}
   path: rgb/test/38698.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 295.375, x_min: 286.375, y_max: 310.375,
+    y_min: 286.25}
+  path: rgb/test/38700.png
+- boxes:
   - {label: Red, occluded: false, x_max: 292.25, x_min: 282.625, y_max: 310.5, y_min: 284.25}
   path: rgb/test/38702.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 289.0, x_min: 279.25, y_max: 307.125, y_min: 282.5}
+  path: rgb/test/38704.png
 - boxes:
   - {label: Red, occluded: false, x_max: 285.375, x_min: 276.0, y_max: 306.5, y_min: 281.25}
   path: rgb/test/38706.png
 - boxes:
   - {label: Red, occluded: false, x_max: 281.625, x_min: 272.5, y_max: 306.75, y_min: 281.75}
   path: rgb/test/38708.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 277.625, x_min: 268.25, y_max: 306.5, y_min: 280.5}
+  path: rgb/test/38710.png
 - boxes:
   - {label: Red, occluded: false, x_max: 272.875, x_min: 264.5, y_max: 306.125, y_min: 279.125}
   - {label: Red, occluded: true, x_max: 902.0, x_min: 892.25, y_max: 297.875, y_min: 272.25}
@@ -24347,6 +30540,10 @@
   - {label: Red, occluded: false, x_max: 263.375, x_min: 254.25, y_max: 302.625, y_min: 276.375}
   - {label: Red, occluded: false, x_max: 905.375, x_min: 896.0, y_max: 294.75, y_min: 267.75}
   path: rgb/test/38718.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 260.75, x_min: 251.25, y_max: 302.5, y_min: 275.0}
+  - {label: Red, occluded: false, x_max: 906.125, x_min: 897.0, y_max: 293.625, y_min: 266.875}
+  path: rgb/test/38720.png
 - boxes:
   - {label: Red, occluded: false, x_max: 258.75, x_min: 248.625, y_max: 299.625, y_min: 272.875}
   - {label: Red, occluded: false, x_max: 908.25, x_min: 899.375, y_max: 293.125, y_min: 266.375}
@@ -24378,9 +30575,17 @@
   - {label: Red, occluded: false, x_max: 917.75, x_min: 908.5, y_max: 294.625, y_min: 265.875}
   path: rgb/test/38734.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 238.625, x_min: 228.5, y_max: 300.75, y_min: 272.5}
+  - {label: Red, occluded: false, x_max: 918.875, x_min: 910.25, y_max: 294.75, y_min: 266.375}
+  path: rgb/test/38736.png
+- boxes:
   - {label: Red, occluded: false, x_max: 235.625, x_min: 226.125, y_max: 300.5, y_min: 273.125}
   - {label: Red, occluded: false, x_max: 919.75, x_min: 911.125, y_max: 294.0, y_min: 267.0}
   path: rgb/test/38738.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 234.375, x_min: 223.25, y_max: 299.5, y_min: 272.5}
+  - {label: Red, occluded: false, x_max: 922.375, x_min: 912.875, y_max: 294.25, y_min: 266.125}
+  path: rgb/test/38740.png
 - boxes:
   - {label: Red, occluded: true, x_max: 230.75, x_min: 221.0, y_max: 300.375, y_min: 272.625}
   - {label: Red, occluded: false, x_max: 922.5, x_min: 913.75, y_max: 294.125, y_min: 264.0}
@@ -24393,6 +30598,10 @@
   - {label: Red, occluded: true, x_max: 225.75, x_min: 215.375, y_max: 301.875, y_min: 272.75}
   - {label: Red, occluded: false, x_max: 925.875, x_min: 915.75, y_max: 293.5, y_min: 263.875}
   path: rgb/test/38746.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 223.0, x_min: 213.125, y_max: 301.75, y_min: 273.625}
+  - {label: Red, occluded: false, x_max: 927.0, x_min: 917.25, y_max: 293.25, y_min: 263.875}
+  path: rgb/test/38748.png
 - boxes:
   - {label: Red, occluded: true, x_max: 222.5, x_min: 209.875, y_max: 302.375, y_min: 272.625}
   - {label: Red, occluded: false, x_max: 928.375, x_min: 918.125, y_max: 292.125,
@@ -24419,6 +30628,12 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 933.5, x_min: 924.0, y_max: 287.5, y_min: 257.75}
   path: rgb/test/38762.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 934.875, x_min: 925.75, y_max: 286.375, y_min: 255.875}
+  path: rgb/test/38764.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 936.0, x_min: 926.5, y_max: 285.0, y_min: 255.375}
+  path: rgb/test/38766.png
 - boxes:
   - {label: Red, occluded: false, x_max: 937.5, x_min: 927.625, y_max: 284.5, y_min: 255.5}
   path: rgb/test/38768.png
@@ -24450,6 +30665,10 @@
   - {label: Red, occluded: false, x_max: 947.125, x_min: 937.375, y_max: 280.25, y_min: 248.125}
   path: rgb/test/38786.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 947.625, x_min: 937.875, y_max: 280.375,
+    y_min: 247.25}
+  path: rgb/test/38788.png
+- boxes:
   - {label: Red, occluded: false, x_max: 948.5, x_min: 938.625, y_max: 278.625, y_min: 245.875}
   path: rgb/test/38790.png
 - boxes:
@@ -24461,6 +30680,13 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 951.5, x_min: 941.25, y_max: 276.875, y_min: 243.75}
   path: rgb/test/38796.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 952.5, x_min: 942.375, y_max: 276.75, y_min: 243.375}
+  path: rgb/test/38798.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 953.375, x_min: 943.375, y_max: 274.875,
+    y_min: 242.875}
+  path: rgb/test/38800.png
 - boxes:
   - {label: Red, occluded: false, x_max: 954.125, x_min: 943.75, y_max: 276.0, y_min: 243.0}
   path: rgb/test/38802.png
@@ -24515,10 +30741,24 @@
   - {label: Red, occluded: false, x_max: 964.875, x_min: 953.5, y_max: 270.625, y_min: 235.625}
   path: rgb/test/38832.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 144.875, x_min: 134.875, y_max: 285.875,
+    y_min: 251.5}
+  - {label: Red, occluded: false, x_max: 965.625, x_min: 954.625, y_max: 269.875,
+    y_min: 235.25}
+  path: rgb/test/38834.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 144.25, x_min: 133.375, y_max: 284.625, y_min: 250.375}
+  - {label: Red, occluded: false, x_max: 965.75, x_min: 955.625, y_max: 270.0, y_min: 235.875}
+  path: rgb/test/38836.png
+- boxes:
   - {label: Red, occluded: false, x_max: 143.375, x_min: 132.375, y_max: 284.125,
     y_min: 249.625}
   - {label: Red, occluded: false, x_max: 966.375, x_min: 955.75, y_max: 269.25, y_min: 235.25}
   path: rgb/test/38838.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 142.25, x_min: 131.375, y_max: 283.375, y_min: 249.75}
+  - {label: Red, occluded: false, x_max: 967.0, x_min: 956.125, y_max: 269.625, y_min: 234.75}
+  path: rgb/test/38840.png
 - boxes:
   - {label: Red, occluded: false, x_max: 141.125, x_min: 130.5, y_max: 283.5, y_min: 249.125}
   - {label: Red, occluded: false, x_max: 968.0, x_min: 957.0, y_max: 270.0, y_min: 235.125}
@@ -24580,6 +30820,10 @@
   - {label: Red, occluded: false, x_max: 974.125, x_min: 962.0, y_max: 269.5, y_min: 234.75}
   path: rgb/test/38868.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 131.75, x_min: 119.625, y_max: 284.375, y_min: 249.25}
+  - {label: Red, occluded: false, x_max: 974.625, x_min: 962.25, y_max: 270.125, y_min: 234.25}
+  path: rgb/test/38870.png
+- boxes:
   - {label: Red, occluded: false, x_max: 130.0, x_min: 118.25, y_max: 284.25, y_min: 248.875}
   - {label: Red, occluded: false, x_max: 974.125, x_min: 963.5, y_max: 269.5, y_min: 233.875}
   path: rgb/test/38872.png
@@ -24589,9 +30833,17 @@
     y_min: 233.75}
   path: rgb/test/38874.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 129.0, x_min: 116.875, y_max: 284.625, y_min: 248.375}
+  - {label: Red, occluded: false, x_max: 974.625, x_min: 963.25, y_max: 268.375, y_min: 233.5}
+  path: rgb/test/38876.png
+- boxes:
   - {label: Red, occluded: false, x_max: 127.75, x_min: 116.75, y_max: 282.875, y_min: 248.0}
   - {label: Red, occluded: false, x_max: 975.5, x_min: 963.5, y_max: 268.75, y_min: 233.375}
   path: rgb/test/38878.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 127.625, x_min: 116.5, y_max: 284.125, y_min: 247.625}
+  - {label: Red, occluded: false, x_max: 976.25, x_min: 963.75, y_max: 268.875, y_min: 233.75}
+  path: rgb/test/38880.png
 - boxes:
   - {label: Red, occluded: false, x_max: 127.5, x_min: 116.375, y_max: 283.375, y_min: 248.0}
   - {label: Red, occluded: false, x_max: 975.75, x_min: 964.25, y_max: 268.875, y_min: 234.25}
@@ -24626,6 +30878,10 @@
   - {label: Red, occluded: false, x_max: 978.0, x_min: 966.25, y_max: 269.25, y_min: 234.375}
   path: rgb/test/38896.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 123.875, x_min: 111.375, y_max: 284.75, y_min: 248.625}
+  - {label: Red, occluded: false, x_max: 978.75, x_min: 966.25, y_max: 269.5, y_min: 234.5}
+  path: rgb/test/38898.png
+- boxes:
   - {label: Red, occluded: false, x_max: 123.0, x_min: 111.0, y_max: 283.875, y_min: 248.625}
   - {label: Red, occluded: false, x_max: 979.0, x_min: 966.625, y_max: 269.875, y_min: 234.375}
   path: rgb/test/38900.png
@@ -24638,9 +30894,25 @@
   - {label: Red, occluded: false, x_max: 979.375, x_min: 968.0, y_max: 269.375, y_min: 234.0}
   path: rgb/test/38904.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 120.625, x_min: 109.75, y_max: 283.375, y_min: 247.0}
+  - {label: Red, occluded: false, x_max: 979.5, x_min: 967.75, y_max: 268.75, y_min: 233.375}
+  path: rgb/test/38906.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 120.625, x_min: 109.75, y_max: 282.75, y_min: 247.25}
+  - {label: Red, occluded: false, x_max: 980.0, x_min: 967.375, y_max: 268.75, y_min: 233.125}
+  path: rgb/test/38908.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 121.25, x_min: 108.875, y_max: 282.75, y_min: 246.375}
+  - {label: Red, occluded: false, x_max: 980.25, x_min: 967.625, y_max: 268.125, y_min: 232.625}
+  path: rgb/test/38910.png
+- boxes:
   - {label: Red, occluded: false, x_max: 119.75, x_min: 108.25, y_max: 282.25, y_min: 247.5}
   - {label: Red, occluded: false, x_max: 980.0, x_min: 968.5, y_max: 268.0, y_min: 232.5}
   path: rgb/test/38912.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 119.875, x_min: 108.0, y_max: 282.375, y_min: 245.875}
+  - {label: Red, occluded: false, x_max: 980.125, x_min: 968.875, y_max: 268.0, y_min: 232.375}
+  path: rgb/test/38914.png
 - boxes:
   - {label: Red, occluded: false, x_max: 119.25, x_min: 107.625, y_max: 281.75, y_min: 246.375}
   - {label: Red, occluded: false, x_max: 980.25, x_min: 969.375, y_max: 267.625, y_min: 232.25}
@@ -24649,6 +30921,10 @@
   - {label: Red, occluded: false, x_max: 118.75, x_min: 107.5, y_max: 281.75, y_min: 246.375}
   - {label: Red, occluded: false, x_max: 980.625, x_min: 969.5, y_max: 268.0, y_min: 232.25}
   path: rgb/test/38918.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 118.75, x_min: 107.0, y_max: 282.625, y_min: 246.125}
+  - {label: Red, occluded: false, x_max: 981.0, x_min: 969.125, y_max: 268.0, y_min: 232.625}
+  path: rgb/test/38920.png
 - boxes:
   - {label: Red, occluded: false, x_max: 118.25, x_min: 107.125, y_max: 282.125, y_min: 245.625}
   - {label: Red, occluded: false, x_max: 980.5, x_min: 969.75, y_max: 268.25, y_min: 232.25}
@@ -24686,6 +30962,10 @@
     y_min: 231.25}
   path: rgb/test/38936.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 116.5, x_min: 105.5, y_max: 281.25, y_min: 246.25}
+  - {label: Red, occluded: false, x_max: 981.625, x_min: 970.125, y_max: 267.5, y_min: 231.125}
+  path: rgb/test/38938.png
+- boxes:
   - {label: Red, occluded: false, x_max: 117.25, x_min: 105.75, y_max: 281.375, y_min: 245.0}
   - {label: Red, occluded: false, x_max: 981.875, x_min: 969.875, y_max: 267.375,
     y_min: 231.0}
@@ -24695,6 +30975,10 @@
     y_min: 245.125}
   - {label: Red, occluded: false, x_max: 981.0, x_min: 969.875, y_max: 267.25, y_min: 230.75}
   path: rgb/test/38942.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 116.0, x_min: 105.25, y_max: 281.375, y_min: 245.625}
+  - {label: Red, occluded: false, x_max: 981.125, x_min: 969.5, y_max: 266.5, y_min: 231.5}
+  path: rgb/test/38944.png
 - boxes:
   - {label: Red, occluded: false, x_max: 116.25, x_min: 105.625, y_max: 281.125, y_min: 245.75}
   - {label: Red, occluded: false, x_max: 981.875, x_min: 969.875, y_max: 267.625,
@@ -24709,6 +30993,11 @@
     y_min: 247.0}
   - {label: Red, occluded: false, x_max: 981.625, x_min: 970.0, y_max: 267.75, y_min: 232.125}
   path: rgb/test/38950.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 116.625, x_min: 106.25, y_max: 281.875, y_min: 246.25}
+  - {label: Red, occluded: false, x_max: 981.625, x_min: 970.375, y_max: 267.875,
+    y_min: 231.75}
+  path: rgb/test/38952.png
 - boxes:
   - {label: Red, occluded: false, x_max: 117.0, x_min: 105.375, y_max: 282.25, y_min: 245.75}
   - {label: Red, occluded: false, x_max: 981.625, x_min: 970.25, y_max: 268.375, y_min: 231.75}
@@ -24792,10 +31081,19 @@
   - {label: Red, occluded: false, x_max: 116.0, x_min: 105.625, y_max: 281.75, y_min: 246.125}
   path: rgb/test/38992.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 981.875, x_min: 969.5, y_max: 267.875, y_min: 232.125}
+  - {label: Red, occluded: false, x_max: 116.625, x_min: 105.25, y_max: 281.25, y_min: 245.875}
+  path: rgb/test/38994.png
+- boxes:
   - {label: Red, occluded: false, x_max: 982.375, x_min: 969.375, y_max: 268.125,
     y_min: 232.25}
   - {label: Red, occluded: false, x_max: 115.875, x_min: 105.875, y_max: 280.75, y_min: 246.25}
   path: rgb/test/38996.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 981.375, x_min: 969.875, y_max: 268.125,
+    y_min: 232.125}
+  - {label: Red, occluded: false, x_max: 116.625, x_min: 105.5, y_max: 281.625, y_min: 246.25}
+  path: rgb/test/38998.png
 - boxes:
   - {label: Red, occluded: false, x_max: 981.625, x_min: 969.75, y_max: 268.0, y_min: 232.125}
   - {label: Red, occluded: false, x_max: 116.5, x_min: 105.625, y_max: 281.875, y_min: 246.625}
@@ -24842,6 +31140,12 @@
   - {label: Red, occluded: false, x_max: 116.25, x_min: 105.875, y_max: 282.625, y_min: 246.125}
   path: rgb/test/39020.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 981.625, x_min: 969.375, y_max: 267.875,
+    y_min: 232.375}
+  - {label: Red, occluded: false, x_max: 116.125, x_min: 105.875, y_max: 282.125,
+    y_min: 246.25}
+  path: rgb/test/39022.png
+- boxes:
   - {label: Red, occluded: false, x_max: 981.875, x_min: 969.375, y_max: 268.0, y_min: 232.125}
   - {label: Red, occluded: false, x_max: 116.625, x_min: 105.875, y_max: 282.25, y_min: 246.0}
   path: rgb/test/39024.png
@@ -24859,6 +31163,10 @@
   - {label: Red, occluded: false, x_max: 981.875, x_min: 969.5, y_max: 268.0, y_min: 232.0}
   - {label: Red, occluded: false, x_max: 115.875, x_min: 105.5, y_max: 281.875, y_min: 246.0}
   path: rgb/test/39030.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 981.625, x_min: 969.5, y_max: 268.0, y_min: 232.25}
+  - {label: Red, occluded: false, x_max: 116.25, x_min: 105.75, y_max: 282.0, y_min: 245.875}
+  path: rgb/test/39032.png
 - boxes:
   - {label: Red, occluded: false, x_max: 981.625, x_min: 969.5, y_max: 268.125, y_min: 232.0}
   - {label: Red, occluded: false, x_max: 115.75, x_min: 105.625, y_max: 281.125, y_min: 245.375}
@@ -24906,10 +31214,22 @@
   - {label: Red, occluded: false, x_max: 116.125, x_min: 106.25, y_max: 282.375, y_min: 245.75}
   path: rgb/test/39054.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 981.625, x_min: 969.625, y_max: 268.0, y_min: 232.625}
+  - {label: Red, occluded: false, x_max: 116.25, x_min: 106.375, y_max: 282.125, y_min: 245.875}
+  path: rgb/test/39056.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 981.625, x_min: 969.5, y_max: 267.625, y_min: 232.5}
+  - {label: Red, occluded: false, x_max: 116.125, x_min: 106.5, y_max: 282.75, y_min: 246.25}
+  path: rgb/test/39058.png
+- boxes:
   - {label: Red, occluded: false, x_max: 981.875, x_min: 969.625, y_max: 268.125,
     y_min: 232.375}
   - {label: Red, occluded: false, x_max: 116.125, x_min: 106.5, y_max: 281.25, y_min: 245.625}
   path: rgb/test/39060.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 982.0, x_min: 969.25, y_max: 268.0, y_min: 232.25}
+  - {label: Red, occluded: false, x_max: 116.25, x_min: 106.25, y_max: 282.125, y_min: 245.5}
+  path: rgb/test/39062.png
 - boxes:
   - {label: Red, occluded: false, x_max: 981.875, x_min: 969.625, y_max: 268.125,
     y_min: 232.25}
@@ -24925,6 +31245,10 @@
   - {label: Red, occluded: false, x_max: 115.875, x_min: 105.625, y_max: 282.625,
     y_min: 245.125}
   path: rgb/test/39068.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 981.875, x_min: 969.75, y_max: 268.25, y_min: 232.375}
+  - {label: Red, occluded: false, x_max: 116.0, x_min: 105.625, y_max: 282.5, y_min: 245.125}
+  path: rgb/test/39070.png
 - boxes:
   - {label: Red, occluded: false, x_max: 981.75, x_min: 969.5, y_max: 267.875, y_min: 232.375}
   - {label: Red, occluded: false, x_max: 116.125, x_min: 105.75, y_max: 282.25, y_min: 245.25}
@@ -24946,13 +31270,27 @@
   - {label: Red, occluded: false, x_max: 116.625, x_min: 105.875, y_max: 282.25, y_min: 245.25}
   path: rgb/test/39080.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 981.875, x_min: 969.375, y_max: 267.875,
+    y_min: 232.25}
+  - {label: Red, occluded: false, x_max: 116.5, x_min: 105.75, y_max: 282.25, y_min: 245.375}
+  path: rgb/test/39082.png
+- boxes:
   - {label: Red, occluded: false, x_max: 981.75, x_min: 969.375, y_max: 267.625, y_min: 232.0}
   - {label: Red, occluded: false, x_max: 116.5, x_min: 106.0, y_max: 282.75, y_min: 245.875}
   path: rgb/test/39084.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 981.5, x_min: 969.5, y_max: 267.75, y_min: 232.25}
+  - {label: Red, occluded: false, x_max: 116.375, x_min: 105.75, y_max: 282.375, y_min: 245.875}
+  path: rgb/test/39086.png
+- boxes:
   - {label: Red, occluded: false, x_max: 981.25, x_min: 969.5, y_max: 267.75, y_min: 232.375}
   - {label: Red, occluded: false, x_max: 116.625, x_min: 105.875, y_max: 282.5, y_min: 246.5}
   path: rgb/test/39088.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 981.875, x_min: 969.5, y_max: 268.125, y_min: 232.125}
+  - {label: Red, occluded: false, x_max: 116.375, x_min: 105.625, y_max: 282.375,
+    y_min: 246.625}
+  path: rgb/test/39090.png
 - boxes:
   - {label: Red, occluded: false, x_max: 981.5, x_min: 969.25, y_max: 267.75, y_min: 232.125}
   - {label: Red, occluded: false, x_max: 116.5, x_min: 105.0, y_max: 283.375, y_min: 246.375}
@@ -24970,6 +31308,18 @@
   - {label: Red, occluded: false, x_max: 116.375, x_min: 106.25, y_max: 282.0, y_min: 245.625}
   path: rgb/test/39098.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 982.0, x_min: 969.375, y_max: 268.25, y_min: 232.125}
+  - {label: Red, occluded: false, x_max: 116.375, x_min: 105.5, y_max: 282.0, y_min: 245.875}
+  path: rgb/test/39100.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 981.125, x_min: 969.875, y_max: 267.75, y_min: 231.875}
+  - {label: Red, occluded: false, x_max: 116.75, x_min: 106.375, y_max: 282.25, y_min: 245.875}
+  path: rgb/test/39102.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 981.875, x_min: 969.75, y_max: 267.75, y_min: 232.5}
+  - {label: Red, occluded: false, x_max: 116.0, x_min: 106.0, y_max: 282.125, y_min: 245.625}
+  path: rgb/test/39104.png
+- boxes:
   - {label: Red, occluded: false, x_max: 981.25, x_min: 969.375, y_max: 268.0, y_min: 232.125}
   - {label: Red, occluded: false, x_max: 116.625, x_min: 105.75, y_max: 281.75, y_min: 245.0}
   path: rgb/test/39106.png
@@ -24978,6 +31328,10 @@
     y_min: 232.5}
   - {label: Red, occluded: false, x_max: 115.75, x_min: 105.5, y_max: 282.5, y_min: 245.25}
   path: rgb/test/39108.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 981.75, x_min: 969.5, y_max: 267.875, y_min: 232.375}
+  - {label: Red, occluded: false, x_max: 116.0, x_min: 106.25, y_max: 282.25, y_min: 245.375}
+  path: rgb/test/39110.png
 - boxes:
   - {label: Red, occluded: false, x_max: 981.875, x_min: 969.75, y_max: 268.0, y_min: 232.625}
   - {label: Red, occluded: false, x_max: 116.125, x_min: 106.125, y_max: 282.625,
@@ -24995,6 +31349,10 @@
   - {label: Red, occluded: false, x_max: 982.0, x_min: 969.5, y_max: 268.0, y_min: 232.625}
   - {label: Red, occluded: false, x_max: 116.75, x_min: 105.375, y_max: 282.375, y_min: 245.375}
   path: rgb/test/39118.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 981.75, x_min: 969.375, y_max: 267.375, y_min: 232.375}
+  - {label: Red, occluded: false, x_max: 116.75, x_min: 105.625, y_max: 282.375, y_min: 244.25}
+  path: rgb/test/39120.png
 - boxes:
   - {label: Red, occluded: false, x_max: 981.625, x_min: 969.5, y_max: 268.125, y_min: 232.375}
   - {label: Red, occluded: false, x_max: 116.25, x_min: 106.0, y_max: 282.625, y_min: 244.875}
@@ -25030,6 +31388,10 @@
   - {label: Red, occluded: false, x_max: 116.5, x_min: 105.25, y_max: 282.125, y_min: 245.375}
   path: rgb/test/39136.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 982.125, x_min: 969.75, y_max: 267.75, y_min: 231.875}
+  - {label: Red, occluded: false, x_max: 116.25, x_min: 105.25, y_max: 282.625, y_min: 245.375}
+  path: rgb/test/39138.png
+- boxes:
   - {label: Red, occluded: false, x_max: 981.5, x_min: 969.75, y_max: 268.0, y_min: 231.875}
   - {label: Red, occluded: false, x_max: 115.75, x_min: 105.75, y_max: 281.875, y_min: 245.25}
   path: rgb/test/39140.png
@@ -25048,9 +31410,19 @@
   - {label: Red, occluded: false, x_max: 116.75, x_min: 105.875, y_max: 281.875, y_min: 245.375}
   path: rgb/test/39146.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 981.375, x_min: 969.5, y_max: 268.0, y_min: 232.25}
+  - {label: Red, occluded: false, x_max: 117.125, x_min: 105.875, y_max: 282.5, y_min: 245.375}
+  path: rgb/test/39148.png
+- boxes:
   - {label: Red, occluded: false, x_max: 981.25, x_min: 969.75, y_max: 267.625, y_min: 232.125}
   - {label: Red, occluded: false, x_max: 117.125, x_min: 105.875, y_max: 282.25, y_min: 246.0}
   path: rgb/test/39150.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 982.125, x_min: 969.625, y_max: 267.875,
+    y_min: 232.125}
+  - {label: Red, occluded: false, x_max: 116.625, x_min: 105.125, y_max: 282.625,
+    y_min: 244.375}
+  path: rgb/test/39152.png
 - boxes:
   - {label: Red, occluded: false, x_max: 981.5, x_min: 970.0, y_max: 267.375, y_min: 232.125}
   - {label: Red, occluded: false, x_max: 116.375, x_min: 105.875, y_max: 282.875,
@@ -25060,6 +31432,10 @@
   - {label: Red, occluded: false, x_max: 981.75, x_min: 969.75, y_max: 268.0, y_min: 232.375}
   - {label: Red, occluded: false, x_max: 117.25, x_min: 105.625, y_max: 283.625, y_min: 245.0}
   path: rgb/test/39156.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 981.25, x_min: 969.625, y_max: 267.5, y_min: 232.0}
+  - {label: Red, occluded: false, x_max: 117.0, x_min: 105.625, y_max: 282.875, y_min: 245.875}
+  path: rgb/test/39158.png
 - boxes:
   - {label: Red, occluded: false, x_max: 981.5, x_min: 969.5, y_max: 267.875, y_min: 232.0}
   - {label: Red, occluded: false, x_max: 117.125, x_min: 106.125, y_max: 282.875,
@@ -25094,6 +31470,10 @@
   - {label: Red, occluded: false, x_max: 116.25, x_min: 105.5, y_max: 282.0, y_min: 246.0}
   path: rgb/test/39172.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 981.5, x_min: 969.125, y_max: 267.75, y_min: 232.0}
+  - {label: Red, occluded: false, x_max: 115.75, x_min: 106.375, y_max: 282.375, y_min: 246.625}
+  path: rgb/test/39174.png
+- boxes:
   - {label: Red, occluded: false, x_max: 981.375, x_min: 969.25, y_max: 268.0, y_min: 232.375}
   - {label: Red, occluded: false, x_max: 116.875, x_min: 106.25, y_max: 282.75, y_min: 245.875}
   path: rgb/test/39176.png
@@ -25126,6 +31506,14 @@
   - {label: Red, occluded: false, x_max: 116.5, x_min: 106.375, y_max: 281.875, y_min: 245.25}
   path: rgb/test/39190.png
 - boxes:
+  - {label: 'off', occluded: false, x_max: 981.5, x_min: 969.0, y_max: 268.0, y_min: 231.625}
+  - {label: 'off', occluded: false, x_max: 116.75, x_min: 106.0, y_max: 284.125, y_min: 245.125}
+  path: rgb/test/39192.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 982.375, x_min: 970.25, y_max: 268.0, y_min: 231.625}
+  - {label: Green, occluded: false, x_max: 116.75, x_min: 106.0, y_max: 283.375, y_min: 245.5}
+  path: rgb/test/39194.png
+- boxes:
   - {label: Green, occluded: false, x_max: 981.875, x_min: 969.875, y_max: 267.5,
     y_min: 231.625}
   - {label: Green, occluded: false, x_max: 117.125, x_min: 106.125, y_max: 282.25,
@@ -25140,6 +31528,12 @@
   - {label: Green, occluded: false, x_max: 116.875, x_min: 106.125, y_max: 282.5,
     y_min: 245.75}
   path: rgb/test/39200.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 981.75, x_min: 969.875, y_max: 267.875,
+    y_min: 231.375}
+  - {label: Green, occluded: false, x_max: 118.125, x_min: 105.875, y_max: 283.25,
+    y_min: 245.5}
+  path: rgb/test/39202.png
 - boxes:
   - {label: Green, occluded: false, x_max: 982.0, x_min: 970.75, y_max: 267.125, y_min: 231.875}
   - {label: Green, occluded: false, x_max: 116.875, x_min: 105.5, y_max: 282.375,
@@ -25193,6 +31587,12 @@
     y_min: 245.0}
   path: rgb/test/39222.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 982.25, x_min: 969.625, y_max: 267.875,
+    y_min: 232.125}
+  - {label: Green, occluded: false, x_max: 117.625, x_min: 104.375, y_max: 284.125,
+    y_min: 245.0}
+  path: rgb/test/39224.png
+- boxes:
   - {label: Green, occluded: false, x_max: 981.625, x_min: 970.0, y_max: 267.5, y_min: 232.125}
   - {label: Green, occluded: false, x_max: 117.25, x_min: 104.875, y_max: 282.5, y_min: 244.75}
   path: rgb/test/39226.png
@@ -25211,6 +31611,12 @@
   - {label: Green, occluded: false, x_max: 117.125, x_min: 105.625, y_max: 282.625,
     y_min: 245.5}
   path: rgb/test/39232.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 982.125, x_min: 969.5, y_max: 268.125,
+    y_min: 231.625}
+  - {label: Green, occluded: false, x_max: 117.375, x_min: 104.875, y_max: 282.125,
+    y_min: 244.875}
+  path: rgb/test/39234.png
 - boxes:
   - {label: Green, occluded: false, x_max: 981.625, x_min: 970.0, y_max: 267.5, y_min: 231.875}
   - {label: Green, occluded: false, x_max: 117.625, x_min: 104.75, y_max: 283.25,
@@ -25233,9 +31639,21 @@
   - {label: Green, occluded: false, x_max: 117.375, x_min: 106.25, y_max: 283.0, y_min: 245.375}
   path: rgb/test/39242.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 981.75, x_min: 969.75, y_max: 267.625,
+    y_min: 231.875}
+  - {label: Green, occluded: false, x_max: 117.25, x_min: 105.375, y_max: 282.125,
+    y_min: 245.625}
+  path: rgb/test/39244.png
+- boxes:
   - {label: Green, occluded: false, x_max: 982.0, x_min: 969.75, y_max: 267.875, y_min: 232.375}
   - {label: Green, occluded: false, x_max: 117.75, x_min: 105.5, y_max: 284.125, y_min: 245.375}
   path: rgb/test/39246.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 981.75, x_min: 969.125, y_max: 267.75,
+    y_min: 231.5}
+  - {label: Green, occluded: false, x_max: 117.375, x_min: 105.875, y_max: 284.25,
+    y_min: 245.625}
+  path: rgb/test/39248.png
 - boxes:
   - {label: Green, occluded: false, x_max: 982.125, x_min: 969.0, y_max: 267.875,
     y_min: 232.0}
@@ -25270,10 +31688,22 @@
     y_min: 246.375}
   path: rgb/test/39260.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 982.125, x_min: 970.125, y_max: 268.0,
+    y_min: 232.75}
+  - {label: Green, occluded: false, x_max: 116.625, x_min: 105.5, y_max: 283.375,
+    y_min: 246.375}
+  path: rgb/test/39262.png
+- boxes:
   - {label: Green, occluded: false, x_max: 982.125, x_min: 970.25, y_max: 267.75,
     y_min: 233.125}
   - {label: Green, occluded: false, x_max: 116.875, x_min: 105.5, y_max: 283.25, y_min: 246.75}
   path: rgb/test/39264.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 982.125, x_min: 970.625, y_max: 267.75,
+    y_min: 233.0}
+  - {label: Green, occluded: false, x_max: 116.375, x_min: 105.5, y_max: 283.625,
+    y_min: 246.125}
+  path: rgb/test/39266.png
 - boxes:
   - {label: Green, occluded: false, x_max: 982.25, x_min: 970.75, y_max: 268.25, y_min: 232.625}
   - {label: Green, occluded: false, x_max: 116.0, x_min: 105.75, y_max: 283.75, y_min: 246.375}
@@ -25346,11 +31776,27 @@
     y_min: 247.75}
   path: rgb/test/39294.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 984.625, x_min: 973.75, y_max: 267.5, y_min: 231.75}
+  - {label: Green, occluded: false, x_max: 110.125, x_min: 97.875, y_max: 284.875,
+    y_min: 247.0}
+  path: rgb/test/39296.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 985.25, x_min: 974.875, y_max: 268.0, y_min: 232.5}
+  - {label: Green, occluded: false, x_max: 110.125, x_min: 98.125, y_max: 286.75,
+    y_min: 248.75}
+  path: rgb/test/39298.png
+- boxes:
   - {label: Green, occluded: false, x_max: 985.25, x_min: 974.375, y_max: 268.75,
     y_min: 232.25}
   - {label: Green, occluded: false, x_max: 108.375, x_min: 96.125, y_max: 286.875,
     y_min: 249.5}
   path: rgb/test/39300.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 986.125, x_min: 974.875, y_max: 269.625,
+    y_min: 232.5}
+  - {label: Green, occluded: false, x_max: 107.375, x_min: 95.375, y_max: 287.125,
+    y_min: 250.25}
+  path: rgb/test/39302.png
 - boxes:
   - {label: Green, occluded: false, x_max: 986.375, x_min: 975.625, y_max: 269.5,
     y_min: 232.875}
@@ -25375,6 +31821,16 @@
   - {label: Green, occluded: false, x_max: 100.25, x_min: 87.75, y_max: 287.625, y_min: 248.875}
   path: rgb/test/39312.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 991.0, x_min: 978.375, y_max: 267.5, y_min: 231.25}
+  - {label: Green, occluded: false, x_max: 98.625, x_min: 86.5, y_max: 287.375, y_min: 249.0}
+  path: rgb/test/39314.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 992.125, x_min: 978.875, y_max: 266.625,
+    y_min: 230.5}
+  - {label: Green, occluded: false, x_max: 96.375, x_min: 84.875, y_max: 286.875,
+    y_min: 249.25}
+  path: rgb/test/39316.png
+- boxes:
   - {label: Green, occluded: false, x_max: 992.25, x_min: 980.375, y_max: 266.25,
     y_min: 229.25}
   - {label: Green, occluded: false, x_max: 95.25, x_min: 83.125, y_max: 285.125, y_min: 248.0}
@@ -25390,11 +31846,21 @@
   - {label: Green, occluded: false, x_max: 90.375, x_min: 77.75, y_max: 284.125, y_min: 245.375}
   path: rgb/test/39322.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 996.875, x_min: 983.375, y_max: 263.75,
+    y_min: 225.5}
+  - {label: Green, occluded: false, x_max: 88.125, x_min: 75.5, y_max: 282.75, y_min: 244.5}
+  path: rgb/test/39324.png
+- boxes:
   - {label: Green, occluded: false, x_max: 997.125, x_min: 984.625, y_max: 262.375,
     y_min: 225.375}
   - {label: Green, occluded: false, x_max: 85.375, x_min: 73.375, y_max: 282.625,
     y_min: 244.0}
   path: rgb/test/39326.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 999.375, x_min: 985.25, y_max: 261.875,
+    y_min: 224.0}
+  - {label: Green, occluded: false, x_max: 83.125, x_min: 71.0, y_max: 281.125, y_min: 242.375}
+  path: rgb/test/39328.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1001.0, x_min: 987.25, y_max: 261.375,
     y_min: 223.0}
@@ -25416,6 +31882,12 @@
   - {label: Green, occluded: false, x_max: 73.5, x_min: 60.375, y_max: 281.125, y_min: 242.0}
   - {label: Red, occluded: true, x_max: 450.875, x_min: 447.25, y_max: 345.0, y_min: 332.875}
   path: rgb/test/39336.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1006.25, x_min: 992.875, y_max: 258.75,
+    y_min: 221.25}
+  - {label: Green, occluded: false, x_max: 70.875, x_min: 56.25, y_max: 280.25, y_min: 240.375}
+  - {label: Red, occluded: true, x_max: 450.875, x_min: 446.875, y_max: 344.875, y_min: 332.125}
+  path: rgb/test/39338.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1007.5, x_min: 994.75, y_max: 258.375,
     y_min: 219.625}
@@ -25446,6 +31918,12 @@
   - {label: Green, occluded: false, x_max: 54.125, x_min: 41.5, y_max: 279.625, y_min: 238.75}
   - {label: Red, occluded: true, x_max: 449.125, x_min: 444.875, y_max: 344.75, y_min: 333.0}
   path: rgb/test/39348.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1015.75, x_min: 1001.75, y_max: 255.25,
+    y_min: 215.25}
+  - {label: Green, occluded: false, x_max: 51.25, x_min: 38.375, y_max: 280.125, y_min: 239.125}
+  - {label: Red, occluded: true, x_max: 448.125, x_min: 444.75, y_max: 345.5, y_min: 334.25}
+  path: rgb/test/39350.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1018.125, x_min: 1004.125, y_max: 255.75,
     y_min: 215.375}
@@ -25514,12 +31992,36 @@
   - {label: Red, occluded: true, x_max: 439.0, x_min: 434.625, y_max: 353.25, y_min: 339.75}
   path: rgb/test/39370.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1035.0, x_min: 1019.0, y_max: 251.5, y_min: 208.5}
+  - {label: Red, occluded: false, x_max: 571.375, x_min: 564.625, y_max: 347.5, y_min: 333.0}
+  - {label: Red, occluded: true, x_max: 437.75, x_min: 433.125, y_max: 353.875, y_min: 340.125}
+  path: rgb/test/39372.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1035.5, x_min: 1021.125, y_max: 249.875,
+    y_min: 207.125}
+  - {label: Red, occluded: false, x_max: 570.25, x_min: 563.75, y_max: 347.375, y_min: 334.25}
+  - {label: Red, occluded: true, x_max: 436.875, x_min: 432.125, y_max: 354.125, y_min: 340.625}
+  path: rgb/test/39374.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1037.75, x_min: 1022.0, y_max: 249.375,
     y_min: 206.25}
   - {label: Red, occluded: false, x_max: 568.125, x_min: 562.5, y_max: 348.25, y_min: 334.75}
   - {label: Red, occluded: false, x_max: 434.875, x_min: 430.625, y_max: 353.625,
     y_min: 341.75}
   path: rgb/test/39376.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1039.375, x_min: 1024.0, y_max: 248.625,
+    y_min: 205.75}
+  - {label: Red, occluded: false, x_max: 567.5, x_min: 561.875, y_max: 350.5, y_min: 336.25}
+  - {label: Red, occluded: false, x_max: 434.0, x_min: 429.75, y_max: 355.375, y_min: 344.0}
+  path: rgb/test/39378.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1041.25, x_min: 1026.125, y_max: 248.0,
+    y_min: 204.75}
+  - {label: Red, occluded: false, x_max: 566.75, x_min: 560.5, y_max: 350.875, y_min: 336.75}
+  - {label: Red, occluded: false, x_max: 432.625, x_min: 427.875, y_max: 356.625,
+    y_min: 345.625}
+  path: rgb/test/39380.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1042.75, x_min: 1027.375, y_max: 247.25,
     y_min: 203.25}
@@ -25558,6 +32060,12 @@
   - {label: Red, occluded: false, x_max: 423.25, x_min: 419.0, y_max: 364.0, y_min: 352.75}
   path: rgb/test/39392.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1058.125, x_min: 1040.625, y_max: 242.75,
+    y_min: 195.875}
+  - {label: Red, occluded: false, x_max: 557.75, x_min: 551.875, y_max: 358.25, y_min: 344.25}
+  - {label: Red, occluded: false, x_max: 422.5, x_min: 417.125, y_max: 365.25, y_min: 353.0}
+  path: rgb/test/39394.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1061.25, x_min: 1043.875, y_max: 242.625,
     y_min: 194.875}
   - {label: Red, occluded: false, x_max: 556.75, x_min: 550.75, y_max: 359.75, y_min: 345.625}
@@ -25588,6 +32096,12 @@
   - {label: Red, occluded: false, x_max: 415.5, x_min: 409.875, y_max: 378.375, y_min: 367.375}
   path: rgb/test/39404.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1078.875, x_min: 1059.0, y_max: 243.5,
+    y_min: 194.625}
+  - {label: Red, occluded: false, x_max: 552.125, x_min: 544.625, y_max: 370.5, y_min: 355.625}
+  - {label: Red, occluded: false, x_max: 414.5, x_min: 409.5, y_max: 380.25, y_min: 366.75}
+  path: rgb/test/39406.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1083.0, x_min: 1062.75, y_max: 240.0, y_min: 189.5}
   - {label: Red, occluded: false, x_max: 551.5, x_min: 543.25, y_max: 367.875, y_min: 353.0}
   - {label: Red, occluded: false, x_max: 412.75, x_min: 407.875, y_max: 376.875, y_min: 364.75}
@@ -25611,17 +32125,36 @@
   - {label: Red, occluded: false, x_max: 408.5, x_min: 403.875, y_max: 364.125, y_min: 350.75}
   path: rgb/test/39414.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1101.0, x_min: 1081.25, y_max: 214.875,
+    y_min: 161.75}
+  - {label: Red, occluded: false, x_max: 547.5, x_min: 539.75, y_max: 352.25, y_min: 337.75}
+  - {label: Red, occluded: false, x_max: 407.125, x_min: 402.125, y_max: 361.375,
+    y_min: 348.625}
+  path: rgb/test/39416.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1106.25, x_min: 1086.0, y_max: 210.125,
     y_min: 156.75}
   - {label: Red, occluded: false, x_max: 545.625, x_min: 539.875, y_max: 350.0, y_min: 336.375}
   - {label: Red, occluded: false, x_max: 406.125, x_min: 400.25, y_max: 359.625, y_min: 346.375}
   path: rgb/test/39418.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1112.375, x_min: 1090.75, y_max: 205.75,
+    y_min: 151.0}
+  - {label: Red, occluded: false, x_max: 544.0, x_min: 538.0, y_max: 347.625, y_min: 333.625}
+  - {label: Red, occluded: false, x_max: 405.0, x_min: 399.5, y_max: 357.625, y_min: 344.25}
+  path: rgb/test/39420.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1118.125, x_min: 1097.375, y_max: 201.625,
     y_min: 146.5}
   - {label: Red, occluded: false, x_max: 543.75, x_min: 537.125, y_max: 343.625, y_min: 330.125}
   - {label: Red, occluded: false, x_max: 402.125, x_min: 398.0, y_max: 352.625, y_min: 341.0}
   path: rgb/test/39422.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1123.25, x_min: 1101.375, y_max: 195.875,
+    y_min: 140.125}
+  - {label: Red, occluded: false, x_max: 543.25, x_min: 535.875, y_max: 340.0, y_min: 325.875}
+  - {label: Red, occluded: false, x_max: 402.25, x_min: 397.25, y_max: 349.25, y_min: 336.625}
+  path: rgb/test/39424.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1130.0, x_min: 1109.125, y_max: 190.625,
     y_min: 134.0}
@@ -25653,6 +32186,13 @@
   - {label: Red, occluded: false, x_max: 537.75, x_min: 531.125, y_max: 344.875, y_min: 330.375}
   - {label: Red, occluded: true, x_max: 395.125, x_min: 390.0, y_max: 354.5, y_min: 341.5}
   path: rgb/test/39434.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1163.25, x_min: 1140.25, y_max: 189.625,
+    y_min: 130.0}
+  - {label: Red, occluded: false, x_max: 536.875, x_min: 529.875, y_max: 348.375,
+    y_min: 334.25}
+  - {label: Red, occluded: true, x_max: 393.5, x_min: 388.125, y_max: 360.625, y_min: 344.75}
+  path: rgb/test/39436.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1170.25, x_min: 1146.875, y_max: 189.5,
     y_min: 128.5}
@@ -25698,6 +32238,13 @@
   - {label: Red, occluded: false, x_max: 381.75, x_min: 376.0, y_max: 361.375, y_min: 346.5}
   path: rgb/test/39450.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1233.125, x_min: 1208.125, y_max: 176.0,
+    y_min: 108.0}
+  - {label: Red, occluded: false, x_max: 526.625, x_min: 521.125, y_max: 351.625,
+    y_min: 337.0}
+  - {label: Red, occluded: false, x_max: 379.5, x_min: 374.5, y_max: 359.0, y_min: 346.125}
+  path: rgb/test/39452.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1245.625, x_min: 1218.125, y_max: 173.75,
     y_min: 101.75}
   - {label: Red, occluded: false, x_max: 525.875, x_min: 519.375, y_max: 349.75, y_min: 335.0}
@@ -25733,10 +32280,18 @@
     y_min: 348.375}
   path: rgb/test/39464.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 523.0, x_min: 515.75, y_max: 355.875, y_min: 340.0}
+  - {label: Red, occluded: false, x_max: 371.5, x_min: 367.0, y_max: 363.5, y_min: 348.25}
+  path: rgb/test/39466.png
+- boxes:
   - {label: Red, occluded: false, x_max: 521.75, x_min: 515.5, y_max: 355.375, y_min: 339.875}
   - {label: Red, occluded: false, x_max: 370.875, x_min: 365.375, y_max: 361.875,
     y_min: 347.375}
   path: rgb/test/39468.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 521.125, x_min: 515.0, y_max: 354.5, y_min: 339.25}
+  - {label: Red, occluded: false, x_max: 369.125, x_min: 364.25, y_max: 360.0, y_min: 345.5}
+  path: rgb/test/39470.png
 - boxes:
   - {label: Red, occluded: false, x_max: 521.125, x_min: 514.375, y_max: 354.5, y_min: 338.25}
   - {label: Red, occluded: false, x_max: 368.0, x_min: 363.125, y_max: 359.375, y_min: 345.0}
@@ -25754,6 +32309,18 @@
   - {label: Red, occluded: false, x_max: 365.875, x_min: 361.0, y_max: 358.0, y_min: 344.25}
   path: rgb/test/39478.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 521.25, x_min: 514.0, y_max: 350.875, y_min: 335.5}
+  - {label: Red, occluded: true, x_max: 365.25, x_min: 360.625, y_max: 356.25, y_min: 341.875}
+  path: rgb/test/39480.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 521.375, x_min: 515.25, y_max: 347.875, y_min: 333.0}
+  - {label: Red, occluded: true, x_max: 364.875, x_min: 359.875, y_max: 350.375, y_min: 337.5}
+  path: rgb/test/39482.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 521.625, x_min: 515.25, y_max: 345.125, y_min: 330.0}
+  - {label: Red, occluded: true, x_max: 365.375, x_min: 360.0, y_max: 348.0, y_min: 335.625}
+  path: rgb/test/39484.png
+- boxes:
   - {label: Red, occluded: false, x_max: 521.5, x_min: 515.125, y_max: 343.5, y_min: 327.25}
   - {label: Red, occluded: true, x_max: 364.5, x_min: 359.25, y_max: 346.375, y_min: 334.125}
   path: rgb/test/39486.png
@@ -25762,11 +32329,21 @@
     y_min: 324.25}
   path: rgb/test/39488.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 521.125, x_min: 515.375, y_max: 335.625,
+    y_min: 319.875}
+  path: rgb/test/39490.png
+- boxes:
   - {label: Red, occluded: false, x_max: 522.125, x_min: 515.75, y_max: 330.75, y_min: 314.0}
   path: rgb/test/39492.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 522.875, x_min: 516.375, y_max: 326.25, y_min: 310.0}
+  path: rgb/test/39494.png
+- boxes:
   - {label: Red, occluded: false, x_max: 524.0, x_min: 517.625, y_max: 324.125, y_min: 308.375}
   path: rgb/test/39496.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 525.625, x_min: 519.25, y_max: 326.0, y_min: 309.375}
+  path: rgb/test/39498.png
 - boxes:
   - {label: Red, occluded: false, x_max: 527.25, x_min: 521.5, y_max: 327.25, y_min: 311.875}
   path: rgb/test/39500.png
@@ -25783,9 +32360,17 @@
   - {label: Red, occluded: false, x_max: 534.0, x_min: 528.0, y_max: 324.25, y_min: 308.125}
   path: rgb/test/39508.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 535.5, x_min: 529.625, y_max: 323.5, y_min: 308.625}
+  - {label: Red, occluded: true, x_max: 372.5, x_min: 367.5, y_max: 326.75, y_min: 314.5}
+  path: rgb/test/39510.png
+- boxes:
   - {label: Red, occluded: false, x_max: 537.5, x_min: 531.375, y_max: 324.875, y_min: 307.875}
   - {label: Red, occluded: true, x_max: 373.75, x_min: 369.25, y_max: 326.875, y_min: 313.75}
   path: rgb/test/39512.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 540.0, x_min: 533.875, y_max: 324.5, y_min: 308.875}
+  - {label: Red, occluded: true, x_max: 374.25, x_min: 370.25, y_max: 327.25, y_min: 314.5}
+  path: rgb/test/39514.png
 - boxes:
   - {label: Red, occluded: false, x_max: 542.375, x_min: 536.25, y_max: 324.875, y_min: 309.5}
   - {label: Red, occluded: true, x_max: 377.25, x_min: 371.5, y_max: 328.0, y_min: 315.625}
@@ -25807,6 +32392,10 @@
   - {label: Red, occluded: false, x_max: 550.125, x_min: 543.75, y_max: 329.5, y_min: 313.75}
   - {label: Red, occluded: true, x_max: 381.75, x_min: 376.125, y_max: 333.75, y_min: 322.5}
   path: rgb/test/39524.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 552.0, x_min: 545.625, y_max: 327.625, y_min: 312.625}
+  - {label: Red, occluded: true, x_max: 381.125, x_min: 377.625, y_max: 331.125, y_min: 321.0}
+  path: rgb/test/39526.png
 - boxes:
   - {label: Red, occluded: false, x_max: 554.25, x_min: 547.5, y_max: 327.875, y_min: 309.75}
   - {label: Red, occluded: true, x_max: 383.0, x_min: 378.5, y_max: 332.625, y_min: 320.0}
@@ -25847,6 +32436,9 @@
   - {label: Red, occluded: false, x_max: 560.5, x_min: 553.25, y_max: 321.25, y_min: 302.875}
   path: rgb/test/39548.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 559.875, x_min: 552.625, y_max: 325.75, y_min: 307.875}
+  path: rgb/test/39550.png
+- boxes:
   - {label: Red, occluded: false, x_max: 559.5, x_min: 551.75, y_max: 326.0, y_min: 306.625}
   path: rgb/test/39552.png
 - boxes:
@@ -25859,9 +32451,20 @@
   - {label: Red, occluded: false, x_max: 559.875, x_min: 552.375, y_max: 318.5, y_min: 299.875}
   path: rgb/test/39558.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 559.625, x_min: 551.0, y_max: 318.875, y_min: 300.25}
+  path: rgb/test/39560.png
+- boxes:
   - {label: Red, occluded: false, x_max: 558.875, x_min: 551.0, y_max: 318.625, y_min: 300.0}
   - {label: Red, occluded: true, x_max: 371.5, x_min: 367.125, y_max: 329.5, y_min: 316.125}
   path: rgb/test/39562.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 559.0, x_min: 550.375, y_max: 320.25, y_min: 300.625}
+  - {label: Red, occluded: true, x_max: 370.625, x_min: 365.875, y_max: 330.625, y_min: 318.0}
+  path: rgb/test/39564.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 559.125, x_min: 549.75, y_max: 320.625, y_min: 301.75}
+  - {label: Red, occluded: true, x_max: 369.625, x_min: 364.75, y_max: 333.5, y_min: 319.375}
+  path: rgb/test/39566.png
 - boxes:
   - {label: Red, occluded: false, x_max: 557.125, x_min: 549.25, y_max: 323.0, y_min: 304.375}
   - {label: Red, occluded: true, x_max: 368.25, x_min: 364.0, y_max: 334.0, y_min: 320.125}
@@ -25878,6 +32481,10 @@
   - {label: Red, occluded: false, x_max: 558.125, x_min: 549.0, y_max: 333.25, y_min: 313.0}
   - {label: Red, occluded: true, x_max: 365.375, x_min: 360.125, y_max: 341.375, y_min: 329.25}
   path: rgb/test/39574.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 557.5, x_min: 548.5, y_max: 333.875, y_min: 314.625}
+  - {label: 'off', occluded: true, x_max: 362.125, x_min: 358.5, y_max: 344.125, y_min: 332.0}
+  path: rgb/test/39576.png
 - boxes:
   - {label: Red, occluded: false, x_max: 556.375, x_min: 546.875, y_max: 333.625,
     y_min: 313.625}
@@ -25914,6 +32521,9 @@
     y_min: 335.75}
   path: rgb/test/39598.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 555.25, x_min: 546.75, y_max: 361.0, y_min: 339.375}
+  path: rgb/test/39600.png
+- boxes:
   - {label: Red, occluded: false, x_max: 556.125, x_min: 547.5, y_max: 361.5, y_min: 339.875}
   path: rgb/test/39602.png
 - boxes:
@@ -25925,9 +32535,17 @@
   - {label: Red, occluded: false, x_max: 558.375, x_min: 548.75, y_max: 352.625, y_min: 331.125}
   path: rgb/test/39606.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 346.125, x_min: 340.125, y_max: 354.125, y_min: 337.25}
+  - {label: Red, occluded: false, x_max: 558.375, x_min: 548.5, y_max: 346.0, y_min: 324.0}
+  path: rgb/test/39608.png
+- boxes:
   - {label: Red, occluded: true, x_max: 345.0, x_min: 339.125, y_max: 347.5, y_min: 330.75}
   - {label: Red, occluded: false, x_max: 557.75, x_min: 549.125, y_max: 339.125, y_min: 318.375}
   path: rgb/test/39610.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 343.625, x_min: 338.875, y_max: 342.625, y_min: 325.5}
+  - {label: Red, occluded: false, x_max: 558.125, x_min: 548.625, y_max: 335.25, y_min: 313.625}
+  path: rgb/test/39612.png
 - boxes:
   - {label: Red, occluded: true, x_max: 344.0, x_min: 337.625, y_max: 340.125, y_min: 324.25}
   - {label: Red, occluded: false, x_max: 558.75, x_min: 549.0, y_max: 333.5, y_min: 311.25}
@@ -25957,6 +32575,10 @@
   - {label: Red, occluded: false, x_max: 560.25, x_min: 549.125, y_max: 331.625, y_min: 308.5}
   path: rgb/test/39626.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 335.625, x_min: 329.875, y_max: 334.25, y_min: 317.75}
+  - {label: Red, occluded: false, x_max: 560.0, x_min: 549.375, y_max: 327.75, y_min: 305.25}
+  path: rgb/test/39628.png
+- boxes:
   - {label: Red, occluded: true, x_max: 336.0, x_min: 329.125, y_max: 329.75, y_min: 314.0}
   - {label: Red, occluded: false, x_max: 560.25, x_min: 549.625, y_max: 324.75, y_min: 302.125}
   path: rgb/test/39630.png
@@ -25984,6 +32606,19 @@
   - {label: Red, occluded: false, x_max: 561.25, x_min: 551.25, y_max: 328.625, y_min: 305.25}
   path: rgb/test/39640.png
 - boxes:
+  - {label: Red, occluded: true, x_max: 328.375, x_min: 322.75, y_max: 334.375, y_min: 316.625}
+  - {label: Red, occluded: false, x_max: 561.875, x_min: 551.375, y_max: 327.0, y_min: 303.875}
+  path: rgb/test/39642.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 328.25, x_min: 322.25, y_max: 328.75, y_min: 314.75}
+  - {label: Red, occluded: false, x_max: 561.625, x_min: 551.375, y_max: 325.125,
+    y_min: 302.375}
+  path: rgb/test/39644.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 327.0, x_min: 321.125, y_max: 328.625, y_min: 314.125}
+  - {label: Red, occluded: false, x_max: 561.75, x_min: 550.5, y_max: 324.75, y_min: 300.875}
+  path: rgb/test/39646.png
+- boxes:
   - {label: Red, occluded: true, x_max: 326.0, x_min: 319.75, y_max: 329.0, y_min: 314.0}
   - {label: Red, occluded: false, x_max: 560.875, x_min: 550.875, y_max: 325.875,
     y_min: 302.125}
@@ -25998,6 +32633,12 @@
     y_min: 319.0}
   - {label: Red, occluded: false, x_max: 562.625, x_min: 550.25, y_max: 330.625, y_min: 305.5}
   path: rgb/test/39652.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 562.875, x_min: 550.25, y_max: 329.875, y_min: 305.0}
+  path: rgb/test/39654.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 562.25, x_min: 549.5, y_max: 329.25, y_min: 305.625}
+  path: rgb/test/39656.png
 - boxes:
   - {label: Red, occluded: false, x_max: 562.0, x_min: 550.0, y_max: 329.25, y_min: 304.75}
   path: rgb/test/39658.png
@@ -26019,6 +32660,10 @@
 - boxes:
   - {label: Red, occluded: false, x_max: 564.375, x_min: 552.875, y_max: 321.25, y_min: 294.625}
   path: rgb/test/39670.png
+- boxes:
+  - {label: Red, occluded: true, x_max: 311.75, x_min: 305.375, y_max: 324.375, y_min: 310.75}
+  - {label: Red, occluded: false, x_max: 565.75, x_min: 553.25, y_max: 319.5, y_min: 294.875}
+  path: rgb/test/39672.png
 - boxes:
   - {label: Red, occluded: true, x_max: 310.25, x_min: 304.125, y_max: 325.5, y_min: 310.25}
   - {label: Red, occluded: false, x_max: 565.375, x_min: 553.25, y_max: 320.125, y_min: 294.875}
@@ -26058,6 +32703,16 @@
   - {label: Red, occluded: true, x_max: 803.0, x_min: 795.25, y_max: 307.0, y_min: 286.875}
   path: rgb/test/39690.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 303.25, x_min: 296.5, y_max: 324.875, y_min: 306.75}
+  - {label: Red, occluded: false, x_max: 571.75, x_min: 559.0, y_max: 319.375, y_min: 291.5}
+  - {label: Red, occluded: true, x_max: 804.75, x_min: 797.0, y_max: 307.375, y_min: 288.75}
+  path: rgb/test/39692.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 302.375, x_min: 295.375, y_max: 324.5, y_min: 307.875}
+  - {label: Red, occluded: false, x_max: 572.625, x_min: 558.875, y_max: 319.75, y_min: 293.625}
+  - {label: Red, occluded: true, x_max: 806.0, x_min: 799.125, y_max: 309.25, y_min: 289.375}
+  path: rgb/test/39694.png
+- boxes:
   - {label: Red, occluded: false, x_max: 300.75, x_min: 294.0, y_max: 323.5, y_min: 307.375}
   - {label: Red, occluded: false, x_max: 573.125, x_min: 559.625, y_max: 319.75, y_min: 293.875}
   - {label: Red, occluded: true, x_max: 807.875, x_min: 800.125, y_max: 310.375, y_min: 290.375}
@@ -26072,6 +32727,16 @@
   - {label: Red, occluded: false, x_max: 573.5, x_min: 560.375, y_max: 320.375, y_min: 293.375}
   - {label: Red, occluded: true, x_max: 811.125, x_min: 803.25, y_max: 311.0, y_min: 291.0}
   path: rgb/test/39700.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 298.75, x_min: 291.375, y_max: 324.25, y_min: 307.875}
+  - {label: Red, occluded: false, x_max: 574.25, x_min: 560.375, y_max: 322.25, y_min: 294.25}
+  - {label: Red, occluded: true, x_max: 812.625, x_min: 805.375, y_max: 312.0, y_min: 292.375}
+  path: rgb/test/39702.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 296.5, x_min: 290.125, y_max: 325.5, y_min: 309.0}
+  - {label: Red, occluded: false, x_max: 574.5, x_min: 561.0, y_max: 323.125, y_min: 295.25}
+  - {label: Red, occluded: true, x_max: 814.5, x_min: 807.125, y_max: 313.25, y_min: 293.0}
+  path: rgb/test/39704.png
 - boxes:
   - {label: Red, occluded: false, x_max: 295.5, x_min: 288.625, y_max: 325.625, y_min: 310.125}
   - {label: Red, occluded: false, x_max: 575.75, x_min: 561.375, y_max: 324.375, y_min: 295.25}
@@ -26169,6 +32834,10 @@
   - {label: Red, occluded: false, x_max: 575.375, x_min: 560.125, y_max: 316.0, y_min: 286.125}
   path: rgb/test/39746.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 257.75, x_min: 251.75, y_max: 313.75, y_min: 295.75}
+  - {label: Red, occluded: false, x_max: 574.875, x_min: 559.625, y_max: 315.25, y_min: 284.75}
+  path: rgb/test/39748.png
+- boxes:
   - {label: Red, occluded: false, x_max: 256.0, x_min: 249.0, y_max: 315.875, y_min: 294.75}
   - {label: Red, occluded: false, x_max: 575.25, x_min: 559.375, y_max: 312.75, y_min: 282.625}
   path: rgb/test/39750.png
@@ -26206,10 +32875,20 @@
   - {label: Red, occluded: true, x_max: 853.625, x_min: 846.125, y_max: 293.375, y_min: 273.75}
   path: rgb/test/39766.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 233.5, x_min: 225.375, y_max: 313.875, y_min: 290.25}
+  - {label: Red, occluded: false, x_max: 569.0, x_min: 553.375, y_max: 309.5, y_min: 276.875}
+  - {label: Red, occluded: true, x_max: 852.75, x_min: 846.875, y_max: 292.25, y_min: 273.25}
+  path: rgb/test/39768.png
+- boxes:
   - {label: Red, occluded: false, x_max: 231.25, x_min: 224.0, y_max: 311.75, y_min: 288.375}
   - {label: Red, occluded: false, x_max: 568.5, x_min: 553.25, y_max: 307.5, y_min: 274.375}
   - {label: Red, occluded: true, x_max: 854.25, x_min: 848.25, y_max: 290.125, y_min: 270.75}
   path: rgb/test/39770.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 229.375, x_min: 220.375, y_max: 310.25, y_min: 287.25}
+  - {label: Red, occluded: false, x_max: 568.5, x_min: 552.875, y_max: 307.125, y_min: 273.0}
+  - {label: Red, occluded: true, x_max: 856.25, x_min: 849.5, y_max: 289.625, y_min: 269.75}
+  path: rgb/test/39772.png
 - boxes:
   - {label: Red, occluded: false, x_max: 225.125, x_min: 218.625, y_max: 309.0, y_min: 287.125}
   - {label: Red, occluded: false, x_max: 568.125, x_min: 552.375, y_max: 306.125,
@@ -26222,6 +32901,12 @@
   - {label: Red, occluded: false, x_max: 568.375, x_min: 550.875, y_max: 306.25, y_min: 272.25}
   - {label: Red, occluded: true, x_max: 858.0, x_min: 851.625, y_max: 288.5, y_min: 267.375}
   path: rgb/test/39776.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 220.625, x_min: 213.375, y_max: 310.875,
+    y_min: 287.75}
+  - {label: Red, occluded: false, x_max: 567.625, x_min: 550.375, y_max: 304.25, y_min: 272.125}
+  - {label: Red, occluded: true, x_max: 859.125, x_min: 851.375, y_max: 288.25, y_min: 267.25}
+  path: rgb/test/39778.png
 - boxes:
   - {label: Red, occluded: false, x_max: 217.25, x_min: 209.875, y_max: 311.25, y_min: 287.0}
   - {label: Red, occluded: false, x_max: 566.25, x_min: 550.5, y_max: 304.875, y_min: 270.125}
@@ -26243,11 +32928,22 @@
   - {label: Red, occluded: true, x_max: 863.625, x_min: 856.875, y_max: 281.5, y_min: 263.625}
   path: rgb/test/39786.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 207.875, x_min: 200.875, y_max: 305.125,
+    y_min: 282.25}
+  - {label: Red, occluded: false, x_max: 564.5, x_min: 548.0, y_max: 299.75, y_min: 267.5}
+  - {label: Red, occluded: true, x_max: 864.875, x_min: 858.125, y_max: 279.875, y_min: 262.75}
+  path: rgb/test/39788.png
+- boxes:
   - {label: Red, occluded: false, x_max: 204.875, x_min: 198.0, y_max: 306.75, y_min: 283.0}
   - {label: Red, occluded: false, x_max: 564.875, x_min: 547.625, y_max: 302.125,
     y_min: 268.75}
   - {label: Red, occluded: true, x_max: 866.25, x_min: 859.0, y_max: 281.0, y_min: 263.375}
   path: rgb/test/39790.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 202.25, x_min: 195.75, y_max: 309.25, y_min: 285.375}
+  - {label: Red, occluded: false, x_max: 563.875, x_min: 546.625, y_max: 304.25, y_min: 270.5}
+  - {label: Red, occluded: true, x_max: 866.625, x_min: 859.875, y_max: 283.375, y_min: 266.0}
+  path: rgb/test/39792.png
 - boxes:
   - {label: Red, occluded: false, x_max: 200.125, x_min: 193.125, y_max: 310.0, y_min: 287.25}
   - {label: Red, occluded: false, x_max: 564.0, x_min: 546.75, y_max: 305.625, y_min: 272.25}
@@ -26298,6 +32994,16 @@
   - {label: Red, occluded: false, x_max: 559.75, x_min: 543.375, y_max: 306.375, y_min: 271.125}
   - {label: 'off', occluded: true, x_max: 882.0, x_min: 874.0, y_max: 290.125, y_min: 264.625}
   path: rgb/test/39814.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 174.375, x_min: 165.125, y_max: 311.75, y_min: 285.625}
+  - {label: Red, occluded: false, x_max: 559.75, x_min: 543.0, y_max: 308.25, y_min: 270.125}
+  - {label: Red, occluded: true, x_max: 883.75, x_min: 875.375, y_max: 290.75, y_min: 264.75}
+  path: rgb/test/39816.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 171.0, x_min: 163.5, y_max: 312.5, y_min: 286.375}
+  - {label: Red, occluded: false, x_max: 560.125, x_min: 542.375, y_max: 308.0, y_min: 271.375}
+  - {label: Red, occluded: true, x_max: 883.625, x_min: 876.125, y_max: 290.5, y_min: 264.25}
+  path: rgb/test/39818.png
 - boxes:
   - {label: Red, occluded: false, x_max: 168.125, x_min: 160.5, y_max: 312.5, y_min: 285.25}
   - {label: Red, occluded: false, x_max: 559.75, x_min: 541.25, y_max: 308.125, y_min: 271.625}
@@ -26406,6 +33112,12 @@
   - {label: Red, occluded: false, x_max: 904.75, x_min: 895.5, y_max: 281.75, y_min: 252.75}
   path: rgb/test/39858.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 122.625, x_min: 115.0, y_max: 303.75, y_min: 276.25}
+  - {label: Red, occluded: false, x_max: 551.375, x_min: 531.875, y_max: 301.375,
+    y_min: 262.5}
+  - {label: Red, occluded: false, x_max: 905.5, x_min: 896.5, y_max: 280.5, y_min: 251.375}
+  path: rgb/test/39860.png
+- boxes:
   - {label: Red, occluded: false, x_max: 120.875, x_min: 112.75, y_max: 303.25, y_min: 275.75}
   - {label: Red, occluded: false, x_max: 551.5, x_min: 531.125, y_max: 300.625, y_min: 261.625}
   - {label: Red, occluded: false, x_max: 906.0, x_min: 897.375, y_max: 280.125, y_min: 251.5}
@@ -26416,10 +33128,21 @@
   - {label: Red, occluded: false, x_max: 907.5, x_min: 898.125, y_max: 278.875, y_min: 250.25}
   path: rgb/test/39864.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 117.25, x_min: 109.5, y_max: 302.125, y_min: 275.0}
+  - {label: Red, occluded: false, x_max: 550.25, x_min: 530.375, y_max: 299.0, y_min: 260.0}
+  - {label: Red, occluded: false, x_max: 907.5, x_min: 898.875, y_max: 278.25, y_min: 249.5}
+  path: rgb/test/39866.png
+- boxes:
   - {label: Red, occluded: false, x_max: 115.0, x_min: 107.125, y_max: 300.75, y_min: 274.25}
   - {label: Red, occluded: false, x_max: 548.5, x_min: 530.375, y_max: 295.5, y_min: 259.5}
   - {label: Red, occluded: false, x_max: 909.125, x_min: 899.625, y_max: 277.75, y_min: 248.5}
   path: rgb/test/39868.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 114.0, x_min: 105.625, y_max: 298.625, y_min: 273.25}
+  - {label: Red, occluded: false, x_max: 547.5, x_min: 530.25, y_max: 295.625, y_min: 259.125}
+  - {label: Red, occluded: false, x_max: 909.375, x_min: 900.625, y_max: 276.625,
+    y_min: 247.625}
+  path: rgb/test/39870.png
 - boxes:
   - {label: Red, occluded: false, x_max: 112.25, x_min: 104.25, y_max: 298.75, y_min: 273.125}
   - {label: Red, occluded: false, x_max: 549.0, x_min: 530.625, y_max: 296.625, y_min: 258.75}
@@ -26437,10 +33160,25 @@
   - {label: Red, occluded: false, x_max: 911.875, x_min: 902.5, y_max: 276.5, y_min: 247.625}
   path: rgb/test/39876.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 107.75, x_min: 99.25, y_max: 299.125, y_min: 273.25}
+  - {label: Red, occluded: false, x_max: 549.0, x_min: 529.0, y_max: 297.375, y_min: 258.625}
+  - {label: Red, occluded: false, x_max: 912.25, x_min: 902.875, y_max: 275.875, y_min: 247.5}
+  path: rgb/test/39878.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 106.125, x_min: 98.5, y_max: 297.875, y_min: 272.875}
+  - {label: Red, occluded: false, x_max: 548.0, x_min: 528.625, y_max: 295.75, y_min: 258.25}
+  - {label: Red, occluded: false, x_max: 913.0, x_min: 903.625, y_max: 275.875, y_min: 246.75}
+  path: rgb/test/39880.png
+- boxes:
   - {label: Red, occluded: false, x_max: 104.625, x_min: 96.5, y_max: 299.0, y_min: 271.375}
   - {label: Red, occluded: false, x_max: 547.5, x_min: 529.625, y_max: 297.5, y_min: 258.5}
   - {label: Red, occluded: false, x_max: 913.625, x_min: 904.5, y_max: 276.375, y_min: 246.25}
   path: rgb/test/39882.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 103.5, x_min: 95.375, y_max: 297.5, y_min: 270.875}
+  - {label: Red, occluded: false, x_max: 548.0, x_min: 529.25, y_max: 296.0, y_min: 257.875}
+  - {label: Red, occluded: false, x_max: 914.5, x_min: 905.125, y_max: 275.875, y_min: 246.5}
+  path: rgb/test/39884.png
 - boxes:
   - {label: Red, occluded: false, x_max: 101.875, x_min: 94.0, y_max: 296.375, y_min: 270.625}
   - {label: Red, occluded: false, x_max: 548.25, x_min: 528.0, y_max: 296.5, y_min: 256.625}
@@ -26480,6 +33218,11 @@
   - {label: Red, occluded: false, x_max: 919.625, x_min: 909.0, y_max: 274.875, y_min: 244.5}
   path: rgb/test/39898.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 94.375, x_min: 85.25, y_max: 296.875, y_min: 267.75}
+  - {label: Red, occluded: false, x_max: 545.875, x_min: 526.125, y_max: 294.5, y_min: 256.25}
+  - {label: Red, occluded: false, x_max: 920.125, x_min: 909.0, y_max: 275.25, y_min: 245.375}
+  path: rgb/test/39900.png
+- boxes:
   - {label: Red, occluded: false, x_max: 93.5, x_min: 84.25, y_max: 296.375, y_min: 268.125}
   - {label: Red, occluded: false, x_max: 545.125, x_min: 526.5, y_max: 294.0, y_min: 256.375}
   - {label: Red, occluded: false, x_max: 920.75, x_min: 909.75, y_max: 275.25, y_min: 244.25}
@@ -26495,6 +33238,11 @@
   - {label: Red, occluded: false, x_max: 921.625, x_min: 911.375, y_max: 276.375,
     y_min: 244.375}
   path: rgb/test/39906.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 91.0, x_min: 82.25, y_max: 297.5, y_min: 267.125}
+  - {label: Red, occluded: false, x_max: 543.625, x_min: 528.875, y_max: 296.5, y_min: 261.0}
+  - {label: Red, occluded: false, x_max: 922.625, x_min: 911.625, y_max: 275.5, y_min: 244.875}
+  path: rgb/test/39908.png
 - boxes:
   - {label: Red, occluded: false, x_max: 90.625, x_min: 81.625, y_max: 296.625, y_min: 268.25}
   - {label: Red, occluded: false, x_max: 545.25, x_min: 526.375, y_max: 295.375, y_min: 257.25}
@@ -26527,6 +33275,11 @@
   - {label: Red, occluded: false, x_max: 924.25, x_min: 913.75, y_max: 276.25, y_min: 246.0}
   path: rgb/test/39920.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 85.75, x_min: 76.75, y_max: 296.25, y_min: 267.625}
+  - {label: Red, occluded: false, x_max: 544.25, x_min: 525.0, y_max: 296.5, y_min: 257.875}
+  - {label: Red, occluded: false, x_max: 925.375, x_min: 914.375, y_max: 277.5, y_min: 245.125}
+  path: rgb/test/39922.png
+- boxes:
   - {label: Red, occluded: false, x_max: 85.625, x_min: 75.0, y_max: 294.75, y_min: 267.5}
   - {label: Red, occluded: false, x_max: 544.5, x_min: 525.25, y_max: 296.0, y_min: 257.25}
   - {label: Red, occluded: false, x_max: 925.0, x_min: 914.5, y_max: 276.25, y_min: 244.875}
@@ -26541,6 +33294,11 @@
   - {label: Red, occluded: false, x_max: 545.375, x_min: 524.5, y_max: 297.875, y_min: 257.0}
   - {label: Red, occluded: false, x_max: 925.875, x_min: 915.5, y_max: 276.5, y_min: 244.875}
   path: rgb/test/39928.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 84.125, x_min: 74.75, y_max: 296.0, y_min: 267.125}
+  - {label: Red, occluded: false, x_max: 545.25, x_min: 524.875, y_max: 296.0, y_min: 256.75}
+  - {label: Red, occluded: false, x_max: 925.875, x_min: 915.75, y_max: 276.375, y_min: 245.125}
+  path: rgb/test/39930.png
 - boxes:
   - {label: Red, occluded: false, x_max: 82.5, x_min: 73.25, y_max: 294.375, y_min: 266.75}
   - {label: Red, occluded: false, x_max: 543.375, x_min: 524.25, y_max: 296.25, y_min: 258.25}
@@ -26565,11 +33323,38 @@
     y_min: 244.0}
   path: rgb/test/39938.png
 - boxes:
+  - {label: 'off', occluded: false, x_max: 80.625, x_min: 71.75, y_max: 295.125, y_min: 267.375}
+  - {label: Red, occluded: false, x_max: 542.375, x_min: 523.875, y_max: 296.375,
+    y_min: 257.0}
+  - {label: Red, occluded: false, x_max: 926.875, x_min: 917.375, y_max: 275.5, y_min: 244.125}
+  path: rgb/test/39940.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 80.625, x_min: 71.75, y_max: 295.125, y_min: 267.375}
+  - {label: Red, occluded: false, x_max: 544.625, x_min: 523.125, y_max: 296.5, y_min: 257.75}
+  - {label: Red, occluded: false, x_max: 927.125, x_min: 917.5, y_max: 275.625, y_min: 244.125}
+  path: rgb/test/39942.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 79.875, x_min: 69.875, y_max: 296.625,
+    y_min: 268.0}
+  - {label: Red, occluded: false, x_max: 542.125, x_min: 525.0, y_max: 295.875, y_min: 257.875}
+  - {label: Red, occluded: false, x_max: 927.625, x_min: 917.875, y_max: 275.5, y_min: 244.375}
+  path: rgb/test/39944.png
+- boxes:
   - {label: 'off', occluded: false, x_max: 79.125, x_min: 70.125, y_max: 295.875,
     y_min: 267.75}
   - {label: Red, occluded: false, x_max: 540.625, x_min: 523.5, y_max: 295.125, y_min: 258.25}
   - {label: Red, occluded: false, x_max: 926.875, x_min: 917.75, y_max: 275.25, y_min: 244.875}
   path: rgb/test/39946.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 78.5, x_min: 69.625, y_max: 296.375, y_min: 268.5}
+  - {label: Red, occluded: false, x_max: 541.75, x_min: 523.5, y_max: 296.125, y_min: 256.875}
+  - {label: Red, occluded: false, x_max: 927.75, x_min: 918.0, y_max: 275.625, y_min: 245.25}
+  path: rgb/test/39948.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 78.5, x_min: 69.625, y_max: 296.375, y_min: 268.5}
+  - {label: Red, occluded: false, x_max: 541.875, x_min: 524.5, y_max: 296.5, y_min: 257.625}
+  - {label: Red, occluded: false, x_max: 927.0, x_min: 918.0, y_max: 274.25, y_min: 244.25}
+  path: rgb/test/39950.png
 - boxes:
   - {label: Red, occluded: false, x_max: 78.5, x_min: 69.625, y_max: 296.375, y_min: 268.5}
   - {label: Red, occluded: false, x_max: 541.625, x_min: 525.375, y_max: 296.25, y_min: 258.125}
@@ -26602,11 +33387,43 @@
   - {label: Red, occluded: false, x_max: 928.75, x_min: 919.375, y_max: 274.0, y_min: 242.75}
   path: rgb/test/39962.png
 - boxes:
+  - {label: Red, occluded: false, x_max: 76.25, x_min: 66.875, y_max: 296.625, y_min: 267.375}
+  - {label: Red, occluded: false, x_max: 542.125, x_min: 523.0, y_max: 295.875, y_min: 256.5}
+  - {label: Red, occluded: false, x_max: 929.125, x_min: 918.75, y_max: 274.5, y_min: 242.125}
+  path: rgb/test/39964.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 76.25, x_min: 66.875, y_max: 296.625, y_min: 267.375}
+  - {label: Red, occluded: false, x_max: 542.625, x_min: 522.875, y_max: 296.0, y_min: 256.25}
+  - {label: Red, occluded: false, x_max: 929.875, x_min: 919.25, y_max: 274.375, y_min: 241.875}
+  path: rgb/test/39966.png
+- boxes:
   - {label: Red, occluded: false, x_max: 74.75, x_min: 65.125, y_max: 295.875, y_min: 267.375}
   - {label: Red, occluded: false, x_max: 541.375, x_min: 523.375, y_max: 295.875,
     y_min: 255.875}
   - {label: Red, occluded: false, x_max: 929.75, x_min: 919.0, y_max: 274.25, y_min: 242.125}
   path: rgb/test/39968.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 74.75, x_min: 65.0, y_max: 294.375, y_min: 266.875}
+  - {label: Red, occluded: false, x_max: 542.0, x_min: 523.25, y_max: 296.375, y_min: 256.0}
+  - {label: Red, occluded: false, x_max: 929.875, x_min: 919.125, y_max: 273.875,
+    y_min: 241.75}
+  path: rgb/test/39970.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 74.625, x_min: 65.5, y_max: 296.25, y_min: 266.75}
+  - {label: Red, occluded: false, x_max: 540.5, x_min: 524.25, y_max: 295.25, y_min: 257.875}
+  - {label: Red, occluded: false, x_max: 929.75, x_min: 919.625, y_max: 274.625, y_min: 242.375}
+  path: rgb/test/39972.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 74.625, x_min: 65.5, y_max: 296.25, y_min: 266.75}
+  - {label: Red, occluded: false, x_max: 540.375, x_min: 523.875, y_max: 295.125,
+    y_min: 257.125}
+  - {label: Red, occluded: false, x_max: 930.5, x_min: 919.625, y_max: 273.375, y_min: 241.75}
+  path: rgb/test/39974.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 74.625, x_min: 65.5, y_max: 296.25, y_min: 266.75}
+  - {label: Red, occluded: false, x_max: 542.25, x_min: 522.875, y_max: 296.0, y_min: 256.625}
+  - {label: Red, occluded: false, x_max: 930.25, x_min: 919.875, y_max: 273.125, y_min: 242.375}
+  path: rgb/test/39976.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 74.625, x_min: 65.5, y_max: 296.25, y_min: 266.75}
   - {label: Red, occluded: false, x_max: 541.0, x_min: 522.875, y_max: 295.375, y_min: 255.625}
@@ -26637,6 +33454,11 @@
   - {label: Red, occluded: false, x_max: 541.75, x_min: 523.125, y_max: 295.625, y_min: 255.875}
   - {label: Red, occluded: false, x_max: 930.375, x_min: 920.375, y_max: 273.5, y_min: 241.875}
   path: rgb/test/39988.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 73.0, x_min: 62.75, y_max: 296.0, y_min: 266.625}
+  - {label: Red, occluded: false, x_max: 541.625, x_min: 523.125, y_max: 296.0, y_min: 255.625}
+  - {label: Red, occluded: false, x_max: 930.25, x_min: 920.5, y_max: 273.125, y_min: 242.25}
+  path: rgb/test/39990.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
   - {label: Red, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
@@ -26755,6 +33577,13 @@
     y_min: 259.125}
   - {label: Red, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
     y_min: 241.5}
+  path: rgb/test/40024.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
+  - {label: Red, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
+    y_min: 259.125}
+  - {label: Red, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
+    y_min: 241.5}
   path: rgb/test/40026.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
@@ -26763,6 +33592,20 @@
   - {label: Red, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
     y_min: 241.5}
   path: rgb/test/40028.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
+  - {label: Red, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
+    y_min: 259.125}
+  - {label: Red, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
+    y_min: 241.5}
+  path: rgb/test/40030.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
+  - {label: Red, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
+    y_min: 259.125}
+  - {label: Red, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
+    y_min: 241.5}
+  path: rgb/test/40032.png
 - boxes:
   - {label: Red, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
   - {label: Red, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
@@ -26790,6 +33633,13 @@
     y_min: 259.125}
   - {label: Red, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
     y_min: 241.5}
+  path: rgb/test/40040.png
+- boxes:
+  - {label: Red, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
+  - {label: Red, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
+    y_min: 259.125}
+  - {label: Red, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
+    y_min: 241.5}
   path: rgb/test/40042.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
@@ -26798,6 +33648,13 @@
   - {label: Red, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
     y_min: 241.5}
   path: rgb/test/40044.png
+- boxes:
+  - {label: 'off', occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
+  - {label: Red, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
+    y_min: 259.125}
+  - {label: Red, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
+    y_min: 241.5}
+  path: rgb/test/40046.png
 - boxes:
   - {label: 'off', occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
   - {label: Red, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
@@ -26916,6 +33773,13 @@
     y_min: 259.125}
   - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
     y_min: 241.5}
+  path: rgb/test/40080.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
+  - {label: Green, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
+    y_min: 259.125}
+  - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
+    y_min: 241.5}
   path: rgb/test/40082.png
 - boxes:
   - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
@@ -26931,6 +33795,13 @@
   - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
     y_min: 241.5}
   path: rgb/test/40086.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
+  - {label: Green, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
+    y_min: 259.125}
+  - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
+    y_min: 241.5}
+  path: rgb/test/40088.png
 - boxes:
   - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
   - {label: Green, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
@@ -26972,6 +33843,13 @@
     y_min: 259.125}
   - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
     y_min: 241.5}
+  path: rgb/test/40100.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
+  - {label: Green, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
+    y_min: 259.125}
+  - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
+    y_min: 241.5}
   path: rgb/test/40102.png
 - boxes:
   - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
@@ -26980,6 +33858,13 @@
   - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
     y_min: 241.5}
   path: rgb/test/40104.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
+  - {label: Green, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
+    y_min: 259.125}
+  - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
+    y_min: 241.5}
+  path: rgb/test/40106.png
 - boxes:
   - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
   - {label: Green, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
@@ -27035,6 +33920,13 @@
     y_min: 259.125}
   - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
     y_min: 241.5}
+  path: rgb/test/40122.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
+  - {label: Green, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
+    y_min: 259.125}
+  - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
+    y_min: 241.5}
   path: rgb/test/40124.png
 - boxes:
   - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
@@ -27077,6 +33969,13 @@
     y_min: 259.125}
   - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
     y_min: 241.5}
+  path: rgb/test/40136.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
+  - {label: Green, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
+    y_min: 259.125}
+  - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
+    y_min: 241.5}
   path: rgb/test/40138.png
 - boxes:
   - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
@@ -27098,6 +33997,13 @@
     y_min: 259.125}
   - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
     y_min: 241.5}
+  path: rgb/test/40144.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
+  - {label: Green, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
+    y_min: 259.125}
+  - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
+    y_min: 241.5}
   path: rgb/test/40146.png
 - boxes:
   - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
@@ -27106,6 +34012,13 @@
   - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
     y_min: 241.5}
   path: rgb/test/40148.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
+  - {label: Green, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
+    y_min: 259.125}
+  - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
+    y_min: 241.5}
+  path: rgb/test/40150.png
 - boxes:
   - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
   - {label: Green, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
@@ -27133,6 +34046,13 @@
     y_min: 259.125}
   - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
     y_min: 241.5}
+  path: rgb/test/40158.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
+  - {label: Green, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
+    y_min: 259.125}
+  - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
+    y_min: 241.5}
   path: rgb/test/40160.png
 - boxes:
   - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
@@ -27141,6 +34061,13 @@
   - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
     y_min: 241.5}
   path: rgb/test/40162.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
+  - {label: Green, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
+    y_min: 259.125}
+  - {label: Green, occluded: false, x_max: 930.125, x_min: 921.375, y_max: 273.625,
+    y_min: 241.5}
+  path: rgb/test/40164.png
 - boxes:
   - {label: Green, occluded: false, x_max: 75.5, x_min: 64.25, y_max: 300.5, y_min: 266.5}
   - {label: Green, occluded: false, x_max: 538.375, x_min: 526.875, y_max: 294.625,
@@ -27176,6 +34103,12 @@
   - {label: Green, occluded: false, x_max: 71.75, x_min: 62.375, y_max: 299.5, y_min: 266.125}
   path: rgb/test/40174.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 932.25, x_min: 923.375, y_max: 273.5, y_min: 240.375}
+  - {label: Green, occluded: false, x_max: 537.375, x_min: 527.875, y_max: 289.625,
+    y_min: 260.25}
+  - {label: Green, occluded: false, x_max: 70.0, x_min: 61.375, y_max: 299.5, y_min: 266.625}
+  path: rgb/test/40176.png
+- boxes:
   - {label: Green, occluded: false, x_max: 932.5, x_min: 924.25, y_max: 272.875, y_min: 240.875}
   - {label: Green, occluded: false, x_max: 537.375, x_min: 527.875, y_max: 290.625,
     y_min: 259.5}
@@ -27194,6 +34127,12 @@
     y_min: 259.75}
   - {label: Green, occluded: false, x_max: 69.0, x_min: 60.0, y_max: 299.625, y_min: 267.25}
   path: rgb/test/40182.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 932.75, x_min: 925.0, y_max: 272.875, y_min: 239.25}
+  - {label: Green, occluded: false, x_max: 536.875, x_min: 528.0, y_max: 290.625,
+    y_min: 259.875}
+  - {label: Green, occluded: false, x_max: 69.0, x_min: 59.125, y_max: 300.75, y_min: 266.75}
+  path: rgb/test/40184.png
 - boxes:
   - {label: Green, occluded: false, x_max: 933.25, x_min: 925.125, y_max: 272.5, y_min: 239.75}
   - {label: Green, occluded: false, x_max: 537.5, x_min: 527.125, y_max: 290.375,
@@ -27226,6 +34165,12 @@
     y_min: 265.625}
   path: rgb/test/40194.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 934.0, x_min: 925.625, y_max: 272.5, y_min: 239.625}
+  - {label: Green, occluded: false, x_max: 537.25, x_min: 526.875, y_max: 290.25,
+    y_min: 259.125}
+  - {label: Green, occluded: false, x_max: 65.0, x_min: 55.25, y_max: 299.375, y_min: 265.75}
+  path: rgb/test/40196.png
+- boxes:
   - {label: Green, occluded: false, x_max: 933.5, x_min: 926.625, y_max: 272.625,
     y_min: 239.5}
   - {label: Green, occluded: false, x_max: 537.0, x_min: 526.5, y_max: 290.25, y_min: 259.375}
@@ -27239,6 +34184,11 @@
   - {label: Green, occluded: false, x_max: 64.0, x_min: 54.875, y_max: 300.25, y_min: 265.875}
   path: rgb/test/40200.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 934.5, x_min: 926.75, y_max: 272.5, y_min: 240.125}
+  - {label: Green, occluded: false, x_max: 535.75, x_min: 525.625, y_max: 290.0, y_min: 259.875}
+  - {label: Green, occluded: false, x_max: 62.75, x_min: 54.125, y_max: 299.0, y_min: 265.5}
+  path: rgb/test/40202.png
+- boxes:
   - {label: Green, occluded: false, x_max: 934.625, x_min: 926.375, y_max: 273.875,
     y_min: 239.875}
   - {label: Green, occluded: false, x_max: 536.375, x_min: 525.375, y_max: 290.25,
@@ -27251,6 +34201,24 @@
     y_min: 260.625}
   - {label: Green, occluded: false, x_max: 60.75, x_min: 51.625, y_max: 299.25, y_min: 266.0}
   path: rgb/test/40206.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 935.75, x_min: 927.375, y_max: 273.625,
+    y_min: 240.75}
+  - {label: Green, occluded: false, x_max: 535.5, x_min: 524.75, y_max: 291.0, y_min: 260.125}
+  - {label: Green, occluded: false, x_max: 60.375, x_min: 51.375, y_max: 299.75, y_min: 266.0}
+  path: rgb/test/40208.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 936.75, x_min: 928.5, y_max: 274.375, y_min: 241.625}
+  - {label: Green, occluded: false, x_max: 536.125, x_min: 525.375, y_max: 292.0,
+    y_min: 260.625}
+  - {label: Green, occluded: false, x_max: 59.875, x_min: 50.125, y_max: 300.25, y_min: 266.25}
+  path: rgb/test/40210.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 937.625, x_min: 929.0, y_max: 274.75, y_min: 241.625}
+  - {label: Green, occluded: false, x_max: 535.625, x_min: 525.875, y_max: 291.75,
+    y_min: 261.25}
+  - {label: Green, occluded: false, x_max: 58.25, x_min: 49.25, y_max: 300.875, y_min: 267.0}
+  path: rgb/test/40212.png
 - boxes:
   - {label: Green, occluded: false, x_max: 936.75, x_min: 928.625, y_max: 274.875,
     y_min: 242.375}
@@ -27273,11 +34241,23 @@
     y_min: 267.875}
   path: rgb/test/40218.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 938.625, x_min: 930.75, y_max: 273.125,
+    y_min: 240.375}
+  - {label: Green, occluded: false, x_max: 534.625, x_min: 523.75, y_max: 292.75,
+    y_min: 261.75}
+  - {label: Green, occluded: false, x_max: 51.625, x_min: 43.875, y_max: 302.0, y_min: 267.375}
+  path: rgb/test/40220.png
+- boxes:
   - {label: Green, occluded: false, x_max: 939.875, x_min: 930.875, y_max: 272.375,
     y_min: 239.375}
   - {label: Green, occluded: false, x_max: 533.0, x_min: 523.5, y_max: 291.5, y_min: 260.75}
   - {label: Green, occluded: false, x_max: 50.0, x_min: 42.625, y_max: 301.125, y_min: 267.125}
   path: rgb/test/40222.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 940.0, x_min: 931.375, y_max: 271.75, y_min: 238.125}
+  - {label: Green, occluded: false, x_max: 533.875, x_min: 523.5, y_max: 291.0, y_min: 259.5}
+  - {label: Green, occluded: false, x_max: 48.25, x_min: 40.25, y_max: 301.25, y_min: 266.75}
+  path: rgb/test/40224.png
 - boxes:
   - {label: Green, occluded: false, x_max: 940.875, x_min: 932.5, y_max: 270.375,
     y_min: 237.0}
@@ -27296,6 +34276,14 @@
     y_min: 256.75}
   - {label: Green, occluded: false, x_max: 43.0, x_min: 33.125, y_max: 297.625, y_min: 263.75}
   path: rgb/test/40230.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 943.625, x_min: 934.75, y_max: 268.375,
+    y_min: 234.75}
+  - {label: Green, occluded: false, x_max: 533.375, x_min: 522.0, y_max: 287.625,
+    y_min: 255.625}
+  - {label: Green, occluded: false, x_max: 41.625, x_min: 31.125, y_max: 298.375,
+    y_min: 262.5}
+  path: rgb/test/40232.png
 - boxes:
   - {label: Green, occluded: false, x_max: 943.75, x_min: 935.875, y_max: 268.125,
     y_min: 233.5}
@@ -27322,6 +34310,12 @@
   - {label: Green, occluded: false, x_max: 32.25, x_min: 22.5, y_max: 294.375, y_min: 258.875}
   path: rgb/test/40240.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 948.0, x_min: 939.375, y_max: 265.0, y_min: 231.75}
+  - {label: Green, occluded: false, x_max: 530.25, x_min: 518.875, y_max: 284.125,
+    y_min: 251.125}
+  - {label: Green, occluded: false, x_max: 31.125, x_min: 20.625, y_max: 293.5, y_min: 258.75}
+  path: rgb/test/40242.png
+- boxes:
   - {label: Green, occluded: false, x_max: 949.5, x_min: 940.375, y_max: 264.625,
     y_min: 230.625}
   - {label: Green, occluded: false, x_max: 530.125, x_min: 518.25, y_max: 284.0, y_min: 252.625}
@@ -27338,6 +34332,13 @@
   - {label: Green, occluded: false, x_max: 529.875, x_min: 518.0, y_max: 286.75, y_min: 253.375}
   - {label: Green, occluded: false, x_max: 24.0, x_min: 12.75, y_max: 294.75, y_min: 259.625}
   path: rgb/test/40248.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 953.875, x_min: 943.5, y_max: 267.875,
+    y_min: 232.375}
+  - {label: Green, occluded: false, x_max: 529.25, x_min: 517.875, y_max: 287.25,
+    y_min: 253.625}
+  - {label: Green, occluded: false, x_max: 21.375, x_min: 9.75, y_max: 295.875, y_min: 259.75}
+  path: rgb/test/40250.png
 - boxes:
   - {label: Green, occluded: false, x_max: 954.375, x_min: 945.125, y_max: 269.0,
     y_min: 233.125}
@@ -27387,6 +34388,12 @@
   - {label: Green, occluded: false, x_max: 525.0, x_min: 512.375, y_max: 289.0, y_min: 255.75}
   path: rgb/test/40266.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 966.5, x_min: 955.875, y_max: 267.625,
+    y_min: 231.5}
+  - {label: Green, occluded: false, x_max: 524.875, x_min: 512.625, y_max: 289.125,
+    y_min: 255.875}
+  path: rgb/test/40268.png
+- boxes:
   - {label: Green, occluded: false, x_max: 968.25, x_min: 956.875, y_max: 266.375,
     y_min: 230.0}
   - {label: Green, occluded: false, x_max: 523.875, x_min: 511.75, y_max: 289.25,
@@ -27409,6 +34416,11 @@
     y_min: 257.5}
   path: rgb/test/40276.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 976.125, x_min: 964.25, y_max: 267.875,
+    y_min: 230.875}
+  - {label: Green, occluded: false, x_max: 520.75, x_min: 508.875, y_max: 291.5, y_min: 258.375}
+  path: rgb/test/40278.png
+- boxes:
   - {label: Green, occluded: false, x_max: 977.875, x_min: 967.125, y_max: 268.875,
     y_min: 231.0}
   - {label: Green, occluded: false, x_max: 519.375, x_min: 508.5, y_max: 292.375,
@@ -27418,6 +34430,10 @@
   - {label: Green, occluded: false, x_max: 980.75, x_min: 969.5, y_max: 268.625, y_min: 230.375}
   - {label: Green, occluded: false, x_max: 520.0, x_min: 507.75, y_max: 292.75, y_min: 259.125}
   path: rgb/test/40282.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 983.0, x_min: 972.125, y_max: 267.5, y_min: 229.625}
+  - {label: Green, occluded: false, x_max: 519.0, x_min: 507.25, y_max: 291.25, y_min: 257.125}
+  path: rgb/test/40284.png
 - boxes:
   - {label: Green, occluded: false, x_max: 985.25, x_min: 974.125, y_max: 265.875,
     y_min: 227.0}
@@ -27444,6 +34460,10 @@
     y_min: 248.375}
   path: rgb/test/40294.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 998.0, x_min: 985.5, y_max: 253.375, y_min: 212.5}
+  - {label: Green, occluded: false, x_max: 514.125, x_min: 502.0, y_max: 282.25, y_min: 246.5}
+  path: rgb/test/40296.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1001.0, x_min: 989.375, y_max: 252.625,
     y_min: 211.5}
   - {label: Green, occluded: false, x_max: 512.5, x_min: 499.5, y_max: 281.375, y_min: 245.25}
@@ -27464,6 +34484,17 @@
   - {label: Green, occluded: false, x_max: 510.375, x_min: 495.875, y_max: 282.5,
     y_min: 244.875}
   path: rgb/test/40304.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1013.25, x_min: 1002.0, y_max: 253.0, y_min: 210.875}
+  - {label: Green, occluded: false, x_max: 508.875, x_min: 495.875, y_max: 281.375,
+    y_min: 244.125}
+  path: rgb/test/40306.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1017.25, x_min: 1005.25, y_max: 250.375,
+    y_min: 208.375}
+  - {label: Green, occluded: false, x_max: 507.125, x_min: 494.125, y_max: 279.25,
+    y_min: 241.625}
+  path: rgb/test/40308.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1021.75, x_min: 1009.25, y_max: 245.625,
     y_min: 201.75}
@@ -27503,16 +34534,34 @@
     y_min: 241.625}
   path: rgb/test/40322.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1052.375, x_min: 1038.25, y_max: 244.5,
+    y_min: 196.5}
+  - {label: Green, occluded: false, x_max: 499.375, x_min: 485.75, y_max: 278.75,
+    y_min: 239.875}
+  path: rgb/test/40324.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1057.875, x_min: 1044.0, y_max: 241.0,
     y_min: 193.75}
   - {label: Green, occluded: false, x_max: 498.0, x_min: 484.75, y_max: 275.0, y_min: 235.25}
   path: rgb/test/40326.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1063.125, x_min: 1048.875, y_max: 238.375,
+    y_min: 188.25}
+  - {label: Green, occluded: false, x_max: 497.5, x_min: 483.625, y_max: 272.375,
+    y_min: 231.5}
+  path: rgb/test/40328.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1069.0, x_min: 1054.375, y_max: 241.25,
     y_min: 189.25}
   - {label: Green, occluded: false, x_max: 496.25, x_min: 483.125, y_max: 274.75,
     y_min: 234.5}
   path: rgb/test/40330.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1074.5, x_min: 1059.375, y_max: 242.75,
+    y_min: 191.625}
+  - {label: Green, occluded: false, x_max: 494.125, x_min: 481.125, y_max: 278.625,
+    y_min: 237.375}
+  path: rgb/test/40332.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1079.875, x_min: 1065.5, y_max: 241.75,
     y_min: 190.125}
@@ -27532,16 +34581,38 @@
     y_min: 231.125}
   path: rgb/test/40338.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1098.875, x_min: 1083.75, y_max: 229.75,
+    y_min: 174.75}
+  - {label: Green, occluded: false, x_max: 488.25, x_min: 474.5, y_max: 269.0, y_min: 225.75}
+  path: rgb/test/40340.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1106.125, x_min: 1090.625, y_max: 228.75,
+    y_min: 174.375}
+  - {label: Green, occluded: false, x_max: 486.5, x_min: 473.625, y_max: 267.5, y_min: 225.0}
+  path: rgb/test/40342.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1112.875, x_min: 1098.125, y_max: 231.25,
     y_min: 175.375}
   - {label: Green, occluded: false, x_max: 486.25, x_min: 471.5, y_max: 271.125, y_min: 226.875}
   path: rgb/test/40344.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1120.5, x_min: 1105.125, y_max: 231.75,
+    y_min: 173.625}
+  - {label: Green, occluded: false, x_max: 485.875, x_min: 471.625, y_max: 273.125,
+    y_min: 228.5}
+  path: rgb/test/40346.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1127.125, x_min: 1111.75, y_max: 229.875,
     y_min: 170.625}
   - {label: Green, occluded: false, x_max: 483.875, x_min: 469.75, y_max: 272.875,
     y_min: 228.25}
   path: rgb/test/40348.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1134.375, x_min: 1117.5, y_max: 224.75,
+    y_min: 166.125}
+  - {label: Green, occluded: false, x_max: 481.375, x_min: 467.0, y_max: 271.375,
+    y_min: 226.625}
+  path: rgb/test/40350.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1143.375, x_min: 1125.625, y_max: 217.125,
     y_min: 158.375}
@@ -27578,6 +34649,12 @@
   - {label: Green, occluded: false, x_max: 470.5, x_min: 455.75, y_max: 245.0, y_min: 198.375}
   path: rgb/test/40362.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 1197.125, x_min: 1180.5, y_max: 184.75,
+    y_min: 117.5}
+  - {label: Green, occluded: false, x_max: 468.625, x_min: 453.625, y_max: 240.625,
+    y_min: 193.125}
+  path: rgb/test/40364.png
+- boxes:
   - {label: Green, occluded: false, x_max: 1208.75, x_min: 1190.875, y_max: 180.625,
     y_min: 112.5}
   - {label: Green, occluded: false, x_max: 467.625, x_min: 451.875, y_max: 239.0,
@@ -27589,6 +34666,11 @@
   - {label: Green, occluded: false, x_max: 465.625, x_min: 449.375, y_max: 238.75,
     y_min: 189.75}
   path: rgb/test/40368.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 1231.875, x_min: 1214.375, y_max: 177.5,
+    y_min: 107.375}
+  - {label: Green, occluded: false, x_max: 463.125, x_min: 448.0, y_max: 241.0, y_min: 190.75}
+  path: rgb/test/40370.png
 - boxes:
   - {label: Green, occluded: false, x_max: 1245.125, x_min: 1226.625, y_max: 173.375,
     y_min: 100.0}
@@ -27613,12 +34695,19 @@
     y_min: 183.25}
   path: rgb/test/40378.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 453.375, x_min: 436.5, y_max: 239.375,
+    y_min: 184.375}
+  path: rgb/test/40380.png
+- boxes:
   - {label: Green, occluded: false, x_max: 451.75, x_min: 434.125, y_max: 242.0, y_min: 186.625}
   path: rgb/test/40382.png
 - boxes:
   - {label: Green, occluded: false, x_max: 448.375, x_min: 430.75, y_max: 246.625,
     y_min: 187.125}
   path: rgb/test/40384.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 445.75, x_min: 427.25, y_max: 248.75, y_min: 190.0}
+  path: rgb/test/40386.png
 - boxes:
   - {label: Green, occluded: false, x_max: 442.5, x_min: 422.375, y_max: 248.375,
     y_min: 189.25}
@@ -27635,9 +34724,25 @@
   - {label: Green, occluded: false, x_max: 433.0, x_min: 410.875, y_max: 242.75, y_min: 179.75}
   path: rgb/test/40394.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 429.25, x_min: 406.625, y_max: 235.875,
+    y_min: 171.375}
+  path: rgb/test/40396.png
+- boxes:
   - {label: Green, occluded: false, x_max: 425.25, x_min: 402.75, y_max: 227.375,
     y_min: 162.625}
   path: rgb/test/40398.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 420.875, x_min: 397.25, y_max: 217.875,
+    y_min: 154.25}
+  path: rgb/test/40400.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 416.75, x_min: 393.875, y_max: 216.375,
+    y_min: 147.375}
+  path: rgb/test/40402.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 411.625, x_min: 388.25, y_max: 211.875,
+    y_min: 141.625}
+  path: rgb/test/40404.png
 - boxes:
   - {label: Green, occluded: false, x_max: 405.625, x_min: 382.0, y_max: 204.5, y_min: 136.125}
   path: rgb/test/40406.png
@@ -27661,6 +34766,9 @@
   - {label: Green, occluded: false, x_max: 378.125, x_min: 354.0, y_max: 178.75, y_min: 99.125}
   path: rgb/test/40416.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 370.5, x_min: 345.5, y_max: 173.0, y_min: 95.5}
+  path: rgb/test/40418.png
+- boxes:
   - {label: Green, occluded: false, x_max: 360.5, x_min: 336.5, y_max: 172.0, y_min: 88.0}
   path: rgb/test/40420.png
 - boxes:
@@ -27670,12 +34778,24 @@
   - {label: Green, occluded: false, x_max: 346.0, x_min: 320.0, y_max: 161.5, y_min: 75.5}
   path: rgb/test/40424.png
 - boxes:
+  - {label: Green, occluded: false, x_max: 336.5, x_min: 310.5, y_max: 154.5, y_min: 62.5}
+  path: rgb/test/40426.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 330.5, x_min: 300.0, y_max: 139.0, y_min: 48.5}
+  path: rgb/test/40428.png
+- boxes:
   - {label: Green, occluded: false, x_max: 317.375, x_min: 288.875, y_max: 122.125,
     y_min: 31.75}
   path: rgb/test/40430.png
 - boxes:
   - {label: Green, occluded: false, x_max: 306.0, x_min: 276.0, y_max: 115.0, y_min: 18.0}
   path: rgb/test/40432.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 293.0, x_min: 262.5, y_max: 105.0, y_min: 0.5}
+  path: rgb/test/40434.png
+- boxes:
+  - {label: Green, occluded: false, x_max: 282.0, x_min: 245.5, y_max: 95.0, y_min: 0.0}
+  path: rgb/test/40436.png
 - boxes:
   - {label: Green, occluded: false, x_max: 265.0, x_min: 230.0, y_max: 95.0, y_min: 0.5}
   path: rgb/test/40438.png
@@ -27700,9 +34820,15 @@
 - boxes: []
   path: rgb/test/40452.png
 - boxes: []
+  path: rgb/test/40454.png
+- boxes: []
+  path: rgb/test/40456.png
+- boxes: []
   path: rgb/test/40458.png
 - boxes: []
   path: rgb/test/40460.png
+- boxes: []
+  path: rgb/test/40462.png
 - boxes: []
   path: rgb/test/40464.png
 - boxes: []
@@ -27714,17 +34840,25 @@
 - boxes: []
   path: rgb/test/40472.png
 - boxes: []
+  path: rgb/test/40474.png
+- boxes: []
   path: rgb/test/40476.png
 - boxes: []
   path: rgb/test/40478.png
 - boxes: []
   path: rgb/test/40480.png
 - boxes: []
+  path: rgb/test/40482.png
+- boxes: []
   path: rgb/test/40484.png
 - boxes: []
   path: rgb/test/40486.png
 - boxes: []
   path: rgb/test/40488.png
+- boxes: []
+  path: rgb/test/40490.png
+- boxes: []
+  path: rgb/test/40492.png
 - boxes: []
   path: rgb/test/40494.png
 - boxes: []
@@ -27744,7 +34878,11 @@
 - boxes: []
   path: rgb/test/40510.png
 - boxes: []
+  path: rgb/test/40512.png
+- boxes: []
   path: rgb/test/40514.png
+- boxes: []
+  path: rgb/test/40516.png
 - boxes: []
   path: rgb/test/40518.png
 - boxes: []
@@ -27752,7 +34890,11 @@
 - boxes: []
   path: rgb/test/40522.png
 - boxes: []
+  path: rgb/test/40524.png
+- boxes: []
   path: rgb/test/40526.png
+- boxes: []
+  path: rgb/test/40528.png
 - boxes: []
   path: rgb/test/40530.png
 - boxes: []
@@ -27763,6 +34905,8 @@
   path: rgb/test/40536.png
 - boxes: []
   path: rgb/test/40538.png
+- boxes: []
+  path: rgb/test/40540.png
 - boxes: []
   path: rgb/test/40542.png
 - boxes: []
@@ -27778,11 +34922,19 @@
 - boxes: []
   path: rgb/test/40554.png
 - boxes: []
+  path: rgb/test/40556.png
+- boxes: []
   path: rgb/test/40558.png
 - boxes: []
   path: rgb/test/40560.png
 - boxes: []
+  path: rgb/test/40562.png
+- boxes: []
   path: rgb/test/40564.png
+- boxes: []
+  path: rgb/test/40566.png
+- boxes: []
+  path: rgb/test/40568.png
 - boxes: []
   path: rgb/test/40570.png
 - boxes: []
@@ -27800,11 +34952,15 @@
 - boxes: []
   path: rgb/test/40584.png
 - boxes: []
+  path: rgb/test/40586.png
+- boxes: []
   path: rgb/test/40588.png
 - boxes: []
   path: rgb/test/40590.png
 - boxes: []
   path: rgb/test/40592.png
+- boxes: []
+  path: rgb/test/40594.png
 - boxes: []
   path: rgb/test/40596.png
 - boxes: []
@@ -27828,6 +34984,8 @@
 - boxes: []
   path: rgb/test/40616.png
 - boxes: []
+  path: rgb/test/40618.png
+- boxes: []
   path: rgb/test/40620.png
 - boxes: []
   path: rgb/test/40622.png
@@ -27844,11 +35002,17 @@
 - boxes: []
   path: rgb/test/40634.png
 - boxes: []
+  path: rgb/test/40636.png
+- boxes: []
   path: rgb/test/40638.png
 - boxes: []
   path: rgb/test/40640.png
 - boxes: []
+  path: rgb/test/40642.png
+- boxes: []
   path: rgb/test/40644.png
+- boxes: []
+  path: rgb/test/40646.png
 - boxes: []
   path: rgb/test/40648.png
 - boxes: []
@@ -27857,6 +35021,8 @@
   path: rgb/test/40652.png
 - boxes: []
   path: rgb/test/40654.png
+- boxes: []
+  path: rgb/test/40656.png
 - boxes: []
   path: rgb/test/40658.png
 - boxes: []
@@ -27882,7 +35048,13 @@
 - boxes: []
   path: rgb/test/40680.png
 - boxes: []
+  path: rgb/test/40682.png
+- boxes: []
   path: rgb/test/40684.png
+- boxes: []
+  path: rgb/test/40686.png
+- boxes: []
+  path: rgb/test/40688.png
 - boxes: []
   path: rgb/test/40690.png
 - boxes: []
@@ -27904,6 +35076,10 @@
 - boxes: []
   path: rgb/test/40708.png
 - boxes: []
+  path: rgb/test/40710.png
+- boxes: []
+  path: rgb/test/40712.png
+- boxes: []
   path: rgb/test/40714.png
 - boxes: []
   path: rgb/test/40716.png
@@ -27922,4 +35098,23 @@
 - boxes: []
   path: rgb/test/40730.png
 - boxes: []
+  path: rgb/test/40732.png
+- boxes: []
   path: rgb/test/40734.png
+"""
+import os
+
+DIRNAME = os.path.dirname(os.path.abspath(__file__))
+
+#print(type(yaml.load(document)))
+results = yaml.load(document)
+
+msk = np.random.rand(len(results)) < 0.8
+train_data = np.array(results)[msk]
+test_data = np.array(results)[~msk]
+
+with open(DIRNAME + "/../../../data/bosch/train.yaml", 'w') as outfile:
+    yaml.dump(train_data.tolist(), outfile)
+
+with open(DIRNAME + "/../../../data/bosch/test.yaml", 'w') as outfile:
+    yaml.dump(test_data.tolist(), outfile)
