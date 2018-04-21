@@ -16,12 +16,13 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 class TLDetector(object):
     def __init__(self, model_name, labels_name):
-        self.detection_graph = self.load_tf_model()
         self.model_name = model_name
+        self.model_path = dir_path + '/models/' + self.model_name + \
+                                     '/frozen_inference_graph.pb'
         self.labels_name = labels_name
-
-        self.model_path = dir_path + '/' + self.model_name + '/' + '/frozen_inference_graph.pb'
         self.labels_path = dir_path + '/labels/' + self.labels_name
+
+        self.detection_graph = self.load_tf_model()
 
     def load_tf_model(self):
         detection_graph = tf.Graph()
@@ -100,6 +101,12 @@ class TLDetector(object):
         scores = output_dict['detection_scores'][traffic_light_idx]
 
         return norm_boxes, scores
+
+    def get_truncated_model_for_training(self):
+        graph = self.detection_graph
+        with graph.as_default():
+            ([print(n.name) for n in tf.get_default_graph().as_graph_def().node])
+            
 
 def load_image_into_numpy_array(mage):
     (im_width, im_height) = image.size
