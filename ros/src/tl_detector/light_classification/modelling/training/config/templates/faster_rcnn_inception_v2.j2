@@ -10,8 +10,8 @@ model {
     num_classes: 4
     image_resizer {
       keep_aspect_ratio_resizer {
-        min_dimension: 1096
-        max_dimension: 1368
+        min_dimension: {{ min_dimension }}
+        max_dimension: {{ max_dimension }}
       }
     }
     feature_extractor {
@@ -110,7 +110,7 @@ train_config: {
   # empirically found to be sufficient enough to train the COCO dataset. This
   # effectively bypasses the learning rate schedule (the learning rate will
   # never decay). Remove the below line to train indefinitely.
-  num_steps: 5000
+  num_steps: {{ num_steps }}
   data_augmentation_options {
     random_horizontal_flip {
     }
@@ -119,9 +119,9 @@ train_config: {
 
 train_input_reader: {
   tf_record_input_reader {
-    input_path: "../../../data/udacity/real_training_data/converted_labels/data.record"
+    input_path: "{{ train_record }}"
   }
-  label_map_path: "labels/udacity_label_map.pbtxt"
+  label_map_path: "{{ train_pbtxt }}"
 }
 
 eval_config: {
@@ -133,9 +133,9 @@ eval_config: {
 
 eval_input_reader: {
   tf_record_input_reader {
-    input_path: "../../../data/udacity/real_training_data/converted_labels/data.record"
+    input_path: "{{ test_record }}"
   }
-  label_map_path: "labels/udacity_label_map.pbtxt"
+  label_map_path: "{{ test_pbtxt }}"
   shuffle: false
   num_readers: 1
 }

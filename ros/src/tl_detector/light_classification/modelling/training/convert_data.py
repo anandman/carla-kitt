@@ -73,6 +73,8 @@ default_tf_records = {
     "udacity_real.record": ["udacity_real.yaml"],
     "udacity_sim.record": ["udacity_sim.yaml"],
     "udacity_all.record": ["udacity_real.yaml", "udacity_sim.yaml"],
+    "bosch_test_and_udacity_real.record": ["bosch_test.yaml", "udacity_real.yaml"],
+    "bosch_test_and_udacity_all.record": ["bosch_test.yaml", "udacity_real.yaml", "udacity_sim.yaml"],
 }
 
 def generate_labels(yaml_files):
