@@ -16,6 +16,7 @@ class Controller(object):
 
         #ajaffer: Tried with Highway track only, for parking lot we might
         # need to go to 0.2
+        # self.max_throttle = 0.2
         self.max_throttle = 1.0
 
         kp = 0.3
@@ -69,14 +70,38 @@ class Controller(object):
 
         throttle = self.throttle_controller.step(vel_error, sample_time)
         brake = 0
-        if linear_vel == 0. and current_vel < 0.1:
+        if linear_vel == 0. and current_vel < 2.0:
             throttle = 0
             brake = 400
-        elif throttle < (self.max_throttle/2.) and vel_error < 0:
-            decel = max(vel_error, self.decel_limit)
+            # rospy.loginfo("Applying brakes (Full) [curr,vel,err,t,b,s] [{0},"
+            #               "{1},"
+            #               "{2},"
+            #               "{3},"
+            #               "{4},"
+            #               "{5}]".format(current_vel,
+            #                             linear_vel,
+            #                             vel_error,
+            #                             throttle,
+            #                             brake,
+            #                             steering))
+
+        elif vel_error < 0:
+            decel = max(2 * vel_error, self.decel_limit)
+            throttle = 0
 
             if (abs(decel) > self.brake_deadband):
                 brake = abs(decel)*self.total_vehicle_mass*self.wheel_radius
+                # rospy.loginfo("Applying brakes [curr,vel,err,t,b,s] [{0},{1},"
+                #               "{2},"
+                #               "{3},"
+                #               "{4},"
+                #               "{5}]".format(current_vel,
+                #                             linear_vel,
+                #                             vel_error,
+                #                             throttle,
+                #                             brake,
+                #                             steering))
+
 
         # rospy.loginfo("{0},{1},{2},{3},{4}".format(current_vel / ONE_MPH,
         #                                           vel_error, throttle, brake, steering))
