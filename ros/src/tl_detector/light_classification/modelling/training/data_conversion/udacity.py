@@ -13,16 +13,26 @@ class Converter(object):
         abs_path_to_raw = os.path.abspath(os.path.join(os.path.dirname(self.path), "../raw/", self.name))
         return [abs_path_to_raw + "/" + entity["filename"] for entity in self.loaded_file]
 
-    def get_annotations(self):
+    def get_image_sizes(self):
         image_absolute_paths = self.get_absolute_paths()
-        image_entities = [entity["annotations"] for entity in self.loaded_file]
+        image_sizes = []
 
-        image_entities = zip(image_absolute_paths, image_entities)
-
-        annotations = []
-        for image_absolute_path, image_entity in image_entities:
+        for image_absolute_path in image_absolute_paths:
             im = Image.open(image_absolute_path)
             im_width, im_height = im.size
+            image_sizes.append({
+                "im_width": im_width,
+                "im_height": im_height
+            })
+
+        return image_sizes
+
+
+    def get_annotations(self):
+        image_entities = [entity["annotations"] for entity in self.loaded_file]
+
+        annotations = []
+        for image_entity in image_entities:
             image_annotations = []
             for raw_annotation in image_entity:
                 image_annotations.append({
@@ -31,8 +41,6 @@ class Converter(object):
                     "x_max": raw_annotation["x_width"] + raw_annotation["xmin"],
                     "y_min": raw_annotation["ymin"],
                     "y_max": raw_annotation["y_height"] + raw_annotation["ymin"],
-                    "im_width": im_width,
-                    "im_height": im_height
                 })
             annotations.append(image_annotations)
 
