@@ -99,7 +99,7 @@ def run(tf_records = None):
     for tf_record in tf_records:
         yaml_files = tf_records[tf_record]
 
-        for idx in range(yaml_files):
+        for idx in range(len(yaml_files)):
             yaml_files[idx] = DIRNAME + "/data/yaml/" + yaml_files[idx]
 
         # Generate labels
@@ -117,7 +117,7 @@ def run(tf_records = None):
             abs_paths = converter.get_absolute_paths()
             image_annotations = converter.get_annotations()
 
-            for img_idx in range(abs_paths):
+            for img_idx in range(len(abs_paths)):
                 tf_example = create_tf_example(abs_paths[img_idx], image_annotations[img_idx], label_dict)
                 writer.write(tf_example.SerializeToString())
 
