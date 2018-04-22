@@ -1,9 +1,10 @@
 import sys
-sys.path.insert(1, "../../tensorflow/research")
-sys.path.insert(1, "../../tensorflow/research/slim")
-sys.path.append("..")
-sys.path.append("../../tensorflow/research")
-sys.path.append("../../tensorflow/research/slim")
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+sys.path.append(dir_path + "/..")
+sys.path.append(dir_path + "/../../tensorflow/research")
+sys.path.append(dir_path + "/../../tensorflow/research/slim")
 
 import glob
 import numpy as np
@@ -11,8 +12,6 @@ import os
 import tensorflow as tf
 from object_detection.utils import ops as utils_ops
 from object_detection.utils import label_map_util
-
-dir_path = os.path.dirname(os.path.realpath(__file__))
 
 class TLDetector(object):
     def __init__(self, model_name, labels_name):
@@ -88,25 +87,6 @@ class TLDetector(object):
                 if 'detection_masks' in output_dict:
                     output_dict['detection_masks'] = output_dict['detection_masks'][0]
         return output_dict
-
-    def retrieve_traffic_lights(self, output_dict):
-        '''
-        norm_boxes: a 2 dimensional numpy array of[N, 4]: (ymin, xmin, ymax, xmax).
-            The coordinates are in normalized format between[0, 1].
-        '''
-
-        traffic_light_idx = np.argwhere(output_dict['detection_classes'] == 10)
-
-        norm_boxes = output_dict['detection_boxes'][traffic_light_idx]
-        scores = output_dict['detection_scores'][traffic_light_idx]
-
-        return norm_boxes, scores
-
-    def get_truncated_model_for_training(self):
-        graph = self.detection_graph
-        with graph.as_default():
-            ([print(n.name) for n in tf.get_default_graph().as_graph_def().node])
-            
 
 def load_image_into_numpy_array(image):
     (im_width, im_height) = image.size
