@@ -6,10 +6,11 @@ DIRNAME = os.path.dirname(os.path.abspath(__file__))
 class Converter(object):
     def __init__(self, filename):
         self.path = DIRNAME + "/../data/yaml/" + filename
+        self.name, _ = os.path.splitext(filename)
         self.loaded_file = yaml.load(open(self.path, 'rb').read())
 
     def get_absolute_paths(self):
-        abs_path_to_raw = os.path.abspath(os.path.join(os.path.dirname(self.path), "../raw"))
+        abs_path_to_raw = os.path.abspath(os.path.join(os.path.dirname(self.path), "../raw/", self.name))
         return [abs_path_to_raw + "/" + entity["filename"] for entity in self.loaded_file]
 
     def get_annotations(self):
