@@ -76,9 +76,10 @@ def generate_labels(yaml_files):
     labels_set = set()
     for yaml_file in yaml_files:
         converter = converter_mapping[yaml_file](yaml_file)
-        image_annotations = converter.get_annotations()
-        for image_annotation in image_annotations:
-            labels_set.add(image_annotation["class"])
+        annotations = converter.get_annotations()
+        for image_annotations in annotations:
+            for image_annotation in image_annotations:
+                labels_set.add(image_annotation["class"])
 
     items_pbtxt = []
     label_dict = {}
