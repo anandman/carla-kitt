@@ -117,7 +117,7 @@ def run(tf_records = None):
             converter = converter_mapping[yaml_file](yaml_file)
             abs_paths = converter.get_absolute_paths()
             image_annotations = converter.get_annotations()
-            image_sizes = converter.get_image_sizes():
+            image_sizes = converter.get_image_sizes()
 
             for img_idx in range(len(abs_paths)):
                 tf_example = create_tf_example(
