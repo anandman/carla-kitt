@@ -23,8 +23,9 @@ class Converter(object):
         for image_absolute_path, image_entity in image_entities:
             im = Image.open(image_absolute_path)
             im_width, im_height = im.size
+            image_annotations = []
             for raw_annotation in image_entity:
-                annotations.append({
+                image_annotations.append({
                     "class": raw_annotation["class"].upper(),
                     "x_min": raw_annotation["xmin"],
                     "x_max": raw_annotation["x_width"] + raw_annotation["xmin"],
@@ -33,5 +34,6 @@ class Converter(object):
                     "im_width": im_width,
                     "im_height": im_height
                 })
+            annotations.append(image_annotations)
 
         return annotations
