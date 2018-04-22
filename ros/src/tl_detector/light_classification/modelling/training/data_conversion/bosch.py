@@ -1,5 +1,6 @@
 import yaml
 import os
+from PIL import Image
 
 DIRNAME = os.path.dirname(os.path.abspath(__file__))
 class Converter(object):
