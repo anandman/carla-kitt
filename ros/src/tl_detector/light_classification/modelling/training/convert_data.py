@@ -107,7 +107,7 @@ def run(tf_records = None):
         with open(label_path, "w") as text_file:
             text_file.write(generated_pbtxt)
 
-        tf_record_path = DIRNAME + "/data/records/" + tf_record
+        tf_record_path = DIRNAME + "/data/converted/records/" + tf_record
         writer = tf.python_io.TFRecordWriter(tf_record_path)
         for yaml_file in yaml_files:
             converter = converter_mapping[yaml_file](yaml_file)
