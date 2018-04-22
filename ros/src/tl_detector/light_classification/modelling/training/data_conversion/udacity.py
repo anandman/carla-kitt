@@ -10,7 +10,7 @@ class Converter(object):
 
     def get_absolute_paths(self):
         abs_path_to_raw = os.path.abspath(os.path.join(os.path.dirname(self.path), "../raw"))
-        return [abs_path_to_raw + entity["annotations"]["filename"] for entity in self.loaded_file]
+        return [abs_path_to_raw + entity["filename"] for entity in self.loaded_file]
 
     def get_annotations(self):
         image_absolute_paths = self.get_absolute_paths()
