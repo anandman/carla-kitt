@@ -4,6 +4,13 @@ build
 devel
 
 profile.tmp
+
+.gitignore
+.DS_store
+.idea
+.ipynb_checkpoints
+__pycache__
+
 **/*.bmp
 **/*.DS_Store
 **/ros/src/tl_detector/modelling/data/*
