@@ -87,7 +87,7 @@ def generate_labels(yaml_files):
         items_pbtxt.append("""item {
     id: %d
     name: '%s'
-}""" % idx, label)
+}""" % (idx, label))
         label_dict[label] = idx
         idx += 1
 
