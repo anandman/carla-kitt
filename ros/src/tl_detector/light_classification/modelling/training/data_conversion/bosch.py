@@ -1,9 +1,11 @@
 import yaml
 import os
+
+DIRNAME = os.path.dirname(os.path.abspath(__file__))
 class Converter(object):
-    def __init__(self, path):
-        self.path = path
-        self.loaded_file = yaml.load(open(path, 'rb').read())
+    def __init__(self, filename):
+        self.path = DIRNAME + "/../data/yaml/" + filename
+        self.loaded_file = yaml.load(open(self.path, 'rb').read())
 
     def get_absolute_paths(self):
         abs_path_to_raw = os.path.abspath(

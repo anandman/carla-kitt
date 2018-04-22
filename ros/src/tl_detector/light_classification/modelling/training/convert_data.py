@@ -99,9 +99,6 @@ def run(tf_records = None):
     for tf_record in tf_records:
         yaml_files = tf_records[tf_record]
 
-        for idx in range(len(yaml_files)):
-            yaml_files[idx] = DIRNAME + "/data/yaml/" + yaml_files[idx]
-
         # Generate labels
         generated_pbtxt, label_dict = generate_labels(yaml_files)
         # save labels
