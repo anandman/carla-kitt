@@ -1,10 +1,21 @@
 '''
 Usage: python data_conversion_udacity_sim.py --input_path input.yaml  --output_path output_file_name.record
 '''
+import sys
+import os
+
+sys.path.append(os.path.join(os.path.dirname(
+    __file__), "../../tensorflow/research"))
+sys.path.append(os.path.join(os.path.dirname(
+    __file__), "../../tensorflow/research/slim"))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(os.path.join(os.path.dirname(
+    __file__), "../../tensorflow/research"))
+sys.path.append(os.path.join(os.path.dirname(
+    __file__), "../../tensorflow/research/slim"))
 
 import tensorflow as tf
 import yaml
-import os
 from object_detection.utils import dataset_util
 
 
