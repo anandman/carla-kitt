@@ -3,7 +3,7 @@ import os
 class Converter(object):
     def __init__(self, path):
         self.path = path
-        self.loaded_file = yaml.load(open(FLAGS.input_path, 'rb').read())
+        self.loaded_file = yaml.load(open(path, 'rb').read())
 
     def get_absolute_paths(self):
         abs_path_to_raw = os.path.abspath(
