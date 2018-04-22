@@ -20,7 +20,7 @@ class TLDetector(object):
         self.model_path = dir_path + '/models/' + self.model_name + \
                                      '/frozen_inference_graph.pb'
         self.labels_name = labels_name
-        self.labels_path = dir_path + '/labels/' + self.labels_name
+        self.labels_path = dir_path + '/labels/' + self.labels_name + ".pbtxt"
 
         self.detection_graph = self.load_tf_model()
 
@@ -36,7 +36,7 @@ class TLDetector(object):
 
         return detection_graph
 
-    def run_inference_for_single_image(self, image_np):
+    def run_inference_for_single_image(self, image):
         '''
         Call this function with a numpy image array and a graph structure
         '''
@@ -108,7 +108,7 @@ class TLDetector(object):
             ([print(n.name) for n in tf.get_default_graph().as_graph_def().node])
             
 
-def load_image_into_numpy_array(mage):
+def load_image_into_numpy_array(image):
     (im_width, im_height) = image.size
     return np.array(image.getdata()).reshape(
         (im_height, im_width, 3)).astype(np.uint8)
