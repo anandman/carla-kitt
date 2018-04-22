@@ -1,9 +1,7 @@
 import yaml
 import os
-
-
 class Converter(object):
-    def __init(self, path):
+    def __init__(self, path):
         self.path = path
         self.loaded_file = yaml.load(open(FLAGS.input_path, 'rb').read())
 
@@ -28,7 +26,7 @@ class Converter(object):
                     "x_min": raw_annotation["x_min"],
                     "x_max": raw_annotation["x_max"],
                     "y_min": raw_annotation["y_min"],
-                    "y_max": raw_annotation["y_max"]
+                    "y_max": raw_annotation["y_max"],
                     "im_width": im_width,
                     "im_height": im_height
                 })

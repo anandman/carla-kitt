@@ -3,7 +3,7 @@ import os
 from PIL import Image
 
 class Converter(object):
-    def __init(self, path):
+    def __init__(self, path):
         self.path = path
         self.loaded_file = yaml.load(open(FLAGS.input_path, 'rb').read())
 
