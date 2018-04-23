@@ -3,15 +3,16 @@
 # pipeline_config is the config file
 # train_dir is the output training directory
 
+import os
 import glob
 import subprocess
 
 configs = glob.glob("./config/output/*.config")
 
 # Get fname
-for fpath in glob.glob("./config/output/*.config")
+for fpath in glob.glob("./config/output/*.config"):
     record_name, _ = os.path.splitext(fpath)
-    train_dir = "./trained_models/" + train_dir
+    train_dir = "./trained_models/" + record_name
 
     try:
         os.mkdir(train_dir)

@@ -44,6 +44,9 @@ Example usage:
 import sys
 import os
 
+DIRNAME = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(DIRNAME + "/../lib")
+
 import functools
 import json
 import tensorflow as tf
