@@ -55,7 +55,7 @@ class WaypointUpdater(object):
 
     def fake_stop(self, event=None):
         rospy.loginfo("fakestop")
-        msg = Int32(500)
+        msg = Int32(400)
         self.traffic_cb(msg)
         return False
 
@@ -81,6 +81,9 @@ class WaypointUpdater(object):
             speed = self.get_waypoint_velocity(self.current_waypoint_id)
             if speed != self.waypoints[self.current_waypoint_id].twist.twist.linear.x:
                 rospy.loginfo("At waypoint %s, wp speed %s", self.current_waypoint_id, speed)
+
+            if self.current_waypoint_id == 400 and speed == 0.0:
+                self.fake_start()
 
     def update_current_waypoint(self, current_pose):
         """
@@ -142,7 +145,7 @@ class WaypointUpdater(object):
             # TODO: use the TARGET_ACCEL rate to determine the stopping distance?
         else:
             # Removed blocking WP ID so slowly speed up
-            start_accel_wp_id = self.current_waypoint_id
+            start_accel_wp_id = self.current_waypoint_id - 1
             stop_accel_wp_id = self.wp_id_at_dist_after(self.current_waypoint_id, ACCEL_DIST)
             curr_speed = self.get_waypoint_velocity(self.current_waypoint_id)
             target_speed = self.waypoints[stop_accel_wp_id].twist.twist.linear.x
@@ -156,8 +159,8 @@ class WaypointUpdater(object):
         # create a spline between that curr_speed and target_speed so we smoothly change acceleration
         x = [-1, 0, actual_accel_dist, actual_accel_dist + 1]
         y = [curr_speed, curr_speed, target_speed, target_speed]
-        print(x)
-        print(y)
+        # print(x)
+        # print(y)
         F = interp1d(x, y, kind='cubic')
         x = []
         y = []
@@ -170,8 +173,8 @@ class WaypointUpdater(object):
             self.set_waypoint_velocity(wp_id, speed)
         # Traffic wp id should be 0.
         self.set_waypoint_velocity(self.traffic_wp, 0.0)
-        print x
-        print y
+        # print x
+        # print y
         """
 >>> from scipy.interpolate import interp1d
 >>> F = interp1d([0, 1, 8, 9], [0, 0, 1, 1], kind='cubic')
