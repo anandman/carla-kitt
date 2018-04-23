@@ -45,7 +45,8 @@ import sys
 import os
 
 DIRNAME = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(DIRNAME + "/../lib")
+sys.path.append(DIRNAME + "/../lib/tensorflow/research")
+sys.path.append(DIRNAME + "/../lib/tensorflow/research/slim")
 
 import functools
 import json
