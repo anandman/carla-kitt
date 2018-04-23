@@ -13,6 +13,7 @@ example_inception_groups = [
         "num_classes": [4],
         "num_steps": [10000],
         "dimensions": [(720, 1280), (1096, 1368), (600, 800)],
+        "fine_tune_checkpoint": "./models/faster_rcnn_inception_v2_coco_2018_01_28/model.ckpt"
         # "min_dimension": [720],
         # "max_dimension": [1280],
     },
@@ -21,30 +22,35 @@ example_inception_groups = [
         "num_classes": [4],
         "num_steps": [10000],
         "dimensions": [(1096, 1368)],
+        "fine_tune_checkpoint": "./models/faster_rcnn_inception_v2_coco_2018_01_28/model.ckpt"
     },
     {
         "train_test_record_name": [{"train": "udacity_sim", "test": "udacity_sim"}],
         "num_classes": [4],
         "num_steps": [10000],
         "dimensions": [(600, 800)],
+        "fine_tune_checkpoint": "./models/faster_rcnn_inception_v2_coco_2018_01_28/model.ckpt"
     },
     {
         "train_test_record_name": [{"train": "udacity_all", "test": "udacity_all"}],
         "num_classes": [4],
         "num_steps": [10000],
         "dimensions": [(600, 800), (1096, 1368)],
+        "fine_tune_checkpoint": "./models/faster_rcnn_inception_v2_coco_2018_01_28/model.ckpt"
     },
     {
         "train_test_record_name": [{"train": "bosch_test_and_udacity_real", "test": "bosch_test_and_udacity_real"}],
         "num_classes": [4],
         "num_steps": [10000],
         "dimensions": [(720, 1280), (1096, 1368)],
+        "fine_tune_checkpoint": "./models/faster_rcnn_inception_v2_coco_2018_01_28/model.ckpt"
     },
     {
         "train_test_record_name": [{"train": "bosch_test_and_udacity_all", "test": "bosch_test_and_udacity_all"}],
         "num_classes": [4],
         "num_steps": [10000],
         "dimensions": [(720, 1280), (1096, 1368), (600, 800)],
+        "fine_tune_checkpoint": "./models/faster_rcnn_inception_v2_coco_2018_01_28/model.ckpt"
     }
 ]
 
@@ -54,6 +60,7 @@ example_mobile_groups = [
         "train_test_record_name": [{"train": "bosch_test", "test": "bosch_test"}],
         "num_classes": [4],
         "num_steps": [10000],
+        "fine_tune_checkpoint": "./models/ssd_mobilenet_v2_coco_2018_03_29/model.ckpt"
         # "min_dimension": [720],
         # "max_dimension": [1280],
     },
@@ -61,26 +68,31 @@ example_mobile_groups = [
         "train_test_record_name": [{"train": "udacity_real", "test": "udacity_real"}],
         "num_classes": [4],
         "num_steps": [10000],
+        "fine_tune_checkpoint": "./models/ssd_mobilenet_v2_coco_2018_03_29/model.ckpt"
     },
     {
         "train_test_record_name": [{"train": "udacity_sim", "test": "udacity_sim"}],
         "num_classes": [4],
         "num_steps": [10000],
+        "fine_tune_checkpoint": "./models/ssd_mobilenet_v2_coco_2018_03_29/model.ckpt"
     },
     {
         "train_test_record_name": [{"train": "udacity_all", "test": "udacity_all"}],
         "num_classes": [4],
         "num_steps": [10000],
+        "fine_tune_checkpoint": "./models/ssd_mobilenet_v2_coco_2018_03_29/model.ckpt"
     },
     {
         "train_test_record_name": [{"train": "bosch_test_and_udacity_real", "test": "bosch_test_and_udacity_real"}],
         "num_classes": [4],
         "num_steps": [10000],
+        "fine_tune_checkpoint": "./models/ssd_mobilenet_v2_coco_2018_03_29/model.ckpt"
     },
     {
         "train_test_record_name": [{"train": "bosch_test_and_udacity_all", "test": "bosch_test_and_udacity_all"}],
         "num_classes": [4],
         "num_steps": [10000],
+        "fine_tune_checkpoint": "./models/ssd_mobilenet_v2_coco_2018_03_29/model.ckpt"
     }
 ]
 
@@ -122,6 +134,7 @@ def make_faster_rcnn_inception_v2_configs(groups):
                     num_steps = num_steps,
                     min_dimension = min_dimension,
                     max_dimension = max_dimension,
+                    fine_tune_checkpoint = fine_tune_checkpoint,
                 ))
 
     # TODO Later - option to resume training.
@@ -158,6 +171,7 @@ def make_ssd_mobilenet_v2_configs(groups):
                     test_pbtxt = test_pbtxt,
                     num_classes = num_classes,
                     num_steps = num_steps,
+                    fine_tune_checkpoint=fine_tune_checkpoint,
                 ))
 
 if __name__ == "__main__":
