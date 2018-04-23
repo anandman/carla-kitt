@@ -20,4 +20,10 @@
 
     <!--Traffic Light Locations and Camera Config -->
     <param name="traffic_light_config" textfile="$(find tl_detector)/sim_traffic_light_config.yaml" />
+
+    <!--Use Ground Truth -->
+    <param name="use_ground_truth" value="true" type="bool" />
+
+    <!--Skip Images Count -->
+    <param name="skip_images" value="0" type="int" />
 </launch>

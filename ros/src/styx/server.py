@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import rospy
+
 import eventlet
 eventlet.monkey_patch(socket=True, select=True, time=True)
 
@@ -59,7 +61,7 @@ def trafficlights(sid, data):
 # see: discussion: https://carnd.slack.com/archives/C6NVDVAQ3/p1506794739000078
 # we might need to take out the skipping while running on Carla
 count = 0
-skip = 2
+skip = rospy.get_param("/skip_images")
 @sio.on('image')
 def image(sid, data):
     global count
