@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+# pipeline_config is the config file
+# train_dir is the output training directory
+
+import glob
+import subprocess
+
+configs = glob.glob("./config/output/*.config")
+
+# Get fname
+for fpath in glob.glob("./config/output/*.config")
+    record_name, _ = os.path.splitext(fpath)
+    train_dir = "./trained_models/" + train_dir
+
+    try:
+        os.mkdir(train_dir)
+    except OSError:
+        pass
+
+    cmd = 'python train.py --logtostderr --train_dir=%s --pipeline_config_path=%s' % (train_dir, fpath)
+    subprocess.call(cmd.split(" "))

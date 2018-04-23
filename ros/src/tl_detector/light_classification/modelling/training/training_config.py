@@ -101,7 +101,7 @@ def make_faster_rcnn_inception_v2_configs(groups):
                 "ncls_" + str(iteration[1]),
                 "nstep_" + str(iteration[2]),
                 str(iteration[3][0]), \
-                str(iteration[3][1])]) + ".j2"
+                str(iteration[3][1])]) + ".config"
 
             train_record = "./data/converted/records/" + iteration[0]["train"] + ".record"
             train_pbtxt = "./data/converted/labels/" + iteration[0]["train"] + ".pbtxt"
@@ -141,7 +141,7 @@ def make_ssd_mobilenet_v2_configs(groups):
             fname = "_".join(["ssd_mobilenet_v2",
                 iteration[0]["train"] + "-" + iteration[0]["test"],
                 "ncls_" + str(iteration[1]),
-                "nstep_" + str(iteration[2])]) + ".j2"
+                "nstep_" + str(iteration[2])]) + ".config"
 
             train_record = "./data/converted/records/" + iteration[0]["train"] + ".record"
             train_pbtxt = "./data/converted/labels/" + iteration[0]["train"] + ".pbtxt"
