@@ -162,6 +162,10 @@ def make_ssd_mobilenet_v2_configs(groups):
 
 if __name__ == "__main__":
     # Clear output directory
+    try:
+        os.mkdir(DIRNAME + "/config/output/")
+    except OSError:
+        pass
     for filename in glob.glob(DIRNAME + "/config/output/*"):
         os.remove(filename)
     make_faster_rcnn_inception_v2_configs(example_inception_groups)
