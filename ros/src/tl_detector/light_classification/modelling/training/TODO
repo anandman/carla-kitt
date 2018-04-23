@@ -3,3 +3,5 @@ Make raw data sub in script
 mkdir -p /root/carla-kitt/ros/src/tl_detector/light_classification/modelling/training/data/converted/labels
 
 Make BW version
+
+Generate frozen models
