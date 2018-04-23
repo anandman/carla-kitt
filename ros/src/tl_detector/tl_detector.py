@@ -198,7 +198,7 @@ class TLDetector(object):
             filepath = DIR_PATH + "/data/simulator/"
             filename = str(light_timestamp_epoch_secs) + "_" + str(light_timestamp_epoch_nsecs) + "_" + str(camera_timestamp_epoch_secs) + "_" + str(camera_timestamp_epoch_nsecs) + "_" + str(state) + "_" + "%.3f" % self.next_traffic_light_dist + ".bmp"
             cv2.imwrite(filepath + filename, cv_image)
-            rospy.loginfo("Wrote image: %s", filename)
+            rospy.loginfo("Wrote image: %s%s", filepath, filename)
 
         return state
 
