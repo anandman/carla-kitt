@@ -113,7 +113,6 @@ def get_inputs(input_queue, num_classes, merge_multiple_label_boxes=False):
   """
   read_data_list = input_queue.dequeue()
   label_id_offset = 1
-
   def extract_images_and_targets(read_data):
     """Extract images and targets from the input dict."""
     image = read_data[fields.InputDataFields.image]
@@ -133,7 +132,7 @@ def get_inputs(input_queue, num_classes, merge_multiple_label_boxes=False):
     masks_gt = read_data.get(fields.InputDataFields.groundtruth_instance_masks)
     keypoints_gt = read_data.get(fields.InputDataFields.groundtruth_keypoints)
     if (merge_multiple_label_boxes and (
-            masks_gt is not None or keypoints_gt is not None)):
+        masks_gt is not None or keypoints_gt is not None)):
       raise NotImplementedError('Multi-label support is only for boxes.')
     weights_gt = read_data.get(
         fields.InputDataFields.groundtruth_weights)
@@ -351,7 +350,6 @@ def train(create_tensor_dict_fn, create_model_fn, train_config, master, task,
                            get_variables_available_in_checkpoint(
                                var_map, train_config.fine_tune_checkpoint))
       init_saver = tf.train.Saver(available_var_map)
-
       def initializer_fn(sess):
         init_saver.restore(sess, train_config.fine_tune_checkpoint)
       init_fn = initializer_fn
