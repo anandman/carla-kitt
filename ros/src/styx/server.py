@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import rospy
+
 import eventlet
 eventlet.monkey_patch(socket=True, select=True, time=True)
 
@@ -55,9 +57,17 @@ def obstacle(sid, data):
 def trafficlights(sid, data):
     bridge.publish_traffic(data)
 
+# ajaffer: had to skip images, in order to keep it computationally light,
+# see: discussion: https://carnd.slack.com/archives/C6NVDVAQ3/p1506794739000078
+# we might need to take out the skipping while running on Carla
+count = 0
+skip = rospy.get_param("/skip_images")
 @sio.on('image')
 def image(sid, data):
-    bridge.publish_camera(data)
+    global count
+    count += 1
+    if count%(skip+1)==0:
+        bridge.publish_camera(data)
 
 if __name__ == '__main__':
 

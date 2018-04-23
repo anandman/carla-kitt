@@ -4,3 +4,20 @@ build
 devel
 
 profile.tmp
+
+.gitignore
+.DS_store
+.idea
+.ipynb_checkpoints
+__pycache__
+
+**/*.bmp
+**/*.DS_Store
+**/ros/src/tl_detector/modelling/data/*
+
+**/ros/src/tl_detector/modelling/object_detection/faster_rcnn_resnet101_kitti_2018_01_28/*
+**-checkpoint.ipynb
+**/ros/src/tl_detector/modelling/tensorflow/research/object_detection/protos/*_pb2.py
+
+ros/src/tl_detector/data/bosch/**
+!ros/src/tl_detector/data/bosch/*.yaml

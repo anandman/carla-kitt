@@ -172,7 +172,7 @@ class WaypointUpdater(object):
         msg.header.frame_id = '/world'
         # msg.header.stamp = stamp
         msg.waypoints = self.waypoints[start_id + 1 : start_id + 1 + LOOKAHEAD_WPS]
-        # rospy.loginfo("Published final_waypoints starting at %s", start_id)
+        rospy.logdebug("Published final_waypoints starting at %s", start_id)
         self.final_waypoints_pub.publish(msg)
 
     def distance(self, waypoints, wp1, wp2):
