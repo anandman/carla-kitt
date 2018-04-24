@@ -21,8 +21,14 @@
     <!--Traffic Light Locations and Camera Config -->
     <param name="traffic_light_config" textfile="$(find tl_detector)/sim_traffic_light_config.yaml" />
 
+    <!--Save Camera Images for Training -->
+    <param name="save_images" value="false" type="bool" />
+
     <!--Use Ground Truth -->
     <param name="use_ground_truth" value="true" type="bool" />
+
+    <!--Distance ahead of vehicle to check for lights -->
+    <param name="check_light_distance" value="100.0" type="double" />
 
     <!--Skip Images Count -->
     <param name="skip_images" value="0" type="int" />
