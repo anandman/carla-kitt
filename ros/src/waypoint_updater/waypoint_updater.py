@@ -58,13 +58,13 @@ class WaypointUpdater(object):
                 closest_waypoint_idx = self.get_closest_waypoint_idx()
                 # rospy.logwarn("closest_waypoint_idx :%s ", closest_waypoint_idx)
                 self.publish_next_waypoints(closest_waypoint_idx)
-            else:
-                if (self.pose is None):
-                    rospy.logwarn('pose not ready')
-                if (self.waypoints is None):
-                    rospy.logwarn('waypoints not ready')
-                if (self.waypoint_tree is None):
-                    rospy.logwarn('waypoint_tree not ready')
+            #else:
+            #    if (self.pose is None):
+            #        rospy.logwarn('pose not ready')
+            #    if (self.waypoints is None):
+            #        rospy.logwarn('waypoints not ready')
+            #    if (self.waypoint_tree is None):
+            #        rospy.logwarn('waypoint_tree not ready')
             rate.sleep()
 
     def get_closest_waypoint_idx(self):
