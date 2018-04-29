@@ -130,6 +130,7 @@ class WaypointUpdater(object):
         self.traffic_wp = msg.data
         if msg.data >= 0:
             # Come to a stop by WP ID
+            rospy.loginfo("Come to a stop by WP ID: {0}".format(self.traffic_wp))
             if self.traffic_wp <= self.current_waypoint_id:
                 rospy.logwarn("traffic_wp %s is behind current wp: %s", self.traffic_wp,
                               self.current_waypoint_id)
@@ -145,6 +146,7 @@ class WaypointUpdater(object):
             # TODO: use the TARGET_ACCEL rate to determine the stopping distance?
         else:
             # Removed blocking WP ID so slowly speed up
+            rospy.loginfo("Removed blocking WP ID so slowly speed up")
             start_accel_wp_id = self.current_waypoint_id - 1
             stop_accel_wp_id = self.wp_id_at_dist_after(self.current_waypoint_id, ACCEL_DIST)
             curr_speed = self.get_waypoint_velocity(self.current_waypoint_id)
@@ -173,8 +175,8 @@ class WaypointUpdater(object):
             self.set_waypoint_velocity(wp_id, speed)
         # Traffic wp id should be 0.
         self.set_waypoint_velocity(self.traffic_wp, 0.0)
-        # print x
-        # print y
+        print x
+        print y
         """
 >>> from scipy.interpolate import interp1d
 >>> F = interp1d([0, 1, 8, 9], [0, 0, 1, 1], kind='cubic')

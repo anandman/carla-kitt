@@ -5,31 +5,18 @@ from std_msgs.msg import Bool
 from dbw_mkz_msgs.msg import ThrottleCmd, SteeringCmd, BrakeCmd, SteeringReport
 from geometry_msgs.msg import TwistStamped
 import math
+from std_msgs.msg import Int32
 
 from twist_controller import Controller
 
 '''
-You can build this node only after you have built (or partially built) the `waypoint_updater` node.
+Subscribes to `/twist_cmd` message, which provides the desired linear and 
+angular velocities, to `/current_velocity` message for the current linear and 
+angular velocities.
 
-You will subscribe to `/twist_cmd` message which provides the proposed linear and angular velocities.
-You can subscribe to any other message that you find important or refer to the document for list
-of messages subscribed to by the reference implementation of this node.
-
-One thing to keep in mind while building this node and the `twist_controller` class is the status
-of `dbw_enabled`. While in the simulator, its enabled all the time, in the real car, that will
-not be the case. This may cause your PID controller to accumulate error because the car could
-temporarily be driven by a human instead of your controller.
-
-We have provided two launch files with this node. Vehicle specific values (like vehicle_mass,
-wheel_base) etc should not be altered in these files.
-
-We have also provided some reference implementations for PID controller and other utility classes.
-You are free to use them or build your own.
-
-Once you have the proposed throttle, brake, and steer values, publish it on the various publishers
-that we have created in the `__init__` function.
-
+Publishes the proposed throttle, brake, and steer values. 
 '''
+
 
 class DBWNode(object):
     def __init__(self):
@@ -66,46 +53,86 @@ class DBWNode(object):
 
         rospy.loginfo('Staring DBW Node')
         rospy.Subscriber('/twist_cmd', TwistStamped, self.twist_cb)
-        rospy.Subscriber('/current_velocity', TwistStamped, self.velocity_cb)
+        rospy.Subscriber('/current_velocity', TwistStamped,
+                         self.current_velocity_cb)
         rospy.Subscriber('/vehicle/dbw_enabled', Bool, self.dbw_enabled_cb)
+        # rospy.Subscriber('current_waypoint_id', Int32, self.waypoint_cb)
 
+        #Current linear velocity
         self.current_vel = None
+
+        #Current angular velocity
         self.current_ang_vel = None
+
+        #False if the car is being driven manually, e.g., by a human
         self.dbw_enabled = None
-        self.linear_vel = None
-        self.angular_vel = None
-        self.throttle  = self.steering = self.brake = 0
+
+        #Desired linear velocity
+        self.desired_linear_vel = None
+
+        #Desired angular velocity
+        self.desired_angular_vel = None
+
+        #Throttle, Steering and Brake values, which will be published
+        self.throttle = self.steering = self.brake = 0
 
         self.loop()
 
     def loop(self):
-        rate = rospy.Rate(50) # 50Hz
+        rate = rospy.Rate(50)  # 50Hz
         while not rospy.is_shutdown():
-            if not None in (self.current_vel, self.linear_vel, self.angular_vel):
-                    self.throttle, self.brake, self.steering = self.controller.control(self.current_vel,
-                    self.current_ang_vel,
-                    self.dbw_enabled,
-                    self.linear_vel,
-                    self.angular_vel)
+            if not None in (self.current_vel,
+                            self.desired_linear_vel,
+                            self.desired_angular_vel):
+                self.throttle, self.brake, self.steering = \
+                    self.controller.control(
+                        self.current_vel,
+                        self.current_ang_vel,
+                        self.dbw_enabled,
+                        self.desired_linear_vel,
+                        self.desired_angular_vel)
 
             if self.dbw_enabled:
-              self.publish(self.throttle, self.brake, self.steering)
+                self.publish(self.throttle, self.brake, self.steering)
             rate.sleep()
 
+    """Callback for the `/twist_cmd` topic.
+    
+    Receives the Twist Command messages containing the desired linear and 
+    angular velocities, which are published by pure_pursuit.
+    
+    """
+
     def twist_cb(self, msg):
-        self.linear_vel = msg.twist.linear.x
-        self.angular_vel = msg.twist.angular.z
-        # rospy.loginfo("linear_vel: %s angular_vel: %s", self.linear_vel,
-        #            self.angular_vel)
+        self.desired_linear_vel = msg.twist.linear.x
+        self.desired_angular_vel = msg.twist.angular.z
 
     def dbw_enabled_cb(self, msg):
         self.dbw_enabled = msg
 
-    def velocity_cb(self, msg):
+    def waypoint_cb(self, waypoint):
+        rospy.loginfo("at waypoint: {0}".format(waypoint))
+
+    """Callback for the `/current_velocity` topic.
+    
+    Receives the Twist Command messages containing the current linear and 
+    angular velocities, which are published by styx_serve.
+    
+    """
+
+    def current_velocity_cb(self, msg):
         self.current_vel = msg.twist.linear.x
         self.current_ang_vel = msg.twist.angular.z
-        # rospy.loginfo("current_vel: %s current_ang_vel: %s", self.current_vel,
-        #              self.current_ang_vel)
+
+    """Publisher for the Steering, Throttle and Brake commands.
+    
+    It publishes the following topics, which are subscribed by the styx_server:
+
+    /vehicle/steering_cmd    
+    /vehicle/throttle_cmd    
+    /vehicle/brake_cmd    
+    
+    """
 
     def publish(self, throttle, brake, steer):
         tcmd = ThrottleCmd()

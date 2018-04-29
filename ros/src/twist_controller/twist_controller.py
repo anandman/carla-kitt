@@ -12,23 +12,19 @@ class Controller(object):
     def __init__(self, vehicle_mass, fuel_capacity, brake_deadband, decel_limit,
         accel_limit, wheel_radius, wheel_base, steer_ratio, max_lat_accel, max_steer_angle):
 
-        self.yaw_controller = YawController(wheel_base, steer_ratio, 0.1, max_lat_accel, max_steer_angle)
+        min_speed = rospy.get_param("/min_speed", 0.1);
+        self.yaw_controller = YawController(wheel_base, steer_ratio, min_speed, max_lat_accel, max_steer_angle)
 
-        #ajaffer: Tried with Highway track only, for parking lot we might
-        # need to go to 0.2
-        # self.max_throttle = 0.2
-        self.max_throttle = 1.0
-
-        kp = 0.3
-        ki = 0.1
-        kd = 0.0
-        mn = 0.0
-        mx = self.max_throttle
+        kp = rospy.get_param("/kp", 0.3)
+        ki = rospy.get_param("/ki", 0.1)
+        kd = rospy.get_param("/kd", 0.0)
+        mn = rospy.get_param("/min_throttle", 0.0)
+        mx = rospy.get_param("/max_throttle", 0.2)
 
         self.throttle_controller = PID(kp, ki, kd, mn, mx)
 
-        tau = 0.5
-        ts = .02
+        tau = rospy.get_param("/lpf_tau", 0.5)
+        ts = rospy.get_param("/lpf_ts", 0.02)
         self.vel_lpf = LowPassFilter(tau, ts)
 
         self.vehicle_mass = vehicle_mass
@@ -43,25 +39,19 @@ class Controller(object):
 
         self.last_time = rospy.get_time()
 
-    def control(self, current_vel, current_ang_vel, dbw_enabled, linear_vel, angular_vel):
+    def control(self, current_vel, current_ang_vel, dbw_enabled, desired_linear_vel, desired_angular_vel):
         if not dbw_enabled:
             self.throttle_controller.reset()
             return 0., 0., 0.
 
+        #Low Pass Filter, filters out the high-frequency noise
         current_vel = self.vel_lpf.filt(current_vel)
 
-        # rospy.logwarn("Target velocity: {0}".format(linear_vel))
-        # rospy.logwarn("Target Angular vel: {0}".format(angular_vel))
-        # rospy.logwarn("Current velocity: {0}".format(current_vel))
-        # rospy.logwarn("Current Angular velocity: {0}".format(current_ang_vel))
-        # rospy.logwarn("Filtered velocity: {0}".format(self.vel_lpf.get()))
-
-        steering = self.yaw_controller.get_steering(linear_vel, angular_vel, current_vel)
-        if (abs(current_ang_vel - angular_vel) < 1e-7):
-            # rospy.loginfo("no need for steering")
+        steering = self.yaw_controller.get_steering(desired_linear_vel, desired_angular_vel, current_vel)
+        if (abs(current_ang_vel - desired_angular_vel) < 1e-7):
             steering = 0
 
-        vel_error = linear_vel - current_vel
+        vel_error = desired_linear_vel - current_vel
         self.last_vel = current_vel
 
         current_time = rospy.get_time()
@@ -70,40 +60,47 @@ class Controller(object):
 
         throttle = self.throttle_controller.step(vel_error, sample_time)
         brake = 0
-        if linear_vel == 0. and current_vel < 2.0:
+        decel = max(vel_error, self.decel_limit)
+        if desired_linear_vel <= rospy.get_param(
+                "/desired_speed_limit_apply_full_brakes", 3.50) \
+                and current_vel <= rospy.get_param(
+                "/current_speed_limit_apply_full_brakes", 1.75):
             throttle = 0
-            brake = 400
-            # rospy.loginfo("Applying brakes (Full) [curr,vel,err,t,b,s] [{0},"
-            #               "{1},"
-            #               "{2},"
-            #               "{3},"
-            #               "{4},"
-            #               "{5}]".format(current_vel,
-            #                             linear_vel,
-            #                             vel_error,
-            #                             throttle,
-            #                             brake,
-            #                             steering))
+            brake = max(abs(decel)*self.total_vehicle_mass*self.wheel_radius,
+                        rospy.get_param("/torque_complete_stop", 400))
 
-        elif vel_error < 0:
-            decel = max(2 * vel_error, self.decel_limit)
-            throttle = 0
-
+            rospy.loginfo("Applying brakes (Complete Stop) [curr_vel,des_vel,"
+                          "err,"
+                          "t,b,"
+                          "s] [{0},"
+                          "{1},"
+                          "{2},"
+                          "{3},"
+                          "{4},"
+                          "{5}]".format(current_vel,
+                                        desired_linear_vel,
+                                        vel_error,
+                                        throttle,
+                                        brake,
+                                        steering))
+        elif throttle < rospy.get_param("/throttle_limit_apply_brakes",
+                                        0.1) and vel_error < 0:
             if (abs(decel) > self.brake_deadband):
                 brake = abs(decel)*self.total_vehicle_mass*self.wheel_radius
-                # rospy.loginfo("Applying brakes [curr,vel,err,t,b,s] [{0},{1},"
-                #               "{2},"
-                #               "{3},"
-                #               "{4},"
-                #               "{5}]".format(current_vel,
-                #                             linear_vel,
-                #                             vel_error,
-                #                             throttle,
-                #                             brake,
-                #                             steering))
-
-
-        # rospy.loginfo("{0},{1},{2},{3},{4}".format(current_vel / ONE_MPH,
-        #                                           vel_error, throttle, brake, steering))
+                rospy.loginfo("Applying brakes [curr_vel,des_vel,err,t,b,"
+                              "s] [{0},"
+                              "{1},"
+                              "{2},"
+                              "{3},"
+                              "{4},"
+                              "{5}]".format(current_vel,
+                                            desired_linear_vel,
+                                            vel_error,
+                                            throttle,
+                                            brake,
+                                            steering))
+            else:
+                rospy.loginfo("decel less than brake-deadband, ignoring "
+                              "brakes: {0}".format(abs(decel)))
 
         return throttle, brake, steering
