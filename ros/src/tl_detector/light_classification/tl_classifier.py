@@ -8,10 +8,11 @@ import numpy as np
 
 class TLClassifier(object):
     def __init__(self, threshold=0.5):
-        self.tl = traffic_light_detector.TLDetector('faster_rcnn_inception_v2_udacity_real', 'udacity_label_map')
+        #self.tl = traffic_light_detector.TLDetector('faster_rcnn_inception_v2_udacity_real', 'udacity_label_map')
         #self.tl = traffic_light_detector.TLDetector('faster_rcnn_inception_v2_udacity_sim', 'udacity_label_map')
         #self.tl = traffic_light_detector.TLDetector('ssd_mobilenet_v2_udacity_real', 'udacity_label_map')
         #self.tl = traffic_light_detector.TLDetector('ssd_mobilenet_v2_udacity_sim', 'udacity_label_map')
+        self.tl = traffic_light_detector.TLDetector('ssd_mobilenet_v2_udacity_all-udacity_all_ncls_4_nstep_20000_detect__10_50', 'udacity_all')
         self.threshold = threshold
         
 
