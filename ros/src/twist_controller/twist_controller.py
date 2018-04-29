@@ -62,9 +62,9 @@ class Controller(object):
         brake = 0
         decel = max(vel_error, self.decel_limit)
         if desired_linear_vel <= rospy.get_param(
-                "/desired_speed_limit_apply_full_brakes", 3.50) \
+                "/desired_speed_limit_apply_full_brakes", 1.75) \
                 and current_vel <= rospy.get_param(
-                "/current_speed_limit_apply_full_brakes", 1.75):
+                "/current_speed_limit_apply_full_brakes", 3.50):
             throttle = 0
             brake = max(abs(decel)*self.total_vehicle_mass*self.wheel_radius,
                         rospy.get_param("/torque_complete_stop", 400))
