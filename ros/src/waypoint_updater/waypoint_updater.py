@@ -27,7 +27,7 @@ TODO (for Yousuf and Aaron): Stopline location for each traffic light.
 LOOKAHEAD_WPS = 200  # Number of waypoints we will publish. You can change this number
 TARGET_ACCEL = 5
 MAX_JERK = 10
-DECEL_DIST = 20
+DECEL_DIST = 30
 ACCEL_DIST = 30
 
 class WaypointUpdater(object):
@@ -79,8 +79,8 @@ class WaypointUpdater(object):
             self.update_current_waypoint(self.current_pose)
             self.publish_next_waypoints(self.current_waypoint_id, msg.header.stamp)
             speed = self.get_waypoint_velocity(self.current_waypoint_id)
-            if speed != self.waypoints[self.current_waypoint_id].twist.twist.linear.x:
-                rospy.loginfo("At waypoint %s, wp speed %s", self.current_waypoint_id, speed)
+            # if speed != self.waypoints[self.current_waypoint_id].twist.twist.linear.x:
+            #     rospy.loginfo("At waypoint %s, wp speed %s", self.current_waypoint_id, speed)
 
             if self.current_waypoint_id == 400 and speed == 0.0:
                 self.fake_start()
@@ -141,7 +141,8 @@ class WaypointUpdater(object):
             start_accel_wp_id = max(self.current_waypoint_id, start_accel_wp_id)
             stop_accel_wp_id = self.traffic_wp
             curr_speed = self.get_waypoint_velocity(start_accel_wp_id)
-            target_speed = 0.0
+            # target_speed = 0.0
+            target_speed = -0.5
 
             # TODO: use the TARGET_ACCEL rate to determine the stopping distance?
         else:
@@ -163,7 +164,7 @@ class WaypointUpdater(object):
         y = [curr_speed, curr_speed, target_speed, target_speed]
         # print(x)
         # print(y)
-        F = interp1d(x, y, kind='cubic')
+        F = interp1d(x, y)
         x = []
         y = []
         # Step through each waypoint and set the speed using the spline

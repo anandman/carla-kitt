@@ -17,7 +17,6 @@ angular velocities.
 Publishes the proposed throttle, brake, and steer values. 
 '''
 
-
 class DBWNode(object):
     def __init__(self):
         rospy.init_node('dbw_node')
@@ -96,14 +95,14 @@ class DBWNode(object):
                 self.publish(self.throttle, self.brake, self.steering)
             rate.sleep()
 
-    """Callback for the `/twist_cmd` topic.
-    
-    Receives the Twist Command messages containing the desired linear and 
-    angular velocities, which are published by pure_pursuit.
-    
-    """
 
     def twist_cb(self, msg):
+        """Callback for the `/twist_cmd` topic.
+
+        Receives the Twist Command messages containing the desired linear and
+        angular velocities, which are published by pure_pursuit.
+
+        """
         self.desired_linear_vel = msg.twist.linear.x
         self.desired_angular_vel = msg.twist.angular.z
 
@@ -113,28 +112,28 @@ class DBWNode(object):
     def waypoint_cb(self, waypoint):
         rospy.loginfo("at waypoint: {0}".format(waypoint))
 
-    """Callback for the `/current_velocity` topic.
-    
-    Receives the Twist Command messages containing the current linear and 
-    angular velocities, which are published by styx_serve.
-    
-    """
 
     def current_velocity_cb(self, msg):
+        """Callback for the `/current_velocity` topic.
+
+        Receives the Twist Command messages containing the current linear and
+        angular velocities, which are published by styx_serve.
+
+        """
         self.current_vel = msg.twist.linear.x
         self.current_ang_vel = msg.twist.angular.z
 
-    """Publisher for the Steering, Throttle and Brake commands.
-    
-    It publishes the following topics, which are subscribed by the styx_server:
-
-    /vehicle/steering_cmd    
-    /vehicle/throttle_cmd    
-    /vehicle/brake_cmd    
-    
-    """
 
     def publish(self, throttle, brake, steer):
+        """Publisher for the Steering, Throttle and Brake commands.
+
+        It publishes the following topics, which are subscribed by the styx_server:
+
+        /vehicle/steering_cmd
+        /vehicle/throttle_cmd
+        /vehicle/brake_cmd
+
+        """
         tcmd = ThrottleCmd()
         tcmd.enable = True
         tcmd.pedal_cmd_type = ThrottleCmd.CMD_PERCENT
