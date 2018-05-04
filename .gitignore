@@ -6,6 +6,7 @@ devel
 profile.tmp
 
 .gitignore
+.DS_Store
 .DS_store
 .idea
 .ipynb_checkpoints

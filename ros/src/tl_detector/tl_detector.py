@@ -6,15 +6,14 @@ from styx_msgs.msg import TrafficLightArray, TrafficLight
 from styx_msgs.msg import Lane
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
-from light_classification.tl_classifier import TLClassifier
-import tf
+# AM # from light_classification.tl_classifier import TLClassifier
+# AM # import tf
 import cv2
 import yaml
 import math
 import numpy as np
 from scipy.spatial import KDTree
 import os
-import cv2
 
 DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 
@@ -93,8 +92,8 @@ class TLDetector(object):
         self.upcoming_red_light_pub = rospy.Publisher('/traffic_waypoint', Int32, queue_size=1)
 
         self.bridge = CvBridge()
-        self.light_classifier = TLClassifier()
-        self.listener = tf.TransformListener()
+        # AM # self.light_classifier = TLClassifier()
+        # AM # self.listener = tf.TransformListener()
 
         self.state = TrafficLight.UNKNOWN
         self.last_state = TrafficLight.UNKNOWN
@@ -230,7 +229,7 @@ class TLDetector(object):
         # x, y = self.project_to_image_plane(light.pose.pose.position)
 
         # Get classification
-        state = self.light_classifier.get_classification(cv_image)
+        # AM # state = self.light_classifier.get_classification(cv_image)
         rospy.loginfo("TL_DETECTOR: detected light state: %s", light_state_text(state))
 
         if self.save_images:
