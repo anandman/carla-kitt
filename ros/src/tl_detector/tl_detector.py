@@ -216,7 +216,7 @@ class TLDetector(object):
         state = TrafficLight.UNKNOWN
 
         if self.use_ground_truth:
-            rospy.loginfo("TL_DETECTOR: using ground truth light state: %s", light_state_text(light.state))
+            rospy.logdebug("TL_DETECTOR: using ground truth light state: %s", light_state_text(light.state))
             # Return the classification of the traffic light based on the simulation /vehicle/traffic_lights
             return light.state
 
@@ -230,7 +230,7 @@ class TLDetector(object):
 
         # Get classification
         # AM # state = self.light_classifier.get_classification(cv_image)
-        rospy.loginfo("TL_DETECTOR: detected light state: %s", light_state_text(state))
+        rospy.logdebug("TL_DETECTOR: detected light state: %s", light_state_text(state))
 
         if self.save_images:
             # Save camera images alongside distance and status metadata for training and testing
