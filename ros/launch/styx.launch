@@ -16,7 +16,7 @@
     <include file="$(find waypoint_updater)/launch/waypoint_updater.launch"/>
 
     <!--Traffic Light Detector Node -->
-    <!--include file="$(find tl_detector)/launch/tl_detector.launch"/-->
+    <include file="$(find tl_detector)/launch/tl_detector.launch"/>
 
     <!--Traffic Light Locations and Camera Config -->
     <param name="traffic_light_config" textfile="$(find tl_detector)/sim_traffic_light_config.yaml" />
@@ -31,7 +31,7 @@
     <param name="check_light_distance" value="100.0" type="double" />
 
     <!--Skip Images Count -->
-    <param name="skip_images" value="3" type="int" />
+    <param name="skip_images" value="0" type="int" />
 
     <!--lowest speed of the car in m/s-->
     <param name="min_speed" value="0.1" type="double" />
