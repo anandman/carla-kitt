@@ -82,8 +82,8 @@ class WaypointUpdater(object):
             # if speed != self.waypoints[self.current_waypoint_id].twist.twist.linear.x:
             #     rospy.loginfo("At waypoint %s, wp speed %s", self.current_waypoint_id, speed)
 
-            if self.current_waypoint_id == 400 and speed == 0.0:
-                self.fake_start()
+            # if self.current_waypoint_id == 400 and speed == 0.0:
+            #     self.fake_start()
 
     def update_current_waypoint(self, current_pose):
         """
@@ -111,7 +111,7 @@ class WaypointUpdater(object):
         self.waypoint_speeds = [wp.twist.twist.linear.x for wp in self.waypoints]
         # print self.waypoints[0]
 
-        rospy.Timer(rospy.Duration(2), self.fake_stop, oneshot=True)
+        # rospy.Timer(rospy.Duration(2), self.fake_stop, oneshot=True)
 
     def traffic_cb(self, msg):
         """
