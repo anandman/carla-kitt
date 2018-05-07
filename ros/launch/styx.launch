@@ -46,13 +46,13 @@
     <param name="kd" value="0.0" type="double" />
 
     <!--Brake PID param p-->
-    <param name="kp_brake" value="0.15" type="double" />
+    <param name="kp_brake" value="0.9" type="double" />
 
     <!--Brake PID param i-->
-    <param name="ki_brake" value="0.0375" type="double" />
+    <param name="ki_brake" value="0.001" type="double" />
 
     <!--Brake PID param d-->
-    <param name="kd_brake" value="0.0" type="double" />
+    <param name="kd_brake" value="0.6" type="double" />
 
     <!--Min Throttle  -->
     <param name="min_throttle" value="0.0" type="double" />

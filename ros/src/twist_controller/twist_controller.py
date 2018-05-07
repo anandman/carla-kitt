@@ -22,11 +22,11 @@ class Controller(object):
         mx = rospy.get_param("/max_throttle", 0.2)
         self.throttle_controller = PID(kp, ki, kd, mn, mx)
 
-        kp_brake = rospy.get_param("/kp_brake", 0.15)
-        ki_brake = rospy.get_param("/ki_brake", 0.0375)
-        kd_brake = rospy.get_param("/kd_brake", 0.0)
+        kp_brake = rospy.get_param("/kp_brake", 0.9)
+        ki_brake = rospy.get_param("/ki_brake", 0.001)
+        kd_brake = rospy.get_param("/kd_brake", 0.6)
         mn_brake = rospy.get_param("/min_throttle", 0.0)
-        mx_brake = rospy.get_param("/max_throttle", abs(decel_limit))
+        mx_brake = abs(decel_limit)
 
         self.brake_controller = PID(kp_brake, ki_brake, kd_brake, mn_brake,
                                     mx_brake)
@@ -77,16 +77,27 @@ class Controller(object):
             brake = rospy.get_param("/torque_complete_stop", 600)
             throttle = 0.0
             self.brake_controller.reset()
-            # rospy.logwarn('complete stop')
+            rospy.logdebug("Complete stop [curr,desired,brake] %s,%s,%s",
+                          current_vel,
+                          desired_linear_vel,
+                          brake)
         elif (vel_error < 0.0):
             decel = max(vel_error, self.decel_limit)
             decel = self.brake_controller.step(abs(decel), sample_time)
             brake = decel * self.total_vehicle_mass * self.wheel_radius #Torque
             throttle = 0.0
             self.throttle_controller.reset()
+            rospy.logdebug("Slowing down [curr,desired,brake] %s,%s,%s",
+                          current_vel,
+                          desired_linear_vel,
+                          brake)
         else:
             brake = 0.0
             throttle = self.throttle_controller.step(vel_error, sample_time)
             self.brake_controller.reset()
+            rospy.logdebug("Speed up [curr,desired,throttle] %s,%s,%s",
+                          current_vel,
+                          desired_linear_vel,
+                          throttle)
 
         return throttle, brake, steering
