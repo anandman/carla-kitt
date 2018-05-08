@@ -23,4 +23,61 @@
 
     <!--Camera Info Publisher -->
     <include file="$(find camera_info_publisher)/launch/camera_info_publisher.launch"/>
+
+    <!--Save Camera Images for Training -->
+    <param name="save_images" value="false" type="bool" />
+
+    <!--Use Ground Truth -->
+    <param name="use_ground_truth" value="true" type="bool" />
+
+    <!--Distance ahead of vehicle to check for lights -->
+    <param name="check_light_distance" value="100.0" type="double" />
+
+    <!--Skip Images Count -->
+    <param name="skip_images" value="0" type="int" />
+
+    <!--lowest speed of the car in m/s-->
+    <param name="min_speed" value="0.1" type="double" />
+
+    <!--Throttle PID param p-->
+    <param name="kp" value="0.3" type="double" />
+
+    <!--Throttle PID param i-->
+    <param name="ki" value="0.1" type="double" />
+
+    <!--Throttle PID param d-->
+    <param name="kd" value="0.0" type="double" />
+
+    <!--Brake PID param p-->
+    <param name="kp_brake" value="0.9" type="double" />
+
+    <!--Brake PID param i-->
+    <param name="ki_brake" value="0.001" type="double" />
+
+    <!--Brake PID param d-->
+    <param name="kd_brake" value="0.6" type="double" />
+
+    <!--Min Throttle  -->
+    <param name="min_throttle" value="0.0" type="double" />
+
+    <!--Max Throttle from 0 - 1.0
+    For Highway track 1.0 and for parking lot we might need to go to 0.2 -->
+    <param name="max_throttle" value="1.0" type="double" />
+
+    <!--Low Pass Filter tau-->
+    <param name="lpf_tau" value="0.5" type="double" />
+
+    <!--Low Pass Filter ts-->
+    <param name="lpf_ts" value="0.02" type="double" />
+
+    <!--Torque to apply brakes for a complete stop-->
+    <param name="torque_complete_stop" value="400" type="double" />
+
+    <!--Throttle amount, below which brakes can be applied -->
+    <param name="throttle_limit_apply_brakes" value="0.1"
+    type="double" />
+
+    <!--Desired speed limit at which vehicle will do a complete stop-->
+    <param name="complete_stop_speed" value="0.0"
+    type="double" />
 </launch>
