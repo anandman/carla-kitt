@@ -121,7 +121,7 @@ class TLDetector(object):
             self.light_tree = KDTree(self.lights_2d)
 
         # this allows for us not to have to turn camera on to use ground truth
-        if self.use_ground_truth:
+        if self.use_ground_truth and self.waypoint_tree:
             light_wp, state = self.process_traffic_lights()
             if self.state != state:
                 self.state_count = 0
