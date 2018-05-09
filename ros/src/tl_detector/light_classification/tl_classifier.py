@@ -1,6 +1,6 @@
 from styx_msgs.msg import TrafficLight
 import sys
-sys.path.append("../modelling/object_detection/final")
+sys.path.append("modelling/object_detection/final")
 import traffic_light_detector
 import cv2
 import numpy as np
@@ -12,7 +12,8 @@ class TLClassifier(object):
         #self.tl = traffic_light_detector.TLDetector('faster_rcnn_inception_v2_udacity_sim', 'udacity_label_map')
         #self.tl = traffic_light_detector.TLDetector('ssd_mobilenet_v2_udacity_real', 'udacity_label_map')
         #self.tl = traffic_light_detector.TLDetector('ssd_mobilenet_v2_udacity_sim', 'udacity_label_map')
-        self.tl = traffic_light_detector.TLDetector('ssd_mobilenet_v2_udacity_all-udacity_all_ncls_4_nstep_20000_detect__10_50', 'udacity_all')
+        #self.tl = traffic_light_detector.TLDetector('ssd_mobilenet_v2_udacity_all-udacity_all_ncls_4_nstep_20000_detect__10_50', 'udacity_all')
+        self.tl = traffic_light_detector.TLDetector('ssd_mobilenet_v1_udacity_all_1.4', 'udacity_all')
         self.threshold = threshold
         
 
