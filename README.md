@@ -1,8 +1,37 @@
-This is the project repo for the final project of the Udacity Self-Driving Car Nanodegree: Programming a Real Self-Driving Car. For more information about the project, see the project introduction [here](https://classroom.udacity.com/nanodegrees/nd013/parts/6047fe34-d93c-4f50-8336-b70ef10cb4b2/modules/e1a23b06-329a-4684-a717-ad476f0d8dff/lessons/462c933d-9f24-42d3-8bdc-a08a5fc866e4/concepts/5ab4b122-83e6-436d-850f-9f4d26627fd9).
+# Carla Self-Driving Car Stack - Team KITT
+
+This project implements a software stack to control a self-driving car, in this case, a Lincoln MKZ named "Carla" outfitted by Udacity. The stack consists of ROS nodes with AutoWare and Drive-By-Wire (DBW) integrations. The team below implemented a perception module to detect traffic lights, a trajectory planning module, a driving controller.
+
+### Implementation
+
+#### Perception (Traffic Light Detector)
+
+This module ([tl_detector](ros/src/tl_detector/tl_detector.py)) detects and classifies the state of traffic lights along the driving path. It uses data derived from a map to recognize when to start looking for a traffic light in order to lower the overall compute overhead. Once it detects the presence of a traffic light, it will use a neural network to classify what color state the traffic light is currently at. This state will then be sent along to the planning module(s) so they can take appropriate action.
+
+#### Planning (Waypoint Updater)
+
+This module ([waypoint_updater](ros/src/waypoint_updater/waypoint_updater.py)) takes a set of waypoints that a route planner has given us based on a map, along with the current location of the car, and then provides the control module(s) the next set of waypoints to drive towards. It also takes into account any traffic lights along this path and will indicate to the control module where to stop, if necessary.
+
+#### Control (DBW Controller)
+
+This module ([twist_controller](ros/src/twist_controller/twist_controller.py)) takes the next few target waypoints and directs the steering using a yaw controller based on the angular and linear velocity of the vehicle. The module also controls throttle and brakes using a PID controller, braking to and accelrating from traffic lights if needed.
+
+---
+
+#### Team Members
+
+| Name              | Role                      | Email                     |
+| ----------------- | ------------------------- | -----------------         |
+| Anand Mandapati   | Team Lead                 | anand@resistance.net      |
+| Ahsen Jaffer      | DBW Controller            | ahsen.jaffer@gmail.com    |
+| Gavin Ong         | Traffic Light Detector    | gavinong10@gmail.com      |
+| Zac Witte         | Waypoint Updater          | zacwitte@gmail.com        |
+
+---
 
 Please use **one** of the two installation options, either native **or** docker installation.
 
-### Native Installation
+#### Native Installation
 
 * Be sure that your workstation is running Ubuntu 16.04 Xenial Xerus or Ubuntu 14.04 Trusty Tahir. [Ubuntu downloads can be found here](https://www.ubuntu.com/download/desktop).
 * If using a Virtual Machine to install Ubuntu, use the following configuration as minimum:
@@ -19,7 +48,7 @@ Please use **one** of the two installation options, either native **or** docker 
   * Use this option to install the SDK on a workstation that already has ROS installed: [One Line SDK Install (binary)](https://bitbucket.org/DataspeedInc/dbw_mkz_ros/src/81e63fcc335d7b64139d7482017d6a97b405e250/ROS_SETUP.md?fileviewer=file-view-default)
 * Download the [Udacity Simulator](https://github.com/udacity/CarND-Capstone/releases).
 
-### Docker Installation
+#### Docker Installation
 [Install Docker](https://docs.docker.com/engine/installation/)
 
 Build the docker container
@@ -32,19 +61,19 @@ Run the docker file
 docker run -p 4567:4567 -v $PWD:/capstone -v /tmp/log:/root/.ros/ --rm -it capstone
 ```
 
-### Port Forwarding
+#### Port Forwarding
 To set up port forwarding, please refer to the [instructions from term 2](https://classroom.udacity.com/nanodegrees/nd013/parts/40f38239-66b6-46ec-ae68-03afd8a601c8/modules/0949fca6-b379-42af-a919-ee50aa304e6a/lessons/f758c44c-5e40-4e01-93b5-1a82aa4e044f/concepts/16cf4a78-4fc7-49e1-8621-3450ca938b77)
 
-### Usage
+#### Usage
 
 1. Clone the project repository
 ```bash
-git clone https://github.com/udacity/CarND-Capstone.git
+git clone https://github.com/anandman/carla-kitt.git
 ```
 
 2. Install python dependencies
 ```bash
-cd CarND-Capstone
+cd carla-kitt
 pip install -r requirements.txt
 ```
 3. Make and run styx
@@ -56,7 +85,7 @@ roslaunch launch/styx.launch
 ```
 4. Run the simulator
 
-### Real world testing
+#### Real world testing
 1. Download [training bag](https://s3-us-west-1.amazonaws.com/udacity-selfdrivingcar/traffic_light_bag_file.zip) that was recorded on the Udacity self-driving car.
 2. Unzip the file
 ```bash
@@ -68,7 +97,7 @@ rosbag play -l traffic_light_bag_file/traffic_light_training.bag
 ```
 4. Launch your project in site mode
 ```bash
-cd CarND-Capstone/ros
+cd carla-kitt/ros
 roslaunch launch/site.launch
 ```
 5. Confirm that traffic light detection works on real life images
