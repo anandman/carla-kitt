@@ -1,9 +1,11 @@
 from styx_msgs.msg import TrafficLight
 import sys
 sys.path.append("modelling/object_detection/final")
+sys.path.append("modelling/tensorflow/research")
 import traffic_light_detector
 import cv2
 import numpy as np
+from object_detection.utils import visualization_utils as viz
 
 
 class TLClassifier(object):
@@ -15,6 +17,8 @@ class TLClassifier(object):
         #self.tl = traffic_light_detector.TLDetector('ssd_mobilenet_v2_udacity_all-udacity_all_ncls_4_nstep_20000_detect__10_50', 'udacity_all')
         self.tl = traffic_light_detector.TLDetector('ssd_mobilenet_v1_udacity_all_1.4', 'udacity_all')
         self.threshold = threshold
+
+        self.classified_image = None
         
 
     def get_classification(self, image_bgr8):
@@ -29,6 +33,18 @@ class TLClassifier(object):
         """
         image_rgb_np = cv2.cvtColor(image_bgr8, cv2.COLOR_BGR2RGB)
         output_dict = self.tl.run_inference_for_single_image(image_rgb_np)
+
+        # add classification boxes to image
+        category_index = {'1': {'id': 1, 'name': "GREEN"},
+                          '2': {'id': 2, 'name': "RED"},
+                          '3': {'id': 3, 'name': "YELLOW"}}
+        viz.visualize_boxes_and_labels_on_image_array(image_rgb_np,
+                                                      output_dict['detection_boxes'],
+                                                      output_dict['detection_classes'],
+                                                      output_dict['detection_scores'],
+                                                      category_index,
+                                                      use_normalized_coordinates=True)
+        self.classified_image = image_rgb_np
         
         # Get the highest classifying score. The classifier will always return n number of classifications.
         highest_score_pos = np.argmax(output_dict['detection_scores'])

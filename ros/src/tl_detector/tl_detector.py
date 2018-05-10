@@ -47,7 +47,7 @@ def distance(p1, p2):
 
 class TLDetector(object):
     def __init__(self):
-        rospy.init_node('tl_detector', log_level=rospy.INFO)
+        rospy.init_node('tl_detector', log_level=rospy.DEBUG)
 
         # do we want to use ground truth or detected traffic lights?
         self.use_ground_truth = rospy.get_param("/use_ground_truth")
@@ -89,6 +89,7 @@ class TLDetector(object):
         config_string = rospy.get_param("/traffic_light_config")
         self.config = yaml.load(config_string)
 
+        self.light_classifier_pub = rospy.Publisher('/light_classifier', Image, queue_size=1)
         self.upcoming_red_light_pub = rospy.Publisher('/traffic_waypoint', Int32, queue_size=1)
 
         self.bridge = CvBridge()
@@ -231,6 +232,8 @@ class TLDetector(object):
         # Get classification
         state = self.light_classifier.get_classification(cv_image)
         rospy.logdebug("TL_DETECTOR: detected light state: %s", light_state_text(state))
+
+        self.light_classifier_pub.publish(self.bridge.cv2_to_imgmsg(self.light_classifier.classified_image, "rgb8"))
 
         if self.save_images:
             # Save camera images alongside distance and status metadata for training and testing
