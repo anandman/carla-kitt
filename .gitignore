@@ -1,5 +1,8 @@
 *.py[cod]
 
+traffic_light_bag_file
+*.bag
+
 build
 devel
 
@@ -18,7 +21,6 @@ __pycache__
 
 **/ros/src/tl_detector/modelling/object_detection/faster_rcnn_resnet101_kitti_2018_01_28/*
 **-checkpoint.ipynb
-!**/ros/src/tl_detector/modelling/tensorflow/research/object_detection/protos/*_pb2.py
 
 ros/src/tl_detector/data/bosch/**
 !ros/src/tl_detector/data/bosch/*.yaml
