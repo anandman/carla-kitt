@@ -14,7 +14,7 @@ This module ([waypoint_updater](ros/src/waypoint_updater/waypoint_updater.py)) t
 
 #### Control (DBW Controller)
 
-This module ([twist_controller](ros/src/twist_controller/twist_controller.py)) takes the next few target waypoints and directs the steering using a yaw controller based on the angular and linear velocity of the vehicle. The module also controls throttle and brakes using a PID controller, braking to and accelrating from traffic lights if needed.
+This module ([twist_controller](ros/src/twist_controller/twist_controller.py)) takes the next few target waypoints and directs the steering using a yaw controller based on the angular and linear velocity of the vehicle. The module also controls throttle and brakes using a PID controller, braking to and accelerating from traffic lights if needed.
 
 ---
 
