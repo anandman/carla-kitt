@@ -47,7 +47,7 @@ def distance(p1, p2):
 
 class TLDetector(object):
     def __init__(self):
-        rospy.init_node('tl_detector', log_level=rospy.DEBUG)
+        rospy.init_node('tl_detector', log_level=rospy.INFO)
 
         # do we want to use ground truth or detected traffic lights?
         self.use_ground_truth = rospy.get_param("/use_ground_truth")
