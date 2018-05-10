@@ -89,9 +89,12 @@ class TLDetector(object):
         config_string = rospy.get_param("/traffic_light_config")
         self.config = yaml.load(config_string)
 
+        self.light_classifier_pub = rospy.Publisher('/light_classifier', Image, queue_size=1)
         self.upcoming_red_light_pub = rospy.Publisher('/traffic_waypoint', Int32, queue_size=1)
 
         self.bridge = CvBridge()
+        self.light_classifier = TLClassifier()
+        self.listener = tf.TransformListener()
 
         self.state = TrafficLight.UNKNOWN
         self.last_state = TrafficLight.UNKNOWN
@@ -226,11 +229,11 @@ class TLDetector(object):
 
         cv_image = self.bridge.imgmsg_to_cv2(self.camera_image, "bgr8")
 
-        # x, y = self.project_to_image_plane(light.pose.pose.position)
-
         # Get classification
         state = self.light_classifier.get_classification(cv_image)
         rospy.logdebug("TL_DETECTOR: detected light state: %s", light_state_text(state))
+
+        self.light_classifier_pub.publish(self.bridge.cv2_to_imgmsg(self.light_classifier.image_out, "rgb8"))
 
         if self.save_images:
             # Save camera images alongside distance and status metadata for training and testing
