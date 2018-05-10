@@ -28,7 +28,7 @@
     <param name="save_images" value="false" type="bool" />
 
     <!--Use Ground Truth -->
-    <param name="use_ground_truth" value="true" type="bool" />
+    <param name="use_ground_truth" value="false" type="bool" />
 
     <!--Distance ahead of vehicle to check for lights -->
     <param name="check_light_distance" value="100.0" type="double" />
