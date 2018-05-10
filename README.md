@@ -18,7 +18,7 @@ This module ([twist_controller](ros/src/twist_controller/twist_controller.py)) t
 
 ---
 
-#### Team Members
+### Team Members
 
 | Name              | Role                      | Email                     |
 | ----------------- | ------------------------- | -----------------         |
@@ -28,6 +28,8 @@ This module ([twist_controller](ros/src/twist_controller/twist_controller.py)) t
 | Zac Witte         | Waypoint Updater          | zacwitte@gmail.com        |
 
 ---
+
+### Installation & Usage
 
 Please use **one** of the two installation options, either native **or** docker installation.
 
